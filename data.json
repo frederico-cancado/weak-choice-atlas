@@ -1,0 +1,3138 @@
+{
+  "title": "Weak Choice Atlas — starter catalogue",
+  "prepared": "2026-10-07",
+  "prepared_for": "Frederico Cançado",
+  "scope": "Broad coverage from the start. This is an extensible inventory, not an exhaustive enumeration or a certified implication graph.",
+  "record_count": 88,
+  "status": "Initial public catalogue; relation review levels are shown individually.",
+  "counts_note": "Records include parameterized families, equivalent anchors, ZF theorems and research candidates; 88 is not a count of pairwise inequivalent weak axioms.",
+  "notation": {
+    "C(I,F)": "Every family (A_i) indexed by an index set of type I, with each A_i nonempty and of type F, admits a function c with c(i) in A_i.",
+    "all": "No restriction.",
+    "finite": "Finite, with fiber nonemptiness already required.",
+    "omega": "Index set omega; countably infinite families. Finite families are handled in ZF.",
+    "countable": "At most countable, meaning injectible into omega; no enumerations are supplied as additional data.",
+    "WO": "Well-orderable (or given well-ordered index); existence of well-orders on individual fibers is not a simultaneous choice of well-orders.",
+    "LO": "Linearly orderable.",
+    "n": "Exactly n elements.",
+    "P(R)": "A subset of the real numbers, required nonempty when a fiber.",
+    "Baire": "Every countable intersection of dense open sets is dense.",
+    "compact": "Every open cover has a finite subcover."
+  },
+  "editorial_rules": [
+    "Candidate means awaiting editorial admission; it does not mean an open mathematical problem.",
+    "Definition evidence is not proof of any implication or nonimplication.",
+    "ZF and ZFA have separate relation views; transfer requires its own justified evidence.",
+    "Keep index restrictions, fiber restrictions, parameters and supplied witness data explicit.",
+    "No copied Howard–Rubin source file is included in this package."
+  ],
+  "principles": [
+    {
+      "id": "ac",
+      "name": "Axiom of Choice",
+      "category": "anchors",
+      "definition": "C(all,all).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "1",
+      "status": "AC_anchor",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "wo",
+      "name": "Well-ordering theorem",
+      "category": "anchors",
+      "definition": "Every set admits a well-order.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "1",
+      "status": "AC_equivalent_anchor",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "zorn",
+      "name": "Zorn lemma",
+      "category": "anchors",
+      "definition": "Every nonempty poset whose chains have upper bounds has a maximal element.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "1",
+      "status": "AC_equivalent_anchor",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "finite_index_choice",
+      "name": "Finite indexed choice",
+      "category": "restricted_choice",
+      "definition": "C(finite,all).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "0",
+      "status": "ZF_theorem",
+      "notes": "Keep as a lower anchor; finite indexing is different from finite fibers.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_omega",
+      "name": "Countable choice",
+      "category": "restricted_choice",
+      "definition": "C(omega,all).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "8",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [
+        "CC",
+        "AC_omega",
+        "Countable Choice"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "Metric03",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_kappa",
+      "name": "Choice for kappa indexed families",
+      "category": "restricted_choice",
+      "definition": "C(kappa,all), for an infinite well-ordered cardinal kappa.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "86(alpha)",
+      "status": "parameterized_family",
+      "notes": "Record whether the source uses exact size kappa or at most kappa.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 86(alpha)"
+      },
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 86(alpha)"
+        }
+      ]
+    },
+    {
+      "id": "ac_wo_index",
+      "name": "Choice for well-orderable families",
+      "category": "restricted_choice",
+      "definition": "C(WO,all).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "40",
+      "status": "candidate",
+      "notes": "Commonly AC_WO; do not conflate with well-orderable fibers. Separate from choice for arbitrary families whose members are well-orderable. Superscripts/subscripts vary by author.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [
+        "AC^WO",
+        "AC_WO (notation varies by source)"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "HR95",
+          "locator": ""
+        },
+        {
+          "source_id": "BK2026",
+          "locator": "Definition 2.2"
+        }
+      ]
+    },
+    {
+      "id": "ac_wo_fibers",
+      "name": "Choice for well-orderable sets",
+      "category": "restricted_choice",
+      "definition": "C(all,WO).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "60",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR95",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_wo_both",
+      "name": "Well-orderable indexing and fibers",
+      "category": "restricted_choice",
+      "definition": "C(WO,WO).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "165",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HRR97",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_finite_fibers",
+      "name": "Choice for finite sets",
+      "category": "restricted_choice",
+      "definition": "C(all,finite).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "62",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HRR97",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_n",
+      "name": "Choice for n element sets",
+      "category": "restricted_choice",
+      "definition": "C(all,n), for a fixed natural number n >= 2.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "parameterized_family",
+      "notes": "n=2 is choice for pairs; quantifying over every n gives a separate principle.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HRR97",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_omega_finite",
+      "name": "Countable choice for finite sets",
+      "category": "restricted_choice",
+      "definition": "C(omega,finite).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "10",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Metric03",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_omega_n",
+      "name": "Countable choice for n element sets",
+      "category": "restricted_choice",
+      "definition": "C(omega,n), for fixed n >= 2.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "288(n)",
+      "status": "parameterized_family",
+      "notes": "Use HR catalogue IDs; papers can contain typographical cross-reference errors.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HS11",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_omega_countable",
+      "name": "Countable choice for countable sets",
+      "category": "restricted_choice",
+      "definition": "C(omega,countable).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "32",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Metric03",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_countable_fibers",
+      "name": "Choice for countable sets",
+      "category": "restricted_choice",
+      "definition": "C(all,countable).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "85",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 85"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 85"
+        }
+      ]
+    },
+    {
+      "id": "ac_omega_reals",
+      "name": "Countable choice for sets of reals",
+      "category": "restricted_choice",
+      "definition": "C(omega,P(R)).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "94",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Metric03",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ac_reals_index_reals",
+      "name": "Real indexed choice for sets of reals",
+      "category": "restricted_choice",
+      "definition": "C(R,P(R)).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "212",
+      "status": "candidate",
+      "notes": "This differs from countable choice for sets of reals.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 212"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 212"
+        }
+      ]
+    },
+    {
+      "id": "ac_lo_index",
+      "name": "Choice for linearly orderable families",
+      "category": "restricted_choice",
+      "definition": "C(LO,all).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "202",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 202"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 202"
+        }
+      ]
+    },
+    {
+      "id": "dc",
+      "name": "Dependent choice",
+      "category": "dependent_choice",
+      "definition": "Every serial binary relation on a nonempty set admits an omega sequence of successive related elements.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "43",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HS25",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "dc_reals",
+      "name": "Dependent choice on the reals",
+      "category": "dependent_choice",
+      "definition": "DC restricted to nonempty subsets of R and relations on them.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "211",
+      "status": "candidate",
+      "notes": "Encode the domain restriction, not only the abbreviation DC_R.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 211"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 211"
+        }
+      ]
+    },
+    {
+      "id": "dc_kappa",
+      "name": "Higher dependent choice",
+      "category": "dependent_choice",
+      "definition": "Every nonempty tree with no terminal nodes, closed under increasing sequences of length below kappa, has an increasing kappa sequence.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "87(alpha)",
+      "status": "parameterized_family",
+      "notes": "kappa is an infinite well-ordered cardinal; store the precise tree/history convention.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HS25higher",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "dc_below_kappa",
+      "name": "Dependent choice below kappa",
+      "category": "dependent_choice",
+      "definition": "DC_lambda holds for every infinite cardinal lambda < kappa.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "parameterized_family",
+      "notes": "Do not identify this with DC_kappa.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HS25higher",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "partial_omega_n",
+      "name": "Partial countable choice for n element sets",
+      "category": "partial_and_multiple_choice",
+      "definition": "Every omega indexed family of n element sets has a choice function on an infinite subset of omega.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "373(n)",
+      "status": "parameterized_family",
+      "notes": "Partial means infinite domain here, not arbitrary finite domain.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HS11",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "partial_infinite_n",
+      "name": "Partial choice for arbitrary infinite families of n element sets",
+      "category": "partial_and_multiple_choice",
+      "definition": "Every infinite family of n element sets has an infinite subfamily admitting choice.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "73 (universal n form)",
+      "status": "parameterized_family",
+      "notes": "An infinite subfamily need not be countably infinite in ZF.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 73 (universal n form)"
+      },
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 73 (universal n form)"
+        }
+      ]
+    },
+    {
+      "id": "mc",
+      "name": "Multiple choice",
+      "category": "partial_and_multiple_choice",
+      "definition": "Every family of nonempty sets permits simultaneous selection of a nonempty finite subset of each member.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "67",
+      "status": "AC_equivalent_anchor_in_ZF",
+      "notes": "MC is weaker than AC in ZFA; constructive AMC is a different axiom.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Metric03",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "cmc",
+      "name": "Countable multiple choice",
+      "category": "partial_and_multiple_choice",
+      "definition": "MC restricted to omega indexed families.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "126",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Metric03",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "omega_mc",
+      "name": "Countable-subset multiple choice",
+      "category": "partial_and_multiple_choice",
+      "definition": "Every family of nonempty sets permits simultaneous selection of nonempty at-most-countable subsets.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "76",
+      "status": "candidate",
+      "notes": "Do not abbreviate ambiguously as countable multiple choice; that often means CMC.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Metric03",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "kw",
+      "name": "Kinna–Wagner selection principle",
+      "category": "selection",
+      "definition": "Every family of sets of size at least two permits simultaneous selection of nonempty proper subsets.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "15",
+      "status": "candidate",
+      "notes": "Original selection principle and ordinal-indexed hierarchy have related, not interchangeable, notation.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [
+        "KW"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "HRR97",
+          "locator": ""
+        },
+        {
+          "source_id": "KS2024",
+          "locator": "Section 3.1"
+        }
+      ]
+    },
+    {
+      "id": "kw_omega",
+      "name": "Countable Kinna–Wagner selection",
+      "category": "selection",
+      "definition": "KW restricted to omega indexed families.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "355",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HRR97",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "kw_wo_index",
+      "name": "Well-orderable Kinna–Wagner selection",
+      "category": "selection",
+      "definition": "KW restricted to well-orderable families.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "322",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HRR97",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "kw_wo_fibers",
+      "name": "Kinna–Wagner selection for well-orderable sets",
+      "category": "selection",
+      "definition": "KW restricted to families whose members are well-orderable.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "323",
+      "status": "candidate",
+      "notes": "Keep the KW hierarchy of iterated power-set embeddings separate.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HRR97",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "op",
+      "name": "Ordering principle",
+      "category": "orders",
+      "definition": "Every set admits a linear order.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "30",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HS25",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "oep",
+      "name": "Order extension principle",
+      "category": "orders",
+      "definition": "Every partial order extends to a linear order on the same underlying set.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "49",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Mandler20",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "bpi",
+      "name": "Boolean prime ideal theorem",
+      "category": "ultrafilters_and_logic",
+      "definition": "Every nontrivial Boolean algebra has a prime ideal.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "14",
+      "status": "candidate",
+      "notes": "Exclude the degenerate Boolean algebra; retain exact convention.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [
+        "BPI",
+        "Boolean Prime Ideal Theorem",
+        "PBI (search alias)"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "Bodirsky",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "ultrafilter_lemma",
+      "name": "Ultrafilter lemma",
+      "category": "ultrafilters_and_logic",
+      "definition": "Every proper filter on a set extends to an ultrafilter.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "14 A",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "countably_based_ultrafilter",
+      "name": "Countably based ultrafilter extension",
+      "category": "ultrafilters_and_logic",
+      "definition": "Every proper countably based filter on any set extends to an ultrafilter.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "385",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 385"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 385"
+        }
+      ]
+    },
+    {
+      "id": "free_ultrafilter_omega",
+      "name": "Free ultrafilter on omega",
+      "category": "ultrafilters_and_logic",
+      "definition": "A nonprincipal ultrafilter on omega exists.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "70",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 70"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 70"
+        }
+      ]
+    },
+    {
+      "id": "some_free_ultrafilter",
+      "name": "Some nonprincipal ultrafilter",
+      "category": "ultrafilters_and_logic",
+      "definition": "Some infinite set carries a nonprincipal ultrafilter.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "206",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 206"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 206"
+        }
+      ]
+    },
+    {
+      "id": "propositional_compactness",
+      "name": "Propositional compactness",
+      "category": "ultrafilters_and_logic",
+      "definition": "Every finitely satisfiable set of propositional formulas is satisfiable.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "14",
+      "status": "candidate",
+      "notes": "Arbitrary variable sets; countable languages need a separate entry.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bodirsky",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "first_order_compactness",
+      "name": "First-order compactness",
+      "category": "ultrafilters_and_logic",
+      "definition": "Every finitely satisfiable first-order theory in a set-sized language has a model.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "14 H",
+      "status": "candidate",
+      "notes": "Do not add a bound on model cardinality without creating another statement.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bodirsky",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "graph_coloring_compactness",
+      "name": "Finite-color graph compactness",
+      "category": "combinatorics",
+      "definition": "If every finite subgraph is n-colorable, the whole graph is n-colorable; fixed n >= 3.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "14 G(n)",
+      "status": "parameterized_family",
+      "notes": "The n=2 case is a separate entry.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bodirsky",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "tychonoff",
+      "name": "General Tychonoff theorem",
+      "category": "topology",
+      "definition": "Arbitrary products of compact topological spaces are compact.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "1",
+      "status": "AC_equivalent_anchor",
+      "notes": "Compact means open-cover compact; do not silently assume Hausdorff.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "tychonoff_hausdorff",
+      "name": "Compact Hausdorff Tychonoff theorem",
+      "category": "topology",
+      "definition": "Arbitrary products of compact Hausdorff spaces are compact.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "14 J",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bodirsky",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "tychonoff_countable",
+      "name": "Countable Tychonoff theorem",
+      "category": "topology",
+      "definition": "Countable products of compact topological spaces are compact.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "113",
+      "status": "candidate",
+      "notes": "No separation axiom is implicit.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 113"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 113"
+        }
+      ]
+    },
+    {
+      "id": "tychonoff_countable_finite",
+      "name": "Countable finite Hausdorff Tychonoff theorem",
+      "category": "topology",
+      "definition": "Countable products of finite Hausdorff spaces are compact.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "10 B",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bodirsky",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "hahn_banach",
+      "name": "Real Hahn–Banach extension",
+      "category": "analysis",
+      "definition": "A real linear functional on a subspace, dominated by a sublinear functional, extends to the whole real vector space with the same domination.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "52",
+      "status": "candidate",
+      "notes": "Record algebraic, continuous, separable and field variants separately.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Pincus72",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "baire_complete_metric",
+      "name": "Baire theorem for complete metric spaces",
+      "category": "analysis",
+      "definition": "In every complete metric space, each countable intersection of dense open sets is dense.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "43 F",
+      "status": "candidate",
+      "notes": "Specify sequential completeness and metric versus pseudometric variants.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bodirsky",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "baire_compact_hausdorff",
+      "name": "Baire theorem for compact Hausdorff spaces",
+      "category": "analysis",
+      "definition": "Every compact Hausdorff space is Baire.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "106",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 106"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 106"
+        }
+      ]
+    },
+    {
+      "id": "vector_basis",
+      "name": "Vector-space basis theorem",
+      "category": "algebra",
+      "definition": "Every vector space over every field has a basis.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "66",
+      "status": "AC_equivalent_anchor_in_ZF",
+      "notes": "Fixed-field basis assertions are separate nodes; ZFA equivalences differ.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Blass84",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "vector_basis_fixed_field",
+      "name": "Fixed-field basis principle",
+      "category": "algebra",
+      "definition": "Every vector space over a specified field F has a basis.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "parameterized_family",
+      "notes": "Do not import the all-field equivalence or basis-extension variants.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "parameterized_template",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Howard07",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "algebraic_closure",
+      "name": "Existence of algebraic closures",
+      "category": "algebra",
+      "definition": "Every field admits an algebraic closure.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "69",
+      "status": "candidate",
+      "notes": "",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Banaschewski92",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "unique_algebraic_closure",
+      "name": "Uniqueness of algebraic closures",
+      "category": "algebra",
+      "definition": "Any two algebraic closures of the same field are isomorphic over that field.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "233",
+      "status": "candidate",
+      "notes": "Conditional uniqueness does not assert that a closure exists.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Banaschewski92",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "maximal_ideal",
+      "name": "Commutative maximal ideal theorem",
+      "category": "algebra",
+      "definition": "Every nonzero commutative ring with identity has a maximal ideal.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "1",
+      "status": "AC_equivalent_anchor_in_ZF",
+      "notes": "Prime ideal versions are different.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Hodges79",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "nielsen_schreier",
+      "name": "Nielsen–Schreier theorem",
+      "category": "algebra",
+      "definition": "Every subgroup of a free group is free.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "68",
+      "status": "candidate",
+      "notes": "Stronger basis-specific Nielsen–Schreier statements must be separate.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {},
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Howard85",
+          "locator": ""
+        }
+      ]
+    },
+    {
+      "id": "dependent_multiple_choice",
+      "name": "Dependent multiple choice",
+      "category": "partial_and_multiple_choice",
+      "definition": "Every serial relation on a nonempty set has nonempty finite sets F_n such that each x in F_n relates to some y in F_(n+1).",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "106 B",
+      "status": "candidate",
+      "notes": "Also called weak DC; store a definition because that name is overloaded.",
+      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
+      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "source_locators": {
+        "HR": "Form 106 B"
+      },
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 106 B"
+        }
+      ]
+    },
+    {
+      "id": "cuc",
+      "name": "Countable union theorem (CUC)",
+      "category": "unions_and_finiteness",
+      "definition": "If each A_n is at most countable, then the union of (A_n : n in omega) is at most countable.",
+      "howard_rubin_reference": "31",
+      "notes": "Countable means injectible into omega. No simultaneous enumerations are given; with given enumerations the elementary countability proof is available in ZF. This is not merely choice for countable families of countable sets.",
+      "status": "candidate",
+      "base_theory": "ZF",
+      "node_kind": "specific_statement",
+      "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
+      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/ioannad/jeffrey/main/Howard-Rubin-data/FORMSNUM.TEX",
+          "locator": "Form 31"
+        },
+        {
+          "url": "https://doi.org/10.1305/ndjfl/1093636102",
+          "locator": "Howard (1992), title and pp. 236–243; original research on this principle"
+        }
+      ]
+    },
+    {
+      "id": "cuf",
+      "name": "Countable unions of finite sets are countable (CUF)",
+      "category": "unions_and_finiteness",
+      "definition": "For every sequence (F_n : n in omega) of finite sets, their union injects into omega.",
+      "howard_rubin_reference": "10 A",
+      "notes": "The index family is countably infinite; each fiber is finite. This is different from finite-index choice, which is already a theorem of ZF. Also distinguish the noun cuf set, meaning merely a countable union of finite sets, from this universal countability assertion.",
+      "status": "candidate",
+      "base_theory": "ZF",
+      "node_kind": "specific_statement",
+      "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
+      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/ioannad/jeffrey/main/Howard-Rubin-data/FORMSNUM.TEX",
+          "locator": "Form 10 A, disjoint-family version; ordinary families are disjointified by tagging indices"
+        }
+      ]
+    },
+    {
+      "id": "no_amorphous",
+      "name": "No amorphous sets",
+      "category": "unions_and_finiteness",
+      "definition": "Every infinite set splits into two disjoint infinite subsets.",
+      "howard_rubin_reference": "64",
+      "notes": "Infinite is not silently replaced by Dedekind-infinite or countably infinite. Existence of a split does not provide coherent choices of splits for whole families.",
+      "status": "candidate",
+      "base_theory": "ZF",
+      "node_kind": "specific_statement",
+      "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
+      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/ioannad/jeffrey/main/Howard-Rubin-data/FORMSNUM.TEX",
+          "locator": "Form 64; original reference Levy (1958), notes 57 and 94"
+        },
+        {
+          "url": "https://doi.org/10.1017/jsl.2023.48",
+          "locator": "Panasawatwong–Truss, Introduction; cites Truss (1995), The structure of amorphous sets"
+        }
+      ]
+    },
+    {
+      "id": "infinite_weakly_dedekind_infinite",
+      "name": "Every infinite set is weakly Dedekind-infinite",
+      "category": "unions_and_finiteness",
+      "definition": "Every infinite set admits a surjection onto omega.",
+      "howard_rubin_reference": "",
+      "notes": "The definition of weak Dedekind finiteness was checked; this record is its explicit universal finite-versus-weakly-Dedekind-finite principle. Do not equate it by notation with ordinary Dedekind infinitude or with every self-surjection being injective.",
+      "status": "candidate",
+      "base_theory": "ZF",
+      "node_kind": "specific_statement",
+      "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
+      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "url": "https://doi.org/10.1017/jsl.2023.48",
+          "locator": "Panasawatwong–Truss, Introduction, paragraphs defining Delta_4 and weak Dedekind finiteness"
+        }
+      ]
+    },
+    {
+      "id": "rado_selection",
+      "name": "Rado selection lemma",
+      "category": "combinatorics",
+      "definition": "Given finite nonempty K_i and a specified choice function gamma_S on each finite index set S, there is f in product_i K_i such that every finite S extends to a finite T with f restricted to S = gamma_T restricted to S.",
+      "howard_rubin_reference": "99",
+      "notes": "The entire assignment S -> gamma_S is part of the hypothesis. Replacing it by individual existence without a simultaneous assignment changes the formulation. Rado variants must be split explicitly.",
+      "status": "candidate",
+      "base_theory": "ZF",
+      "node_kind": "specific_statement",
+      "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
+      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "url": "https://doi.org/10.4153/CJM-1949-031-1",
+          "locator": "Rado (1949), Axiomatic Treatment of Rank in Infinite Sets, Section 2, Lemma 1, pp. 337–338"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/ioannad/jeffrey/main/Howard-Rubin-data/FORMSNUM.TEX",
+          "locator": "Form 99"
+        }
+      ]
+    },
+    {
+      "id": "finite_hall",
+      "name": "Finite Hall marriage theorem",
+      "category": "combinatorics",
+      "definition": "A finitely indexed family (A_i) has distinct representatives whenever every subfamily indexed by J has a union of size at least |J|.",
+      "howard_rubin_reference": "",
+      "status": "ZF_theorem_anchor",
+      "notes": "Here finite refers to the number of sets; the sets themselves need not be finite. This elementary ZF theorem belongs only as a lower anchor.",
+      "base_theory": "ZF",
+      "node_kind": "specific_statement",
+      "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
+      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "url": "https://doi.org/10.1112/jlms/s1-10.37.26",
+          "locator": "P. Hall (1935), On Representatives of Subsets, Theorem 1, pp. 26–27"
+        },
+        {
+          "url": "https://arxiv.org/html/2503.23159v1",
+          "locator": "Cameron (2025), Section 1, statement and Hall proof"
+        }
+      ]
+    },
+    {
+      "id": "infinite_hall_finite_fibers",
+      "name": "Hall marriage principle for arbitrary families of finite sets",
+      "category": "combinatorics",
+      "definition": "An arbitrarily indexed family of finite sets has distinct representatives if each finite subfamily satisfies Hall’s union-size condition.",
+      "howard_rubin_reference": "",
+      "notes": "This is a candidate statement, not an asserted relationship. Retain finite fibers: dropping them makes this Hall condition insufficient even with AC. The cited modern theorem supplies the definition; retrieve the cited original before labelling its proof original.",
+      "status": "candidate",
+      "base_theory": "ZF",
+      "node_kind": "specific_statement",
+      "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
+      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "catalogue_status": "draft_inventory",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "url": "https://arxiv.org/html/2503.23159v1",
+          "locator": "Cameron (2025), Section 8, Theorem 8.1; attributes the infinite version to Marshall Hall Jr., reference [16], p. 51"
+        }
+      ]
+    },
+    {
+      "id": "pp",
+      "name": "PP",
+      "category": "partition_and_duality",
+      "definition": "Whenever f:Y→X is onto, some injection X→Y exists.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Definition 2.2"
+        }
+      ],
+      "notes": "The injection need not be a section of f; requiring every surjection to split is AC.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "wpp",
+      "name": "WPP",
+      "category": "partition_and_duality",
+      "definition": "If X is empty or Y surjects onto X, it is not the case that |Y|<|X| in injection order.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Definition 2.2"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "dual_csb",
+      "name": "CSB* / dual Cantor–Schröder–Bernstein",
+      "category": "partition_and_duality",
+      "definition": "If there are surjections between nonempty X and Y in both directions, then X and Y are bijective.",
+      "base_theory": "ZF",
+      "aliases": [
+        "dual CB",
+        "CBS* (common spelling variant)"
+      ],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Definition 2.2"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "csb",
+      "name": "CSB",
+      "category": "partition_and_duality",
+      "definition": "Mutual injections imply a bijection.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "theorem of ZF, not a weak choice axiom",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Proposition 2.3"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "nds_sets",
+      "name": "NDS (sets)",
+      "category": "cardinal_well_foundedness",
+      "definition": "There is no sequence (X_n:n∈ω) with |X_(n+1)|<|X_n| for every n.",
+      "base_theory": "ZF",
+      "aliases": [
+        "WF^i_b3",
+        "WF^i_i3"
+      ],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Definitions 4.1; Section 10"
+        }
+      ],
+      "notes": "Do not silently substitute sequences of Scott cardinals, or sequences with all injection witnesses selected.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "wf_cardinal_min",
+      "name": "Cardinal minimal-element principle",
+      "category": "cardinal_well_foundedness",
+      "definition": "Every nonempty set of cardinals has an injection-minimal member.",
+      "base_theory": "ZF",
+      "aliases": [
+        "WF^i_b1",
+        "WF^i_i1"
+      ],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Definition 4.1"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "wf_cardinal_sequence",
+      "name": "NDS (cardinal sequence)",
+      "category": "cardinal_well_foundedness",
+      "definition": "Every injection-descending ω-sequence of cardinals has equal consecutive terms somewhere.",
+      "base_theory": "ZF",
+      "aliases": [
+        "WF^i_b2",
+        "WF^i_i2"
+      ],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Definition 4.1"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "wf_maps",
+      "name": "NDS (chosen injections)",
+      "category": "cardinal_well_foundedness",
+      "definition": "Every sequence of sets together with injections X_(n+1)→X_n has equal consecutive cardinalities somewhere.",
+      "base_theory": "ZF",
+      "aliases": [
+        "WF^i_b4",
+        "WF^i_i4"
+      ],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Definition 4.1"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "finite_antichains",
+      "name": "Finite cardinal antichains",
+      "category": "cardinal_comparison",
+      "definition": "Every set of pairwise injection-incomparable cardinalities is finite.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "T2018",
+          "locator": "Abstract (infinite comparability)"
+        }
+      ],
+      "notes": "No fixed finite bound is asserted. A uniform fixed bound is equivalent to AC.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "infinite_family_comparable",
+      "name": "Infinite-family comparability",
+      "category": "cardinal_comparison",
+      "definition": "Every infinite family of distinct sets contains two members comparable by injection.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "T2018",
+          "locator": "Abstract (b)"
+        }
+      ],
+      "notes": "Use an explicit equivalence record to finite cardinal antichains; preserve formulation details.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "omega_family_comparable",
+      "name": "Countable-family comparability",
+      "category": "cardinal_comparison",
+      "definition": "Every countably infinite family of distinct sets contains two members comparable by injection.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "T2018",
+          "locator": "Abstract (a)–(b)"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "fb",
+      "name": "Finite coinitial cardinal basis (FB)",
+      "category": "cardinal_well_foundedness",
+      "definition": "For every nonempty set family F there is finite nonempty F0⊆F such that each X∈F admits an injection Y→X for some Y∈F0.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "descriptive label in a preliminary research note",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "FC2026",
+          "locator": "Definition 2.1"
+        }
+      ],
+      "notes": "Existence of separate injections; no simultaneous choice of all witnesses is stipulated.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "fixed_k_comparison",
+      "name": "k-cardinal comparability (fixed finite k≥2)",
+      "category": "cardinal_comparison",
+      "definition": "Every family of k distinct cardinals contains a comparable pair.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {
+        "k": "fixed integer ≥2"
+      },
+      "node_kind": "parameterized_family",
+      "status": "equivalent to AC",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "FO2008",
+          "locator": "Abstract / Theorem 1"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "w_lambda",
+      "name": "W_λ",
+      "category": "cardinal_comparison",
+      "definition": "For every set X, |X|≤λ or λ≤|X|.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {
+        "lambda": "fixed infinite initial ordinal"
+      },
+      "node_kind": "parameterized_family",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "RS2025",
+          "locator": "Section 3.5"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "w_lambda_star",
+      "name": "W*_λ",
+      "category": "cardinal_comparison",
+      "definition": "For every set X, |X|≤*λ or λ≤*|X|, where a≤*b means a=0 or a is a surjective image of b.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {
+        "lambda": "fixed infinite initial ordinal"
+      },
+      "node_kind": "parameterized_family",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "RS2025",
+          "locator": "Section 3.5"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "df_finite",
+      "name": "Every Dedekind-finite set is finite",
+      "category": "infinitude",
+      "definition": "Every infinite set contains a countably infinite subset.",
+      "base_theory": "ZF",
+      "aliases": [
+        "W_aleph0",
+        "Dedekind infinitude principle"
+      ],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "BK2026",
+          "locator": "Section 3"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "svc",
+      "name": "SVC",
+      "category": "coding_and_small_violation",
+      "definition": "There is a set S such that every nonempty X is a surjective image of S×η for some ordinal η.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "KS2024",
+          "locator": "Definition 2.1"
+        }
+      ],
+      "notes": "Global existential principle differs from fixed-parameter SVC(S).",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "svc_seed",
+      "name": "SVC(S)",
+      "category": "coding_and_small_violation",
+      "definition": "For this fixed S, every nonempty X is a surjective image of S×η for some ordinal η.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {
+        "S": "fixed seed set"
+      },
+      "node_kind": "parameterized_family",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "RS2025",
+          "locator": "Definitions / Section 2"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "svc_plus_seed",
+      "name": "SVC+(S)",
+      "category": "coding_and_small_violation",
+      "definition": "For this fixed S, every X injects into S×η for some ordinal η.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {
+        "S": "fixed seed set"
+      },
+      "node_kind": "parameterized_family",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "RS2025",
+          "locator": "Definitions / Section 2"
+        }
+      ],
+      "notes": "Do not identify SVC(S) with SVC+(S) for the SAME seed. Existential global variants can agree after changing the seed.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "kwp_alpha",
+      "name": "KWP_α",
+      "category": "coding_and_small_violation",
+      "definition": "Every X injects into P^α(η) for some ordinal η.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {
+        "alpha": "fixed ordinal"
+      },
+      "node_kind": "parameterized_family",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "KS2024",
+          "locator": "Definition 3.1"
+        }
+      ],
+      "notes": "Specify P^0(η)=η and union at limit stages. KWP_0 is AC.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "kwp_alpha_star",
+      "name": "KWP*_α",
+      "category": "coding_and_small_violation",
+      "definition": "Every nonempty X is a surjective image of P^α(η) for some ordinal η.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {
+        "alpha": "fixed ordinal"
+      },
+      "node_kind": "parameterized_family",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "KS2024",
+          "locator": "Definition 3.1"
+        }
+      ],
+      "notes": "Empty-set convention must be explicit; P^0 and limits as in KWP.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "kwp",
+      "name": "KWP",
+      "category": "coding_and_small_violation",
+      "definition": "There exists an ordinal α for which KWP_α holds.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "KS2024",
+          "locator": "Definition 3.1"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "infinite_doubling",
+      "name": "Infinite cardinal doubling",
+      "category": "cardinal_arithmetic",
+      "definition": "For every infinite X, X⊔X is bijective with X.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "catalogue candidate; original proof access pending",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "HH1976",
+          "locator": "Main theorem"
+        }
+      ],
+      "notes": "The historical Halpern–Howard countermodel uses atoms; do not silently relabel its edge ZF.",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "countable_absorption",
+      "name": "Countable absorption",
+      "category": "cardinal_arithmetic",
+      "definition": "For every infinite X, ω×X is bijective with X.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate catalogue node; historical implication audit needed",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "FC2026",
+          "locator": "Appendix A"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "binary_cardinal_glb",
+      "name": "Binary cardinal greatest lower bounds",
+      "category": "cardinal_order_structure",
+      "definition": "Every two cardinals have a greatest common lower bound in injection order.",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate catalogue node; Rubin historical ZFA reference requires primary inspection",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "FC2026",
+          "locator": "Appendix A / historical references"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    },
+    {
+      "id": "powerset_comparison",
+      "name": "Power-set comparability",
+      "category": "cardinal_comparison",
+      "definition": "For all X,Y, P(X) injects into P(Y) or P(Y) injects into P(X).",
+      "base_theory": "ZF",
+      "aliases": [],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "research target; do not infer a known independence theorem",
+      "catalogue_status": "draft_inventory",
+      "definition_evidence": [
+        {
+          "source_id": "FC2026",
+          "locator": "Research programme"
+        }
+      ],
+      "notes": "",
+      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "howard_rubin_reference": ""
+    }
+  ],
+  "sources": {
+    "HR": {
+      "title": "Howard–Rubin, Consequences of the Axiom of Choice, author-supplied form catalogue mirrored by Ioanna Dimitriou",
+      "url": "https://raw.githubusercontent.com/ioannad/jeffrey/main/Howard-Rubin-data/FORMSNUM.TEX",
+      "role": "definition catalogue; pointers to original papers, not an original proof for every relation"
+    },
+    "Bell": {
+      "title": "John L. Bell, The Axiom of Choice, author-hosted book",
+      "url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+      "role": "AC anchors and background"
+    },
+    "HR95": {
+      "title": "Howard and Rubin (1995), The axiom of choice for well-ordered families and for families of well-orderable sets",
+      "url": "https://doi.org/10.2307/2275876",
+      "role": "index/fiber distinction and limitations of FM models"
+    },
+    "HRR97": {
+      "title": "Howard, A. L. Rubin and J. E. Rubin (1997), Kinna-Wagner Selection Principles, Axioms of Choice and Multiple Choice",
+      "url": "https://doi.org/10.1007/BF01326766",
+      "role": "restricted selection families"
+    },
+    "HS11": {
+      "title": "Hall and Shelah, Partial choice functions for families of finite sets, arXiv v2 (2011)",
+      "url": "https://arxiv.org/pdf/0808.0535",
+      "role": "partial finite choice; Section 1 definitions"
+    },
+    "HS25": {
+      "title": "Holy and Schilhan (2025), The Ordering Principle and Dependent Choice",
+      "url": "https://arxiv.org/html/2504.02744v1",
+      "role": "Modern proof of Pincus’s theorem; original result is explicitly attributed in Theorem 1 to David Pincus, Adding dependent choice, Annals of Mathematical Logic 11 (1977), 105–145."
+    },
+    "HS25higher": {
+      "title": "The ordering principle and higher dependent choice (2025), arXiv v1",
+      "url": "https://arxiv.org/html/2510.14821v1",
+      "role": "higher DC definitions in introduction"
+    },
+    "Metric03": {
+      "title": "De la Cruz, Hall, Howard, Keremedis and Rubin (2003), Metric spaces and the axiom of choice",
+      "url": "https://doi.org/10.1002/malq.200310049",
+      "role": "choice variants and topology; author manuscript indexed at CiteSeerX"
+    },
+    "Bodirsky": {
+      "title": "Manuel Bodirsky, Automorphism Groups, author-hosted notes, Appendix A",
+      "url": "https://wwwpub.zih.tu-dresden.de/~bodirsky/Automorphism-Groups.pdf",
+      "role": "logic/compactness examples and choice background"
+    },
+    "Mandler20": {
+      "title": "Michael Mandler (2020), A Quick Proof of the Order-Extension Principle",
+      "url": "https://personal.rhul.ac.uk/uhte/035/Order.extension.pdf",
+      "role": "precise OEP formulation; original Szpilrajn reference"
+    },
+    "Pincus72": {
+      "title": "David Pincus (1972), Independence of the prime ideal theorem from the Hahn Banach theorem",
+      "url": "https://doi.org/10.1090/S0002-9904-1972-13025-8",
+      "role": "original Hahn–Banach independence reference; do not identify HB with BPI"
+    },
+    "Blass84": {
+      "title": "Andreas Blass (1984), Existence of bases implies the axiom of choice",
+      "url": "https://sites.lsa.umich.edu/ablass/set-theory-papers/",
+      "role": "author page linking original paper; all-field basis AC equivalence"
+    },
+    "Howard07": {
+      "title": "Paul Howard (2007), Bases, spanning sets, and the axiom of choice",
+      "url": "https://doi.org/10.1002/malq.200610043",
+      "role": "distinguishes fixed-field bases and stronger spanning-set formulations"
+    },
+    "Banaschewski92": {
+      "title": "Bernhard Banaschewski (1992), Algebraic closure without choice",
+      "url": "https://doi.org/10.1002/malq.19920380136",
+      "role": "existence and uniqueness of algebraic closures"
+    },
+    "Hodges79": {
+      "title": "Wilfrid Hodges (1979), Krull implies Zorn",
+      "url": "https://people.math.ethz.ch/~halorenz/4students/Algebra/Hodges_Krull_Zorn.pdf",
+      "role": "maximal ideal AC equivalence"
+    },
+    "Howard85": {
+      "title": "Paul Howard (1985), Subgroups of a free group and the axiom of choice",
+      "url": "https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/subgroups-of-a-free-group-and-the-axiom-of-choice/96641074372725CDD6D97EAB84287B2A",
+      "role": "Nielsen–Schreier principle; distinguish stronger Nielsen basis forms"
+    },
+    "Jeffrey": {
+      "title": "Ioanna Dimitriou, Choiceless Grapher (jeffrey)",
+      "url": "https://github.com/ioannad/jeffrey",
+      "role": "existing graph atlas; citation and data-provenance precedent"
+    },
+    "BK2026": {
+      "title": "Cardinal Well-foundedness and Choice",
+      "authors": [
+        "Andreas Blass",
+        "Dhruv Kulshreshtha"
+      ],
+      "url": "https://arxiv.org/html/2310.09643v3",
+      "version": "v3, 21 August 2026",
+      "source_type": "author manuscript",
+      "access": "full text inspected"
+    },
+    "RS2025": {
+      "title": "Local reflections of choice",
+      "authors": [
+        "Calliope Ryan-Smith"
+      ],
+      "url": "https://academic.calliope.mx/files/papers/2412.13785.pdf",
+      "doi": "10.1007/s10474-025-01533-3",
+      "source_type": "author manuscript",
+      "access": "full text inspected; theorem numbers here follow this manuscript"
+    },
+    "KS2024": {
+      "title": "Intermediate models and Kinna–Wagner Principles",
+      "authors": [
+        "Asaf Karagila",
+        "Jonathan Schilhan"
+      ],
+      "url": "https://arxiv.org/html/2409.07352v2",
+      "source_type": "author manuscript",
+      "access": "full text inspected"
+    },
+    "FO2008": {
+      "title": "Generalizing Hartogs’ Trichotomy Theorem",
+      "authors": [
+        "David Feldman",
+        "Mehmet Orhon"
+      ],
+      "additional_credit": "appendix by Andreas Blass",
+      "url": "https://arxiv.org/abs/0804.0673v1",
+      "source_type": "author manuscript",
+      "access": "abstract inspected; theorem statement explicit there"
+    },
+    "T2018": {
+      "title": "On the comparability of cardinals in the absence of the axiom of choice",
+      "authors": [
+        "Eleftherios Tachtsis"
+      ],
+      "url": "https://doi.org/10.4064/fm376-11-2017",
+      "doi": "10.4064/fm376-11-2017",
+      "source_type": "publisher page",
+      "access": "abstract inspected; full proof requires access"
+    },
+    "HH1976": {
+      "title": "The law of infinite cardinal addition is weaker than the axiom of choice",
+      "authors": [
+        "J. D. Halpern",
+        "Paul E. Howard"
+      ],
+      "url": "https://doi.org/10.1090/S0002-9947-1976-0409183-1",
+      "source_type": "published paper",
+      "access": "bibliography verified; do not publish detailed proof edge until original text inspected"
+    },
+    "HIG1995": {
+      "title": "Partition Principles and Infinite Sums of Cardinal Numbers",
+      "authors": [
+        "Masasi Higasikawa"
+      ],
+      "url": "https://doi.org/10.1305/ndjfl/1040149358",
+      "source_type": "published paper",
+      "access": "original attribution verified through BK2026 Corollary 8.2; original proof not freshly retrieved"
+    },
+    "FC2026": {
+      "title": "Finite cardinal bases in the OpenAI partition-principle model",
+      "authors": [
+        "Frederico Cançado"
+      ],
+      "url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
+      "version": "v0.1, 7 October 2026; commit bd35e2000b43935fba41dcd60edc0a9c23148efb",
+      "source_type": "preliminary research note",
+      "access": "local source inspected",
+      "review": "AI-assisted arguments; not independently peer-reviewed; no novelty guarantee"
+    },
+    "OPENAI2026": {
+      "title": "The Partition Principle does not imply Choice",
+      "authors": [
+        "OpenAI"
+      ],
+      "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+      "version": "pinned commit adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "source_type": "released manuscript with formal source",
+      "access": "prior workspace audit; not newly re-audited here",
+      "review": "track manuscript and formalization status separately"
+    },
+    "ELEMENTARY": {
+      "title": "Elementary argument supplied with this record",
+      "url": null,
+      "role": "Expository proof, with no claim of historical originality or independent peer review"
+    }
+  },
+  "cardinal_well_foundedness_template": {
+    "family": "WF^x_yk",
+    "count_before_equivalence_collapsing": 24,
+    "x": [
+      "i",
+      "s"
+    ],
+    "y": [
+      "i",
+      "s",
+      "b"
+    ],
+    "k": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "meaning": {
+      "x": "descending comparison: injection or surjection",
+      "y": "conclusion reverses comparison by injection, surjection, or demands bijection",
+      "k1": "every nonempty set of cardinals has a member meeting the relevant minimality condition",
+      "k2": "descending sequence of cardinal representatives",
+      "k3": "descending sequence of sets, map witnesses merely exist",
+      "k4": "sequence of sets together with the whole sequence of witnessing maps"
+    },
+    "source": "BK2026",
+    "locator": "Definition 4.1",
+    "implication_rules": [
+      {
+        "rule": "WF^x_yj → WF^x_yk for j<k",
+        "base": "ZF",
+        "locator": "Proposition 4.2"
+      },
+      {
+        "rule": "WF^i_bk ↔ WF^i_ik",
+        "base": "ZF",
+        "locator": "Proposition 7.1"
+      },
+      {
+        "rule": "k=2,3,4 become equivalent for fixed x,y",
+        "base": "ZF",
+        "extra_hypotheses": [
+          "CC"
+        ],
+        "locator": "Proposition 9.1"
+      },
+      {
+        "rule": "k=1,2,3,4 become equivalent for fixed x,y",
+        "base": "ZF",
+        "extra_hypotheses": [
+          "DC"
+        ],
+        "locator": "Proposition 9.5"
+      },
+      {
+        "rule": "all 24 become equivalent",
+        "base": "ZF",
+        "extra_hypotheses": [
+          "PP"
+        ],
+        "locator": "Proposition 9.8"
+      }
+    ],
+    "critical_warning": "PP gives equivalence of these principles under the additional assumption PP; it does not, by Proposition 9.8, give their truth. Store PP AND one WF → another WF."
+  },
+  "relations": [
+    {
+      "id": "ac_iff_wo",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "wo",
+      "base": "ZF",
+      "source": "Bell",
+      "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+      "locator": "Introduction, p. 3; Chapter III, p. 38",
+      "status": "source_checked",
+      "proof_note": "The cited exposition identifies the equivalence and supplies a proof of well-ordering from Zorn. This is a later exposition, not the original Zermelo paper.",
+      "proof_access": "Equivalence statement and the cited well-ordering proof inspected; not every link of the AC/Zorn cycle freshly audited",
+      "layer": "standard",
+      "original_source": {
+        "authors": "Ernst Zermelo",
+        "years": "1904/1908",
+        "access": "Historical attribution checked in Bell; original paper not retrieved"
+      },
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "ac_iff_zorn",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "zorn",
+      "base": "ZF",
+      "source": "Bell",
+      "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+      "locator": "Introduction, p. 3; Chapter II",
+      "status": "source_checked",
+      "proof_note": "Standard equivalence recorded by the cited author exposition; no claim to provide the original proof here.",
+      "proof_access": "Statement checked; complete proof cycle not freshly audited",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "ac_acwo",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "ac_wo_index",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Apply AC to the given family; the restriction that its index set is well-orderable imposes no additional obstacle.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "ac_finite",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "ac_finite_fibers",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "A family of nonempty finite sets is a family of nonempty sets, so AC applies.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "acwo_countable",
+      "kind": "implication",
+      "antecedents": [
+        "ac_wo_index"
+      ],
+      "consequent": "ac_omega",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "The index set omega is well-ordered.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "countable_countable_fibers",
+      "kind": "implication",
+      "antecedents": [
+        "ac_omega"
+      ],
+      "consequent": "ac_omega_countable",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Restrict countable choice to families whose members admit injections into omega.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "countable_fibers_finite_fibers",
+      "kind": "implication",
+      "antecedents": [
+        "ac_omega_countable"
+      ],
+      "consequent": "ac_omega_finite",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Every finite set admits an injection into omega. No simultaneous selection of such injections is required to apply the premise.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "finite_countable_finite",
+      "kind": "implication",
+      "antecedents": [
+        "ac_finite_fibers"
+      ],
+      "consequent": "ac_omega_finite",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Restrict the index set to omega.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "ac_dc",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "dc",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "For a serial relation R on X, AC selects a successor s(x) with x R s(x) for each x. Starting from one x in X, ordinary recursion iterates s to give the required sequence.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "dc_countable",
+      "kind": "implication",
+      "antecedents": [
+        "dc"
+      ],
+      "consequent": "ac_omega",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Apply DC to finite choice sequences for the first n members of the family, with the relation of extension by one coordinate. Finite choice makes this relation serial; the union of the resulting chain is a choice function.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "dc_reals_restriction",
+      "kind": "implication",
+      "antecedents": [
+        "dc"
+      ],
+      "consequent": "dc_reals",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Restrict the underlying nonempty set to a subset of the real numbers.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "countable_finite_iff_cuf",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac_omega_finite"
+      ],
+      "consequent": "cuf",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Forward: for each finite F_n, the set of bijections from its finite cardinal onto F_n is finite and nonempty. Choose these bijections countably, then inject the union into omega using the least index and a pairing function. Reverse: an injection of the union into omega lets one select the least coded element of each nonempty F_n.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "oep_op",
+      "kind": "implication",
+      "antecedents": [
+        "oep"
+      ],
+      "consequent": "op",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Apply order extension to the equality partial order on the given set.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "zorn_ultrafilter",
+      "kind": "implication",
+      "antecedents": [
+        "zorn"
+      ],
+      "consequent": "ultrafilter_lemma",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Order the proper filters extending a given proper filter by inclusion. This poset is nonempty, and a chain union is again a proper filter. Zorn gives a maximal extension, which is an ultrafilter.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "op_finite_choice",
+      "kind": "implication",
+      "antecedents": [
+        "op"
+      ],
+      "consequent": "ac_finite_fibers",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Linearly order the union of the given family of finite sets. Each nonempty finite member has a unique least element in this order, and these least elements define a choice function.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "bpi_iff_ultrafilter",
+      "kind": "equivalence",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "ultrafilter_lemma",
+      "base": "ZF",
+      "source": "Bodirsky",
+      "source_url": "https://wwwpub.zih.tu-dresden.de/~bodirsky/Automorphism-Groups.pdf",
+      "locator": "Appendix A.2, p. 148, bullet citing Jech [84]",
+      "status": "source_checked",
+      "proof_note": "The author’s notes explicitly record the equivalence over ZF and refer to Jech for proof. The catalogue uses proper filters and nontrivial Boolean algebras.",
+      "proof_access": "Equivalence statement checked; original proof not retrieved",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "ultrafilter_free_omega",
+      "kind": "implication",
+      "antecedents": [
+        "ultrafilter_lemma"
+      ],
+      "consequent": "free_ultrafilter_omega",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Extend the cofinite filter on omega to an ultrafilter. A principal ultrafilter cannot contain the complement of its generating singleton, so the extension is nonprincipal.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "ultrafilter_oep",
+      "kind": "implication",
+      "antecedents": [
+        "ultrafilter_lemma"
+      ],
+      "consequent": "oep",
+      "base": "ZF",
+      "source": "Bodirsky",
+      "source_url": "https://wwwpub.zih.tu-dresden.de/~bodirsky/Automorphism-Groups.pdf",
+      "locator": "Appendix A.2, p. 149, implication bullet citing [155]",
+      "status": "source_checked",
+      "proof_note": "The implication is explicitly recorded; the cited reference supplies the historical proof route.",
+      "proof_access": "Statement checked; referenced proof not retrieved",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "bpi_iff_propositional",
+      "kind": "equivalence",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "propositional_compactness",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Forward: quotient the Boolean algebra of formulas by the ideal generated by the negations of a finitely satisfiable theory. The quotient is nontrivial; a prime ideal determines a satisfying two-valued valuation. Reverse: introduce a Boolean-valued variable for each element of a nontrivial Boolean algebra and impose the operation tables. Finite fragments are satisfiable in the finite subalgebra they generate. A global valuation has a prime-ideal kernel.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "bpi_iff_compact_hausdorff",
+      "kind": "equivalence",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "tychonoff_hausdorff",
+      "base": "ZF",
+      "source": "Bodirsky",
+      "source_url": "https://wwwpub.zih.tu-dresden.de/~bodirsky/Automorphism-Groups.pdf",
+      "locator": "Appendix A.2, pp. 148–149: BPI/Ultrafilter equivalence and Tychonoff equivalences (Herrlich, Theorem 3.4)",
+      "status": "source_checked",
+      "proof_note": "Combine the two equivalences explicitly listed in the notes. The Hausdorff condition is part of the statement.",
+      "proof_access": "Equivalence statements checked; complete original proofs not freshly retrieved",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "tychonoff_hausdorff_restriction",
+      "kind": "implication",
+      "antecedents": [
+        "tychonoff"
+      ],
+      "consequent": "tychonoff_hausdorff",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Every family of compact Hausdorff spaces is a family of compact spaces.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "bpi_hahn_banach",
+      "kind": "implication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "hahn_banach",
+      "base": "ZF",
+      "source": "Bell",
+      "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+      "locator": "Chapter III, footnote 87, p. 59",
+      "status": "source_checked",
+      "proof_note": "The footnote records the implication. The nearby proof uses the stronger Zorn lemma, so it is not advertised here as a proof from BPI.",
+      "proof_access": "Implication statement inspected; proof specifically from BPI not supplied in the cited passage",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "dc_baire",
+      "kind": "implication",
+      "antecedents": [
+        "dc"
+      ],
+      "consequent": "baire_complete_metric",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Given dense open U_n and a nonempty open W in a complete metric space, use DC to choose nested closed balls inside W and successive U_n, with positive radii tending to zero. Their centers form a Cauchy sequence. Its limit lies in every ball, hence in W and all U_n. Allow centers and rational radii as the serial-relation states.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "ac_partition",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "pp",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Given a surjection Y onto X, apply AC to its nonempty fibers. The selected representatives yield an injection X into Y.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "pp_dualcsb",
+      "kind": "implication",
+      "antecedents": [
+        "pp"
+      ],
+      "consequent": "dual_csb",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Apply PP to each of the two surjections to obtain injections both ways, then apply the ZF Cantor–Schröder–Bernstein theorem.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "also_source": {
+        "url": "https://arxiv.org/html/2310.09643v3",
+        "locator": "Proof of Proposition 9.8"
+      },
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "dualcsb_wpp",
+      "kind": "implication",
+      "antecedents": [
+        "dual_csb"
+      ],
+      "consequent": "wpp",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Suppose Y surjects onto nonempty X and Y injects into X. That injection yields a surjection X onto Y by fixing one default element of Y outside its image. Dual CSB then makes X and Y equipotent, so |Y| cannot be strictly smaller than |X|.",
+      "proof_access": "Argument included in this record; not independently peer reviewed",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
+    },
+    {
+      "id": "wpp_acwo",
+      "kind": "implication",
+      "antecedents": [
+        "wpp"
+      ],
+      "consequent": "ac_wo_index",
+      "base": "ZF",
+      "source": "HIG1995",
+      "source_url": "https://doi.org/10.1305/ndjfl/1040149358",
+      "locator": "Higasikawa’s implication, attributed in Blass–Kulshreshtha, Corollary 8.2",
+      "status": "source_checked",
+      "proof_note": "Original attribution checked through the later paper. No proof of this nontrivial implication is asserted to have been freshly audited.",
+      "proof_access": "Later theorem attribution checked; original proof not freshly retrieved",
+      "layer": "standard",
+      "readable_source_url": "https://arxiv.org/html/2310.09643v3",
+      "readable_locator": "Corollary 8.2",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "nds_dedekind",
+      "kind": "implication",
+      "antecedents": [
+        "nds_sets"
+      ],
+      "consequent": "df_finite",
+      "base": "ZF",
+      "source": "BK2026",
+      "source_url": "https://arxiv.org/html/2310.09643v3",
+      "locator": "Proposition 4.2 and Theorem 10.1; attribution to Howard–Tachtsis, Theorem 1",
+      "status": "source_checked",
+      "proof_note": "The set-sequence principle entails its chosen-injection version, which excludes infinite Dedekind-finite sets by the cited theorem.",
+      "proof_access": "Theorem and stated dependency checked; original Howard–Tachtsis proof not retrieved",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "op_not_dc",
+      "kind": "nonimplication",
+      "antecedents": [
+        "op"
+      ],
+      "consequent": "dc",
+      "base": "ZF",
+      "source": "HS25",
+      "source_url": "https://arxiv.org/html/2504.02744v1",
+      "locator": "Introduction, paragraphs before Theorem 1",
+      "status": "source_checked",
+      "proof_note": "The basic Cohen model has OP and an infinite Dedekind-finite set, which rules out DC.",
+      "proof_access": "Model properties checked in the modern author manuscript; original construction not independently audited",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "original_source": {
+        "credit": "Halpern–Lévy for OP in the basic Cohen model, as attributed in Holy–Schilhan",
+        "proof_pointer": "Jech, The Axiom of Choice, §§5.3 and 5.5"
+      },
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "op_dc_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "op",
+        "dc"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "source": "HS25",
+      "source_url": "https://arxiv.org/html/2504.02744v1",
+      "locator": "Theorem 1 and following paragraph; construction in §§5–7",
+      "status": "source_checked",
+      "proof_note": "The manuscript gives a modern symmetric-iteration proof of a model with OP, DC, and failure of AC.",
+      "proof_access": "Exact relative-consistency statement and construction description checked; full proof not independently audited",
+      "layer": "standard",
+      "model": "pincus_holy_schilhan",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "original_source": {
+        "authors": "David Pincus",
+        "title": "Adding dependent choice",
+        "journal": "Annals of Mathematical Logic 11 (1977), 105–145",
+        "access": "Attribution checked in modern paper; original proof not retrieved"
+      },
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "pp_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "pp"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "source": "OPENAI2026",
+      "source_url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+      "locator": "Main relative-consistency theorem",
+      "status": "source_dependent",
+      "proof_note": "released manuscript and pinned formalization; retain source status",
+      "proof_access": "prior workspace audit; not newly re-audited here",
+      "layer": "recent",
+      "publication_status": "released manuscript with formal source",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "fb_nds",
+      "kind": "implication",
+      "antecedents": [
+        "fb"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "source": "FC2026",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
+      "locator": "Corollary in Section 4",
+      "status": "preliminary",
+      "proof_note": "preliminary, AI-assisted mathematical audit; not independent peer review",
+      "proof_access": "local source inspected",
+      "layer": "recent",
+      "publication_status": "preliminary_research_note",
+      "show_by_default": false,
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "fb_antichains",
+      "kind": "implication",
+      "antecedents": [
+        "fb"
+      ],
+      "consequent": "finite_antichains",
+      "base": "ZF",
+      "source": "FC2026",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
+      "locator": "Corollary in Section 4",
+      "status": "preliminary",
+      "proof_note": "preliminary, AI-assisted mathematical audit; not independent peer review",
+      "proof_access": "local source inspected",
+      "layer": "recent",
+      "publication_status": "preliminary_research_note",
+      "show_by_default": false,
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "fb_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "fb"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "source": "FC2026",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
+      "locator": "Main application",
+      "status": "preliminary",
+      "proof_note": "preliminary, source-dependent corollary; show with distinct badge",
+      "proof_access": "local source inspected",
+      "layer": "recent",
+      "publication_status": "preliminary_research_note",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "ac_iff_tychonoff",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "tychonoff",
+      "base": "ZF",
+      "source": "Bell",
+      "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+      "locator": "Introduction, p. 3; Chapter III Tychonoff discussion",
+      "status": "source_checked",
+      "proof_note": "The unrestricted compact-space product theorem is listed among AC equivalents. Compact Hausdorff products remain a distinct principle.",
+      "proof_access": "Equivalence statement checked; full equivalence proof not freshly audited",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "basic_cohen",
+      "name": "Basic Cohen model",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "op"
+      ],
+      "false_ids": [
+        "dc",
+        "ac",
+        "df_finite"
+      ],
+      "source": "HS25",
+      "source_url": "https://arxiv.org/html/2504.02744v1",
+      "locator": "Introduction, paragraphs before Theorem 1",
+      "status": "source_checked",
+      "review": "Properties stated in the author manuscript; original construction not independently audited. Only explicitly recorded truth values appear here.",
+      "description": "A symmetric submodel after adding countably many Cohen reals, with an infinite Dedekind-finite set of reals.",
+      "layer": "standard"
+    },
+    {
+      "id": "pincus_holy_schilhan",
+      "name": "Pincus model, modern Holy–Schilhan construction",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "op",
+        "dc"
+      ],
+      "false_ids": [
+        "ac"
+      ],
+      "source": "HS25",
+      "source_url": "https://arxiv.org/html/2504.02744v1",
+      "locator": "Theorem 1; §§5–7",
+      "status": "source_checked",
+      "review": "Theorem and consistency strength checked; no independent audit of the complete construction. Pincus (1977) is credited for the original result.",
+      "description": "Finite-support iteration of symmetric systems giving OP and DC while preserving a failure of AC.",
+      "layer": "standard"
+    },
+    {
+      "id": "openai_pp",
+      "name": "OpenAI partition-principle model",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "pp",
+        "ac_wo_index"
+      ],
+      "false_ids": [
+        "ac"
+      ],
+      "source": "OPENAI2026",
+      "source_url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+      "locator": "Main relative-consistency theorem; stronger construction package",
+      "status": "source_dependent",
+      "review": "Pinned released manuscript with formal source; relies on the previous workspace audit and has not been independently re-audited for this implementation.",
+      "description": "Recent pure symmetric-model construction. FB and its consequences are separate preliminary claims in Cançado’s note, not labelled here as claims of the original manuscript.",
+      "layer": "recent",
+      "show_by_default": false,
+      "additional_claims": [
+        {
+          "true_ids": [
+            "fb",
+            "nds_sets",
+            "finite_antichains"
+          ],
+          "source": "FC2026",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
+          "locator": "Main application and Section 4",
+          "status": "preliminary",
+          "review": "Source-dependent consequences in an AI-assisted preliminary note, without independent peer review."
+        }
+      ]
+    }
+  ],
+  "status_labels": {
+    "elementary_argument": "Elementary argument",
+    "source_checked": "Source checked",
+    "source_dependent": "Recent · source-dependent",
+    "preliminary": "Preliminary research"
+  },
+  "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer."
+}
