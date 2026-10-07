@@ -1,7 +1,7 @@
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function renderGraph(host,{ids,relations,label,selected,onNode,onEdge}){
  // Fixed family-independent ranks keep the map stable between selections.
- const rank={ac:0,wo:0,zorn:0,tychonoff:0,pp:1,dc:1,bpi:1,ultrafilter_lemma:1,dual_csb:2,oep:2,propositional_compactness:2,tychonoff_hausdorff:2,hahn_banach:3,op:3,wpp:3,dc_reals:3,baire_complete_metric:3,ac_wo_index:4,ac_finite_fibers:4,ac_omega:5,ac_omega_countable:6,ac_omega_finite:7,cuf:7,free_ultrafilter_omega:3,fb:1,nds_sets:3,finite_antichains:3,df_finite:5};
+ const rank={ac:0,wo:0,zorn:0,tychonoff:0,pp:1,dc:1,bpi:1,ultrafilter_lemma:1,dual_csb:2,oep:2,propositional_compactness:2,tychonoff_hausdorff:2,hahn_banach:3,op:3,wpp:3,dc_reals:3,baire_complete_metric:3,ac_wo_index:4,ac_finite_fibers:4,ac_omega:5,ac_omega_countable:6,ac_omega_finite:7,cuf:7,free_ultrafilter_omega:3,fb:1,nds_sets:3,finite_antichains:3,df_finite:5,svc_plus_seed:2,svc_seed:3,svc:4,kwp:5};
  const groups=new Map();for(const id of ids){const row=rank[id]??4;if(!groups.has(row))groups.set(row,[]);groups.get(row).push(id)}
  const rows=[...groups.keys()].sort((a,b)=>a-b);let maxCols=Math.max(1,...[...groups.values()].map(g=>g.length));
  const W=Math.max(680,maxCols*225+60),H=Math.max(480,rows.length*82+40),positions=new Map();
@@ -12,11 +12,21 @@ export function renderGraph(host,{ids,relations,label,selected,onNode,onEdge}){
   const down=b.y>a.y,sy=a.y+(down?25:-25),ey=b.y+(down?-29:29),mid=(sy+ey)/2;
   return `M${a.x+offset},${sy} C${a.x+offset},${mid} ${b.x+offset},${mid} ${b.x+offset},${ey}`;
  }
+ // Long countermodel arrows travel around intermediate nodes rather than through them.
+ const separationLanes={left:0,right:0};
+ function separationCurve(a,b){
+  if(Math.abs(a.y-b.y)<105)return curve(a,b,14);
+  const left=a.x<=b.x,side=left?'left':'right',i=separationLanes[side]++;
+  const lane=left?22+i*16:W-22-i*16,up=b.y<a.y,dir=up?-1:1;
+  const sx=a.x+(left?-12:12),ex=b.x+(left?-24-i*9:24+i*9);
+  const sy=a.y+dir*27,ey=b.y-dir*29;
+  return `M${sx},${sy} C${sx},${sy+dir*12} ${lane},${sy+dir*12} ${lane},${sy+dir*32} L${lane},${ey-dir*32} C${lane},${ey-dir*12} ${ex},${ey-dir*12} ${ex},${ey}`;
+ }
  let paths='';
  const edgePath=(r,d,end=true)=>`<g class="graph-edge" role="button" tabindex="0" data-edge="${esc(r.id)}" aria-label="${esc(r.antecedents.map(label).join(' and '))} ${r.kind==='nonimplication'?'does not imply':r.kind==='equivalence'?'is equivalent to':'implies'} ${esc(label(r.consequent))}"><path class="edge-line ${r.kind}" d="${d}" ${end?`marker-end="url(#arrow-${r.kind})"`:''} ${r.kind==='equivalence'?`marker-start="url(#arrow-equivalence)"`:''}/><path class="edge-hit" d="${d}"/><title>${esc(r.antecedents.map(label).join(' ∧ '))} ${r.kind==='nonimplication'?'↛':r.kind==='equivalence'?'⇔':'⇒'} ${esc(label(r.consequent))} — click for evidence</title></g>`;
  for(const r of relations){
   if(!positions.has(r.consequent)||!r.antecedents.every(id=>positions.has(id)))continue;
-  if(r.antecedents.length===1){const a=positions.get(r.antecedents[0]),b=positions.get(r.consequent);const reverse=relations.some(e=>e.antecedents.length===1&&e.antecedents[0]===r.consequent&&e.consequent===r.antecedents[0]);paths+=edgePath(r,curve(a,b,reverse?(r.kind==='nonimplication'?14:-14):0));}
+  if(r.antecedents.length===1){const a=positions.get(r.antecedents[0]),b=positions.get(r.consequent);const reverse=relations.some(e=>e.antecedents.length===1&&e.antecedents[0]===r.consequent&&e.consequent===r.antecedents[0]);paths+=edgePath(r,r.kind==='nonimplication'?separationCurve(a,b):curve(a,b,reverse?-14:0));}
   else{const as=r.antecedents.map(id=>positions.get(id)),b=positions.get(r.consequent);const joint={x:W-40,y:Math.max(40,as.reduce((s,p)=>s+p.y,0)/as.length)};
    for(const a of as)paths+=`<path d="M${a.x},${a.y} L${joint.x},${joint.y}" fill="none" stroke="#8799ad" stroke-width="1.5"/>`;
    paths+=edgePath(r,curve(joint,b));paths+=`<g><rect x="${joint.x-23}" y="${joint.y-14}" width="46" height="28" rx="7" fill="#fff" stroke="#b9c9df"/><text x="${joint.x}" y="${joint.y+5}" text-anchor="middle" font-size="12" fill="#58687b">AND</text></g>`;

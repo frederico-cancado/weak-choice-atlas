@@ -11,8 +11,11 @@ Select a principle to read its definition, or an arrow to read its evidence.
 The comparison tool finds compatible implication paths and supporting
 countermodels. Switch ZF/ZFA explicitly. Recent source-dependent and
 preliminary results are off by default and can be included with a toggle.
+Hidden research relationships are flagged in the graph and principle panels.
+The Small violations & coding view includes SVC, its fixed-seed versions,
+and their connections to PP and KWP.
 
-Initial edition: 88 statement/family records, 35 relationships, and 3 models.
+Initial edition: 88 statement/family records, 47 relationships, and 3 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
@@ -49,7 +52,9 @@ review status and, for separations, a model and consistency assumption.
 - `principles`: definitions, aliases, source locators, parameters and notes.
 - `relations`: premise list, conclusion, logical kind, applicable theories,
   proof note, citations, evidence access, and standard/recent layer.
-- `models`: explicitly supported true/false values and source references.
+- `models`: explicitly supported true/false values and source references;
+  `property_evidence` gives citations for specific facts and `additional_claims`
+  retains separate research attribution. Comparisons cite the facts used.
 - `sources`: bibliography. Original proofs and later expositions are distinct.
 
 An equivalence may be traversed both ways. Conjunctive premises require all

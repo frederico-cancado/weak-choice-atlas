@@ -1827,7 +1827,9 @@
       "category": "coding_and_small_violation",
       "definition": "There is a set S such that every nonempty X is a surjective image of S×η for some ordinal η.",
       "base_theory": "ZF",
-      "aliases": [],
+      "aliases": [
+        "Small Violations of Choice"
+      ],
       "parameters": {},
       "node_kind": "specific_statement",
       "status": "candidate",
@@ -1838,7 +1840,7 @@
           "locator": "Definition 2.1"
         }
       ],
-      "notes": "Global existential principle differs from fixed-parameter SVC(S).",
+      "notes": "The global existential principle differs from fixed-parameter SVC(S). SVC does not imply PP: the basic Cohen model is a counterexample.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
       "howard_rubin_reference": ""
@@ -1862,7 +1864,7 @@
           "locator": "Definitions / Section 2"
         }
       ],
-      "notes": "",
+      "notes": "The seed S is fixed throughout a comparison. PP together with SVC(S) gives SVC+(S); SVC(S) alone is not being identified with that same-seed injective statement.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
       "howard_rubin_reference": ""
@@ -1884,9 +1886,13 @@
         {
           "source_id": "RS2025",
           "locator": "Definitions / Section 2"
+        },
+        {
+          "source_id": "RS2025",
+          "locator": "Section 2.1 Fact; Proposition 3.16, pp.7–8"
         }
       ],
-      "notes": "Do not identify SVC(S) with SVC+(S) for the SAME seed. Existential global variants can agree after changing the seed.",
+      "notes": "Keep the same seed distinct from changing seeds. Ryan–Smith, Proposition 3.16 in the linked author manuscript: under SVC+(S), PP is equivalent to AC_WO together with PP restricted to surjections between subsets of S.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
       "howard_rubin_reference": ""
@@ -2974,7 +2980,7 @@
       "base": "ZF",
       "source": "FC2026",
       "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
-      "locator": "Corollary in Section 4",
+      "locator": "Corollary 4.2, p. 4",
       "status": "preliminary",
       "proof_note": "preliminary, AI-assisted mathematical audit; not independent peer review",
       "proof_access": "local source inspected",
@@ -2995,7 +3001,7 @@
       "base": "ZF",
       "source": "FC2026",
       "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
-      "locator": "Corollary in Section 4",
+      "locator": "Corollary 4.3, p. 5",
       "status": "preliminary",
       "proof_note": "preliminary, AI-assisted mathematical audit; not independent peer review",
       "proof_access": "local source inspected",
@@ -3016,7 +3022,7 @@
       "base": "ZF",
       "source": "FC2026",
       "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
-      "locator": "Main application",
+      "locator": "Corollary 5.1, p. 5; Theorem 2.3, p. 3; equation (3), p. 3",
       "status": "preliminary",
       "proof_note": "preliminary, source-dependent corollary; show with distinct badge",
       "proof_access": "local source inspected",
@@ -3048,6 +3054,312 @@
       "valid_bases": [
         "ZF"
       ]
+    },
+    {
+      "id": "ac_svc",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "svc",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Under AC every set is well-orderable. A singleton seed S witnesses SVC, since every nonempty set is bijective with an ordinal.",
+      "proof_access": "Elementary argument included",
+      "layer": "standard",
+      "base_review": "The displayed elementary argument also works for sets with atoms."
+    },
+    {
+      "id": "svc_kwp",
+      "kind": "implication",
+      "antecedents": [
+        "svc"
+      ],
+      "consequent": "kwp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "KS2024",
+      "source_url": "https://arxiv.org/html/2409.07352v2",
+      "locator": "Proposition 3.10",
+      "status": "source_checked",
+      "proof_note": "Small Violations of Choice implies that some level of the Kinna–Wagner hierarchy holds. This is the existential KWP statement; no fixed level is asserted.",
+      "proof_access": "Proposition inspected in full text",
+      "layer": "standard"
+    },
+    {
+      "id": "svcplus_svcseed",
+      "kind": "implication",
+      "antecedents": [
+        "svc_plus_seed"
+      ],
+      "consequent": "svc_seed",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note; also Ryan–Smith §2.1 Fact",
+      "status": "elementary_argument",
+      "proof_note": "For nonempty X, an injection X→S×η gives a surjection S×η→X: invert on the image and use one fixed member of X elsewhere. The seed S is unchanged.",
+      "proof_access": "Elementary argument included",
+      "layer": "standard",
+      "parameters": {
+        "S": "same fixed set on both sides"
+      },
+      "also_source": {
+        "url": "https://academic.calliope.mx/files/papers/2412.13785.pdf",
+        "locator": "Section 2.1 Fact, p.2"
+      },
+      "base_review": "The displayed elementary argument also works for sets with atoms."
+    },
+    {
+      "id": "svcseed_svc",
+      "kind": "implication",
+      "antecedents": [
+        "svc_seed"
+      ],
+      "consequent": "svc",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Definition",
+      "status": "elementary_argument",
+      "proof_note": "A fixed witness S establishes the existential statement that an SVC seed exists.",
+      "proof_access": "Immediate from definition",
+      "layer": "standard",
+      "base_review": "The displayed elementary argument also works for sets with atoms."
+    },
+    {
+      "id": "pp_svcseed_svcplus",
+      "kind": "implication",
+      "antecedents": [
+        "pp",
+        "svc_seed"
+      ],
+      "consequent": "svc_plus_seed",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "For each nonempty X, SVC(S) supplies S×η↠X. PP gives X↪S×η; empty X embeds trivially. This is a conjunction: neither antecedent is being claimed sufficient alone.",
+      "proof_access": "Elementary argument included",
+      "layer": "standard",
+      "parameters": {
+        "S": "same fixed seed on both sides"
+      },
+      "base_review": "The displayed elementary argument also works for sets with atoms."
+    },
+    {
+      "id": "svc_not_pp",
+      "kind": "nonimplication",
+      "antecedents": [
+        "svc"
+      ],
+      "consequent": "pp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "KS2024",
+      "source_url": "https://arxiv.org/html/2409.07352v2",
+      "locator": "Theorem 2.2 and paragraph after Proposition 3.10; Ryan–Smith §2.2; Blass–Kulshreshtha proof of Corollary 8.2",
+      "status": "source_checked",
+      "proof_note": "The basic Cohen model is a symmetric extension of ZFC and satisfies SVC. It has an infinite Dedekind-finite set, so DC fails. PP implies AC_WO and hence DC; therefore PP fails in this model.",
+      "proof_access": "Derived nonimplication from full-text model facts and the published implication chain; original Cohen construction not independently re-audited",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "original_source": {
+        "credit": "Cohen's first model; Blass (1979), Theorem 4.3 for SVC in symmetric extensions",
+        "proof_pointer": "Ryan–Smith introduction and §2.2; Karagila–Schilhan Theorem 2.2"
+      },
+      "supporting_sources": [
+        {
+          "source": "RS2025",
+          "locator": "Introduction p.1; §2.2 p.3",
+          "source_url": "https://academic.calliope.mx/files/papers/2412.13785.pdf"
+        },
+        {
+          "source": "BK2026",
+          "locator": "Proof of Corollary 8.2 and proof of Proposition 9.8",
+          "source_url": "https://arxiv.org/html/2310.09643v3"
+        }
+      ]
+    },
+    {
+      "id": "nds_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "nds_sets"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
+      "locator": "Corollary 5.1, p. 5; Theorem 2.3, p. 3; Corollary 4.2, p. 4",
+      "status": "preliminary",
+      "proof_note": "Cançado's note derives FB and then NDS inside the stronger OpenAI construction, where AC fails. This is a source-dependent consistency corollary, not a general implication PP ⇒ NDS.",
+      "proof_access": "The local public v0.1 LaTeX proof was inspected; theorem numbering was checked against its build output. The note reports AI-assisted audits, without independent peer review.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_note",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying construction: Propositions 3.6–3.8, Theorem 6.3, Lemma 7.1, and Section 8. The NDS corollary is separately attributed to Cançado's note."
+      }
+    },
+    {
+      "id": "finite_antichains_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "finite_antichains"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
+      "locator": "Corollary 5.1, p. 5; Theorem 2.3, p. 3; Corollary 4.3, p. 5",
+      "status": "preliminary",
+      "proof_note": "Cançado's note derives FB and hence finiteness of every set-sized cardinal antichain in the stronger OpenAI construction, where AC fails. No uniform finite bound on antichain size is asserted.",
+      "proof_access": "The local public v0.1 LaTeX proof was inspected; theorem numbering was checked against its build output. The note reports AI-assisted audits, without independent peer review.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_note",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying construction: Propositions 3.6–3.8, Theorem 6.3, Lemma 7.1, and Section 8. The finite-antichain corollary is separately attributed to Cançado's note."
+      }
+    },
+    {
+      "id": "svc_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "svc"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "KS2024",
+      "source_url": "https://arxiv.org/html/2409.07352v2",
+      "locator": "Theorem 2.2 and paragraph after Proposition 3.10; Ryan–Smith §2.2",
+      "status": "source_checked",
+      "proof_note": "The basic Cohen model satisfies SVC and contains an infinite Dedekind-finite set. Such a set cannot be well-ordered, so AC fails in the same model.",
+      "proof_access": "Derived separation from the cited full-text model facts; original construction not independently re-audited",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "original_source": {
+        "credit": "Cohen's first model; Blass (1979), Theorem 4.3 for SVC in symmetric extensions",
+        "proof_pointer": "Ryan–Smith introduction and §2.2; Karagila–Schilhan Theorem 2.2"
+      },
+      "supporting_sources": [
+        {
+          "source": "RS2025",
+          "locator": "Section 2.2, p.3",
+          "source_url": "https://academic.calliope.mx/files/papers/2412.13785.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ac_nds",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Under AC, assign to each X_n its unique initial ordinal κ_n. A strict descending chain of their cardinalities would be a strict descending ω-sequence of ordinals, contradicting the least-element property of ordinals.",
+      "proof_access": "Elementary argument included",
+      "layer": "standard",
+      "base_review": "The displayed argument also works for sets with atoms."
+    },
+    {
+      "id": "ac_finite_antichains",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "finite_antichains",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Under AC any two cardinalities are comparable by injections. Thus a set of pairwise incomparable cardinalities has at most one member, and is finite.",
+      "proof_access": "Elementary argument included",
+      "layer": "standard",
+      "base_review": "The displayed argument also works for sets with atoms."
+    },
+    {
+      "id": "acwo_dc",
+      "kind": "implication",
+      "antecedents": [
+        "ac_wo_index"
+      ],
+      "consequent": "dc",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "BK2026",
+      "source_url": "https://arxiv.org/html/2310.09643v3",
+      "locator": "Proof of Corollary 8.2",
+      "status": "source_checked",
+      "proof_note": "Choice for well-orderable index families implies Dependent Choice. Blass–Kulshreshtha explicitly use this implication, crediting Jensen. Together with the recorded PP ⇒ CSB* ⇒ WPP ⇒ AC_WO chain, this yields PP ⇒ DC.",
+      "proof_access": "Implication located in the full-text proof; Jensen’s original proof not independently inspected for this record.",
+      "layer": "standard",
+      "original_source": {
+        "credit": "Jensen",
+        "proof_pointer": "Original reference credited in Blass–Kulshreshtha, proof of Corollary 8.2."
+      }
     }
   ],
   "models": [
@@ -3057,20 +3369,46 @@
       "base": "ZF",
       "assumptions": "Con(ZF)",
       "true_ids": [
-        "op"
+        "op",
+        "svc",
+        "kwp"
       ],
       "false_ids": [
         "dc",
         "ac",
-        "df_finite"
+        "df_finite",
+        "pp",
+        "ac_wo_index"
       ],
       "source": "HS25",
       "source_url": "https://arxiv.org/html/2504.02744v1",
       "locator": "Introduction, paragraphs before Theorem 1",
       "status": "source_checked",
-      "review": "Properties stated in the author manuscript; original construction not independently audited. Only explicitly recorded truth values appear here.",
+      "review": "Model properties and cited deductions were checked in the author manuscripts; the complete Cohen construction was not independently audited. Individual property sources are listed below.",
       "description": "A symmetric submodel after adding countably many Cohen reals, with an infinite Dedekind-finite set of reals.",
-      "layer": "standard"
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "svc",
+            "kwp"
+          ],
+          "source": "KS2024",
+          "locator": "Theorem 2.2, Proposition 3.10, and immediately following paragraph",
+          "source_url": "https://arxiv.org/html/2409.07352v2",
+          "status": "source_checked"
+        },
+        {
+          "principles": [
+            "pp",
+            "ac_wo_index"
+          ],
+          "source": "BK2026",
+          "locator": "Proof of Corollary 8.2; failures derived from the existing model's failure of DC",
+          "source_url": "https://arxiv.org/html/2310.09643v3",
+          "status": "source_checked"
+        }
+      ]
     },
     {
       "id": "pincus_holy_schilhan",
@@ -3121,7 +3459,7 @@
           ],
           "source": "FC2026",
           "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/bd35e2000b43935fba41dcd60edc0a9c23148efb/Finite_cardinal_bases_v0_1.pdf",
-          "locator": "Main application and Section 4",
+          "locator": "Theorem 2.3, p. 3; Corollaries 4.2–4.3, pp. 4–5; Corollary 5.1, p. 5",
           "status": "preliminary",
           "review": "Source-dependent consequences in an AI-assisted preliminary note, without independent peer review."
         }
@@ -3134,5 +3472,6 @@
     "source_dependent": "Recent · source-dependent",
     "preliminary": "Preliminary research"
   },
-  "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer."
+  "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer.",
+  "updated": "2026-10-07"
 }
