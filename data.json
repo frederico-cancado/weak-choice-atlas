@@ -3,7 +3,7 @@
   "prepared": "2026-10-07",
   "prepared_for": "Frederico Cançado",
   "scope": "Broad coverage from the start. This is an extensible inventory, not an exhaustive enumeration or a certified implication graph.",
-  "record_count": 97,
+  "record_count": 101,
   "status": "Initial public catalogue; relation review levels are shown individually.",
   "counts_note": "Records include parameterized families, equivalent anchors, ZF theorems and research candidates; 88 is not a count of pairwise inequivalent weak axioms.",
   "notation": {
@@ -84,6 +84,13 @@
       },
       "hypotheses": [
         "The quantifier ranges over every set, not just a set already known to be well-orderable."
+      ],
+      "history": "Zermelo proved the well-ordering theorem using the axiom of choice in 1904 and gave a new proof in 1908. This was central to the early debate about choice.",
+      "history_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": "Introduction and Chapter III; historical attribution already recorded for ac_iff_wo"
+        }
       ]
     },
     {
@@ -120,6 +127,17 @@
         "P is a nonempty set with a partial order.",
         "Every chain, including the empty chain, has an upper bound belonging to P.",
         "Maximal is not the same as greatest."
+      ],
+      "history": "Zorn’s 1935 paper made maximal principles a convenient tool in algebra. Related formulations appeared earlier in Hausdorff’s work and Kuratowski’s 1922 paper; Zorn is not the earliest origin of maximality arguments.",
+      "history_evidence": [
+        {
+          "source_id": "ZORN35",
+          "locator": "1935 original article, pp. 667–670; attribution checked through Bell"
+        },
+        {
+          "source_id": "Bell",
+          "locator": "Chapter II, chronology of maximal principles, pp. 30–31"
+        }
       ]
     },
     {
@@ -132,7 +150,7 @@
       "status": "ZF_theorem",
       "notes": "There is no finiteness restriction on each A_i. Provable by finite induction in ZF and ZFA. Do not confuse finite indexing with arbitrary families of finite sets or with multiple choice.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "A theorem record with no additional hypotheses supplies this result to every comparison.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -2029,7 +2047,7 @@
       "base_theory": "ZF",
       "node_kind": "specific_statement",
       "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
-      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "relation_review": "A theorem record with no additional hypotheses supplies this result to every comparison.",
       "catalogue_status": "draft_inventory",
       "aliases": [],
       "definition_evidence": [
@@ -2140,11 +2158,14 @@
       "id": "dual_csb",
       "name": "CSB* / dual Cantor–Schröder–Bernstein",
       "category": "partition_and_duality",
-      "definition": "If there are surjections between nonempty X and Y in both directions, then X and Y are bijective.",
+      "definition": "For any nonempty sets X and Y, if a surjection X→Y and a surjection Y→X exist, then a bijection X→Y exists.",
       "base_theory": "ZF",
       "aliases": [
+        "CSB*",
+        "CB*",
         "dual CB",
-        "CBS* (common spelling variant)"
+        "CBS* (common spelling variant)",
+        "Dual Cantor–Schröder–Bernstein theorem"
       ],
       "parameters": {},
       "node_kind": "specific_statement",
@@ -2153,13 +2174,22 @@
       "definition_evidence": [
         {
           "source_id": "BK2026",
-          "locator": "Definition 2.2"
+          "locator": "Definition 2.2; Howard–Rubin Form 168"
+        },
+        {
+          "source_id": "OPENAI2026",
+          "locator": "Remark 7.3, p. 36"
         }
       ],
-      "notes": "",
-      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "notes": "In ZF: PP ⇒ CSB* ⇒ WPP ⇒ AC_WO ⇒ DC. OpenAI’s Remark 7.3 explicitly gives CSB* + ¬AC in the PP model. The atlas has no verified reverse implication or separating model for CSB* ⇒ PP or WPP ⇒ CSB*; absence of an edge is not a proof of independence. Do not confuse this statement with ordinary CSB (a theorem of ZF), or the refined dual theorem that additionally constrains the bijection to the given maps.",
+      "definition_review": "Definition 2.2 in Blass–Kulshreshtha and OpenAI Remark 7.3 were inspected; surjection directions and empty-set convention agree.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "168",
+      "graph_visibility": "visible",
+      "hypotheses": [
+        "X and Y are arbitrary nonempty sets. The two surjections are given individually; the conclusion asks for some bijection, with no requirement that it be contained in either given map.",
+        "The empty-set cases can equivalently be included using |X|≤*|Y| iff X is empty or Y surjects onto X."
+      ]
     },
     {
       "id": "csb",
@@ -2180,7 +2210,7 @@
       ],
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "A theorem record with no additional hypotheses supplies this result to every comparison.",
       "howard_rubin_reference": "",
       "graph_visibility": "hidden"
     },
@@ -2431,11 +2461,11 @@
       "id": "fixed_k_comparison",
       "name": "k-cardinal comparability (fixed finite k≥2)",
       "category": "cardinal_comparison",
-      "definition": "Every family of k distinct cardinals contains a comparable pair.",
+      "definition": "Fix a finite integer k≥2. Every set of k distinct cardinals contains two comparable members under the injection ordering.",
       "base_theory": "ZF",
       "aliases": [],
       "parameters": {
-        "k": "fixed integer ≥2"
+        "k": "One fixed finite integer k≥2. The equivalence with AC holds separately for each such k."
       },
       "node_kind": "parameterized_family",
       "status": "equivalent to AC",
@@ -2443,13 +2473,18 @@
       "definition_evidence": [
         {
           "source_id": "FO2008",
-          "locator": "Abstract / Theorem 1"
+          "locator": "Definition of k-Trichotomy and Theorem 1, p. 2; remark p. 6; Blass appendix, pp. 7–8"
         }
       ],
-      "notes": "",
-      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
+      "notes": "Feldman–Orhon Theorem 1 proves equivalence with AC for each fixed finite k≥2. Their formulation uses k distinct sets; the distinct-cardinal formulation is equivalent in ZF, since an equipotent pair is already comparable and representatives for a finite family can be selected in ZF. The case k=2 is ordinary cardinal comparability. Blass’s appendix constructs k pairwise incomparable sets from any non-well-orderable set.",
+      "definition_review": "Full primary theorem and appendix statement checked on 8 October 2026.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "hypotheses": [
+        "Cardinals here mean equinumerosity types of arbitrary sets, represented for example by Scott cardinals. They are not restricted to initial ordinals or well-orderable sets.",
+        "Comparability means that an injection exists in at least one direction between representatives.",
+        "The bound k is fixed globally. This differs from requiring only that every antichain is finite, with no common finite bound."
+      ]
     },
     {
       "id": "w_lambda",
@@ -2560,9 +2595,13 @@
         {
           "source_id": "KS2024",
           "locator": "Definition 2.1"
+        },
+        {
+          "source_id": "OPENAI2026",
+          "locator": "§1.1 p.4; Proposition 3.6 p.22"
         }
       ],
-      "notes": "The global existential principle differs from fixed-parameter SVC(S). SVC does not imply PP: the basic Cohen model is a counterexample.",
+      "notes": "The existential assertion SVC differs from SVC(S) with a prescribed seed. SVC is strictly weaker than AC over ZF: the basic Cohen model already separates them; OpenAI’s PP model provides another witness (Propositions 3.6 and 3.8). A nonempty well-orderable seed—including n≥1 or ω—would instead make SVC(S) equivalent to AC. SVC alone does not imply PP.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
@@ -2586,14 +2625,27 @@
           "locator": "Definitions / Section 2"
         }
       ],
-      "notes": "The seed S is fixed throughout a comparison. PP together with SVC(S) gives SVC+(S); SVC(S) alone is not being identified with that same-seed injective statement.",
+      "notes": "The seed S is fixed throughout a comparison. If it is nonempty and well-orderable, SVC(S) is equivalent to AC. OpenAI’s model uses a particular non-well-orderable A and satisfies SVC(A)+¬AC, so a claim of uniform AC-equivalence for arbitrary S is false. Do not confuse finite n or ω with this model-dependent seed.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": "",
       "hypotheses": [
         "The seed S is nonempty and stays fixed throughout the statement.",
         "The classification may depend on S: for a nonempty well-orderable seed, this principle implies AC."
-      ]
+      ],
+      "ac_classification": {
+        "kind": "parameter_dependent",
+        "base": "ZF",
+        "valid_bases": [
+          "ZF",
+          "ZFA"
+        ],
+        "note": "The seed S is fixed throughout a comparison. If it is nonempty and well-orderable, SVC(S) is equivalent to AC. OpenAI’s model uses a particular non-well-orderable A and satisfies SVC(A)+¬AC, so a claim of uniform AC-equivalence for arbitrary S is false. Do not confuse finite n or ω with this model-dependent seed.",
+        "layer": "standard",
+        "source_url": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf",
+        "source_title": "The Partition Principle does not imply Choice",
+        "locator": "§1.1; Proposition 3.6; Proposition 3.8; elementary well-orderable-seed argument in the separate entry."
+      }
     },
     {
       "id": "svc_plus_seed",
@@ -2618,7 +2670,7 @@
           "locator": "Section 2.1 Fact; Proposition 3.16, pp.7–8"
         }
       ],
-      "notes": "Keep the same seed distinct from changing seeds. Ryan–Smith, Proposition 3.16 in the linked author manuscript: under SVC+(S), PP is equivalent to AC_WO together with PP restricted to surjections between subsets of S.",
+      "notes": "Keep the same seed distinct from changing seeds. Ryan–Smith, Proposition 3.16 in the linked author manuscript: under SVC+(S), PP is equivalent to AC_WO together with PP restricted to surjections between subsets of S. OpenAI Remark 7.2 gives SVC⁺(A) for its same non-well-orderable seed A. This is a statement about that particular seed, not every possible S.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": "",
@@ -2935,6 +2987,13 @@
       "hypotheses": [
         "P is any set with a partial order.",
         "C is a specified chain; the extending chain is inclusion-maximal."
+      ],
+      "history": "Hausdorff introduced a general maximal principle in 1909 and included the maximal-chain formulation in Grundzüge der Mengenlehre (1914). These principles became standard tools for existence arguments.",
+      "history_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": "Chapter II, chronology of maximal principles, p. 30"
+        }
       ]
     },
     {
@@ -2969,6 +3028,17 @@
       "hypotheses": [
         "F is a nonempty subfamily of P(X).",
         "Finite character is required in both directions, including the empty finite subset."
+      ],
+      "history": "Teichmüller, Bourbaki and Tukey developed finite-character formulations of maximality in 1939–1940. Tukey’s version appeared in Convergence and Uniformity in Topology (1940).",
+      "history_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": "Chapter II, chronology of maximal principles, p. 31"
+        },
+        {
+          "source_id": "TUKEY40",
+          "locator": "Original 1940 publication; theorem attribution checked in Bell, original theorem text not inspected"
+        }
       ]
     },
     {
@@ -3058,7 +3128,7 @@
         }
       ],
       "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
-      "relation_review": "See explicit equivalence relation and proof/source qualifications.",
+      "relation_review": "A theorem record with no additional hypotheses supplies this result to every comparison.",
       "ac_classification": {
         "kind": "weaker",
         "base": "ZF",
@@ -3150,6 +3220,186 @@
         "layer": "standard",
         "review": "The countermodel is cited; restriction to pairs is elementary."
       }
+    },
+    {
+      "id": "svc_wellorderable_seed",
+      "name": "SVC(W) for a nonempty well-orderable seed",
+      "category": "coding_and_small_violation",
+      "definition": "For a fixed nonempty well-orderable set W, every nonempty set X is a surjective image of W×η for some ordinal η.",
+      "base_theory": "ZF",
+      "aliases": [
+        "SVC(n), n ≥ 1",
+        "SVC(ω)",
+        "Small Violations of Choice with a well-orderable seed"
+      ],
+      "parameters": {
+        "W": "fixed nonempty well-orderable set"
+      },
+      "node_kind": "parameterized_family",
+      "status": "AC_equivalent",
+      "catalogue_status": "reviewed_definition",
+      "hypotheses": [
+        "The seed W is nonempty and well-orderable.",
+        "The ordinal η may depend on X.",
+        "The case W=∅ is excluded: it cannot map onto a singleton."
+      ],
+      "notes": "Over ZF this is equivalent to AC. In particular SVC(n) for finite n≥1 and SVC(ω) are not separated from AC by OpenAI’s model. The model instead uses a non-well-orderable seed A.",
+      "definition_evidence": [
+        {
+          "source_id": "OPENAI2026",
+          "locator": "§1.1 p.4 for the SVC(A) definition; elementary well-orderable-seed specialization"
+        }
+      ],
+      "definition_review": "Definition and elementary equivalence checked; nonempty and well-orderable hypotheses are essential.",
+      "howard_rubin_reference": "",
+      "relation_review": "The two elementary implication proofs are supplied in the relationship records."
+    },
+    {
+      "id": "maximal_antichain",
+      "name": "Maximal antichain principle",
+      "category": "orders",
+      "definition": "Every partially ordered set P has an inclusion-maximal antichain A⊆P: distinct members of A are incomparable in P, and no strictly larger subset of P has that property.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "89",
+      "status": "AC_equivalent_anchor",
+      "notes": "Also called the antichain principle or Kurepa’s maximal antichain principle. The empty poset has the empty maximal antichain. “Maximal” means inclusion-maximal, not maximum cardinality. Here antichains are pairwise incomparable; forcing antichains are pairwise incompatible and are a different statement. The equivalence with AC uses the pure, well-founded ZF background and must not be transferred to ZFA.",
+      "hypotheses": [
+        "P is a set with a partial order; no chain-boundedness hypothesis is imposed.",
+        "Distinct a,b∈A satisfy neither a≤b nor b≤a.",
+        "Maximality is among all antichains of this same poset."
+      ],
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [
+        "Antichain principle",
+        "Kurepa maximal antichain principle",
+        "MAP"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "FJ73",
+          "locator": "p. 79, definition (A); pp. 80–81, theorem and §I(d)"
+        }
+      ],
+      "definition_review": "Exact quantifiers, order terminology and set-theoretic base reviewed.",
+      "relation_review": "See the associated proof record for the direction-specific argument and limits of source access.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "FJ73",
+        "locator": "p. 79, definition (A); pp. 80–81, theorem and §I(d)",
+        "note": "The asserted equivalence is over ZF.",
+        "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+        "source_title": "Ulrich Felgner and Thomas J. Jech (1973), Variants of the axiom of choice in set theory with atoms, Fundamenta Mathematicae 79, 79–85"
+      },
+      "history": "Kurepa’s 1952 paper investigated maximality principles and left the ordinary-antichain reversal as a question. Felgner and Jech (1973) place the principle in the chain AC ⇒ MC ⇒ A ⇒ LW ⇒ PW, with all these set statements equivalent in the pure well-founded setting and genuine separations when atoms are allowed.",
+      "history_evidence": [
+        {
+          "source_id": "KUREPA52",
+          "locator": "§3, Theorem 3.1, pp. 227–228; the maximal incomparable-family case is not settled there"
+        },
+        {
+          "source_id": "FJ73",
+          "locator": "pp. 79–81, definitions, theorem and §I"
+        }
+      ]
+    },
+    {
+      "id": "kuratowski_maximal",
+      "name": "Kuratowski maximal principle (chain unions)",
+      "category": "orders",
+      "definition": "For every set X and every nonempty family F⊆P(X), if ⋃C∈F for every nonempty subfamily C⊆F linearly ordered by inclusion, then F has an inclusion-maximal member.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "AC_equivalent_anchor",
+      "notes": "This is the union-of-chains form of the maximal principle. Nonempty chains suffice because F itself is assumed nonempty. Requiring closure under the empty chain as well would additionally require ∅∈F; that version is also AC-equivalent. The statement concerns sets of subsets of a fixed set, not proper classes.",
+      "hypotheses": [
+        "F is nonempty and is a set of subsets of a set X.",
+        "For every nonempty inclusion-chain C in F, the actual union ⋃C belongs to F.",
+        "The conclusion is an inclusion-maximal member, not a largest member."
+      ],
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [
+        "Kuratowski lemma",
+        "Union-of-chains maximal principle"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "KURATOWSKI22",
+          "locator": "1922 paper; modern normalized formulation and complete elementary equivalence in the atlas proof note"
+        }
+      ],
+      "definition_review": "Exact quantifiers, order terminology and set-theoretic base reviewed.",
+      "relation_review": "See the associated proof record for the direction-specific argument and limits of source access.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "KURATOWSKI22",
+        "locator": "1922 paper; modern normalized formulation and complete elementary equivalence in the atlas proof note",
+        "note": "The asserted equivalence is over ZF.",
+        "source_url": "https://matwbn.icm.edu.pl/ksiazki/fm/fm3/fm3114.pdf",
+        "source_title": "Casimir Kuratowski (1922), Une méthode d’élimination des nombres transfinis des raisonnements mathématiques, Fundamenta Mathematicae 3, 76–108"
+      },
+      "history": "Kuratowski’s 1922 work developed maximal principles to replace applications of transfinite ordinals in mathematical existence proofs. The displayed statement is a modern chain-union formulation, with its equivalence proved explicitly here.",
+      "history_evidence": [
+        {
+          "source_id": "KURATOWSKI22",
+          "locator": "Introduction, p. 76; original paper pp. 76–108"
+        },
+        {
+          "source_id": "Bell",
+          "locator": "Chapter II, chronology of maximal principles, pp. 30–31"
+        }
+      ]
+    },
+    {
+      "id": "linear_orders_well_orderable",
+      "name": "LW: linearly orderable sets are well-orderable",
+      "category": "orders",
+      "definition": "For every set X, if X admits a linear order, then X admits a well-order.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "90",
+      "status": "AC_equivalent_anchor",
+      "notes": "The well-order need not extend or otherwise preserve the given linear order. This is different from OP (every set has a linear order) and OEP (a given partial order extends to a linear order). LW is equivalent to AC over ZF, using Foundation and the absence of atoms; it does not imply AC in ZFA.",
+      "hypotheses": [
+        "The quantifier ranges over all linearly orderable sets.",
+        "Only existence of some well-order is required; compatibility with the original linear order is not required."
+      ],
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [
+        "LW",
+        "Every linearly ordered set can be well-ordered"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "FJ73",
+          "locator": "p. 79, definition (LW); pp. 80–81, theorem and §I(d)–(e)"
+        }
+      ],
+      "definition_review": "Exact quantifiers, order terminology and set-theoretic base reviewed.",
+      "relation_review": "See the associated proof record for the direction-specific argument and limits of source access.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "FJ73",
+        "locator": "p. 79, definition (LW); pp. 80–81, theorem and §I(d)–(e)",
+        "note": "The asserted equivalence is over ZF.",
+        "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+        "source_title": "Ulrich Felgner and Thomas J. Jech (1973), Variants of the axiom of choice in set theory with atoms, Fundamenta Mathematicae 79, 79–85"
+      },
+      "history": "Rubin announced the LW and well-orderable-power-set equivalences in 1960, explicitly emphasizing the role of extensionality and regularity. Felgner and Jech (1973) explained their separation from AC in models with atoms.",
+      "history_evidence": [
+        {
+          "source_id": "RUBIN60",
+          "locator": "Abstract 570-30, p. 381"
+        },
+        {
+          "source_id": "FJ73",
+          "locator": "pp. 79–81"
+        }
+      ]
     }
   ],
   "sources": {
@@ -3276,9 +3526,10 @@
         "Mehmet Orhon"
       ],
       "additional_credit": "appendix by Andreas Blass",
-      "url": "https://arxiv.org/abs/0804.0673v1",
+      "url": "https://arxiv.org/pdf/0804.0673v1",
       "source_type": "author manuscript",
-      "access": "abstract inspected; theorem statement explicit there"
+      "access": "Full primary PDF inspected: Theorem 1, p. 2; proof, pp. 3–6; Blass appendix, pp. 7–8.",
+      "version": "arXiv:0804.0673v1, 4 April 2008"
     },
     "T2018": {
       "title": "On the comparability of cardinals in the absence of the axiom of choice",
@@ -3561,6 +3812,44 @@
       "version": "arXiv:1911.00434v3, 25 August 2020",
       "source_type": "original_research",
       "role": "Recalls BPI ⇒ MHT ⇒ AC_fin in ZF; identifies MHT as Howard–Rubin Form 107."
+    },
+    "FJ73": {
+      "title": "Ulrich Felgner and Thomas J. Jech (1973), Variants of the axiom of choice in set theory with atoms, Fundamenta Mathematicae 79, 79–85",
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+      "role": "Original research: maximal antichains, LW and PW; ZF/Foundation versus atom-model distinctions",
+      "doi": "10.4064/fm-79-1-79-85"
+    },
+    "KUREPA52": {
+      "title": "Djuro Kurepa (1952), Sur la relation d’inclusion et l’axiome de choix de Zermelo, Bulletin de la Société Mathématique de France 80, 225–232",
+      "url": "https://numdam.org/item/BSMF_1952__80__225_0.pdf",
+      "role": "Historical primary source: maximality principles and the antichain reversal question; not a proof of the unrestricted antichain reversal",
+      "doi": "10.24033/bsmf.1431"
+    },
+    "KURATOWSKI22": {
+      "title": "Casimir Kuratowski (1922), Une méthode d’élimination des nombres transfinis des raisonnements mathématiques, Fundamenta Mathematicae 3, 76–108",
+      "url": "https://matwbn.icm.edu.pl/ksiazki/fm/fm3/fm3114.pdf",
+      "role": "Historical primary source for Kuratowski maximal principles; modern normalized chain-union statement is proved in the atlas note",
+      "doi": "10.4064/fm-3-1-76-108"
+    },
+    "RUBIN60": {
+      "title": "Herman Rubin (1960), Two propositions equivalent to the axiom of choice only under both the axioms of extensionality and regularity, Notices AMS 7, 381, abstract 570-30",
+      "url": "https://community.ams.org/journals/notices/196006/196006FullIssue.pdf",
+      "role": "Original announcement of the LW and PW equivalences using rank and Hartogs; indexed abstract inspected, full issue download unavailable"
+    },
+    "MILLER11MAX": {
+      "title": "Arnold W. Miller (2011), The maximum principle in forcing and the axiom of choice",
+      "url": "https://people.math.wisc.edu/~awmille1/res/max.pdf",
+      "role": "Original research distinguishing incompatible forcing antichains from incomparable order antichains; p. 2 records the ZF/ZFA distinction"
+    },
+    "ZORN35": {
+      "title": "Max Zorn (1935), A remark on method in transfinite algebra, Bulletin of the AMS 41, 667–670",
+      "url": "https://doi.org/10.1090/S0002-9904-1935-06166-X",
+      "role": "Original historical source for Zorn’s maximal principle; historical attribution checked in Bell, original full text not inspected"
+    },
+    "TUKEY40": {
+      "title": "John W. Tukey (1940), Convergence and Uniformity in Topology, Annals of Mathematics Studies 2",
+      "url": "https://www.jstor.org/stable/j.ctt1b9x2d2",
+      "role": "Original historical source for Tukey’s finite-character formulation; bibliographic metadata checked, original theorem text not inspected"
     }
   },
   "cardinal_well_foundedness_template": {
@@ -5924,6 +6213,351 @@
       "status": "elementary_argument",
       "proof_note": "Omega is an infinite set, so a nonprincipal ultrafilter on omega witnesses the existential statement.",
       "proof_access": "Complete elementary argument included; valid for sets with or without atoms."
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "status": "elementary_argument",
+      "proof_access": "Elementary proof included",
+      "layer": "standard",
+      "id": "ac_svc_fixed_seed",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "svc_seed",
+      "proof_note": "Fix the stipulated nonempty seed S. AC well-orders every nonempty X, so X is in bijection with some nonzero ordinal η; compose projection S×η→η with this bijection. This is valid for any fixed nonempty S and does not require S to be well-orderable.",
+      "locator": "Proof note"
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "status": "elementary_argument",
+      "proof_access": "Elementary proof included",
+      "layer": "standard",
+      "id": "svc_wellorderable_ac",
+      "kind": "implication",
+      "antecedents": [
+        "svc_wellorderable_seed"
+      ],
+      "consequent": "ac",
+      "proof_note": "Fix a well-order of W. For a nonempty X choose one of the asserted surjections f:W×η→X. The product W×η is well-orderable. Assign to each x the least f-preimage in that well-order; this injects X into a well-orderable set and hence well-orders X. Every set is therefore well-orderable, equivalent to AC. This uses only one surjection at a time, not simultaneous choice of surjections.",
+      "locator": "Proof note"
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "status": "elementary_argument",
+      "proof_access": "Elementary proof included",
+      "layer": "standard",
+      "id": "ac_svc_wellorderable",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "svc_wellorderable_seed",
+      "proof_note": "Under AC, every nonempty X is bijective with an ordinal η. Project W×η onto η and compose with that bijection; nonemptiness of W makes the projection onto.",
+      "locator": "Proof note"
+    },
+    {
+      "id": "svc_not_ac_openai",
+      "kind": "nonimplication",
+      "antecedents": [
+        "svc"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "OPENAI2026",
+      "source_url": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf",
+      "locator": "Proposition 3.6 p.22; Proposition 3.8 p.24; Theorem 1.1 and §8",
+      "status": "source_dependent",
+      "proof_note": "In OpenAI’s model there is a non-well-orderable set A such that SVC(A) holds (Proposition 3.6), so existential SVC holds. Proposition 3.8 proves that A is not well-orderable and hence AC fails. Its pure-ZF relative-consistency construction starts from Con(ZF). This is an additional witness to the older separation SVC ⇏ AC, not a first proof of that separation.",
+      "proof_access": "Current pinned manuscript and proof passages inspected; full forcing construction not independently re-audited for this atlas update",
+      "layer": "recent",
+      "model": "openai_pp",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "dual_csb_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "dual_csb"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "source": "OPENAI2026",
+      "source_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf",
+      "locator": "Remark 7.3, p. 36; Theorem 1.1",
+      "status": "source_dependent",
+      "proof_note": "OpenAI explicitly records the ZF implications PP ⇒ CSB* ⇒ WPP, and applies its PP + ¬AC model to conclude that CSB* does not imply AC, assuming Con(ZF). This is an explicit consequence in OpenAI’s manuscript, not a new result of the atlas.",
+      "proof_access": "Remark 7.3 inspected in the pinned released manuscript; the public PDF was freshly retrieved and its SHA-256 matched the locally audited copy. The underlying forcing construction was not freshly re-audited.",
+      "layer": "recent",
+      "model": "openai_pp",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "wpp_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "wpp"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "source": "OPENAI2026",
+      "source_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf",
+      "locator": "Remark 7.3, p. 36; Theorem 1.1",
+      "status": "source_dependent",
+      "proof_note": "OpenAI explicitly records the ZF implications PP ⇒ CSB* ⇒ WPP, and applies its PP + ¬AC model to conclude that WPP does not imply AC, assuming Con(ZF). This is an explicit consequence in OpenAI’s manuscript, not a new result of the atlas.",
+      "proof_access": "Remark 7.3 inspected in the pinned released manuscript; the public PDF was freshly retrieved and its SHA-256 matched the locally audited copy. The underlying forcing construction was not freshly re-audited.",
+      "layer": "recent",
+      "model": "openai_pp",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "bpi_not_dualcsb",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "dual_csb",
+      "base": "ZF",
+      "source": "RANSOM2026",
+      "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+      "locator": "Corollaries 4.2.2 and 4.2.17 (BPI in the basic Cohen model); Blass–Kulshreshtha, Theorem 3.3 and Corollary 3.4 (an infinite Dedekind-finite set refutes CSB*)",
+      "status": "source_checked",
+      "proof_note": "The basic Cohen model satisfies BPI and has an infinite Dedekind-finite set. By Blass–Kulshreshtha Theorem 3.3, such a set supplies mutually surjectable sets with no bijection, so CSB* fails. Equivalently, CSB* ⇒ WPP ⇒ AC_WO ⇒ DC, whereas DC fails in this model.",
+      "proof_access": "Cited source statements inspected; full model construction not independently audited",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "valid_bases": [
+        "ZF"
+      ],
+      "readable_source_url": "https://arxiv.org/html/2310.09643v3",
+      "readable_locator": "Theorem 3.3, Corollary 3.4 and Corollary 8.2"
+    },
+    {
+      "id": "dualcsb_not_bpi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "dual_csb"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§4.1, pp. 17–18, combined with OpenAI Remark 7.3, p. 36",
+      "status": "preliminary",
+      "proof_note": "OpenAI’s model satisfies PP and hence CSB*. Cançado’s preliminary follow-up report refutes OEP, and therefore BPI, in that same model. The CSB* fact is already explicit in OpenAI’s Remark 7.3; the BPI failure is the separately attributed preliminary consequence.",
+      "proof_access": "The CSB* assertion was inspected in OpenAI’s pinned manuscript; the BPI failure retains the review status of Cançado’s preliminary report.",
+      "layer": "recent",
+      "model": "openai_pp",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "theorem_finite_index_choice",
+      "kind": "implication",
+      "antecedents": [],
+      "consequent": "finite_index_choice",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Complete proof note",
+      "status": "elementary_argument",
+      "proof_note": "Induct on the finite size of the index set I. For I empty use the empty function. Otherwise fix one i∈I and one a∈A_i, apply the induction hypothesis to I\\{i}, and extend the resulting function by (i,a). Only finitely many existential choices are used.",
+      "proof_access": "Elementary proof included. The same proof works with atoms. This is a theorem without additional choice assumptions."
+    },
+    {
+      "id": "theorem_csb",
+      "kind": "implication",
+      "antecedents": [],
+      "consequent": "csb",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Complete proof note",
+      "status": "elementary_argument",
+      "proof_note": "Given injections f:X→Y and g:Y→X, let X_0=X\\g[Y], X_{n+1}=g[f[X_n]], and U=⋃_{n<omega}X_n. Define h(x)=f(x) on U and h(x)=g⁻¹(x) on X\\U. Injectivity of g makes the latter value unique. The two pieces have disjoint images f[U] and Y\\f[U], respectively, and together form a bijection X→Y.",
+      "proof_access": "Elementary proof included. The same proof works with atoms. This is a theorem without additional choice assumptions."
+    },
+    {
+      "id": "theorem_ordinal_trichotomy",
+      "kind": "implication",
+      "antecedents": [],
+      "consequent": "ordinal_trichotomy",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Complete proof note",
+      "status": "elementary_argument",
+      "proof_note": "The intersection γ=α∩β of two von Neumann ordinals is an initial segment of each. Every proper initial segment of an ordinal is an element of it. If γ were proper in both, then γ∈α∩β=γ, impossible. Thus one is an initial segment of the other, giving equality or membership in exactly one direction. No choice is used.",
+      "proof_access": "Elementary proof included. The same proof works with atoms. This is a theorem without additional choice assumptions."
+    },
+    {
+      "id": "theorem_finite_hall",
+      "kind": "implication",
+      "antecedents": [],
+      "consequent": "finite_hall",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Complete proof note",
+      "status": "elementary_argument",
+      "proof_note": "Induct on the finite size of I; the empty case is immediate. If some nonempty proper J⊂I has |⋃_{j∈J}A_j|=|J|, induction chooses distinct representatives for J. Remove that finite union from the other fibers. Hall’s condition for J∪K shows that the remaining fibers satisfy Hall’s condition for each K⊆I\\J; use induction again. If there is no such J, choose one index i and one a∈A_i, remove i and delete a from every remaining fiber. Every nonempty remaining subfamily previously had at least one extra available element, so Hall’s condition remains true; apply induction and restore representative a for i. No choice for an infinite family is made.",
+      "proof_access": "Elementary proof included. The same proof works with atoms. This is a theorem without additional choice assumptions."
+    },
+    {
+      "id": "ac_iff_maximal_antichain",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "maximal_antichain",
+      "base": "ZF",
+      "source": "FJ73",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+      "locator": "pp. 79–81, theorem and §I(c)–(e)",
+      "status": "source_checked",
+      "proof_note": "AC yields an inclusion-maximal antichain by applying Zorn to antichains ordered by inclusion. For the reversal, the source proves A ⇒ LW: for a linearly ordered L, use the disjoint union of its nonempty subsets, P={(X,x): ∅≠X⊆L, x∈X}, ordered within each fixed X by the given linear order of x. A maximal antichain selects exactly one point from every X, so L can be well-ordered. LW well-orders the power set of each well-ordered set, because it has a lexicographic linear order. The final PW ⇒ AC uses the rank/Foundation theorem cited by Felgner–Jech; this last step is not a ZFA argument.",
+      "proof_access": "Definitions, theorem and A ⇒ LW ⇒ PW proof inspected in the original paper, pp. 79–81; the final rank-theoretic PW ⇒ AC is cited there to Rubin–Rubin rather than reproved in this audit.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "ac_iff_kuratowski_maximal",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "kuratowski_maximal",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Complete proof sketch in this record; historical source Kuratowski (1922)",
+      "status": "elementary_argument",
+      "proof_note": "Under AC, apply Zorn to (F,⊆). Each nonempty chain has its union as an upper bound in F; the empty chain has an upper bound because F≠∅. Conversely, for any set-indexed family (A_i) of nonempty sets, let F be all graphs of partial choice functions, as subsets of I×⋃A_i. This family contains ∅ and is closed under unions of nonempty inclusion-chains. A maximal member must have domain I: at an omitted index, a single element can be adjoined. Thus it is a choice function. Both directions work in ZF and ZFA.",
+      "proof_access": "Complete elementary equivalence included in this record; not machine checked.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ]
+    },
+    {
+      "id": "ac_iff_linear_orders_well_orderable",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "linear_orders_well_orderable",
+      "base": "ZF",
+      "source": "FJ73",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+      "locator": "pp. 79–81, theorem and §I(e)",
+      "status": "source_checked",
+      "proof_note": "AC well-orders every set. Conversely, for each well-ordered set κ, lexicographic comparison at the least point of disagreement linearly orders P(κ); LW therefore gives PW, that the power set of every well-orderable set is well-orderable. Rubin’s rank-and-Hartogs argument gives PW ⇒ AC over ZF. The pure-set/Foundation hypothesis is essential to this reverse implication; no ZFA equivalence is entered.",
+      "proof_access": "LW ⇒ PW inspected in the original paper; the final PW ⇒ AC theorem is explicitly cited there and announced in Rubin’s 1960 abstract, not re-proved in this audit.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "maximal_antichain_implies_lw",
+      "kind": "implication",
+      "antecedents": [
+        "maximal_antichain"
+      ],
+      "consequent": "linear_orders_well_orderable",
+      "base": "ZF",
+      "source": "FJ73",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+      "locator": "§I(d), p. 81",
+      "status": "source_checked",
+      "proof_note": "For a linearly ordered set L, order pairs (X,x), with ∅≠X⊆L and x∈X, by comparing x only when the first coordinate X agrees. Distinct fibers are incomparable and each fiber is a chain. Every maximal antichain meets every fiber exactly once, producing a choice function on P(L)∖{∅}. Such a choice function well-orders L by the usual transfinite selection argument. The construction also works with atoms.",
+      "proof_access": "Primary-source statement and indicated proof route inspected; no formal proof verification.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ]
+    },
+    {
+      "id": "ac_fixedk_equiv",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "fixed_k_comparison",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FO2008",
+      "source_url": "https://arxiv.org/pdf/0804.0673v1",
+      "locator": "Definition of k-Trichotomy and Theorem 1, p. 2; proof pp. 3–6; Blass appendix pp. 7–8",
+      "status": "source_checked",
+      "layer": "standard",
+      "parameters": {
+        "k": "same fixed finite integer k≥2 throughout"
+      },
+      "proof_note": "For every fixed finite k≥2, AC gives linear comparability of all cardinals and hence a comparable pair in any k-element family. Conversely, Feldman–Orhon Theorem 1 derives the Well-Ordering Principle from k-Trichotomy. The distinct-cardinal and distinct-set formulations agree: equipotent distinct sets already form a comparable pair, while representatives of a finite family of Scott cardinals can be chosen in ZF. Blass’s appendix gives a direct construction of k mutually incomparable sets from any non-well-orderable set.",
+      "proof_access": "Full primary PDF inspected, including the theorem and the direct construction in the appendix. This is a source-based theorem record, not a new formal verification.",
+      "base_review": "Recorded over ZF, the base stated in the source. No ZFA extension is asserted by this record."
     }
   ],
   "models": [
@@ -5947,7 +6581,9 @@
         "pp",
         "ac_wo_index",
         "nds_sets",
-        "fb"
+        "fb",
+        "dual_csb",
+        "wpp"
       ],
       "source": "HS25",
       "source_url": "https://arxiv.org/html/2504.02744v1",
@@ -6024,6 +6660,17 @@
           "locator": "Corollary 3.2 and Theorem 3.4",
           "status": "source_checked",
           "proof_note": "The full text proves HRR in the basic Cohen model and proves that HRR excludes amorphous sets. The same property also follows from the model's existing OP and the supplied elementary implication."
+        },
+        {
+          "principles": [
+            "dual_csb",
+            "wpp"
+          ],
+          "source": "BK2026",
+          "source_url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Theorem 3.3; Corollaries 3.4 and 8.2",
+          "status": "source_checked",
+          "proof_note": "The basic Cohen model has an infinite Dedekind-finite set. Theorem 3.3 refutes WPP directly (and hence CSB*); Corollary 8.2 also gives WPP ⇒ AC_WO ⇒ DC, contrary to DC’s failure in this model."
         }
       ]
     },
@@ -6054,7 +6701,10 @@
       "assumptions": "Con(ZF)",
       "true_ids": [
         "pp",
-        "ac_wo_index"
+        "ac_wo_index",
+        "dual_csb",
+        "wpp",
+        "svc"
       ],
       "false_ids": [
         "ac"
@@ -6102,6 +6752,29 @@
           "locator": "§3.5, pp. 13–14; §4.1, p. 17 (OP still holds)",
           "status": "preliminary",
           "review": "Preliminary public report with separate AI-assisted mathematical audits. The full forcing argument is not Lean-formalized and has not received independent human peer review; no novelty certification is claimed."
+        }
+      ],
+      "property_evidence": [
+        {
+          "principles": [
+            "dual_csb",
+            "wpp"
+          ],
+          "source": "OPENAI2026",
+          "source_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf",
+          "locator": "Remark 7.3, p. 36",
+          "status": "source_dependent",
+          "proof_note": "The manuscript explicitly gives PP ⇒ CSB* ⇒ WPP and the joint consistency statement with ¬AC."
+        },
+        {
+          "principles": [
+            "svc"
+          ],
+          "source": "OPENAI2026",
+          "source_url": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf",
+          "locator": "Proposition 3.6 p.22; nonchoice in Proposition 3.8 p.24",
+          "status": "source_dependent",
+          "proof_note": "The constructed label set A witnesses the existential SVC statement. A is non-well-orderable; it is not a finite or ordinal seed. Remark 7.2 also derives SVC+(A) from PP for this same A."
         }
       ]
     },

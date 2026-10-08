@@ -419,3 +419,40 @@ details[open] > summary { margin-bottom: 12px; }
  .workspace .toolbar #edge-kind{flex:1 1 0;min-width:0}
  .workspace .toolbar #graph-mode{flex:0 0 auto}
 }
+
+/* Complete axiom profiles retain mathematical evidence outside the graph. */
+.relationship-overview { margin: 26px 0; min-width: 0; }
+.profile-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.profile-heading h3 { margin: 0; }
+.profile-heading a { font-size: .82rem; }
+.profile-search-label { display: grid; gap: 7px; font-size: .82rem; color: var(--muted); }
+.profile-search { width: 100%; min-width: 0; }
+.profile-search-count:empty { display: none; }
+.profile-groups { margin-top: 15px; }
+.profile-group { border: 1px solid var(--line); border-radius: 8px; margin: 10px 0; padding: 0 12px; background: var(--surface); }
+.profile-group > summary { padding: 12px 0; font-weight: 650; cursor: pointer; }
+.profile-group > summary .count { margin-left: 8px; font-size: .7rem; }
+.profile-group > p { margin: 0 0 12px; }
+.profile-members { min-width: 0; padding-bottom: 10px; }
+.profile-pair { border-top: 1px solid var(--line); padding: 7px 0; }
+.profile-pair > summary { cursor: pointer; overflow-wrap: anywhere; }
+.profile-pair > summary > span { display: block; font-size: .75rem; color: var(--muted); margin: 5px 0; }
+.profile-pair > summary > small { display: flex; flex-wrap: wrap; gap: 4px 8px; margin-top: 6px; }
+.direction-status { font-size: .7rem; line-height: 1.5; }
+.direction-status.proved { color: var(--blue); }
+.direction-status.refuted { color: var(--orange); }
+.direction-status.unrecorded { color: var(--muted); }
+.profile-pair-evidence { padding: 8px 0; min-width: 0; }
+.profile-pair-evidence .comparison-direction { margin: 12px 0; }
+.profile-page { max-width: 1050px; }
+.full-profile .profile-members { max-height: 620px; overflow-y: auto; padding-right: 8px; }
+.compact-profile .profile-members { max-height: 460px; overflow-y: auto; padding-right: 6px; }
+.profile-controls { margin-top: 22px; flex-wrap: wrap; }
+[hidden] { display: none !important; }
+@media(max-width:740px){
+ .profile-heading a { min-height: 44px; display: inline-flex; align-items: center; }
+ .profile-pair > summary { min-height: 44px; }
+ .profile-group { padding: 0 10px; }
+ .profile-members, .full-profile .profile-members, .compact-profile .profile-members { max-height: none; overflow-y: visible; padding-right: 0; }
+ .profile-controls { gap: 8px 12px; }
+}

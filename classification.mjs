@@ -1,4 +1,4 @@
-import {compare} from './engine.mjs?v=20261008-3';
+import {compare} from './engine.mjs?v=20261008-4';
 
 export const AC_GROUPS=[
  {id:'equivalent',title:'Equivalent to AC',description:'Equivalent formulations, collected here instead of repeated in the graph.'},
@@ -33,7 +33,7 @@ export function graphEligible(data,node,theory='ZF'){
 export function graphSlice(data,ids,relations,theory='ZF',kind='all'){
  const eligible=ids.filter(id=>{const node=data.principles.find(n=>n.id===id);return node&&graphEligible(data,node,theory)});
  const logical=new Map();
- for(const r of relations.filter(r=>eligible.includes(r.consequent)&&r.antecedents.every(id=>eligible.includes(id)))){
+ for(const r of relations.filter(r=>r.antecedents.length>0&&eligible.includes(r.consequent)&&r.antecedents.every(id=>eligible.includes(id)))){
   if(kind==='nonimplication'&&r.kind!=='nonimplication')continue;
   if(kind==='implication'&&r.kind==='nonimplication')continue;
   const key=JSON.stringify([r.kind,[...r.antecedents].sort(),r.consequent]);

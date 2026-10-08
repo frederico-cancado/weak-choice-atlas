@@ -139,3 +139,44 @@ assert.equal(compare(data,'ac_n','ac_2').proof,null,'Unspecified fixed n must no
 assert.equal(compare(data,'ac_2','bpi').proof,null,'Two-color compactness does not get the n≥3 equivalence.');
 assert.ok(node('infinite_hall_finite_fibers').notes.includes('partial choice'));
 console.log('PASS: selected graph scope, two-color versus finite-color compactness, Hall and CUC links, and no-amorphous countermodel directions.');
+
+const {relationshipProfile,assessDirection}=await import('./profiles.mjs');
+const csbProfile=relationshipProfile(data,'dual_csb','ZF',false);
+assert.equal(csbProfile.total,ids.size-1);
+assert.ok(csbProfile.groups.incoming.some(e=>e.id==='pp'));
+assert.ok(csbProfile.groups.outgoing.some(e=>e.id==='wpp'));
+assert.ok(csbProfile.groups.outgoing.some(e=>e.id==='dc'),'Transitive consequences appear.');
+assert.ok(csbProfile.groups.unsettled.some(e=>e.id==='pp'),'The unrecorded reverse remains visible alongside the known direction.');
+assert.ok(csbProfile.entries.some(e=>e.id==='finite_index_choice'),'Graph-hidden definitions remain in the relationship profile.');
+assert.equal(assessDirection(data,'dual_csb','pp').status,'unrecorded');
+assert.equal(assessDirection(data,'dual_csb','ac','ZF',true).status,'refuted');
+assert.equal(assessDirection(data,'dual_csb','ac','ZF',false).status,'unrecorded');
+assert.equal(assessDirection(data,'dual_csb','ac','ZFA',true).status,'unrecorded');
+assert.ok(relationshipProfile(data,'dual_csb','ZF',true).groups.incomparable.some(e=>e.id==='bpi'));
+assert.ok(!relationshipProfile(data,'dual_csb','ZF',false).groups.incomparable.some(e=>e.id==='bpi'));
+const svcProfile=relationshipProfile(data,'svc_wellorderable_seed');
+assert.ok(svcProfile.groups.equivalent.some(e=>e.id==='ac'));
+assert.equal(assessDirection(data,'svc_seed','ac').status,'unrecorded','A general fixed seed is not silently well-orderable.');
+const fixture={principles:[{id:'a'},{id:'b'},{id:'c'}],relations:[{id:'joint',kind:'implication',antecedents:['a','b'],consequent:'c',base:'ZF',layer:'standard'}],models:[]};
+assert.equal(relationshipProfile(fixture,'a').entries.find(e=>e.id==='c').forward.status,'unrecorded','A profile cannot drop a joint hypothesis.');
+console.log('PASS: complete relationship profiles, transitive evidence, unanswered reverse directions, hidden catalogue entries, and research/theory isolation.');
+
+for(const id of ['maximal_antichain','kuratowski_maximal','linear_orders_well_orderable','svc_wellorderable_seed']){
+ assert.equal(classifyPrinciple(data,node(id),'ZF').group,'equivalent');assert.equal(graphEligible(data,node(id),'ZF'),false);
+ assert.ok(compare(data,id,'ac','ZF').proof);assert.ok(compare(data,'ac',id,'ZF').proof);
+}
+for(const id of ['maximal_antichain','linear_orders_well_orderable'])assert.equal(compare(data,id,'ac','ZFA').proof,null);
+assert.ok(compare(data,'kuratowski_maximal','ac','ZFA').proof);
+for(const theory of ['ZF','ZFA'])for(const id of ['csb','finite_index_choice','ordinal_trichotomy','finite_hall']){
+ assert.equal(assessDirection(data,'pp',id,theory).status,'proved');
+ assert.ok(relationshipProfile(data,'dual_csb',theory).groups.outgoing.some(e=>e.id===id));
+}
+assert.ok(graphSlice(data,[...ids],visibleRelations(data,'ZF',true)).edges.every(r=>r.antecedents.length>0),'Theorem facts are not drawn as edges from missing graph nodes.');
+assert.equal(new Set(data.relations.map(r=>r.id)).size,data.relations.length);
+assert.ok(node('maximal_antichain').hypotheses.some(h=>h.includes('neither a≤b')));
+assert.ok(node('zorn').history_evidence.length);
+console.log('PASS: historical order principles, atom-sensitive reversals, and unconditional theorem consequences.');
+
+const maximalProfile=relationshipProfile(data,'maximal_antichain');
+for(const n of data.principles.filter(n=>n.id!=='maximal_antichain'&&classifyPrinciple(data,n,'ZF',false).group==='equivalent'))assert.ok(maximalProfile.groups.equivalent.some(e=>e.id===n.id),`All AC equivalents connect: ${n.id}`);
+console.log('PASS: every classified AC equivalent connects through explicit proof records.');

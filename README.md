@@ -23,13 +23,25 @@ Choose Auto, Light or Dark in the header; the theme preference is saved on
 this device. On phones the atlas automatically uses Graph, Principles and
 Details tabs, with touch-sized controls and a list alternative to the graph.
 
-Current edition: 97 statement/family records, 98 relationships, and 5 models.
+Current edition: 101 statement/family records, 115 relationships, and 5 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
+## Complete relationship profiles
+
+Click a principle to see its relationship groups, or choose **Open full view** for a searchable comparison with every other catalogue entry. Profiles include graph-hidden definitions and provide incoming implications, consequences, equivalences, mutual nonimplications, and unanswered directions. Transitive implications include their complete recorded proof paths; expanding a comparison displays evidence separately for each direction.
+
+**Unknown / not recorded** means the atlas lacks evidence for a direction under the selected ZF/ZFA and research settings. It is not an assertion of mathematical openness. A known implication with an unanswered converse appears in both the implication group and the unanswered group. Known ZF theorems are unconditional consequences, without adding source-less arrows to the graph.
+
+The **PP, CSB* & WPP** view displays PP ⇒ CSB* ⇒ WPP ⇒ AC_WO ⇒ DC. OpenAI’s explicit CSB* and WPP nonimplications to AC retain its attribution and recent-source status. The BPI/CSB* comparison distinguishes the classical Cohen-model direction from Cançado’s preliminary reverse separation.
+
+SVC(A) in OpenAI’s model uses its particular non-well-orderable seed A. Literal finite nonzero seeds and omega give AC-equivalent versions, recorded in a separate SVC(W) entry. The model supplies existential SVC, without asserting SVC(S) for every possible fixed parameter S.
+
+The AC-equivalence catalogue includes the maximal antichain principle, Kuratowski’s chain-union maximal principle, and LW (linearly orderable sets are well-orderable). Definitions distinguish incomparable order antichains from incompatible forcing antichains, and ZF reversals from those valid with atoms. Historical notes cover these principles and Zorn, Hausdorff, Teichmüller–Tukey, and well-ordering, with references and source-access limitations.
+
 ## Catalogue groups and graph scope
 
-The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 15, 70, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
+The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 19, 70, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
 
 AC equivalents have standalone pages with hypotheses and proof references, and are excluded from graph nodes and edges. The reasoning records are retained for comparison and citation. The selected 11 removal candidates are retained; the other 41 are hidden from graph navigation while remaining in the full catalogue. Retained item 10, choice for linearly orderable index sets, remains in the AC-equivalence catalogue.
 
