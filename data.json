@@ -1898,7 +1898,7 @@
       "category": "unions_and_finiteness",
       "definition": "Every infinite set splits into two disjoint infinite subsets.",
       "howard_rubin_reference": "64",
-      "notes": "No amorphous sets is weaker than the assertion that every infinite set is Dedekind-infinite: NDS ⇒ every Dedekind-finite set is finite ⇒ no amorphous sets. The basic Cohen model disproves both converse implications. This principle does not imply a nonprincipal ultrafilter exists. By contrast, if an amorphous set exists (the negation of this node), its cofinite filter is nonprincipal and is an ultrafilter, and that set is infinite Dedekind-finite. Mere existence of an ultrafilter without the word nonprincipal is already provable in ZF via a principal ultrafilter.",
+      "notes": "No amorphous sets is weaker than the assertion that every infinite set is Dedekind-infinite: NDS ⇒ every Dedekind-finite set is finite ⇒ no amorphous sets. The basic Cohen model shows that no amorphous sets implies neither Dedekind infinitude nor NDS. This principle does not imply a nonprincipal ultrafilter exists. By contrast, if an amorphous set exists (the negation of this node), its cofinite filter is nonprincipal and is an ultrafilter, and that set is infinite Dedekind-finite. Mere existence of an ultrafilter without the word nonprincipal is already provable in ZF via a principal ultrafilter.",
       "status": "candidate",
       "base_theory": "ZF",
       "node_kind": "specific_statement",

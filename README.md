@@ -12,7 +12,7 @@ The comparison tool finds compatible implication paths and supporting
 countermodels. Switch ZF/ZFA explicitly. Recent source-dependent and
 preliminary results are off by default and can be included with a toggle.
 Hidden research relationships are flagged in the graph and principle panels.
-The Finite choice & colourings view includes AC₂ ⇔ G₂, BPI ⇔ Gₙ for each fixed finite n≥3, and BPI ⇒ finite-fiber Hall ⇒ AC_fin. Countable choice ⇒ CUC ⇒ choice for countable families of countable sets is recorded. The Infinite sets & ultrafilters view shows NDS ⇒ Dedekind infinitude ⇒ no amorphous sets, the failures of the reverse directions, and the failure of no-amorphous to imply any nonprincipal ultrafilter. Algebraic closures have a dedicated view with BPI implications.
+The Finite choice & colourings view includes AC₂ ⇔ G₂, BPI ⇔ Gₙ for each fixed finite n≥3, and BPI ⇒ finite-fiber Hall ⇒ AC_fin. Countable choice ⇒ CUC ⇒ choice for countable families of countable sets is recorded. The Infinite sets & ultrafilters view shows NDS ⇒ Dedekind infinitude ⇒ no amorphous sets, the failure of no amorphous sets to imply either stronger principle, and the failure of no-amorphous to imply any nonprincipal ultrafilter. Algebraic closures have a dedicated view with BPI implications.
 
 The Small violations & coding view includes SVC, its fixed-seed versions,
 and their connections to PP and KWP.
