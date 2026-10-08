@@ -456,3 +456,12 @@ details[open] > summary { margin-bottom: 12px; }
  .profile-members, .full-profile .profile-members, .compact-profile .profile-members { max-height: none; overflow-y: visible; padding-right: 0; }
  .profile-controls { gap: 8px 12px; }
 }
+
+/* Keep follow-up results visible beside the original model facts. */
+.model-followups > tr > th { padding-top: 20px; color: var(--ink); background: var(--notice-bg); }
+.model-row-credit { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: 8px; color: var(--muted); font-size: .75rem; line-height: 1.5; overflow-wrap: anywhere; }
+.model-row-credit .tag { font-size: .7rem; }
+.model-row-credit a { display: inline-block; }
+.model-followup-evidence { margin-top: 20px; }
+.model-followup-evidence > summary { cursor: pointer; font-weight: 600; margin-bottom: 14px; }
+@media(max-width:740px){ .model-row-credit a { min-height: 44px; display: inline-flex; align-items: center; } }

@@ -27,6 +27,8 @@ Current edition: 101 statement/family records, 115 relationships, and 5 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
+The OpenAI model card includes Cançado’s six recorded follow-up results directly in its truth-value table: FB, NDS, finite cardinal antichains and OP hold; OEP and BPI fail. Each follow-up row shows his name, preliminary status and a link to its source, in both the model listing and the full model page. The construction remains attributed to OpenAI.
+
 ## Complete relationship profiles
 
 Click a principle to see its relationship groups, or choose **Open full view** for a searchable comparison with every other catalogue entry. Profiles include graph-hidden definitions and provide incoming implications, consequences, equivalences, mutual nonimplications, and unanswered directions. Transitive implications include their complete recorded proof paths; expanding a comparison displays evidence separately for each direction.
