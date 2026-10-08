@@ -12,6 +12,8 @@ The comparison tool finds compatible implication paths and supporting
 countermodels. Switch ZF/ZFA explicitly. Recent source-dependent and
 preliminary results are off by default and can be included with a toggle.
 Hidden research relationships are flagged in the graph and principle panels.
+The Finite choice & colourings view includes AC₂ ⇔ G₂, BPI ⇔ Gₙ for each fixed finite n≥3, and BPI ⇒ finite-fiber Hall ⇒ AC_fin. Countable choice ⇒ CUC ⇒ choice for countable families of countable sets is recorded. The Infinite sets & ultrafilters view shows NDS ⇒ Dedekind infinitude ⇒ no amorphous sets, the failures of the reverse directions, and the failure of no-amorphous to imply any nonprincipal ultrafilter. Algebraic closures have a dedicated view with BPI implications.
+
 The Small violations & coding view includes SVC, its fixed-seed versions,
 and their connections to PP and KWP.
 The Order extension & choice view collects OEP, OP and BPI alongside the
@@ -21,15 +23,15 @@ Choose Auto, Light or Dark in the header; the theme preference is saved on
 this device. On phones the atlas automatically uses Graph, Principles and
 Details tabs, with touch-sized controls and a list alternative to the graph.
 
-Initial edition: 95 statement/family records, 77 relationships, and 4 models.
+Current edition: 97 statement/family records, 98 relationships, and 5 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
 ## Catalogue groups and graph scope
 
-The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 15, 68, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
+The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 15, 70, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
 
-AC equivalents have standalone pages with hypotheses and proof references, and are excluded from graph nodes and edges. The reasoning records are retained for comparison and citation. No user-proposed removal candidates have been deleted from the catalogue.
+AC equivalents have standalone pages with hypotheses and proof references, and are excluded from graph nodes and edges. The reasoning records are retained for comparison and citation. The selected 11 removal candidates are retained; the other 41 are hidden from graph navigation while remaining in the full catalogue. Retained item 10, choice for linearly orderable index sets, remains in the AC-equivalence catalogue.
 
 Non-implications use bold orange dashed paths, explicit ↛ badges, large click/tap targets and hover/focus emphasis. The **Non-implications only** filter isolates them. Multiple proofs of the same directed statement share a single graph arrow, preferring the classical source; individual evidence records remain in the principle panel.
 

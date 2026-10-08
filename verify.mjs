@@ -108,7 +108,7 @@ assert.equal(compare(data,'vector_basis','ac','ZFA',false).proof,null);
 assert.notEqual(compare(data,'vector_basis','ac','ZFA',true).proof,null);
 const map=graphSlice(data,[...ids],visibleRelations(data,'ZF',true));
 assert.ok(!map.ids.includes('ac')&&!map.ids.includes('zorn')&&!map.ids.includes('tychonoff'));
-assert.ok(map.ids.includes('finite_index_choice'),'Removal candidates must remain until the user chooses.');
+assert.ok(!map.ids.includes('finite_index_choice'),'Unselected candidates stay out of the graph.');
 assert.ok(map.edges.every(r=>[...r.antecedents,r.consequent].every(id=>map.ids.includes(id))));
 const opEdges=map.edges.filter(r=>r.kind==='nonimplication'&&r.antecedents.length===1&&r.antecedents[0]==='op'&&r.consequent==='oep');
 assert.equal(opEdges.length,1);assert.equal(opEdges[0].source,'MATHIAS1974');
@@ -120,3 +120,22 @@ assert.ok(node('tychonoff_hausdorff').notes.includes('BPI also gives a nonempty 
 assert.ok(node('maximal_ideal').definition.includes('proper ideal I'));
 assert.ok(node('svc_seed').definition.includes('nonempty S'));
 console.log('PASS: AC catalogue classification, graph exclusions, separation filters, historical/preprint provenance and precise hypotheses.');
+
+// Selection must affect presentation only; the complete catalogue is retained.
+assert.deepEqual(data.graph_selection.kept_candidate_numbers,[5,6,7,10,22,24,29,30,33,34,38]);
+assert.equal(data.graph_selection.hidden_candidate_ids.length,41);
+for(const id of data.graph_selection.hidden_candidate_ids){assert.ok(ids.has(id));assert.equal(graphEligible(data,node(id)),false)}
+for(const id of data.graph_selection.kept_candidate_ids){assert.ok(ids.has(id));assert.notEqual(node(id).graph_visibility,'hidden');if(id!=='ac_lo_index')assert.equal(graphEligible(data,node(id)),true)}
+assert.equal(graphEligible(data,node('ac_lo_index')),false);
+for(const [a,b] of [['ac_2','graph_coloring_compactness_2'],['bpi','graph_coloring_compactness']]){
+ assert.ok(compare(data,a,b).proof);assert.ok(compare(data,b,a).proof);
+}
+for(const [a,b] of [['ac_omega','cuc'],['dc','cuc'],['cuc','ac_omega_countable'],['bpi','infinite_hall_finite_fibers'],['infinite_hall_finite_fibers','ac_finite_fibers'],['bpi','algebraic_closure'],['bpi','unique_algebraic_closure'],['nds_sets','no_amorphous'],['op','no_amorphous'],['free_ultrafilter_omega','some_free_ultrafilter'],['ac_n','ac_omega_n']])assert.ok(compare(data,a,b).proof,`${a} implies ${b}`);
+for(const target of ['df_finite','nds_sets','some_free_ultrafilter']){
+ const r=compare(data,'no_amorphous',target);assert.equal(r.proof,null);assert.ok(r.witnesses.length,`No amorphous does not imply ${target}`);
+ assert.ok(data.relations.some(e=>e.kind==='nonimplication'&&e.antecedents[0]==='no_amorphous'&&e.consequent===target));
+}
+assert.equal(compare(data,'ac_n','ac_2').proof,null,'Unspecified fixed n must not silently specialize to 2.');
+assert.equal(compare(data,'ac_2','bpi').proof,null,'Two-color compactness does not get the n≥3 equivalence.');
+assert.ok(node('infinite_hall_finite_fibers').notes.includes('partial choice'));
+console.log('PASS: selected graph scope, two-color versus finite-color compactness, Hall and CUC links, and no-amorphous countermodel directions.');

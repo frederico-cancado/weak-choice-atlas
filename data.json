@@ -3,7 +3,7 @@
   "prepared": "2026-10-07",
   "prepared_for": "Frederico Cançado",
   "scope": "Broad coverage from the start. This is an extensible inventory, not an exhaustive enumeration or a certified implication graph.",
-  "record_count": 88,
+  "record_count": 97,
   "status": "Initial public catalogue; relation review levels are shown individually.",
   "counts_note": "Records include parameterized families, equivalent anchors, ZF theorems and research candidates; 88 is not a count of pairwise inequivalent weak axioms.",
   "notation": {
@@ -156,7 +156,8 @@
       "hypotheses": [
         "The index set I is finite.",
         "Each factor A_i is nonempty; factors need not be finite."
-      ]
+      ],
+      "graph_visibility": "hidden"
     },
     {
       "id": "ac_omega",
@@ -206,7 +207,8 @@
           "source_id": "HR",
           "locator": "Form 86(alpha)"
         }
-      ]
+      ],
+      "graph_visibility": "hidden"
     },
     {
       "id": "ac_wo_index",
@@ -267,7 +269,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "ac_wo_both",
@@ -299,7 +302,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "ac_finite_fibers",
@@ -309,7 +313,7 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "62",
       "status": "candidate",
-      "notes": "I is arbitrary, not assumed finite or countable. This is weaker than full AC; BPI implies it, and the basic Cohen model satisfies BPI while AC fails. It differs from selecting a finite subset of an arbitrary fiber (multiple choice).",
+      "notes": "I is arbitrary, not assumed finite or countable. This is weaker than full AC; BPI implies it, and the basic Cohen model satisfies BPI while AC fails. It differs from selecting a finite subset of an arbitrary fiber (multiple choice). Full choice in particular supplies partial choice on an infinite subfamily whenever the original family is infinite; use the whole index set.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
@@ -346,7 +350,7 @@
       "status": "parameterized_family",
       "notes": "n=2 is choice for pairs; quantifying over every n gives a separate principle.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "parameterized_template",
       "catalogue_status": "draft_inventory",
@@ -366,7 +370,8 @@
         "note": "For each fixed finite n≥2, choice for all nonempty finite sets supplies a full choice function, hence the requested partial or countable choice. The basic Cohen model satisfies BPI, hence AC_fin, while AC fails.",
         "layer": "standard",
         "review": "The countermodel is cited; the restriction is an elementary deduction."
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "ac_omega_finite",
@@ -400,7 +405,7 @@
       "status": "parameterized_family",
       "notes": "Use HR catalogue IDs; papers can contain typographical cross-reference errors.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "parameterized_template",
       "catalogue_status": "draft_inventory",
@@ -420,7 +425,8 @@
         "note": "For each fixed finite n≥2, choice for all nonempty finite sets supplies a full choice function, hence the requested partial or countable choice. The basic Cohen model satisfies BPI, hence AC_fin, while AC fails.",
         "layer": "standard",
         "review": "The countermodel is cited; the restriction is an elementary deduction."
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "ac_omega_countable",
@@ -454,7 +460,7 @@
       "status": "candidate",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {
         "HR": "Form 85"
       },
@@ -476,7 +482,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "ac_omega_reals",
@@ -515,7 +522,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "ac_reals_index_reals",
@@ -549,7 +557,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "ac_lo_index",
@@ -561,7 +570,7 @@
       "status": "AC_equivalent_anchor_in_ZF",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {
         "HR": "Form 202"
       },
@@ -583,7 +592,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "dc",
@@ -651,7 +661,8 @@
           "source_id": "HS25higher",
           "locator": ""
         }
-      ]
+      ],
+      "graph_visibility": "hidden"
     },
     {
       "id": "dc_below_kappa",
@@ -673,7 +684,8 @@
           "source_id": "HS25higher",
           "locator": ""
         }
-      ]
+      ],
+      "graph_visibility": "hidden"
     },
     {
       "id": "partial_omega_n",
@@ -705,7 +717,8 @@
         "note": "For each fixed finite n≥2, choice for all nonempty finite sets supplies a full choice function, hence the requested partial or countable choice. The basic Cohen model satisfies BPI, hence AC_fin, while AC fails.",
         "layer": "standard",
         "review": "The countermodel is cited; the restriction is an elementary deduction."
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "partial_infinite_n",
@@ -739,7 +752,8 @@
         "note": "For each fixed finite n≥2, choice for all nonempty finite sets supplies a full choice function, hence the requested partial or countable choice. The basic Cohen model satisfies BPI, hence AC_fin, while AC fails.",
         "layer": "standard",
         "review": "The countermodel is cited; the restriction is an elementary deduction."
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "mc",
@@ -818,7 +832,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "omega_mc",
@@ -840,7 +855,8 @@
           "source_id": "Metric03",
           "locator": ""
         }
-      ]
+      ],
+      "graph_visibility": "hidden"
     },
     {
       "id": "kw",
@@ -878,7 +894,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "kw_omega",
@@ -910,7 +927,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "kw_wo_index",
@@ -942,7 +960,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "kw_wo_fibers",
@@ -974,7 +993,8 @@
         "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
         "layer": "standard",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "op",
@@ -1115,7 +1135,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "free_ultrafilter_omega",
@@ -1149,9 +1170,9 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "206",
       "status": "candidate",
-      "notes": "",
+      "notes": "The set carrying the ultrafilter is not specified and need not be omega. An ultrafilter is nonprincipal when it contains no singleton. Existence of a principal ultrafilter on any given nonempty set needs no choice; this node requires a nonprincipal one.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {
         "HR": "Form 206"
       },
@@ -1181,7 +1202,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "propositional_compactness",
@@ -1243,27 +1265,37 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "graph_coloring_compactness",
-      "name": "Finite-color graph compactness",
+      "name": "Finite-color graph compactness (Gₙ, n≥3)",
       "category": "combinatorics",
-      "definition": "If every finite subgraph is n-colorable, the whole graph is n-colorable; fixed n >= 3.",
+      "definition": "For a fixed natural number n≥3, every simple undirected graph G=(V,E), with arbitrary vertex set V and E⊆[V]², is properly colorable into the fixed palette {0,…,n−1} whenever each finite induced subgraph is. Unused colors are allowed; no family of finite colorings is assumed given.",
       "base_theory": "ZF",
       "howard_rubin_reference": "14 G(n)",
       "status": "parameterized_family",
-      "notes": "The n=2 case is a separate entry.",
+      "notes": "For each individual fixed n≥3 this is equivalent to BPI in ZF. The separate n=2 statement is equivalent to AC₂. The n=1 statement is a ZF theorem because its finite-subgraph hypothesis forces E=∅.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "parameterized_template",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "G(n)",
+        "Gₙ",
+        "Pₙ",
+        "de Bruijn–Erdős compactness"
+      ],
       "definition_evidence": [
         {
-          "source_id": "Bodirsky",
-          "locator": ""
+          "source_id": "LAUCHLI1971",
+          "locator": "Main result, pp. 422–429"
+        },
+        {
+          "source_id": "COWEN_HECHLER_MIHOK2002",
+          "locator": "Introduction and §6, after Theorem 6.1"
         }
       ],
       "ac_classification": {
@@ -1275,7 +1307,8 @@
         "note": "For each fixed finite n≥3, propositional compactness produces an n-coloring by finite color variables and edge constraints. Thus BPI implies this statement, while AC fails in the basic Cohen model.",
         "layer": "standard",
         "review": "The reduction is elementary; the cited source supplies the BPI countermodel."
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "tychonoff",
@@ -1394,7 +1427,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "tychonoff_countable_finite",
@@ -1434,7 +1468,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "hahn_banach",
@@ -1520,7 +1555,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "vector_basis",
@@ -1591,7 +1627,8 @@
         "note": "A specified field F is part of the statement; the universally quantified all-fields equivalence cannot be imported.",
         "source_url": "https://doi.org/10.1002/malq.200610043",
         "source_title": "Paul Howard (2007), Bases, spanning sets, and the axiom of choice"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "algebraic_closure",
@@ -1603,7 +1640,7 @@
       "status": "candidate",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -1631,7 +1668,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "unique_algebraic_closure",
@@ -1643,7 +1681,7 @@
       "status": "candidate",
       "notes": "Conditional uniqueness does not assert that a closure exists.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -1671,7 +1709,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "maximal_ideal",
@@ -1744,7 +1783,8 @@
         "layer": "standard",
         "base": "ZF",
         "checked_at": "2026-10-08"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "dependent_multiple_choice",
@@ -1785,7 +1825,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "cuc",
@@ -1793,12 +1834,12 @@
       "category": "unions_and_finiteness",
       "definition": "If each A_n is at most countable, then the union of (A_n : n in omega) is at most countable.",
       "howard_rubin_reference": "31",
-      "notes": "Countable means injectible into omega. No simultaneous enumerations are given; with given enumerations the elementary countability proof is available in ZF. This is not merely choice for countable families of countable sets.",
+      "notes": "Countable means injectible into omega. No simultaneous enumerations are given; with given enumerations the elementary countability proof is available in ZF. This is not merely choice for countable families of countable sets. AC_omega implies CUC by choosing injections into omega. CUC implies AC_{omega,countable} and CUF; see the supplied proof notes.",
       "status": "candidate",
       "base_theory": "ZF",
       "node_kind": "specific_statement",
       "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
-      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "catalogue_status": "draft_inventory",
       "aliases": [],
       "definition_evidence": [
@@ -1823,11 +1864,12 @@
           {
             "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
             "title": "Jech, The Axiom of Choice",
-            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+            "locator": "§2.4, Example 2.4.2, printed p. 20"
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "cuf",
@@ -1856,12 +1898,12 @@
       "category": "unions_and_finiteness",
       "definition": "Every infinite set splits into two disjoint infinite subsets.",
       "howard_rubin_reference": "64",
-      "notes": "Infinite is not silently replaced by Dedekind-infinite or countably infinite. Existence of a split does not provide coherent choices of splits for whole families.",
+      "notes": "No amorphous sets is weaker than the assertion that every infinite set is Dedekind-infinite: NDS ⇒ every Dedekind-finite set is finite ⇒ no amorphous sets. The basic Cohen model disproves both converse implications. This principle does not imply a nonprincipal ultrafilter exists. By contrast, if an amorphous set exists (the negation of this node), its cofinite filter is nonprincipal and is an ultrafilter, and that set is infinite Dedekind-finite. Mere existence of an ultrafilter without the word nonprincipal is already provable in ZF via a principal ultrafilter.",
       "status": "candidate",
       "base_theory": "ZF",
       "node_kind": "specific_statement",
       "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
-      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "catalogue_status": "draft_inventory",
       "aliases": [],
       "definition_evidence": [
@@ -1890,7 +1932,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "infinite_weakly_dedekind_infinite",
@@ -1928,7 +1971,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "rado_selection",
@@ -1971,7 +2015,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "finite_hall",
@@ -1996,26 +2041,35 @@
           "url": "https://arxiv.org/html/2503.23159v1",
           "locator": "Cameron (2025), Section 1, statement and Hall proof"
         }
-      ]
+      ],
+      "graph_visibility": "hidden"
     },
     {
       "id": "infinite_hall_finite_fibers",
       "name": "Hall marriage principle for arbitrary families of finite sets",
       "category": "combinatorics",
-      "definition": "An arbitrarily indexed family of finite sets has distinct representatives if each finite subfamily satisfies Hall’s union-size condition.",
-      "howard_rubin_reference": "",
-      "notes": "This is a candidate statement, not an asserted relationship. Retain finite fibers: dropping them makes this Hall condition insufficient even with AC. The cited modern theorem supplies the definition; retrieve the cited original before labelling its proof original.",
+      "definition": "For every set-indexed family (A_i)_{i∈I} of finite sets, if |J| ≤ |⋃_{i∈J} A_i| for every finite J⊆I, then there is an injective function f with domain I satisfying f(i)∈A_i for all i∈I.",
+      "howard_rubin_reference": "107",
+      "notes": "The index set I is arbitrary and every fiber A_i must be finite. Hall’s condition forces each fiber to be nonempty. BPI implies this principle, which implies full choice for arbitrary families of nonempty finite sets (AC_fin), hence also an infinite-domain partial choice function for every infinite such family. Dropping finiteness makes the stated Hall condition insufficient even with AC.",
       "status": "candidate",
       "base_theory": "ZF",
       "node_kind": "specific_statement",
       "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
-      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "MHT",
+        "Marshall Hall theorem",
+        "infinite marriage theorem"
+      ],
       "definition_evidence": [
         {
-          "url": "https://arxiv.org/html/2503.23159v1",
-          "locator": "Cameron (2025), Section 8, Theorem 8.1; attributes the infinite version to Marshall Hall Jr., reference [16], p. 51"
+          "source_id": "CLARK2013",
+          "locator": "Theorems 5–6 and Remarks 3.4–3.5, pp. 186–187"
+        },
+        {
+          "source_id": "BANERJEEGYENIS2020",
+          "locator": "§2, item (14), pp. 4–5; Form 107"
         }
       ],
       "ac_classification": {
@@ -2035,7 +2089,8 @@
           }
         ],
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "visible"
     },
     {
       "id": "pp",
@@ -2126,7 +2181,8 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "graph_visibility": "hidden"
     },
     {
       "id": "nds_sets",
@@ -2186,7 +2242,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "wf_cardinal_sequence",
@@ -2221,7 +2278,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "wf_maps",
@@ -2256,7 +2314,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "finite_antichains",
@@ -2310,7 +2369,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "omega_family_comparable",
@@ -2342,7 +2402,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "fb",
@@ -2412,7 +2473,8 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "graph_visibility": "hidden"
     },
     {
       "id": "w_lambda_star",
@@ -2436,7 +2498,8 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "graph_visibility": "hidden"
     },
     {
       "id": "df_finite",
@@ -2586,7 +2649,8 @@
       "notes": "Specify P^0(η)=η and union at limit stages. KWP_0 is AC.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "graph_visibility": "hidden"
     },
     {
       "id": "kwp_alpha_star",
@@ -2610,7 +2674,8 @@
       "notes": "Empty-set convention must be explicit; P^0 and limits as in KWP.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "graph_visibility": "hidden"
     },
     {
       "id": "kwp",
@@ -2664,7 +2729,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "countable_absorption",
@@ -2696,7 +2762,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "binary_cardinal_glb",
@@ -2728,7 +2795,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "powerset_comparison",
@@ -2760,7 +2828,8 @@
         "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
         "layer": "recent",
         "base": "ZF"
-      }
+      },
+      "graph_visibility": "hidden"
     },
     {
       "id": "cardinal_trichotomy",
@@ -3003,6 +3072,84 @@
       "hypotheses": [
         "α and β are von Neumann ordinals, compared by membership."
       ]
+    },
+    {
+      "base_theory": "ZF",
+      "status": "candidate",
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "definition_review": "The complete statement and its color-palette hypotheses are recorded explicitly.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "source_locators": {},
+      "id": "ac_2",
+      "name": "Choice for pairs (AC₂)",
+      "category": "restricted_choice",
+      "definition": "For every set-indexed family (A_i)_{i∈I} of two-element sets, there is a function f with domain I such that f(i)∈A_i for every i∈I.",
+      "howard_rubin_reference": "88",
+      "notes": "The index set I is arbitrary. This is not merely countable choice for pairs, and it is the n=2 instance of AC_n. Equivalent in ZF to compactness of proper graph coloring with the fixed palette {0,1}.",
+      "aliases": [
+        "AC_2",
+        "AC₂",
+        "choice for pairs",
+        "C(∞,2)"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "HR",
+          "locator": "Form 88"
+        },
+        {
+          "source_id": "COWEN_HECHLER_MIHOK2002",
+          "locator": "§6, following Theorem 6.1; PDF p. 8"
+        }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+        "source_title": "Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice",
+        "locator": "Corollaries 4.2.2 and 4.2.17; restriction of AC_fin to pairs",
+        "note": "BPI implies choice for finite sets and therefore AC₂. The basic Cohen model satisfies BPI while AC fails.",
+        "layer": "standard",
+        "review": "The countermodel is cited; restriction to pairs is elementary."
+      }
+    },
+    {
+      "base_theory": "ZF",
+      "status": "candidate",
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "definition_review": "The complete statement and its color-palette hypotheses are recorded explicitly.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "source_locators": {},
+      "id": "graph_coloring_compactness_2",
+      "name": "Two-color graph compactness (G₂)",
+      "category": "combinatorics",
+      "definition": "For every simple undirected graph G=(V,E), where E⊆[V]² and V is any set, if every finite induced subgraph has a proper coloring into the fixed palette {0,1}, then G has such a coloring. Proper means adjacent vertices have different colors; unused colors are allowed.",
+      "howard_rubin_reference": "88 (equivalent to choice for pairs)",
+      "notes": "Equivalent to AC₂, not to BPI. There is no assumed enumeration of V and no chosen family of finite colorings. For one color the analogous assertion is provable in ZF; each fixed finite n≥3 gives BPI instead.",
+      "aliases": [
+        "G(2)",
+        "G₂",
+        "P₂",
+        "two-color compactness"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "COWEN_HECHLER_MIHOK2002",
+          "locator": "§6, following Theorem 6.1; PDF p. 8"
+        }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+        "source_title": "Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice",
+        "locator": "Corollaries 4.2.2 and 4.2.17; restriction of AC_fin to pairs",
+        "note": "BPI implies choice for finite sets and therefore AC₂. The basic Cohen model satisfies BPI while AC fails.",
+        "layer": "standard",
+        "review": "The countermodel is cited; restriction to pairs is elementary."
+      }
     }
   ],
   "sources": {
@@ -3348,6 +3495,72 @@
       "source_type": "original_research",
       "role": "Choice for linearly ordered index families is equivalent to AC in ZF; restricted real-index choice can hold without AC.",
       "review": "Source passage checked; any restriction or elementary deduction is stated explicitly."
+    },
+    "COWEN_HECHLER_MIHOK2002": {
+      "title": "Cowen, Hechler and Mihók, Graph coloring compactness theorems equivalent to BPI (2002)",
+      "authors": [
+        "Robert Cowen",
+        "Stephen H. Hechler",
+        "Peter Mihók"
+      ],
+      "url": "https://www.jams.jp/scm/contents/Vol-6-2/6-14.pdf",
+      "source_type": "original_research",
+      "role": "Records the ordinary-coloring split: two colors give AC₂; each fixed finite number at least three gives BPI. These classical statements are credited to earlier work.",
+      "review": "Introduction and §6 directly inspected; original historical references [22], [25], [27] recorded."
+    },
+    "LAUCHLI1971": {
+      "title": "Läuchli, Coloring infinite graphs and the Boolean prime ideal theorem (1971)",
+      "authors": [
+        "Hans Läuchli"
+      ],
+      "url": "https://doi.org/10.1007/BF02771458",
+      "version": "Israel Journal of Mathematics 9 (1971), 422–429.",
+      "source_type": "original_research",
+      "role": "Original ZF construction proving 3-color compactness implies BPI.",
+      "review": "Primary abstract explicitly states the construction and result. Full text not accessed."
+    },
+    "HT2016RIGID": {
+      "title": "On rigid relation principles in set theory without the axiom of choice",
+      "authors": [
+        "Paul Howard",
+        "Eleftherios Tachtsis"
+      ],
+      "journal": "Fundamenta Mathematicae 232 (2016)",
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/91321",
+      "source_type": "published research article",
+      "access": "Full text: Corollary 3.2, Theorem 3.4 and surrounding proof inspected"
+    },
+    "PINCUSSOLOVAY1977": {
+      "title": "Definability of measures and ultrafilters",
+      "authors": [
+        "David Pincus",
+        "Robert M. Solovay"
+      ],
+      "journal": "The Journal of Symbolic Logic 42 (1977), 179–190",
+      "year": 1977,
+      "url": "https://doi.org/10.2307/2272118",
+      "source_type": "published research article",
+      "access": "Original publisher extract and bibliography inspected; full paper not accessible in this audit",
+      "scope_note": "The extract explicitly states ZF+DC with no nonprincipal measures on any set, built from the version not requiring an inaccessible cardinal; it locates the construction in §4.1 and credits ideas of Blass."
+    },
+    "JECH1973": {
+      "title": "Thomas Jech (1973), The Axiom of Choice",
+      "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+      "source_type": "author_monograph",
+      "role": "Countable choice implies the countable union theorem; Example 2.4.2, p. 20."
+    },
+    "CLARK2013": {
+      "title": "Pete L. Clark (2013), Graph Derangements",
+      "url": "https://content.scirp.org/html/38489.html",
+      "source_type": "original_research",
+      "role": "Full finite-fiber Hall theorem and proof; BPI suffices, Theorems 5–6 and Remarks 3.4–3.5, pp. 186–187. DOI: 10.4236/ojdm.2013.34032."
+    },
+    "BANERJEEGYENIS2020": {
+      "title": "Amitayu Banerjee and Zalán Gyenis (2020), Chromatic number of the product of graphs, graph homomorphisms, antichains and cofinal subsets of posets without AC",
+      "url": "https://arxiv.org/pdf/1911.00434v3",
+      "version": "arXiv:1911.00434v3, 25 August 2020",
+      "source_type": "original_research",
+      "role": "Recalls BPI ⇒ MHT ⇒ AC_fin in ZF; identifies MHT as Howard–Rubin Form 107."
     }
   },
   "cardinal_well_foundedness_template": {
@@ -5276,6 +5489,441 @@
       "layer": "standard",
       "proof_note": "For an infinite set X, consider finite injective sequences in X and the serial relation that appends one new element. DC gives a chain with unbounded finite lengths; its union enumerates a countably infinite subset of X. This works with atoms.",
       "proof_access": "Displayed elementary argument checked."
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "base_review": "The displayed finite-graph, component, and pair constructions work unchanged for sets with atoms.",
+      "id": "ac2_iff_two_color_compactness",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac_2"
+      ],
+      "consequent": "graph_coloring_compactness_2",
+      "source": "COWEN_HECHLER_MIHOK2002",
+      "source_url": "https://www.jams.jp/scm/contents/Vol-6-2/6-14.pdf",
+      "locator": "§6, following Theorem 6.1; PDF p. 8",
+      "status": "elementary_argument",
+      "proof_note": "AC₂ ⇒ G₂: finite colorability excludes every odd cycle. Each nonempty connected component therefore has exactly two proper maps to {0,1}, complementary to each other (this includes singleton components). AC₂ selects one of these two maps for every component, and their union is a global coloring. G₂ ⇒ AC₂: for a family of pairs A_i, form the graph with vertices (i,a), a∈A_i, and an edge joining the two vertices over each i. Each finite subgraph is 2-colorable by finite choice, a ZF theorem. A global coloring selects the unique a with color 0 in each pair.",
+      "proof_access": "Both elementary directions are given here; the cited research paper explicitly records the equivalence.",
+      "original_source": {
+        "authors": "Jan Mycielski",
+        "years": "1961; correction 1967",
+        "access": "Historical references [25] and [27] checked in Cowen–Hechler–Mihók; original full texts not audited."
+      }
+    },
+    {
+      "id": "bpi_iff_finite_color_compactness",
+      "kind": "equivalence",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "graph_coloring_compactness",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "layer": "standard",
+      "source": "LAUCHLI1971",
+      "source_url": "https://doi.org/10.1007/BF02771458",
+      "locator": "Abstract and main construction, pp. 422–429; all fixed n≥3 also recorded in Cowen–Hechler–Mihók (2002), introduction and §6",
+      "status": "source_checked",
+      "proof_note": "BPI ⇒ G(n): apply propositional compactness to variables p(v,c) for v∈V and c<n, requiring exactly one color per vertex and forbidding equal colors at endpoints. Every finite set of these conditions is satisfiable. For G(3) ⇒ BPI, Läuchli constructs in ZF from any Boolean algebra B a graph whose finite subgraphs are 3-colorable and whose global 3-colorings yield a prime ideal. For fixed n>3, G(n) ⇒ G(3) by adjoining a clique of n−3 new vertices connected to every old vertex; a global n-coloring leaves only three colors for the old graph.",
+      "proof_access": "Original primary abstract and bibliographic details inspected; full Läuchli proof is subscription-only. The n-color reduction and forward compactness argument are given here; the all-n equivalence is corroborated by the accessible research paper."
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "base_review": "The displayed finite-graph, component, and pair constructions work unchanged for sets with atoms.",
+      "id": "finite_choice_ac2",
+      "kind": "implication",
+      "antecedents": [
+        "ac_finite_fibers"
+      ],
+      "consequent": "ac_2",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Every two-element set is nonempty and finite; restrict AC_fin to families of pairs.",
+      "proof_access": "Complete elementary argument included."
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "kind": "implication",
+      "status": "elementary_argument",
+      "proof_access": "Complete elementary argument supplied below; no historical priority claim.",
+      "id": "df_finite_no_amorphous",
+      "antecedents": [
+        "df_finite"
+      ],
+      "consequent": "no_amorphous",
+      "source": "HT2016RIGID",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/91321",
+      "locator": "Definitions and Corollary 3.2 for context; elementary argument supplied here",
+      "proof_note": "Given an injection f:omega→X, the subsets f[2omega] and X\\f[2omega] are disjoint and infinite, since the second contains f[2omega+1]. Thus every infinite set with a countably infinite subset is not amorphous."
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "kind": "implication",
+      "status": "elementary_argument",
+      "proof_access": "Complete elementary argument supplied below; no historical priority claim.",
+      "id": "op_no_amorphous",
+      "antecedents": [
+        "op"
+      ],
+      "consequent": "no_amorphous",
+      "source": "HT2016RIGID",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/91321",
+      "locator": "Definitions and Corollary 3.2 for context; elementary argument supplied here",
+      "proof_note": "Let X be an infinite linearly ordered set. If some x has infinitely many predecessors and successors, these split X into two infinite parts after assigning x to either part. Otherwise each x has finitely many predecessors or finitely many successors. At least one of these two classes is infinite. In the first class, x↦the number of predecessors is injective into omega; in the second use the number of successors. An infinite subset of omega has a canonical increasing enumeration, so X contains a countably infinite subset and splits into two infinite parts. This uses no choice of an infinite family of points."
+    },
+    {
+      "id": "no_amorphous_not_df_finite",
+      "kind": "nonimplication",
+      "antecedents": [
+        "no_amorphous"
+      ],
+      "consequent": "df_finite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "layer": "standard",
+      "model": "basic_cohen",
+      "source": "HT2016RIGID",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/91321",
+      "locator": "Corollary 3.2 and Theorem 3.4; combine with the existing basic Cohen model evidence for its infinite Dedekind-finite set",
+      "status": "source_checked",
+      "proof_access": "The cited model theorem and corollary checked in the full text; complete forcing construction not independently audited.",
+      "proof_note": "The basic Cohen model satisfies OP and has no amorphous sets. Its infinite Dedekind-finite set refutes the Dedekind infinitude principle and, by the recorded NDS ⇒ Dedekind infinitude implication, refutes NDS. Thus the proposed converse direction is false.",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "no_amorphous_not_nds_sets",
+      "kind": "nonimplication",
+      "antecedents": [
+        "no_amorphous"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "layer": "standard",
+      "model": "basic_cohen",
+      "source": "HT2016RIGID",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/91321",
+      "locator": "Corollary 3.2 and Theorem 3.4; combine with the existing basic Cohen model evidence for its infinite Dedekind-finite set",
+      "status": "source_checked",
+      "proof_access": "The cited model theorem and corollary checked in the full text; complete forcing construction not independently audited.",
+      "proof_note": "The basic Cohen model satisfies OP and has no amorphous sets. Its infinite Dedekind-finite set refutes the Dedekind infinitude principle and, by the recorded NDS ⇒ Dedekind infinitude implication, refutes NDS. Thus the proposed converse direction is false.",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "no_amorphous_not_some_free_ultrafilter",
+      "kind": "nonimplication",
+      "antecedents": [
+        "no_amorphous"
+      ],
+      "consequent": "some_free_ultrafilter",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "layer": "standard",
+      "model": "pincus_solovay_no_free_ultrafilters",
+      "source": "PINCUSSOLOVAY1977",
+      "source_url": "https://doi.org/10.2307/2272118",
+      "locator": "Publisher extract, final paragraph; construction identified there as §4.1",
+      "status": "source_checked",
+      "proof_access": "The model existence and absence of nonprincipal measures on every set were checked in the original paper's publisher extract; the complete construction in §4.1 has not been read.",
+      "proof_note": "The cited model satisfies ZF+DC and has no nonprincipal measure on any set, hence no nonprincipal ultrafilter on any set. DC implies every infinite set has a countably infinite subset and therefore there are no amorphous sets. Alternatively, an amorphous set would itself carry a nonprincipal cofinite ultrafilter, contradicting the model property.",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "countable_choice_cuc",
+      "kind": "implication",
+      "antecedents": [
+        "ac_omega"
+      ],
+      "consequent": "cuc",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "JECH1973",
+      "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+      "locator": "§2.4, Example 2.4.2, printed p. 20 (PDF p. 25); explicit proof supplied here",
+      "status": "elementary_argument",
+      "proof_note": "For each n, the set E_n of injections A_n→omega is nonempty. Countable choice selects f_n∈E_n. Map x in the union to (m,f_m(x)), where m is the least index with x∈A_m; pairing omega×omega with omega gives an injection of the union. The sets E_n need not themselves be countable.",
+      "proof_access": "Argument included; source statements and displayed proof inspected. No claim of historical originality.",
+      "layer": "standard"
+    },
+    {
+      "id": "cuc_countable_countable_choice",
+      "kind": "implication",
+      "antecedents": [
+        "cuc"
+      ],
+      "consequent": "ac_omega_countable",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Given nonempty countable A_n, CUC supplies one injection f:⋃A_n→omega. Choose from A_n its unique member with least f-value. This does not require separate enumerations of the A_n.",
+      "proof_access": "Argument included; source statements and displayed proof inspected. No claim of historical originality.",
+      "layer": "standard"
+    },
+    {
+      "id": "cuc_cuf",
+      "kind": "implication",
+      "antecedents": [
+        "cuc"
+      ],
+      "consequent": "cuf",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Every finite set is at most countable, so apply CUC to the sequence of finite sets.",
+      "proof_access": "Argument included; source statements and displayed proof inspected. No claim of historical originality.",
+      "layer": "standard"
+    },
+    {
+      "id": "bpi_infinite_hall",
+      "kind": "implication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "infinite_hall_finite_fibers",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "CLARK2013",
+      "source_url": "https://content.scirp.org/html/38489.html",
+      "locator": "Theorems 5–6, p. 186; Remarks 3.4–3.5, p. 187 (compactness proof); propositional proof supplied here",
+      "status": "elementary_argument",
+      "proof_note": "Use one propositional variable p_(i,x) for x∈A_i. Require exactly one true variable per finite A_i and forbid p_(i,x) and p_(j,x) both being true when i≠j. Any finite collection of constraints involves finitely many indices, and finite Hall provides distinct representatives for their sets. Propositional compactness, equivalent to BPI, gives a global assignment and hence distinct representatives.",
+      "proof_access": "Argument included; source statements and displayed proof inspected. No claim of historical originality.",
+      "layer": "standard",
+      "also_source": {
+        "url": "https://arxiv.org/pdf/1911.00434v3",
+        "locator": "Introduction, final item (4), p. 3; §2 item (14), pp. 4–5; recalls BPI ⇒ MHT ⇒ AC_fin in ZF."
+      }
+    },
+    {
+      "id": "infinite_hall_finite_choice",
+      "kind": "implication",
+      "antecedents": [
+        "infinite_hall_finite_fibers"
+      ],
+      "consequent": "ac_finite_fibers",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note in this record",
+      "status": "elementary_argument",
+      "proof_note": "Given an arbitrary family of nonempty finite A_i, form pairwise disjoint finite B_i={i}×A_i. Any finite subfamily satisfies Hall’s condition by finite-index choice, which is a ZF theorem. A system of distinct representatives for all B_i projects to a choice function for every A_i. Thus Hall gives full AC_fin, and in particular infinite-domain partial choice for infinite families of nonempty finite sets.",
+      "proof_access": "Argument included; source statements and displayed proof inspected. No claim of historical originality.",
+      "layer": "standard",
+      "also_source": {
+        "url": "https://arxiv.org/pdf/1911.00434v3",
+        "locator": "Introduction, final item (4), p. 3; author research manuscript explicitly recalls MHT ⇒ AC_fin."
+      }
+    },
+    {
+      "id": "bpi_algebraic_closure",
+      "kind": "implication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "algebraic_closure",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "Banaschewski92",
+      "source_url": "https://metaphor.ethz.ch/x/2025/fs/401-2004-00L/sc/Banaschewski.pdf",
+      "locator": "pp. 383–384; the one-step construction and conclusion are on p. 384",
+      "status": "source_checked",
+      "proof_note": "Banaschewski constructs an algebraic closure in one step from a prime ideal in a polynomial ring. This avoids the countable dependent choices hidden in an iterated root-adjoining construction.",
+      "proof_access": "Argument included; source statements and displayed proof inspected. No claim of historical originality.",
+      "layer": "standard"
+    },
+    {
+      "id": "bpi_unique_algebraic_closure",
+      "kind": "implication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "unique_algebraic_closure",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "Banaschewski92",
+      "source_url": "https://metaphor.ethz.ch/x/2025/fs/401-2004-00L/sc/Banaschewski.pdf",
+      "locator": "p. 384, paragraph beginning the uniqueness argument, through p. 385, first paragraph",
+      "status": "source_checked",
+      "proof_note": "Given two algebraic closures of a field, finite sets of isomorphisms between their polynomial splitting fields form compatible finite approximations. Boolean ultrafilter compactness supplies a coherent family whose union is an isomorphism over the original field.",
+      "proof_access": "Argument included; source statements and displayed proof inspected. No claim of historical originality.",
+      "layer": "standard"
+    },
+    {
+      "id": "finite_choice_fixed_n",
+      "kind": "implication",
+      "antecedents": [
+        "ac_finite_fibers"
+      ],
+      "consequent": "ac_n",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "For each fixed natural number n≥2, an n-element set is a nonempty finite set. Restrict AC_fin to families of such sets.",
+      "proof_access": "Complete elementary argument included; valid for sets with or without atoms."
+    },
+    {
+      "id": "fixed_n_countable_index",
+      "kind": "implication",
+      "antecedents": [
+        "ac_n"
+      ],
+      "consequent": "ac_omega_n",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Keep the same fixed n≥2 in both statements and restrict arbitrary index sets to omega.",
+      "proof_access": "Complete elementary argument included; valid for sets with or without atoms."
+    },
+    {
+      "id": "countable_finite_fixed_n",
+      "kind": "implication",
+      "antecedents": [
+        "ac_omega_finite"
+      ],
+      "consequent": "ac_omega_n",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Keep a fixed n≥2. Every n-element fiber is nonempty and finite, so countable choice for finite sets applies.",
+      "proof_access": "Complete elementary argument included; valid for sets with or without atoms."
+    },
+    {
+      "id": "countable_sets_finite_sets",
+      "kind": "implication",
+      "antecedents": [
+        "ac_countable_fibers"
+      ],
+      "consequent": "ac_finite_fibers",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Every finite set is at most countable. Restrict the arbitrary-index choice assertion to finite nonempty fibers.",
+      "proof_access": "Complete elementary argument included; valid for sets with or without atoms."
+    },
+    {
+      "id": "countable_sets_countable_index",
+      "kind": "implication",
+      "antecedents": [
+        "ac_countable_fibers"
+      ],
+      "consequent": "ac_omega_countable",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Restrict arbitrary index sets to omega, keeping the nonempty at-most-countable fiber hypothesis.",
+      "proof_access": "Complete elementary argument included; valid for sets with or without atoms."
+    },
+    {
+      "id": "free_omega_some_free",
+      "kind": "implication",
+      "antecedents": [
+        "free_ultrafilter_omega"
+      ],
+      "consequent": "some_free_ultrafilter",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "Omega is an infinite set, so a nonprincipal ultrafilter on omega witnesses the existential statement.",
+      "proof_access": "Complete elementary argument included; valid for sets with or without atoms."
     }
   ],
   "models": [
@@ -5289,7 +5937,8 @@
         "svc",
         "kwp",
         "bpi",
-        "oep"
+        "oep",
+        "no_amorphous"
       ],
       "false_ids": [
         "dc",
@@ -5365,6 +6014,16 @@
           "status": "elementary_argument",
           "source_url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
           "proof_note": "For an infinite Dedekind-finite set X, consider all cofinite subsets X\\F. Given finitely many such members, delete the union of their finite complements and one further point. The result is a proper subset of each chosen member; no chosen member injects into it, by Dedekind finiteness. Thus this family has no finite coinitial basis."
+        },
+        {
+          "principles": [
+            "no_amorphous"
+          ],
+          "source": "HT2016RIGID",
+          "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/91321",
+          "locator": "Corollary 3.2 and Theorem 3.4",
+          "status": "source_checked",
+          "proof_note": "The full text proves HRR in the basic Cohen model and proves that HRR excludes amorphous sets. The same property also follows from the model's existing OP and the supplied elementary implication."
         }
       ]
     },
@@ -5475,6 +6134,42 @@
           "status": "elementary_argument"
         }
       ]
+    },
+    {
+      "id": "pincus_solovay_no_free_ultrafilters",
+      "name": "Pincus–Solovay model with no nonprincipal ultrafilters",
+      "base": "ZF",
+      "assumptions": "Con(ZF); no inaccessible cardinal is required for the cited construction",
+      "true_ids": [
+        "dc",
+        "df_finite",
+        "no_amorphous"
+      ],
+      "false_ids": [
+        "some_free_ultrafilter",
+        "free_ultrafilter_omega",
+        "ac"
+      ],
+      "source": "PINCUSSOLOVAY1977",
+      "source_url": "https://doi.org/10.2307/2272118",
+      "locator": "Publisher extract, final paragraph, pointing to §4.1",
+      "status": "source_checked",
+      "layer": "standard",
+      "description": "A model of ZF+DC in which no set carries a nonprincipal finitely additive probability measure, hence no set carries a nonprincipal ultrafilter. DC supplies Dedekind infinitude and rules out amorphous sets.",
+      "review": "Model existence is stated explicitly in the original paper's publisher extract. The complete construction was not independently audited; the extract credits a construction without an inaccessible cardinal and ideas of Blass. The consequences for no amorphous sets are elementary deductions.",
+      "property_evidence": [
+        {
+          "principles": [
+            "df_finite",
+            "no_amorphous"
+          ],
+          "source": "PINCUSSOLOVAY1977",
+          "source_url": "https://doi.org/10.2307/2272118",
+          "locator": "DC in the model; elementary consequence",
+          "status": "elementary_argument",
+          "proof_note": "DC recursively chooses distinct elements from an infinite set, producing a countably infinite subset. Its even and odd subsequences split the set into two infinite parts."
+        }
+      ]
     }
   ],
   "status_labels": {
@@ -5485,5 +6180,78 @@
     "preprint_statement_checked": "Preprint statement checked"
   },
   "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer.",
-  "updated": "2026-10-08"
+  "updated": "2026-10-08",
+  "graph_selection": {
+    "selected_on": "2026-10-08",
+    "kept_candidate_numbers": [
+      5,
+      6,
+      7,
+      10,
+      22,
+      24,
+      29,
+      30,
+      33,
+      34,
+      38
+    ],
+    "kept_candidate_ids": [
+      "ac_n",
+      "ac_omega_n",
+      "ac_countable_fibers",
+      "ac_lo_index",
+      "some_free_ultrafilter",
+      "graph_coloring_compactness",
+      "algebraic_closure",
+      "unique_algebraic_closure",
+      "cuc",
+      "no_amorphous",
+      "infinite_hall_finite_fibers"
+    ],
+    "hidden_candidate_ids": [
+      "finite_index_choice",
+      "ac_kappa",
+      "ac_wo_fibers",
+      "ac_wo_both",
+      "ac_omega_reals",
+      "ac_reals_index_reals",
+      "dc_kappa",
+      "dc_below_kappa",
+      "partial_omega_n",
+      "partial_infinite_n",
+      "cmc",
+      "omega_mc",
+      "kw",
+      "kw_omega",
+      "kw_wo_index",
+      "kw_wo_fibers",
+      "countably_based_ultrafilter",
+      "first_order_compactness",
+      "tychonoff_countable",
+      "tychonoff_countable_finite",
+      "baire_compact_hausdorff",
+      "vector_basis_fixed_field",
+      "nielsen_schreier",
+      "dependent_multiple_choice",
+      "infinite_weakly_dedekind_infinite",
+      "rado_selection",
+      "finite_hall",
+      "csb",
+      "wf_cardinal_min",
+      "wf_cardinal_sequence",
+      "wf_maps",
+      "infinite_family_comparable",
+      "omega_family_comparable",
+      "w_lambda",
+      "w_lambda_star",
+      "kwp_alpha",
+      "kwp_alpha_star",
+      "infinite_doubling",
+      "countable_absorption",
+      "binary_cardinal_glb",
+      "powerset_comparison"
+    ],
+    "policy": "Unselected candidates are hidden from graph navigation, not deleted from the catalogue. AC equivalents remain outside the graphs, including retained item 10."
+  }
 }

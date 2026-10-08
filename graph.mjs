@@ -1,7 +1,7 @@
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function renderGraph(host,{ids,relations,label,selected,onNode,onEdge}){
  // Fixed family-independent ranks keep the map stable between selections.
- const rank={ac:0,wo:0,zorn:0,tychonoff:0,pp:1,dc:1,bpi:1,ultrafilter_lemma:1,dual_csb:2,oep:2,propositional_compactness:2,tychonoff_hausdorff:2,hahn_banach:3,op:3,wpp:3,dc_reals:3,baire_complete_metric:3,ac_wo_index:4,ac_finite_fibers:4,ac_omega:5,ac_omega_countable:6,ac_omega_finite:7,cuf:7,free_ultrafilter_omega:3,fb:1,nds_sets:3,finite_antichains:3,df_finite:5,svc_plus_seed:2,svc_seed:3,svc:4,kwp:5};
+ const rank={ac:0,wo:0,zorn:0,tychonoff:0,pp:1,dc:1,bpi:1,ultrafilter_lemma:1,dual_csb:2,oep:2,propositional_compactness:2,tychonoff_hausdorff:2,hahn_banach:3,op:3,wpp:3,dc_reals:3,baire_complete_metric:3,ac_wo_index:4,ac_finite_fibers:4,ac_omega:5,ac_omega_countable:6,ac_omega_finite:7,cuf:7,free_ultrafilter_omega:3,fb:1,nds_sets:3,finite_antichains:3,df_finite:5,svc_plus_seed:2,svc_seed:3,svc:4,kwp:5,ac_countable_fibers:1,graph_coloring_compactness:2,infinite_hall_finite_fibers:3,ac_n:5,ac_2:5,graph_coloring_compactness_2:6,ac_omega_n:8,cuc:6,no_amorphous:7,some_free_ultrafilter:8,algebraic_closure:3,unique_algebraic_closure:3};
  const groups=new Map();for(const id of ids){const row=rank[id]??4;if(!groups.has(row))groups.set(row,[]);groups.get(row).push(id)}
  const rows=[...groups.keys()].sort((a,b)=>a-b),maxCols=Math.max(1,...[...groups.values()].map(g=>g.length));
  const W=Math.max(720,maxCols*245+40),H=Math.max(520,rows.length*105+60),positions=new Map();
