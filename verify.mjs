@@ -1,12 +1,14 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {visibleRelations,closure,compare} from './engine.mjs';
+import {classifyPrinciple,graphEligible,graphSlice} from './classification.mjs';
 const data=JSON.parse(fs.readFileSync(new URL('./data.json',import.meta.url)));
 const ids=new Set(data.principles.map(n=>n.id));
-assert.equal(ids.size,88);
+assert.equal(ids.size,data.principles.length);
+assert.ok(ids.size>=95);
 for(const r of data.relations){assert.ok([...r.antecedents,r.consequent].every(id=>ids.has(id)));assert.ok(r.proof_note);if(r.kind==='nonimplication'){assert.ok(r.consistency_assumption);assert.ok(data.models.some(m=>m.id===r.model))}}
 const standard=visibleRelations(data,'ZF',false);
-assert.equal(standard.length,49);
+assert.ok(standard.length>=59);
 assert.ok(!standard.some(r=>r.layer==='recent'));
 assert.ok(closure(['pp'],standard).known.has('ac_omega'));
 assert.ok(!closure(['pp'],visibleRelations(data,'ZF',true)).known.has('nds_sets'));
@@ -85,3 +87,36 @@ const toolResult=registered.get('compare_choice_principles').execute({from:'nds_
 assert.ok(toolResult.countermodels.some(m=>m.factEvidence.some(e=>e.source==='FC2026'&&e.status==='preliminary')));
 for(const theory of ['ZF','ZFA'])for(const research of [false,true])for(const a of ids)for(const b of ids){assert.equal(compare(data,a,b,theory,research).conflict,false,`Conflicting data: ${a}, ${b}, ${theory}, ${research}`)}
 console.log('PASS: record integrity, inference paths, joint premises, countermodel direction, ZF/ZFA isolation, research gating, source attribution, SVC distinctions, browser-tool evidence, and all-pair consistency.');
+
+const node=id=>data.principles.find(n=>n.id===id);
+for(const id of ['ac','wo','zorn','mc','cardinal_trichotomy','cardinal_square','hausdorff_maximal','tukey_finite_character','nonempty_products','surjection_section','vector_basis','maximal_ideal','tychonoff']){
+ assert.equal(classifyPrinciple(data,node(id)).group,'equivalent',id);
+ assert.equal(graphEligible(data,node(id)),false,id);
+ if(id!=='ac')assert.notEqual(compare(data,id,'ac').proof,null,id);
+}
+assert.equal(classifyPrinciple(data,node('finite_index_choice')).label,'Theorem of ZF');
+assert.equal(classifyPrinciple(data,node('ordinal_trichotomy')).label,'Theorem of ZF');
+assert.equal(classifyPrinciple(data,node('ac_finite_fibers')).group,'weaker');
+assert.equal(classifyPrinciple(data,node('op')).group,'weaker');
+assert.equal(classifyPrinciple(data,node('oep')).group,'weaker');
+assert.equal(classifyPrinciple(data,node('pp')).group,'weaker');
+assert.equal(classifyPrinciple(data,node('pp')).layer,'recent');
+assert.equal(classifyPrinciple(data,node('pp'),'ZF',false).group,'unresolved');
+assert.notEqual(classifyPrinciple(data,node('mc'),'ZFA').group,'equivalent');
+assert.equal(compare(data,'mc','ac','ZFA',false).proof,null);
+assert.equal(compare(data,'vector_basis','ac','ZFA',false).proof,null);
+assert.notEqual(compare(data,'vector_basis','ac','ZFA',true).proof,null);
+const map=graphSlice(data,[...ids],visibleRelations(data,'ZF',true));
+assert.ok(!map.ids.includes('ac')&&!map.ids.includes('zorn')&&!map.ids.includes('tychonoff'));
+assert.ok(map.ids.includes('finite_index_choice'),'Removal candidates must remain until the user chooses.');
+assert.ok(map.edges.every(r=>[...r.antecedents,r.consequent].every(id=>map.ids.includes(id))));
+const opEdges=map.edges.filter(r=>r.kind==='nonimplication'&&r.antecedents.length===1&&r.antecedents[0]==='op'&&r.consequent==='oep');
+assert.equal(opEdges.length,1);assert.equal(opEdges[0].source,'MATHIAS1974');
+assert.ok(data.relations.some(r=>r.id==='op_not_oep'&&r.source==='FC2026REPORT'));
+const separations=graphSlice(data,[...ids],visibleRelations(data,'ZF',true),'ZF','nonimplication');
+assert.ok(separations.edges.length>0&&separations.edges.every(r=>r.kind==='nonimplication'));
+assert.ok(node('tychonoff').hypotheses.some(h=>h.includes('No Hausdorff')));
+assert.ok(node('tychonoff_hausdorff').notes.includes('BPI also gives a nonempty product'));
+assert.ok(node('maximal_ideal').definition.includes('proper ideal I'));
+assert.ok(node('svc_seed').definition.includes('nonempty S'));
+console.log('PASS: AC catalogue classification, graph exclusions, separation filters, historical/preprint provenance and precise hypotheses.');

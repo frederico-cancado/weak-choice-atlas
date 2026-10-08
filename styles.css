@@ -193,11 +193,23 @@ footer { display: flex; gap: 30px; justify-content: space-between; padding: 20px
 .graph-node:focus-visible { outline: none; }
 .graph-node:focus-visible rect { stroke: var(--node-focus); stroke-width: 4; }
 .graph-node .node-sub { font-size: 11px; fill: var(--muted); }
-.edge-line { fill: none; stroke: var(--blue); stroke-width: 2; }
-.edge-line.nonimplication { stroke: var(--orange); stroke-dasharray: 7 5; }
+.graph-edge { cursor: pointer; }
+.edge-halo { fill: none; stroke: var(--surface); stroke-width: 7; pointer-events: none; vector-effect: non-scaling-stroke; }
+.edge-line { fill: none; stroke: var(--blue); stroke-width: 2; pointer-events: none; vector-effect: non-scaling-stroke; }
+.edge-line.nonimplication { stroke: var(--orange); stroke-width: 3.5; stroke-dasharray: 9 6; stroke-linecap: round; }
+.countermodel-edge .edge-halo { stroke-width: 8.5; }
 .edge-line.equivalence { stroke: var(--purple); }
-.edge-hit { fill: none; stroke: transparent; stroke-width: 17; cursor: pointer; }
-.graph-edge:focus-visible .edge-line { stroke-width: 4; }
+.edge-hit { fill: none; stroke: transparent; stroke-width: 25; cursor: pointer; vector-effect: non-scaling-stroke; }
+.graph-edge:focus-visible { outline: none; }
+.edge-badge { cursor: pointer; }
+.edge-badge .badge-hit { fill: transparent; }
+.edge-badge .badge-face { fill: var(--surface); stroke: var(--orange); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.edge-badge text { fill: var(--orange); font: 700 23px system-ui, sans-serif; pointer-events: none; }
+.edge-emphasis .graph-edge:not(.emphasized), .edge-emphasis .edge-badge:not(.emphasized) { opacity: .2; }
+.graph-edge.emphasized .edge-line, .graph-edge:focus-visible .edge-line { stroke-width: 4; }
+.countermodel-edge.emphasized .edge-line { stroke-width: 5; }
+.edge-badge.emphasized .badge-face { stroke-width: 3.5; fill: var(--warm-bg); }
+.edge-badge.emphasized text { fill: var(--warm-text); }
 .graph-joint rect { fill: var(--node-bg); stroke: var(--node-border); }
 .graph-joint text { fill: var(--muted); }
 .graph-joint-line { stroke: var(--joint-line); }
@@ -209,7 +221,7 @@ footer { display: flex; gap: 30px; justify-content: space-between; padding: 20px
 .legend { display: flex; flex-wrap: wrap; gap: 16px; padding: 12px 17px; border-top: 1px solid var(--subtle-line); font-size: .75rem; color: var(--muted); }
 .legend span { display: flex; gap: 7px; align-items: center; }
 .legend i { width: 23px; height: 0; border-top: 2px solid var(--blue); }
-.legend .nonimp { border-color: var(--orange); border-top-style: dashed; }
+.legend .nonimp { border-color: var(--orange); border-top-width: 3px; border-top-style: dashed; }
 .legend .equiv { border-color: var(--purple); }
 .graph-note { font-size: .8rem; color: var(--muted); margin: 12px 0; }
 .detail-panel { background: var(--surface); padding: 24px 22px; border-left: 1px solid var(--line); overflow-wrap: anywhere; max-height: 1250px; overflow-y: auto; }
@@ -271,6 +283,28 @@ th { font-weight: 600; background: var(--surface-soft); }
 summary { cursor: pointer; }
 details[open] > summary { margin-bottom: 12px; }
 .relation-heading { overflow-wrap: anywhere; }
+
+.ac-group-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 24px; }
+.ac-group-tab { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 10px 14px; text-align: left; }
+.ac-group-tab.active { background: var(--softblue); color: var(--selected-text); border-color: var(--selected-border); font-weight: 650; }
+.ac-group-tab small { border-radius: 5px; padding: 1px 6px; background: var(--count-bg); color: var(--tag-text); font-size: .75rem; }
+.ac-group-section { margin: 28px 0 36px; }
+.ac-group-section > header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 16px; }
+.ac-group-section > header h2 { margin: 0; }
+.ac-group-section > header p { margin: 5px 0 0; max-width: 760px; font-size: .9rem; color: var(--muted); }
+.classification-badge { display: inline-flex; align-items: center; gap: 5px; max-width: 100%; border-radius: 5px; padding: 4px 8px; font-size: .75rem; font-weight: 600; line-height: 1.4; }
+.classification-badge.equivalent { background: var(--softblue); color: var(--selected-text); }
+.classification-badge.weaker { background: var(--tag-bg); color: var(--truth-true); }
+.classification-badge.unresolved { background: var(--warm-bg); color: var(--warm-text); }
+.classification-note { margin: 10px 0 16px; font-size: .85rem; color: var(--muted); line-height: 1.55; }
+.catalog-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 20px 3px 8px; font-size: .75rem; font-weight: 650; color: var(--muted); line-height: 1.4; }
+.catalog-group-heading:first-child { margin-top: 6px; }
+.catalog-group-count { flex-shrink: 0; border-radius: 4px; padding: 1px 6px; background: var(--count-bg); color: var(--tag-text); font-size: .7rem; }
+.equivalence-summary { padding: 22px; border: 1px solid var(--selected-border); background: var(--surface); border-radius: 9px; }
+.equivalence-summary h2 { margin-bottom: 12px; }
+.equivalence-summary p:last-child { margin-bottom: 0; }
+.graph-exclusion-note { margin: 12px 0; padding: 12px 14px; color: var(--notice-text); background: var(--notice-bg); border: 1px solid var(--notice-border); border-radius: 7px; font-size: .875rem; line-height: 1.55; }
+
 
 @media (min-width: 1600px) {
   .explore-layout { grid-template-columns: 280px minmax(500px, 1fr) 370px; }
@@ -358,6 +392,15 @@ details[open] > summary { margin-bottom: 12px; }
   .content-toolbar input { min-width: 0; }
   .content-toolbar select { width: 100%; }
   .results-heading { align-items: flex-start; font-size: .8rem; }
+  .ac-group-tabs { gap: 7px; margin: 16px 0 22px; }
+  .ac-group-tab { width: 100%; justify-content: space-between; padding: 11px 13px; }
+  .ac-group-section { margin: 24px 0 30px; }
+  .ac-group-section > header { align-items: flex-start; }
+  .ac-group-section > header h2 { font-size: 1.35rem; }
+  .classification-badge { font-size: .75rem; }
+  .equivalence-summary { padding: 18px 15px; }
+  .graph-exclusion-note { padding: 12px; }
+  .edge-hit { stroke-width: 29; }
   .notice { padding: 12px; }
   .notice .inline-button { min-height: 44px; }
   th, td { padding: 11px 9px; }
@@ -369,4 +412,10 @@ details[open] > summary { margin-bottom: 12px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+/* Keep the relationship filter readable on narrow screens. */
+@media(max-width:740px){
+ .workspace .toolbar #view{flex-basis:100%;width:100%}
+ .workspace .toolbar #edge-kind{flex:1 1 0;min-width:0}
+ .workspace .toolbar #graph-mode{flex:0 0 auto}
 }

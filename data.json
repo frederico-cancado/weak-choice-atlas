@@ -31,13 +31,13 @@
       "id": "ac",
       "name": "Axiom of Choice",
       "category": "anchors",
-      "definition": "C(all,all).",
+      "definition": "For every set I and family (A_i) indexed by I with each A_i nonempty, there is a function c on I such that c(i)∈A_i for every i∈I.",
       "base_theory": "ZF",
       "howard_rubin_reference": "1",
       "status": "AC_anchor",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -47,19 +47,22 @@
           "source_id": "Bell",
           "locator": ""
         }
+      ],
+      "hypotheses": [
+        "I is any set, and each A_i is a nonempty set. No bound on the sizes or number of factors."
       ]
     },
     {
       "id": "wo",
       "name": "Well-ordering theorem",
       "category": "anchors",
-      "definition": "Every set admits a well-order.",
+      "definition": "For every set X there exists a well-ordering of X: a linear order in which every nonempty subset of X has a least element.",
       "base_theory": "ZF",
       "howard_rubin_reference": "1",
       "status": "AC_equivalent_anchor",
-      "notes": "",
+      "notes": "The order itself is asserted to exist; it is not supplied in advance.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -69,19 +72,31 @@
           "source_id": "Bell",
           "locator": ""
         }
+      ],
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "Bell",
+        "locator": "Chapter III, p. 38",
+        "note": "",
+        "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+        "source_title": "John L. Bell, The Axiom of Choice, author-hosted book"
+      },
+      "hypotheses": [
+        "The quantifier ranges over every set, not just a set already known to be well-orderable."
       ]
     },
     {
       "id": "zorn",
       "name": "Zorn lemma",
       "category": "anchors",
-      "definition": "Every nonempty poset whose chains have upper bounds has a maximal element.",
+      "definition": "Every nonempty partially ordered set P such that every chain C⊆P has an upper bound in P contains a maximal element.",
       "base_theory": "ZF",
       "howard_rubin_reference": "1",
       "status": "AC_equivalent_anchor",
-      "notes": "",
+      "notes": "An upper bound must belong to P. Maximal does not mean greatest. Chains may be empty; nonemptiness of P is stated explicitly.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -91,17 +106,31 @@
           "source_id": "Bell",
           "locator": ""
         }
+      ],
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "Bell",
+        "locator": "Chapter II",
+        "note": "",
+        "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+        "source_title": "John L. Bell, The Axiom of Choice, author-hosted book"
+      },
+      "hypotheses": [
+        "P is a nonempty set with a partial order.",
+        "Every chain, including the empty chain, has an upper bound belonging to P.",
+        "Maximal is not the same as greatest."
       ]
     },
     {
       "id": "finite_index_choice",
-      "name": "Finite indexed choice",
+      "name": "Choice for finitely many sets (ZF theorem)",
       "category": "restricted_choice",
-      "definition": "C(finite,all).",
+      "definition": "For each finite set I and family (A_i) indexed by I, if every A_i is nonempty then there is c:I→⋃_{i∈I}A_i with c(i)∈A_i.",
       "base_theory": "ZF",
       "howard_rubin_reference": "0",
       "status": "ZF_theorem",
-      "notes": "Keep as a lower anchor; finite indexing is different from finite fibers.",
+      "notes": "There is no finiteness restriction on each A_i. Provable by finite induction in ZF and ZFA. Do not confuse finite indexing with arbitrary families of finite sets or with multiple choice.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
       "source_locators": {},
@@ -113,6 +142,20 @@
           "source_id": "Bell",
           "locator": ""
         }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source": "ELEMENTARY",
+        "locator": "Proof note",
+        "note": "ZF theorem by finite induction; no choice axiom is needed.",
+        "label": "Theorem of ZF",
+        "source_url": null,
+        "source_title": "Elementary argument supplied with this record"
+      },
+      "hypotheses": [
+        "The index set I is finite.",
+        "Each factor A_i is nonempty; factors need not be finite."
       ]
     },
     {
@@ -125,7 +168,7 @@
       "status": "candidate",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -175,7 +218,7 @@
       "status": "candidate",
       "notes": "Commonly AC_WO; do not conflate with well-orderable fibers. Separate from choice for arbitrary families whose members are well-orderable. Superscripts/subscripts vary by author.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -214,7 +257,17 @@
           "source_id": "HR95",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Section 7.3, Theorem 7.9 and its strengthened proof, pp. 104–107",
+        "note": "The constructed pure-ZF model has choice for all well-orderable fibers and fails OP, hence AC.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "ac_wo_both",
@@ -236,19 +289,29 @@
           "source_id": "HRR97",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Section 7.3, Theorem 7.9 and its strengthened proof, pp. 104–107",
+        "note": "Restrict the same model to well-orderable index sets.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "ac_finite_fibers",
-      "name": "Choice for finite sets",
+      "name": "Choice for finite sets (AC_fin)",
       "category": "restricted_choice",
-      "definition": "C(all,finite).",
+      "definition": "For every set I and family (A_i) indexed by I, if each A_i is a nonempty finite set then there is c:I→⋃_{i∈I}A_i with c(i)∈A_i.",
       "base_theory": "ZF",
       "howard_rubin_reference": "62",
       "status": "candidate",
-      "notes": "",
+      "notes": "I is arbitrary, not assumed finite or countable. This is weaker than full AC; BPI implies it, and the basic Cohen model satisfies BPI while AC fails. It differs from selecting a finite subset of an arbitrary fiber (multiple choice).",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -258,6 +321,19 @@
           "source_id": "HRR97",
           "locator": ""
         }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source": "HALPERNLEVY1971",
+        "locator": "Basic Cohen model; BPI plus failure of AC",
+        "note": "BPI implies AC_fin (already an atlas relation), so the BPI countermodel also separates AC_fin from AC.",
+        "source_url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+        "source_title": "The Boolean prime ideal theorem does not imply the axiom of choice"
+      },
+      "hypotheses": [
+        "The index set I is arbitrary.",
+        "Each factor A_i is nonempty and finite."
       ]
     },
     {
@@ -280,7 +356,17 @@
           "source_id": "HRR97",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+        "source_title": "Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice",
+        "locator": "Corollaries 4.2.2 and 4.2.17; elementary restriction of AC_fin",
+        "note": "For each fixed finite n≥2, choice for all nonempty finite sets supplies a full choice function, hence the requested partial or countable choice. The basic Cohen model satisfies BPI, hence AC_fin, while AC fails.",
+        "layer": "standard",
+        "review": "The countermodel is cited; the restriction is an elementary deduction."
+      }
     },
     {
       "id": "ac_omega_finite",
@@ -292,7 +378,7 @@
       "status": "candidate",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -324,7 +410,17 @@
           "source_id": "HS11",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+        "source_title": "Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice",
+        "locator": "Corollaries 4.2.2 and 4.2.17; elementary restriction of AC_fin",
+        "note": "For each fixed finite n≥2, choice for all nonempty finite sets supplies a full choice function, hence the requested partial or countable choice. The basic Cohen model satisfies BPI, hence AC_fin, while AC fails.",
+        "layer": "standard",
+        "review": "The countermodel is cited; the restriction is an elementary deduction."
+      }
     },
     {
       "id": "ac_omega_countable",
@@ -336,7 +432,7 @@
       "status": "candidate",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -370,7 +466,17 @@
           "source_id": "HR",
           "locator": "Form 85"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Section 7.3, Theorem 7.9 and its strengthened proof, pp. 104–107",
+        "note": "Restrict the same model to at-most-countable fibers.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "ac_omega_reals",
@@ -392,7 +498,24 @@
           "source_id": "Metric03",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "DC implies countable choice; restrict its fibers to subsets of R. Use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "ac_reals_index_reals",
@@ -416,7 +539,17 @@
           "source_id": "HR",
           "locator": "Form 212"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://doi.org/10.4064/fm-99-2-133-139",
+        "source_title": "Truss, The axiom of choice for linearly ordered families (1978)",
+        "locator": "Section 3, Theorem 4 and its Corollary, p. 136",
+        "note": "The ZF model has choice for all P(omega)-indexed families, but fails AC. Use R equipotent with P(omega).",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "ac_lo_index",
@@ -425,7 +558,7 @@
       "definition": "C(LO,all).",
       "base_theory": "ZF",
       "howard_rubin_reference": "202",
-      "status": "candidate",
+      "status": "AC_equivalent_anchor_in_ZF",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
@@ -440,7 +573,17 @@
           "source_id": "HR",
           "locator": "Form 202"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "equivalent",
+        "source_url": "https://doi.org/10.4064/fm-99-2-133-139",
+        "source_title": "Truss, The axiom of choice for linearly ordered families (1978)",
+        "locator": "Section 2, Theorem 1, p. 134",
+        "note": "ZF proves C(LO,all) implies AC. Foundation matters: the later countermodel omits Foundation.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "dc",
@@ -452,7 +595,7 @@
       "status": "candidate",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -474,7 +617,7 @@
       "status": "candidate",
       "notes": "Encode the domain restriction, not only the abbreviation DC_R.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {
         "HR": "Form 211"
       },
@@ -552,7 +695,17 @@
           "source_id": "HS11",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+        "source_title": "Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice",
+        "locator": "Corollaries 4.2.2 and 4.2.17; elementary restriction of AC_fin",
+        "note": "For each fixed finite n≥2, choice for all nonempty finite sets supplies a full choice function, hence the requested partial or countable choice. The basic Cohen model satisfies BPI, hence AC_fin, while AC fails.",
+        "layer": "standard",
+        "review": "The countermodel is cited; the restriction is an elementary deduction."
+      }
     },
     {
       "id": "partial_infinite_n",
@@ -576,19 +729,29 @@
           "source_id": "HR",
           "locator": "Form 73 (universal n form)"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+        "source_title": "Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice",
+        "locator": "Corollaries 4.2.2 and 4.2.17; elementary restriction of AC_fin",
+        "note": "For each fixed finite n≥2, choice for all nonempty finite sets supplies a full choice function, hence the requested partial or countable choice. The basic Cohen model satisfies BPI, hence AC_fin, while AC fails.",
+        "layer": "standard",
+        "review": "The countermodel is cited; the restriction is an elementary deduction."
+      }
     },
     {
       "id": "mc",
       "name": "Multiple choice",
       "category": "partial_and_multiple_choice",
-      "definition": "Every family of nonempty sets permits simultaneous selection of a nonempty finite subset of each member.",
+      "definition": "For every set-indexed family (A_i) of nonempty sets, there is a function m on the index set such that ∅≠m(i)⊆A_i and m(i) is finite for each i.",
       "base_theory": "ZF",
       "howard_rubin_reference": "67",
       "status": "AC_equivalent_anchor_in_ZF",
-      "notes": "MC is weaker than AC in ZFA; constructive AMC is a different axiom.",
+      "notes": "This is finite-valued selection, not choice from finite fibers and not choice for a finite index set. MC is equivalent to AC in ZF, but is strictly weaker in ZFA. The constructive axiom called AMC is a different statement.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -597,7 +760,25 @@
         {
           "source_id": "Metric03",
           "locator": ""
+        },
+        {
+          "source_id": "FELGNERJECH1973",
+          "locator": "Unnumbered theorem p. 80; §I(c)–(e), pp. 80–81"
         }
+      ],
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "FELGNERJECH1973",
+        "locator": "Unnumbered theorem p. 80; §I(c)–(e), pp. 80–81",
+        "note": "The classical MC ⇔ AC equivalence is specifically over ZF; do not transfer it to ZFA.",
+        "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+        "source_title": "Variants of the axiom of choice in set theory with atoms"
+      },
+      "hypotheses": [
+        "The index set and the nonempty factors are arbitrary.",
+        "The selected subset in each factor is nonempty and finite, not necessarily a singleton.",
+        "The AC equivalence stated here uses pure ZF, including Foundation."
       ]
     },
     {
@@ -620,7 +801,24 @@
           "source_id": "Metric03",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "DC implies countable choice; choose singleton subsets. Use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "omega_mc",
@@ -670,7 +868,17 @@
           "source_id": "KS2024",
           "locator": "Section 3.1"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2409.07352v2",
+        "source_title": "Karagila–Schilhan, Intermediate models and Kinna–Wagner Principles (2024)",
+        "locator": "Section 3.1; Proposition 3.10 and following paragraph",
+        "note": "Original KW holds in Cohen’s first model; the restricted formulation follows. AC fails there.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "kw_omega",
@@ -692,7 +900,17 @@
           "source_id": "HRR97",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2409.07352v2",
+        "source_title": "Karagila–Schilhan, Intermediate models and Kinna–Wagner Principles (2024)",
+        "locator": "Section 3.1; Proposition 3.10 and following paragraph",
+        "note": "Original KW holds in Cohen’s first model; the restricted formulation follows. AC fails there.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "kw_wo_index",
@@ -714,7 +932,17 @@
           "source_id": "HRR97",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2409.07352v2",
+        "source_title": "Karagila–Schilhan, Intermediate models and Kinna–Wagner Principles (2024)",
+        "locator": "Section 3.1; Proposition 3.10 and following paragraph",
+        "note": "Original KW holds in Cohen’s first model; the restricted formulation follows. AC fails there.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "kw_wo_fibers",
@@ -736,7 +964,17 @@
           "source_id": "HRR97",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2409.07352v2",
+        "source_title": "Karagila–Schilhan, Intermediate models and Kinna–Wagner Principles (2024)",
+        "locator": "Section 3.1; Proposition 3.10 and following paragraph",
+        "note": "Original KW holds in Cohen’s first model; the restricted formulation follows. AC fails there.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "base": "ZF"
+      }
     },
     {
       "id": "op",
@@ -746,9 +984,9 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "30",
       "status": "candidate",
-      "notes": "",
+      "notes": "OP does not imply OEP: Mathias announced the separation in 1967 and published it in 1974. Cançado’s preprint gives another witness using the OpenAI PP model.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -768,9 +1006,9 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "49",
       "status": "candidate",
-      "notes": "OEP requires extending a prescribed partial order; OP only asks for some linear order. Cançado’s original-model obstruction and its consequences appear in the recent-research layer.",
+      "notes": "OEP requires extending a prescribed partial order; OP only asks for some linear order. Cançado’s original-model obstruction and its consequences appear in the recent-research layer. OP does not imply OEP: Mathias announced the separation in 1967 and published it in 1974. Cançado’s preprint gives another witness using the OpenAI PP model.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -799,7 +1037,7 @@
       "status": "candidate",
       "notes": "Exclude the degenerate Boolean algebra; retain exact convention.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -825,7 +1063,7 @@
       "status": "candidate",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -859,7 +1097,25 @@
           "source_id": "HR",
           "locator": "Form 385"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Section 2.3, Theorem 2.2, pp. 16–18",
+        "note": "A restriction of the full ultrafilter theorem. BPI + not AC supplies strictness.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+            "title": "Ransom, Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice (2026 dissertation)",
+            "locator": "Corollaries 4.2.2 and 4.2.17; Theorem 4.2.14",
+            "note": "Specialize to the basic Cohen model: BPI holds and the infinite Dedekind-finite set witnesses failure of AC. The BPI result is credited to Halpern–Lévy (1971)."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "free_ultrafilter_omega",
@@ -871,7 +1127,7 @@
       "status": "candidate",
       "notes": "",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {
         "HR": "Form 70"
       },
@@ -907,7 +1163,25 @@
           "source_id": "HR",
           "locator": "Form 206"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Section 2.3, Theorem 2.2, pp. 16–18",
+        "note": "Extend the cofinite filter on omega; the resulting ultrafilter is nonprincipal. BPI + not AC supplies strictness.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+            "title": "Ransom, Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice (2026 dissertation)",
+            "locator": "Corollaries 4.2.2 and 4.2.17; Theorem 4.2.14",
+            "note": "Specialize to the basic Cohen model: BPI holds and the infinite Dedekind-finite set witnesses failure of AC. The BPI result is credited to Halpern–Lévy (1971)."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "propositional_compactness",
@@ -919,7 +1193,7 @@
       "status": "candidate",
       "notes": "Arbitrary variable sets; countable languages need a separate entry.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -951,7 +1225,25 @@
           "source_id": "Bodirsky",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Section 2.3, Theorem 2.2, pp. 16–18",
+        "note": "The exact arbitrary-language semantic compactness statement is equivalent to BPI. No simultaneous choice of finite models is an added hypothesis. BPI + not AC supplies strictness.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+            "title": "Ransom, Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice (2026 dissertation)",
+            "locator": "Corollaries 4.2.2 and 4.2.17; Theorem 4.2.14",
+            "note": "Specialize to the basic Cohen model: BPI holds and the infinite Dedekind-finite set witnesses failure of AC. The BPI result is credited to Halpern–Lévy (1971)."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "graph_coloring_compactness",
@@ -973,19 +1265,29 @@
           "source_id": "Bodirsky",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+        "source_title": "Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice",
+        "locator": "Basic Cohen BPI model; reduction to propositional compactness",
+        "note": "For each fixed finite n≥3, propositional compactness produces an n-coloring by finite color variables and edge constraints. Thus BPI implies this statement, while AC fails in the basic Cohen model.",
+        "layer": "standard",
+        "review": "The reduction is elementary; the cited source supplies the BPI countermodel."
+      }
     },
     {
       "id": "tychonoff",
-      "name": "General Tychonoff theorem",
+      "name": "Full Tychonoff theorem",
       "category": "topology",
-      "definition": "Arbitrary products of compact topological spaces are compact.",
+      "definition": "For every set I and every indexed family ((X_i,τ_i))_{i∈I} of compact topological spaces, the Cartesian product ∏_{i∈I}X_i with the product topology is compact. Compact means that every open cover has a finite subcover.",
       "base_theory": "ZF",
       "howard_rubin_reference": "1",
       "status": "AC_equivalent_anchor",
-      "notes": "Compact means open-cover compact; do not silently assume Hausdorff.",
+      "notes": "No separation axiom (Hausdorff or T₁) is assumed. No point of the product is supplied, and the conclusion does not explicitly assert nonemptiness: the empty space is compact. This compactness-only assertion is nevertheless equivalent to AC. It remains AC-equivalent if one restricts to families whose product is already known to be nonempty; see the added-point proof. Separately, asserting that arbitrary families of nonempty compact spaces have nonempty products yields AC directly by equipping arbitrary nonempty sets with indiscrete topologies. For compact Hausdorff factors BPI suffices, even for product nonemptiness.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -994,20 +1296,39 @@
         {
           "source_id": "Bell",
           "locator": ""
+        },
+        {
+          "source_id": "KELLEY1950",
+          "locator": "Historical source; see the corrected elementary proof note"
         }
+      ],
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "KELLEY1950",
+        "locator": "pp. 75–76; corrected added-point proof note",
+        "note": "",
+        "source_url": "https://eudml.org/doc/213229",
+        "source_title": "John L. Kelley (1950), The Tychonoff product theorem implies the axiom of choice"
+      },
+      "hypotheses": [
+        "The index set is arbitrary.",
+        "Compactness means every open cover has a finite subcover.",
+        "The topology is the product topology. No Hausdorff or T₁ hypothesis.",
+        "Empty spaces are compact. Product nonemptiness is not part of this conclusion."
       ]
     },
     {
       "id": "tychonoff_hausdorff",
       "name": "Compact Hausdorff Tychonoff theorem",
       "category": "topology",
-      "definition": "Arbitrary products of compact Hausdorff spaces are compact.",
+      "definition": "For every set I and every indexed family of compact Hausdorff topological spaces (X_i,τ_i), their Cartesian product with the product topology is compact (every open cover has a finite subcover).",
       "base_theory": "ZF",
       "howard_rubin_reference": "14 J",
       "status": "candidate",
-      "notes": "",
+      "notes": "This statement is equivalent to BPI and strictly weaker than AC over ZF. Empty factors/products are allowed; compactness alone does not imply nonemptiness. BPI also gives a nonempty product whenever all compact Hausdorff factors are nonempty. Thus adding a nonemptiness conclusion in this Hausdorff setting does not produce full AC. No compact Hausdorff topology can simply be assumed on an arbitrary set.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -1017,6 +1338,20 @@
           "source_id": "Bodirsky",
           "locator": ""
         }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source": "HALPERNLEVY1971",
+        "locator": "BPI countermodel to AC; existing BPI equivalence",
+        "note": "The classical compact Hausdorff product principle is BPI-equivalent.",
+        "source_url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+        "source_title": "The Boolean prime ideal theorem does not imply the axiom of choice"
+      },
+      "hypotheses": [
+        "Every factor is both compact and Hausdorff.",
+        "The index set is arbitrary, and the topology is the product topology.",
+        "Compactness allows the empty space. For nonempty factors, BPI also gives nonempty product."
       ]
     },
     {
@@ -1041,7 +1376,25 @@
           "source_id": "HR",
           "locator": "Form 113"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://wwwpub.zih.tu-dresden.de/~bodirsky/Automorphism-Groups.pdf",
+        "source_title": "Bodirsky, Automorphism Groups",
+        "locator": "Appendix A.2, p. 149; proof of Theorem 4.1.14",
+        "note": "DC implies compactness of countable products of compact spaces, without a Hausdorff requirement; use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://arxiv.org/html/2504.02744v1",
+            "title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+            "locator": "Theorem 1 (Pincus), and the immediately following consistency explanation",
+            "note": "ZF + DC + OP + not AC is relatively consistent from ZF."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "tychonoff_countable_finite",
@@ -1063,7 +1416,25 @@
           "source_id": "Bodirsky",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Appendix A.2, p. 183 (Tychonoff for Hausdorff spaces)",
+        "note": "BPI implies Tychonoff for compact Hausdorff spaces; restrict to countably many finite Hausdorff spaces. BPI + not AC supplies strictness.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+            "title": "Ransom, Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice (2026 dissertation)",
+            "locator": "Corollaries 4.2.2 and 4.2.17; Theorem 4.2.14",
+            "note": "Specialize to the basic Cohen model: BPI holds and the infinite Dedekind-finite set witnesses failure of AC. The BPI result is credited to Halpern–Lévy (1971)."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "hahn_banach",
@@ -1075,7 +1446,7 @@
       "status": "candidate",
       "notes": "Record algebraic, continuous, separable and field variants separately.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -1097,7 +1468,7 @@
       "status": "candidate",
       "notes": "Specify sequential completeness and metric versus pseudometric variants.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -1131,19 +1502,37 @@
           "source_id": "HR",
           "locator": "Form 106"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://tsukuba.repo.nii.ac.jp/record/16150/files/12.pdf",
+        "source_title": "Tsukada, Constructions of complete metric spaces and compact Hausdorff spaces which are not Baire spaces (1993)",
+        "locator": "Introduction, p. 159",
+        "note": "DC proves that compact Hausdorff spaces are Baire; use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://arxiv.org/html/2504.02744v1",
+            "title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+            "locator": "Theorem 1 (Pincus), and the immediately following consistency explanation",
+            "note": "ZF + DC + OP + not AC is relatively consistent from ZF."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "vector_basis",
       "name": "Vector-space basis theorem",
       "category": "algebra",
-      "definition": "Every vector space over every field has a basis.",
+      "definition": "For every field F and every F-vector space V, there exists a subset B⊆V such that each vector in V is uniquely a finite F-linear combination of elements of B.",
       "base_theory": "ZF",
       "howard_rubin_reference": "66",
       "status": "AC_equivalent_anchor_in_ZF",
-      "notes": "Fixed-field basis assertions are separate nodes; ZFA equivalences differ.",
+      "notes": "This is an algebraic (Hamel) basis, with only finite linear combinations; the zero space has the empty basis. Both the field and the vector space are universally quantified. Restricting to one fixed field is a different principle. Blass (1984) proves equivalence over ZF. A September 2026 preprint also proves it over ZFA; that recent extension is recorded with its own source and review status.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -1152,7 +1541,25 @@
         {
           "source_id": "Blass84",
           "locator": ""
+        },
+        {
+          "source_id": "FMR2026",
+          "locator": "Theorem 1.2; Corollary 7.1; §7, last paragraph"
         }
+      ],
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "Blass84",
+        "locator": "Theorem, p. 31 and proof, pp. 31–33",
+        "note": "Classical ZF equivalence. The ZFA extension is a separately identified 2026 preprint result.",
+        "source_url": "https://sites.lsa.umich.edu/ablass/wp-content/uploads/sites/1471/2025/10/bases-AC.pdf",
+        "source_title": "Andreas Blass (1984), Existence of bases implies the axiom of choice"
+      },
+      "hypotheses": [
+        "Every field and every vector space over that field are quantified.",
+        "Basis means a Hamel basis: unique finite linear combinations.",
+        "The zero vector space has the empty basis."
       ]
     },
     {
@@ -1175,7 +1582,16 @@
           "source_id": "Howard07",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "parameter_dependent",
+        "base": "ZF",
+        "source": "Howard07",
+        "locator": "Fixed-field formulation",
+        "note": "A specified field F is part of the statement; the universally quantified all-fields equivalence cannot be imported.",
+        "source_url": "https://doi.org/10.1002/malq.200610043",
+        "source_title": "Paul Howard (2007), Bases, spanning sets, and the axiom of choice"
+      }
     },
     {
       "id": "algebraic_closure",
@@ -1197,7 +1613,25 @@
           "source_id": "Banaschewski92",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://metaphor.ethz.ch/x/2025/fs/401-2004-00L/sc/Banaschewski.pdf",
+        "source_title": "Banaschewski, Algebraic closure without choice (1992)",
+        "locator": "pp. 383–384 (existence argument)",
+        "note": "Proved from the Boolean Ultrafilter Theorem; BPI + not AC supplies strictness.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+            "title": "Ransom, Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice (2026 dissertation)",
+            "locator": "Corollaries 4.2.2 and 4.2.17; Theorem 4.2.14",
+            "note": "Specialize to the basic Cohen model: BPI holds and the infinite Dedekind-finite set witnesses failure of AC. The BPI result is credited to Halpern–Lévy (1971)."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "unique_algebraic_closure",
@@ -1219,19 +1653,37 @@
           "source_id": "Banaschewski92",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://metaphor.ethz.ch/x/2025/fs/401-2004-00L/sc/Banaschewski.pdf",
+        "source_title": "Banaschewski, Algebraic closure without choice (1992)",
+        "locator": "pp. 384–385 (uniqueness argument)",
+        "note": "Proved from the Boolean Ultrafilter Theorem; BPI + not AC supplies strictness.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+            "title": "Ransom, Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice (2026 dissertation)",
+            "locator": "Corollaries 4.2.2 and 4.2.17; Theorem 4.2.14",
+            "note": "Specialize to the basic Cohen model: BPI holds and the infinite Dedekind-finite set witnesses failure of AC. The BPI result is credited to Halpern–Lévy (1971)."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "maximal_ideal",
-      "name": "Commutative maximal ideal theorem",
+      "name": "Maximal ideal theorem (commutative unital rings)",
       "category": "algebra",
-      "definition": "Every nonzero commutative ring with identity has a maximal ideal.",
+      "definition": "For every commutative ring R with identity 1_R≠0_R and every proper ideal I⊊R, there is a proper ideal M⊊R containing I that is maximal among proper ideals of R.",
       "base_theory": "ZF",
       "howard_rubin_reference": "1",
       "status": "AC_equivalent_anchor_in_ZF",
-      "notes": "Prime ideal versions are different.",
+      "notes": "Commutativity and a multiplicative identity are explicit. The zero ring has no proper ideal and is excluded. Requiring only that every nonzero commutative unital ring have a maximal ideal is equivalent: apply that assertion to R/I and pull back a maximal ideal; conversely set I={0}. Prime-ideal and Boolean-algebra variants have different strengths.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
@@ -1240,7 +1692,25 @@
         {
           "source_id": "Hodges79",
           "locator": ""
+        },
+        {
+          "source_id": "ENTIN2024",
+          "locator": "§1, MIT; Theorem 1; quotient-ring argument in this note"
         }
+      ],
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "Hodges79",
+        "locator": "Krull implies Zorn (1979)",
+        "note": "Source-checked over ZF. The proper-ideal extension formulation is equivalent by the quotient R/I.",
+        "source_url": "https://people.math.ethz.ch/~halorenz/4students/Algebra/Hodges_Krull_Zorn.pdf",
+        "source_title": "Wilfrid Hodges (1979), Krull implies Zorn"
+      },
+      "hypotheses": [
+        "R is commutative and has identity 1≠0.",
+        "I is a proper ideal.",
+        "The maximal ideal must contain I and remain proper."
       ]
     },
     {
@@ -1263,7 +1733,18 @@
           "source_id": "Howard85",
           "locator": ""
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "open",
+        "source_url": "https://arxiv.org/html/2501.18306v1",
+        "source_title": "Linton et al., The theory of one-relator groups: history and recent progress (2025)",
+        "locator": "Section 1.2.3, footnote 11 immediately before Theorem 1.2.5",
+        "note": "AC implies Nielsen–Schreier; the converse over pure ZF is reported open. Do not substitute the stronger Nielsen-basis formulation.",
+        "review": "The cited 2025 primary survey explicitly reports this open; the bounded current search found no resolution.",
+        "layer": "standard",
+        "base": "ZF",
+        "checked_at": "2026-10-08"
+      }
     },
     {
       "id": "dependent_multiple_choice",
@@ -1287,7 +1768,24 @@
           "source_id": "HR",
           "locator": "Form 106 B"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "A DC chain gives finite sets F_n consisting of its individual terms. Use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "cuc",
@@ -1312,7 +1810,24 @@
           "url": "https://doi.org/10.1305/ndjfl/1093636102",
           "locator": "Howard (1992), title and pp. 236–243; original research on this principle"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "Countable choice selects enumerations of the nonempty countable fibers; a pairing function enumerates their union. Use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "cuf",
@@ -1325,7 +1840,7 @@
       "base_theory": "ZF",
       "node_kind": "specific_statement",
       "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
-      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "catalogue_status": "draft_inventory",
       "aliases": [],
       "definition_evidence": [
@@ -1358,7 +1873,24 @@
           "url": "https://doi.org/10.1017/jsl.2023.48",
           "locator": "Panasawatwong–Truss, Introduction; cites Truss (1995), The structure of amorphous sets"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "DC gives a countably infinite subset of every infinite set. Split that subset into even and odd terms. Use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "infinite_weakly_dedekind_infinite",
@@ -1379,7 +1911,24 @@
           "url": "https://doi.org/10.1017/jsl.2023.48",
           "locator": "Panasawatwong–Truss, Introduction, paragraphs defining Delta_4 and weak Dedekind finiteness"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "A countably infinite subset yields a surjection onto omega by sending remaining elements to 0. Use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "rado_selection",
@@ -1404,7 +1953,25 @@
           "url": "https://raw.githubusercontent.com/ioannad/jeffrey/main/Howard-Rubin-data/FORMSNUM.TEX",
           "locator": "Form 99"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Section 2.3, Theorem 2.2, pp. 16–18",
+        "note": "Deduction: extend the tail filter on finite index sets. For each i, take the unique ultrafilter-large value of the supplied gamma_T(i). Finite intersections give the requested agreement. BPI + not AC supplies strictness.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+            "title": "Ransom, Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice (2026 dissertation)",
+            "locator": "Corollaries 4.2.2 and 4.2.17; Theorem 4.2.14",
+            "note": "Specialize to the basic Cohen model: BPI holds and the infinite Dedekind-finite set witnesses failure of AC. The BPI result is credited to Halpern–Lévy (1971)."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "finite_hall",
@@ -1450,7 +2017,25 @@
           "url": "https://arxiv.org/html/2503.23159v1",
           "locator": "Cameron (2025), Section 8, Theorem 8.1; attributes the infinite version to Marshall Hall Jr., reference [16], p. 51"
         }
-      ]
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Jech, The Axiom of Choice (1973)",
+        "locator": "Section 2.3, Theorem 2.2, pp. 16–18",
+        "note": "Deduction: propositional compactness imposes one representative per finite fiber and pairwise distinctness. Finite satisfiability is finite Hall. BPI + not AC supplies strictness.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+            "title": "Ransom, Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice (2026 dissertation)",
+            "locator": "Corollaries 4.2.2 and 4.2.17; Theorem 4.2.14",
+            "note": "Specialize to the basic Cohen model: BPI holds and the infinite Dedekind-finite set witnesses failure of AC. The BPI result is credited to Halpern–Lévy (1971)."
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "pp",
@@ -1471,7 +2056,7 @@
       ],
       "notes": "The injection need not be a section of f; requiring every surjection to split is AC.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
     },
     {
@@ -1493,7 +2078,7 @@
       ],
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
     },
     {
@@ -1518,7 +2103,7 @@
       ],
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
     },
     {
@@ -1565,7 +2150,7 @@
       ],
       "notes": "Do not silently substitute sequences of Scott cardinals, or sequences with all injection witnesses selected.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
     },
     {
@@ -1580,7 +2165,7 @@
       ],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "candidate",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -1591,7 +2176,17 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 2, pp. 6–8; Section 3.2, p. 10",
+        "note": "FB yields a minimal Scott cardinal in each nonempty set of cardinals in the model.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
     },
     {
       "id": "wf_cardinal_sequence",
@@ -1605,7 +2200,7 @@
       ],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "candidate",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -1616,7 +2211,17 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 3.2, p. 10; Blass–Kulshreshtha Proposition 9.8",
+        "note": "The original model has the additional properties used to prove the listed WF variants. No general PP ⇒ NDS implication is asserted.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
     },
     {
       "id": "wf_maps",
@@ -1630,7 +2235,7 @@
       ],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "candidate",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -1641,7 +2246,17 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 3.2, p. 10; Blass–Kulshreshtha Proposition 9.8",
+        "note": "The model satisfies PP and FB/NDS, hence the given-map WF variant.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
     },
     {
       "id": "finite_antichains",
@@ -1662,7 +2277,7 @@
       ],
       "notes": "No fixed finite bound is asserted. A uniform fixed bound is equivalent to AC.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
     },
     {
@@ -1674,7 +2289,7 @@
       "aliases": [],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "candidate",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -1685,7 +2300,17 @@
       "notes": "Use an explicit equivalence record to finite cardinal antichains; preserve formulation details.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 2, Corollary 2.7 and following discussion, p. 8",
+        "note": "Finite cardinal antichains give a comparable pair in every infinite set family.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
     },
     {
       "id": "omega_family_comparable",
@@ -1696,7 +2321,7 @@
       "aliases": [],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "candidate",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -1707,7 +2332,17 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 2, Corollary 2.7 and following discussion, p. 8",
+        "note": "Restriction of infinite-family comparability.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
     },
     {
       "id": "fb",
@@ -1728,7 +2363,7 @@
       ],
       "notes": "Existence of separate injections; no simultaneous choice of all witnesses is stipulated.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
     },
     {
@@ -1825,8 +2460,25 @@
       ],
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "DC implies every infinite set has a countably infinite subset, so every Dedekind-finite set is finite. Use the DC + not AC model.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
     },
     {
       "id": "svc",
@@ -1849,18 +2501,18 @@
       ],
       "notes": "The global existential principle differs from fixed-parameter SVC(S). SVC does not imply PP: the basic Cohen model is a counterexample.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
     },
     {
       "id": "svc_seed",
       "name": "SVC(S)",
       "category": "coding_and_small_violation",
-      "definition": "For this fixed S, every nonempty X is a surjective image of S×η for some ordinal η.",
+      "definition": "For this fixed nonempty S, every nonempty X is a surjective image of S×η for some ordinal η.",
       "base_theory": "ZF",
       "aliases": [],
       "parameters": {
-        "S": "fixed seed set"
+        "S": "fixed nonempty seed set"
       },
       "node_kind": "parameterized_family",
       "status": "candidate",
@@ -1873,18 +2525,22 @@
       ],
       "notes": "The seed S is fixed throughout a comparison. PP together with SVC(S) gives SVC+(S); SVC(S) alone is not being identified with that same-seed injective statement.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "howard_rubin_reference": "",
+      "hypotheses": [
+        "The seed S is nonempty and stays fixed throughout the statement.",
+        "The classification may depend on S: for a nonempty well-orderable seed, this principle implies AC."
+      ]
     },
     {
       "id": "svc_plus_seed",
       "name": "SVC+(S)",
       "category": "coding_and_small_violation",
-      "definition": "For this fixed S, every X injects into S×η for some ordinal η.",
+      "definition": "For this fixed nonempty S, every X injects into S×η for some ordinal η.",
       "base_theory": "ZF",
       "aliases": [],
       "parameters": {
-        "S": "fixed seed set"
+        "S": "fixed nonempty seed set"
       },
       "node_kind": "parameterized_family",
       "status": "candidate",
@@ -1901,8 +2557,12 @@
       ],
       "notes": "Keep the same seed distinct from changing seeds. Ryan–Smith, Proposition 3.16 in the linked author manuscript: under SVC+(S), PP is equivalent to AC_WO together with PP restricted to surjections between subsets of S.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "howard_rubin_reference": "",
+      "hypotheses": [
+        "The seed S is nonempty and stays fixed throughout the statement.",
+        "The classification may depend on S: for a nonempty well-orderable seed, this principle implies AC."
+      ]
     },
     {
       "id": "kwp_alpha",
@@ -1971,7 +2631,7 @@
       ],
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "See separate relation drafts; no automatic graph admission.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
     },
     {
@@ -1983,7 +2643,7 @@
       "aliases": [],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "catalogue candidate; original proof access pending",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -1994,7 +2654,17 @@
       "notes": "The historical Halpern–Howard countermodel uses atoms; do not silently relabel its edge ZF.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 3.2, p. 11, paragraph before equation (5)",
+        "note": "The model satisfies 2 times X equipotent with X for every infinite X.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
     },
     {
       "id": "countable_absorption",
@@ -2005,7 +2675,7 @@
       "aliases": [],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "candidate catalogue node; historical implication audit needed",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -2016,7 +2686,17 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 3.2, p. 11, paragraph before equation (5)",
+        "note": "The model satisfies omega times X equipotent with X for every infinite X.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
     },
     {
       "id": "binary_cardinal_glb",
@@ -2027,7 +2707,7 @@
       "aliases": [],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "candidate catalogue node; Rubin historical ZFA reference requires primary inspection",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -2038,7 +2718,17 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 3.2, p. 10, first paragraph",
+        "note": "Coordinatewise minima give infima of nonempty set families; specialize to a pair.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
     },
     {
       "id": "powerset_comparison",
@@ -2049,7 +2739,7 @@
       "aliases": [],
       "parameters": {},
       "node_kind": "specific_statement",
-      "status": "research target; do not infer a known independence theorem",
+      "status": "preprint-supported non-equivalence to AC; see classification evidence",
       "catalogue_status": "draft_inventory",
       "definition_evidence": [
         {
@@ -2060,7 +2750,259 @@
       "notes": "",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
-      "howard_rubin_reference": ""
+      "howard_rubin_reference": "",
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "source_title": "Cançado, Choice principles after the OpenAI partition-principle model: complete research results and verification record (2026-10-07)",
+        "locator": "Section 3.7, p. 15, equation (17)",
+        "note": "All power-set cardinals are comparable in this model; the report explicitly cites earlier Glazer 2025 work.",
+        "review": "Preliminary Cançado preprint; source statement checked, not externally peer reviewed or formally verified. The construction is credited to OpenAI. This is an additional model witness, not a priority claim.",
+        "layer": "recent",
+        "base": "ZF"
+      }
+    },
+    {
+      "id": "cardinal_trichotomy",
+      "name": "Cardinal comparability / trichotomy",
+      "category": "cardinal_comparison",
+      "definition": "For every pair of sets A and B, either there is an injection A→B or there is an injection B→A.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "AC_equivalent_anchor",
+      "notes": "By Cantor–Schröder–Bernstein this is equivalent to exactly one of |A|<|B|, |A|=|B|, |B|<|A|. The quantifiers range over arbitrary sets, not only ordinals or well-orderable sets.",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "HARTOGS1915",
+          "locator": "pp. 1–3"
+        }
+      ],
+      "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "HARTOGS1915",
+        "locator": "pp. 1–3",
+        "note": "",
+        "source_url": "https://paultaylor.eu/trans/HartogsF-wellord.pdf",
+        "source_title": "Friedrich Hartogs (1915), Über das Problem der Wohlordnung; English translation by Paul Taylor"
+      },
+      "hypotheses": [
+        "A and B are arbitrary sets; neither is assumed well-orderable.",
+        "Comparison is by existence of an injection; equality is equipotence."
+      ]
+    },
+    {
+      "id": "cardinal_square",
+      "name": "Infinite cardinal square (A×A ≈ A)",
+      "category": "cardinal_comparison",
+      "definition": "For every infinite set A, there exists a bijection A×A→A.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "AC_equivalent_anchor",
+      "notes": "Infinite means not finite; no well-order of A is supplied. Equality here means equipotence, not literal equality of sets. For infinite well-orderable A the assertion is already a theorem of ZF. This is distinct from the weaker doubling assertion A+A≈A.",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "TARSKI1924",
+          "locator": "Statement II; pp. 147–154"
+        }
+      ],
+      "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "TARSKI1924",
+        "locator": "Statement II; pp. 147–154",
+        "note": "",
+        "source_url": "https://eudml.org/doc/213923",
+        "source_title": "Alfred Tarski (1924), Sur quelques théorèmes qui équivalent à l’axiome du choix",
+        "valid_bases": [
+          "ZF",
+          "ZFA"
+        ]
+      },
+      "hypotheses": [
+        "A ranges over every infinite set, including sets not assumed well-orderable.",
+        "A² denotes the Cartesian square; ≈ means that a bijection exists."
+      ]
+    },
+    {
+      "id": "hausdorff_maximal",
+      "name": "Hausdorff maximal principle",
+      "category": "orders",
+      "definition": "For every partially ordered set P and every chain C⊆P, there is a chain M⊆P with C⊆M that is maximal under inclusion among chains in P.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "AC_equivalent_anchor",
+      "notes": "A chain is a subset on which the given partial order is total. Maximal means inclusion-maximal, not largest cardinality or a greatest chain. The empty poset causes no problem: its empty chain is maximal. This is a maximal-chain principle, not OP or OEP.",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": "Chapter II, Hausdorff maximal principle, pp. 28–31"
+        }
+      ],
+      "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "Bell",
+        "locator": "Chapter II, Hausdorff maximal principle, pp. 28–31",
+        "note": "",
+        "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+        "source_title": "John L. Bell, The Axiom of Choice, author-hosted book"
+      },
+      "hypotheses": [
+        "P is any set with a partial order.",
+        "C is a specified chain; the extending chain is inclusion-maximal."
+      ]
+    },
+    {
+      "id": "tukey_finite_character",
+      "name": "Teichmüller–Tukey lemma",
+      "category": "orders",
+      "definition": "For every set X and every nonempty family F⊆P(X) of finite character, F has a member maximal under inclusion. Finite character means: for every Y⊆X, Y∈F if and only if every finite subset of Y belongs to F.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "AC_equivalent_anchor",
+      "notes": "The family must be nonempty. Finite character is a local condition on membership in F; it does not say that all members of F are finite.",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "Bell",
+          "locator": "Chapter II, finite-character formulation, p. 31"
+        }
+      ],
+      "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "Bell",
+        "locator": "Chapter II, finite-character formulation, p. 31",
+        "note": "",
+        "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+        "source_title": "John L. Bell, The Axiom of Choice, author-hosted book"
+      },
+      "hypotheses": [
+        "F is a nonempty subfamily of P(X).",
+        "Finite character is required in both directions, including the empty finite subset."
+      ]
+    },
+    {
+      "id": "nonempty_products",
+      "name": "Nonempty products of nonempty sets",
+      "category": "anchors",
+      "definition": "For every set I and every family (A_i) indexed by I with A_i≠∅ for all i, the Cartesian product ∏_{i∈I} A_i is nonempty.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "AC_equivalent_anchor",
+      "notes": "No restriction on I or on the sizes of the factors. The empty-index product is the singleton containing the empty function. A point of the product is exactly a choice function.",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "ELEMENTARY",
+          "locator": "Direct reformulation of AC"
+        }
+      ],
+      "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "ELEMENTARY",
+        "locator": "Direct reformulation of AC",
+        "note": "",
+        "source_url": null,
+        "source_title": "Elementary argument supplied with this record"
+      },
+      "hypotheses": [
+        "All factors are nonempty; the index set is arbitrary.",
+        "No point of the product is given in advance."
+      ]
+    },
+    {
+      "id": "surjection_section",
+      "name": "Every surjection has a right inverse",
+      "category": "anchors",
+      "definition": "For every surjection p:X→Y there is a function s:Y→X with p∘s=id_Y.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "AC_equivalent_anchor",
+      "notes": "The right inverse selects a point from each fiber. This requires the selected injection to be a section of the given surjection; PP only requires some injection Y→X and is weaker. Empty X and Y are allowed when p exists.",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "ELEMENTARY",
+          "locator": "Fibers and disjoint-union projection proof"
+        }
+      ],
+      "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
+      "ac_classification": {
+        "kind": "equivalent",
+        "base": "ZF",
+        "source": "ELEMENTARY",
+        "locator": "Fibers and disjoint-union projection proof",
+        "note": "",
+        "source_url": null,
+        "source_title": "Elementary argument supplied with this record"
+      },
+      "hypotheses": [
+        "p is a specified surjection.",
+        "The required s must satisfy p∘s=id, not merely be some injection."
+      ]
+    },
+    {
+      "id": "ordinal_trichotomy",
+      "name": "Ordinal trichotomy (ZF theorem)",
+      "category": "orders",
+      "definition": "For all ordinals α and β, exactly one of α∈β, α=β, or β∈α holds.",
+      "base_theory": "ZF",
+      "howard_rubin_reference": "",
+      "status": "ZF_theorem",
+      "notes": "This compares von Neumann ordinals by their ordinal order. It is provable without choice and is not the cardinal trichotomy principle for arbitrary sets. Keep as an explanatory theorem entry, outside the weak-choice graph if theorem anchors are hidden.",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_definition",
+      "aliases": [],
+      "definition_evidence": [
+        {
+          "source_id": "ELEMENTARY",
+          "locator": "Comparison theorem for well-orders"
+        }
+      ],
+      "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
+      "relation_review": "See explicit equivalence relation and proof/source qualifications.",
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source": "ELEMENTARY",
+        "locator": "Proof note",
+        "note": "ZF theorem, hence does not imply AC assuming Con(ZF).",
+        "label": "Theorem of ZF",
+        "source_url": null,
+        "source_title": "Elementary argument supplied with this record"
+      },
+      "hypotheses": [
+        "α and β are von Neumann ordinals, compared by membership."
+      ]
     }
   ],
   "sources": {
@@ -2121,8 +3063,8 @@
     },
     "Blass84": {
       "title": "Andreas Blass (1984), Existence of bases implies the axiom of choice",
-      "url": "https://sites.lsa.umich.edu/ablass/set-theory-papers/",
-      "role": "author page linking original paper; all-field basis AC equivalence"
+      "url": "https://sites.lsa.umich.edu/ablass/wp-content/uploads/sites/1471/2025/10/bases-AC.pdf",
+      "role": "Original scanned paper, theorem on p. 31; pages 31–33. Author page separately confirms the ZF equivalence."
     },
     "Howard07": {
       "title": "Paul Howard (2007), Bases, spanning sets, and the axiom of choice",
@@ -2301,6 +3243,111 @@
       "source_type": "original research chapter",
       "access": "Bibliography verified; original full chapter not retrieved in this audit",
       "scope_note": "Original credit for BPI in the basic Cohen model; use Ransom for the accessible proof and De la Cruz for a compact statement."
+    },
+    "MATHIAS1974": {
+      "title": "The order extension principle",
+      "authors": [
+        "A. R. D. Mathias"
+      ],
+      "url": "https://doi.org/10.1090/pspum/013.2/0360267",
+      "version": "Announced 1967; published 1974, Proceedings of Symposia in Pure Mathematics 13, Part II, pp. 179–183.",
+      "source_type": "original_research",
+      "role": "Classical attribution for OP not implying OEP, decades before the OpenAI PP model.",
+      "review": "1967 original announcement statement and 1974 publication metadata checked; full 1974 proof not obtained. Jech (1973), §7.2, provides an accessible related proof."
+    },
+    "MATHIAS1967": {
+      "title": "On the order extension principle — abstract 67T-273",
+      "authors": [
+        "A. R. D. Mathias"
+      ],
+      "url": "https://www.ams.org/journals/notices/196704/196704FullIssue.pdf?adat=April+1967&cat=none&trk=&type=.pdf",
+      "version": "Notices AMS 14 (April 1967), p. 410; received January 6, 1967.",
+      "source_type": "original_research_announcement",
+      "role": "Original announcement explicitly stating a pure-ZF model of OP + not OEP under its countable-standard-model hypothesis.",
+      "review": "Full abstract text recovered from the AMS-hosted PDF through indexed web-search excerpts. Direct PDF open and download returned HTTP 403; no screenshot verification performed."
+    },
+    "HARTOGS1915": {
+      "title": "Friedrich Hartogs (1915), Über das Problem der Wohlordnung; English translation by Paul Taylor",
+      "url": "https://paultaylor.eu/trans/HartogsF-wellord.pdf",
+      "role": "Original comparability-to-well-ordering argument, read in translation; pp. 1–3. Original: Math. Ann. 76, 438–443; DOI 10.1007/BF01458215."
+    },
+    "TARSKI1924": {
+      "title": "Alfred Tarski (1924), Sur quelques théorèmes qui équivalent à l’axiome du choix",
+      "url": "https://eudml.org/doc/213923",
+      "role": "Original cardinal-square equivalence; Fundamenta Mathematicae 5, 147–154; statement II checked in article abstract; full original proof not freshly audited."
+    },
+    "ENTIN2024": {
+      "title": "Alexei Entin (2024), Maximal Ideals in Commutative Rings and the Axiom of Choice",
+      "url": "https://arxiv.org/html/2404.18351v2",
+      "role": "Author’s proof of MIT ⇒ AC; Theorem 1, Proposition 6 and proof of Proposition 7. States the earlier proofs of Hodges (1979), Banaschewski and Erné."
+    },
+    "KELLEY1950": {
+      "title": "John L. Kelley (1950), The Tychonoff product theorem implies the axiom of choice",
+      "url": "https://eudml.org/doc/213229",
+      "role": "Original historical attribution, Fundamenta Mathematicae 37, 75–76. The elementary proof note supplied here uses an isolated added point and avoids the flaw in the original cofinite-topology argument."
+    },
+    "FMR2026": {
+      "title": "Gabriel Fernandes, Renan Maneli Mezabarba and Vinicius de Oliveira Rodrigues (2026), Existence of bases implies the axiom of choice, a foundation-free proof",
+      "url": "https://arxiv.org/html/2609.20140v1",
+      "role": "Preprint of 17 September 2026; Theorem 1.2, Corollary 7.1 and §7 explicitly extend the basis equivalence to ZFA. Recent claim: publication and full independent verification not established in this audit."
+    },
+    "FELGNERJECH1973": {
+      "title": "Variants of the axiom of choice in set theory with atoms",
+      "authors": [
+        "Ulrich Felgner",
+        "Thomas Jech"
+      ],
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+      "version": "Fundamenta Mathematicae 79 (1973), 79–85; DOI 10.4064/fm-79-1-79-85.",
+      "source_type": "original_research",
+      "role": "Original source for the foundation-dependent MC–AC equivalence and its failure with atoms.",
+      "review": "Original scan inspected: unnumbered theorem p.80 and §I(c)–(e), pp.80–81; compare §II(a), p.81."
+    },
+    "AC_STATUS_ac_lo_index": {
+      "title": "Truss, The axiom of choice for linearly ordered families (1978)",
+      "url": "https://doi.org/10.4064/fm-99-2-133-139",
+      "source_type": "classification_reference",
+      "role": "ZF proves C(LO,all) implies AC. Foundation matters: the later countermodel omits Foundation.",
+      "review": "Source passage checked; any restriction or elementary deduction is stated explicitly."
+    },
+    "AC_STATUS_ac_wo_fibers": {
+      "title": "Jech, The Axiom of Choice (1973)",
+      "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+      "source_type": "classification_reference",
+      "role": "The constructed pure-ZF model has choice for all well-orderable fibers and fails OP, hence AC.",
+      "review": "Source passage checked; any restriction or elementary deduction is stated explicitly."
+    },
+    "AC_STATUS_baire_compact_hausdorff": {
+      "title": "Tsukada, Constructions of complete metric spaces and compact Hausdorff spaces which are not Baire spaces (1993)",
+      "url": "https://tsukuba.repo.nii.ac.jp/record/16150/files/12.pdf",
+      "source_type": "classification_reference",
+      "role": "DC proves that compact Hausdorff spaces are Baire; use the DC + not AC model.",
+      "review": "Source passage checked; any restriction or elementary deduction is stated explicitly."
+    },
+    "AC_STATUS_algebraic_closure": {
+      "title": "Banaschewski, Algebraic closure without choice (1992)",
+      "url": "https://metaphor.ethz.ch/x/2025/fs/401-2004-00L/sc/Banaschewski.pdf",
+      "source_type": "classification_reference",
+      "role": "Proved from the Boolean Ultrafilter Theorem; BPI + not AC supplies strictness.",
+      "review": "Source passage checked; any restriction or elementary deduction is stated explicitly."
+    },
+    "AC_STATUS_nielsen_schreier": {
+      "title": "Linton et al., The theory of one-relator groups: history and recent progress (2025)",
+      "url": "https://arxiv.org/html/2501.18306v1",
+      "source_type": "classification_reference",
+      "role": "AC implies Nielsen–Schreier; the converse over pure ZF is reported open. Do not substitute the stronger Nielsen-basis formulation.",
+      "review": "The cited 2025 primary survey explicitly reports this open; the bounded current search found no resolution."
+    },
+    "TRUSS1978": {
+      "title": "Truss, The axiom of choice for linearly ordered families (1978)",
+      "url": "https://doi.org/10.4064/fm-99-2-133-139",
+      "authors": [
+        "John K. Truss"
+      ],
+      "version": "Fundamenta Mathematicae 99 (1978), 133–139.",
+      "source_type": "original_research",
+      "role": "Choice for linearly ordered index families is equivalent to AC in ZF; restricted real-index choice can hold without AC.",
+      "review": "Source passage checked; any restriction or elementary deduction is stated explicitly."
     }
   },
   "cardinal_well_foundedness_template": {
@@ -3106,15 +4153,16 @@
       ],
       "consequent": "tychonoff",
       "base": "ZF",
-      "source": "Bell",
-      "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
-      "locator": "Introduction, p. 3; Chapter III Tychonoff discussion",
-      "status": "source_checked",
-      "proof_note": "The unrestricted compact-space product theorem is listed among AC equivalents. Compact Hausdorff products remain a distinct principle.",
-      "proof_access": "Equivalence statement checked; full equivalence proof not freshly audited",
+      "source": "KELLEY1950",
+      "source_url": "https://eudml.org/doc/213229",
+      "locator": "Classical equivalence; added-point proof",
+      "status": "elementary_argument",
+      "proof_note": "AC gives Tychonoff by its usual ultrafilter/compactness proof. For the reverse, given nonempty sets A_i, form Y_i as the topological disjoint sum of A_i with its indiscrete topology and an isolated singleton {∞_i}. Each Y_i is compact, A_i is closed in Y_i, and ∏Y_i has the canonical point (∞_i). Compactness of ∏Y_i makes the closed cylinders π_i⁻¹(A_i), which have the finite intersection property by finite choice, have a common point. That point belongs to ∏A_i. Thus even compactness for already nonempty products implies AC. This proof uses no Hausdorff assumption and works with atoms.",
+      "proof_access": "Exact statement and displayed reasoning/source qualifications checked; not a formal verification.",
       "layer": "standard",
       "valid_bases": [
-        "ZF"
+        "ZF",
+        "ZFA"
       ]
     },
     {
@@ -3957,6 +5005,277 @@
       ],
       "derivation_note": "BPI⇒Ultrafilter Lemma⇒OEP is already represented in the atlas. A direct filter proof is included in the audit file.",
       "attribution_note": "This edge is an explicit deduction about the atlas's FB definition from a classical countermodel. It is not claimed that Halpern–Lévy used the modern label FB, or that Cançado's new PP-model construction is needed for this direction."
+    },
+    {
+      "id": "op_not_oep_mathias",
+      "kind": "nonimplication",
+      "antecedents": [
+        "op"
+      ],
+      "consequent": "oep",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "MATHIAS1974",
+      "source_url": "https://doi.org/10.1090/pspum/013.2/0360267",
+      "locator": "pp. 179–183; original announcement: Notices AMS 14 (1967), p. 410, abstract 67T-273",
+      "status": "source_checked",
+      "proof_note": "Mathias constructed a pure-ZF model of OP with a partial order having no linear extension. The result was announced in 1967 and published in 1974. Cançado’s 2026 preprint supplies a separate witness in the OpenAI PP model; it is not the first proof of the abstract separation.",
+      "proof_access": "Original announcement statement and publication metadata checked. Full 1974 paper not obtained; the linked Jech exposition gives a related construction and the pure-ZF transfer.",
+      "layer": "standard",
+      "model": "mathias_op_not_oep",
+      "assumptions": "Existence of a countable standard model of ZF + V=L (the hypothesis of Mathias’s 1967 announcement)",
+      "consistency_assumption": "Existence of a countable standard model of ZF + V=L (the hypothesis of Mathias’s 1967 announcement)",
+      "readable_source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+      "readable_locator": "§7.2, pp. 100–104; Theorem 7.8 proof; historical attribution on p. 117.",
+      "supporting_sources": [
+        {
+          "source": "MATHIAS1967",
+          "source_url": "https://www.ams.org/journals/notices/196704/196704FullIssue.pdf?adat=April+1967&cat=none&trk=&type=.pdf",
+          "locator": "p. 410, abstract 67T-273, Theorem",
+          "status": "source_checked"
+        }
+      ],
+      "also_source": {
+        "url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+        "locator": "Frederico Cançado, preprint §3.5 and §4.1: additional witness using the OpenAI PP construction; preliminary review status."
+      }
+    },
+    {
+      "id": "ac_iff_cardinal_trichotomy",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "cardinal_trichotomy",
+      "base": "ZF",
+      "source": "HARTOGS1915",
+      "source_url": "https://paultaylor.eu/trans/HartogsF-wellord.pdf",
+      "locator": "pp. 1–3",
+      "status": "source_checked",
+      "proof_note": "AC well-orders A and B, making their cardinalities comparable. Conversely, compare an arbitrary set A with its Hartogs ordinal h(A). Since h(A) does not inject into A, comparability forces A to inject into h(A), so A is well-orderable. This argument works for sets containing atoms as well.",
+      "proof_access": "Exact statement and displayed reasoning/source qualifications checked; not a formal verification.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ]
+    },
+    {
+      "id": "ac_iff_cardinal_square",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "cardinal_square",
+      "base": "ZF",
+      "source": "TARSKI1924",
+      "source_url": "https://eudml.org/doc/213923",
+      "locator": "Statement II; pp. 147–154",
+      "status": "elementary_argument",
+      "proof_note": "Under AC, well-order an infinite A and use cardinal arithmetic for infinite well-ordered cardinals. Conversely, for arbitrary A choose an infinite ordinal κ admitting no injection into A (for example, the larger of ω and the Hartogs ordinal h(A)). Apply the square principle to X=A⊔κ and restrict a resulting injection X×X→X to get g:A×κ→A⊔κ. For each a∈A, some g(a,ξ) lies in the κ-summand; otherwise the whole row injects κ into A. Take the least such ξ. Mapping a to the ordinal component of g(a,ξ) is injective, so A injects into an ordinal and is well-orderable. The argument also works with atoms.",
+      "proof_access": "Tarski’s historical statement is cited; the displayed Hartogs argument was separately checked for hidden choice uses. It is not formally verified.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ]
+    },
+    {
+      "id": "ac_iff_hausdorff_maximal",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "hausdorff_maximal",
+      "base": "ZF",
+      "source": "Bell",
+      "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+      "locator": "Chapter II, pp. 28–31",
+      "status": "elementary_argument",
+      "proof_note": "AC gives Zorn’s lemma. Apply it to chains containing C, ordered by inclusion; the union of any chain of such chains is a chain. Conversely, in a nonempty poset satisfying Zorn’s hypothesis, take a maximal chain M and an upper bound u of M. If u<v, the chain M∪{u,v} contradicts maximality. Thus u is maximal, yielding Zorn. The same reasoning applies in ZFA.",
+      "proof_access": "Exact statement and displayed reasoning/source qualifications checked; not a formal verification.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ]
+    },
+    {
+      "id": "ac_iff_tukey_finite_character",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "tukey_finite_character",
+      "base": "ZF",
+      "source": "Bell",
+      "source_url": "https://publish.uwo.ca/~jbell/acbook.pdf",
+      "locator": "Chapter II, p. 31",
+      "status": "elementary_argument",
+      "proof_note": "Under AC, Zorn applies to F ordered by inclusion: a finite subset of a chain-union is contained in one chain member, so finite character places the union in F. Conversely, for any family of nonempty sets, let F consist of graphs of partial choice functions. F has finite character and is nonempty. An inclusion-maximal partial choice function must have full domain, since one omitted coordinate can be added. These arguments work in ZFA.",
+      "proof_access": "Exact statement and displayed reasoning/source qualifications checked; not a formal verification.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ]
+    },
+    {
+      "id": "ac_iff_nonempty_products",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "nonempty_products",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Definition of Cartesian product",
+      "status": "elementary_argument",
+      "proof_note": "A point of the Cartesian product is precisely a function selecting an element of each factor, including the empty function for the empty index set.",
+      "proof_access": "Exact statement and displayed reasoning/source qualifications checked; not a formal verification.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ]
+    },
+    {
+      "id": "ac_iff_surjection_section",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "surjection_section",
+      "base": "ZF",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Fibers and disjoint-union projection",
+      "status": "elementary_argument",
+      "proof_note": "AC selects s(y) from each nonempty fiber p⁻¹({y}). Conversely, for a family (A_i) of nonempty sets, the projection from {(i,a):i∈I and a∈A_i} onto I is surjective; a section selects the required a for every i. A merely unrelated injection I→⋃({i}×A_i) would not be enough for this argument.",
+      "proof_access": "Exact statement and displayed reasoning/source qualifications checked; not a formal verification.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ]
+    },
+    {
+      "id": "ac_iff_maximal_ideal_audited",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "maximal_ideal",
+      "base": "ZF",
+      "source": "ENTIN2024",
+      "source_url": "https://arxiv.org/html/2404.18351v2",
+      "locator": "§1 MIT; Theorem 1 and Proposition 6",
+      "status": "source_checked",
+      "proof_note": "AC gives a maximal proper ideal containing I by Zorn: unions of chains remain proper because they omit 1. Taking I={0} gives MIT, which implies AC by the cited original proof. Conversely, MIT applied to R/I gives the stated containing-I version. The admission here is only over ZF, matching the source’s explicit background.",
+      "proof_access": "Exact statement and displayed reasoning/source qualifications checked; not a formal verification.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "id": "ac_iff_vector_basis_audited",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "vector_basis",
+      "base": "ZF",
+      "source": "Blass84",
+      "source_url": "https://sites.lsa.umich.edu/ablass/wp-content/uploads/sites/1471/2025/10/bases-AC.pdf",
+      "locator": "Theorem and proof, pp. 31–33",
+      "status": "source_checked",
+      "proof_note": "The all-fields basis theorem is equivalent to AC over ZF by Blass (1984). The forward direction is Zorn applied to linearly independent subsets. Do not infer a fixed-field equivalence from this quantification.",
+      "proof_access": "Exact statement and displayed reasoning/source qualifications checked; not a formal verification.",
+      "layer": "standard",
+      "valid_bases": [
+        "ZF"
+      ]
+    },
+    {
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "vector_basis",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "FMR2026",
+      "source_url": "https://arxiv.org/html/2609.20140v1",
+      "locator": "Theorem 1.2; Corollary 7.1; §7 final paragraph",
+      "status": "preprint_statement_checked",
+      "layer": "recent",
+      "proof_note": "The authors explicitly establish the equivalence for set theory with atoms. This audit checked the statement and described scope; it did not independently verify the full field-theoretic argument.",
+      "id": "ac_iff_vector_basis_zfa_2026",
+      "proof_access": "Preprint statement and scope checked; full proof not independently verified."
+    },
+    {
+      "id": "ac_iff_multiple_choice",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "mc",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FELGNERJECH1973",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/98829",
+      "locator": "Unnumbered theorem p. 80; §I(c)–(e), pp. 80–81",
+      "status": "source_checked",
+      "layer": "standard",
+      "proof_note": "AC permits singleton selections, hence MC. The converse in pure ZF follows from Felgner–Jech’s chain MC ⇒ A ⇒ LW ⇒ PW ⇒ AC, where the last implication uses Foundation. This is not admitted as a ZFA equivalence.",
+      "proof_access": "Original theorem and relevant proof passages inspected; no independent formal verification."
+    },
+    {
+      "id": "ac_iff_linearly_ordered_index",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "ac_lo_index",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "TRUSS1978",
+      "source_url": "https://doi.org/10.4064/fm-99-2-133-139",
+      "locator": "Section 2, Theorem 1, p. 134",
+      "status": "source_checked",
+      "layer": "standard",
+      "proof_note": "AC immediately gives choice for linearly orderable index sets. Truss’s Theorem 1 proves the converse in pure ZF. The role of Foundation is explicit; this record does not transfer the equivalence to theories without Foundation.",
+      "proof_access": "Original scanned theorem and its scope inspected; full proof not formally verified."
+    },
+    {
+      "id": "dc_dedekind_infinite",
+      "kind": "implication",
+      "antecedents": [
+        "dc"
+      ],
+      "consequent": "df_finite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Finite injective sequences ordered by extension",
+      "status": "elementary_argument",
+      "layer": "standard",
+      "proof_note": "For an infinite set X, consider finite injective sequences in X and the serial relation that appends one new element. DC gives a chain with unbounded finite lengths; its union enumerates a countably infinite subset of X. This works with atoms.",
+      "proof_access": "Displayed elementary argument checked."
     }
   ],
   "models": [
@@ -4126,13 +5445,44 @@
           "review": "Preliminary public report with separate AI-assisted mathematical audits. The full forcing argument is not Lean-formalized and has not received independent human peer review; no novelty certification is claimed."
         }
       ]
+    },
+    {
+      "id": "mathias_op_not_oep",
+      "name": "Mathias’s OP without OEP model (1967/1974)",
+      "base": "ZF",
+      "layer": "standard",
+      "status": "source_checked",
+      "assumptions": "Existence of a countable standard model of ZF + V=L (the hypothesis of Mathias’s 1967 announcement)",
+      "true_ids": [
+        "op"
+      ],
+      "false_ids": [
+        "oep",
+        "ac"
+      ],
+      "source": "MATHIAS1967",
+      "source_url": "https://www.ams.org/journals/notices/196704/196704FullIssue.pdf?adat=April+1967&cat=none&trk=&type=.pdf",
+      "locator": "p. 410, abstract 67T-273, Theorem",
+      "description": "Mathias announced a pure-ZF model where every set admits a linear order but a particular partial order has no linear extension. This classical separation predates the OpenAI PP construction.",
+      "review": "The announcement theorem was located in indexed text from the original AMS issue. This atlas does not claim an independent verification of the forcing proof. The full paper appeared in 1974.",
+      "property_evidence": [
+        {
+          "principles": [
+            "ac"
+          ],
+          "source": "MATHIAS1967",
+          "locator": "Failure of AC follows from failure of OEP, since AC implies OEP.",
+          "status": "elementary_argument"
+        }
+      ]
     }
   ],
   "status_labels": {
     "elementary_argument": "Elementary argument",
     "source_checked": "Source checked",
     "source_dependent": "Recent · source-dependent",
-    "preliminary": "Preliminary research"
+    "preliminary": "Preliminary research",
+    "preprint_statement_checked": "Preprint statement checked"
   },
   "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer.",
   "updated": "2026-10-08"
