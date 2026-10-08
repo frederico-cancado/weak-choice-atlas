@@ -768,17 +768,24 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "49",
       "status": "candidate",
-      "notes": "",
+      "notes": "OEP requires extending a prescribed partial order; OP only asks for some linear order. Cançado’s original-model obstruction and its consequences appear in the recent-research layer.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "No implication/nonimplication edge audited in this catalogue; anchor classification is provided only where explicitly marked.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "OEP",
+        "order-extension principle"
+      ],
       "definition_evidence": [
         {
           "source_id": "Mandler20",
           "locator": ""
+        },
+        {
+          "source_id": "FC2026REPORT",
+          "locator": "§1.1 for notation; §4.1, pp. 17–18 for the native order obstruction"
         }
       ]
     },
@@ -2239,6 +2246,61 @@
       "title": "Elementary argument supplied with this record",
       "url": null,
       "role": "Expository proof, with no claim of historical originality or independent peer review"
+    },
+    "FC2026REPORT": {
+      "title": "Choice principles after the OpenAI partition-principle model: complete research results and verification record",
+      "authors": [
+        "Frederico Cançado"
+      ],
+      "url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "version": "Preliminary report 2026-10-07.1; pinned commit a8ddc9aca3030e07de616c444ca688d6f5bd80e8",
+      "source_type": "preliminary_research_report",
+      "role": "Additional model consequences, including the native OEP/BPI obstruction, attributed to Cançado; the underlying partition-principle construction is OpenAI’s.",
+      "review": "Preliminary public report with separate AI-assisted mathematical audits. The full forcing argument is not Lean-formalized and has not received independent human peer review; no novelty certification is claimed."
+    },
+    "RANSOM2026": {
+      "title": "Characterizations of the Boolean Prime Ideal Theorem in Models Without Choice",
+      "authors": [
+        "Brian Ransom"
+      ],
+      "url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+      "landing_url": "https://escholarship.org/uc/item/0b35t7sd",
+      "year": 2026,
+      "source_type": "doctoral dissertation; new proof of a classical theorem",
+      "access": "Relevant definitions and theorem/proof passages inspected",
+      "locators": [
+        "§2.5, Definition 2.5.5 and Theorem 2.5.7, printed pp.19–20",
+        "Corollary 4.2.2, printed p.79 (PDF page 91)",
+        "Corollary 4.2.17, printed p.91 (PDF page 103); proof in §4.2"
+      ],
+      "scope_note": "Take I=omega and Q=2^{<omega} to obtain the basic Cohen model. No general claim about arbitrary Q is needed for this update."
+    },
+    "DELACRUZ2002": {
+      "title": "Finiteness and choice",
+      "authors": [
+        "Omar De la Cruz"
+      ],
+      "journal": "Fundamenta Mathematicae 173 (2002), 57–76",
+      "url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
+      "source_type": "published research article",
+      "access": "Full-text §4.2 inspected",
+      "locators": [
+        "Theorem 26(1)–(2), p.69",
+        "Following construction description, pp.69–70"
+      ],
+      "scope_note": "Explicitly identifies the atom-free basic Cohen model, BPI, and its Dedekind-finite Cohen set."
+    },
+    "HALPERNLEVY1971": {
+      "title": "The Boolean prime ideal theorem does not imply the axiom of choice",
+      "authors": [
+        "James D. Halpern",
+        "Azriel Lévy"
+      ],
+      "journal": "Axiomatic Set Theory, Proceedings of Symposia in Pure Mathematics 13, Part I (1971), pp.83–134",
+      "url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+      "source_type": "original research chapter",
+      "access": "Bibliography verified; original full chapter not retrieved in this audit",
+      "scope_note": "Original credit for BPI in the basic Cohen model; use Ransom for the accessible proof and De la Cruz for a compact statement."
     }
   },
   "cardinal_well_foundedness_template": {
@@ -3360,6 +3422,541 @@
         "credit": "Jensen",
         "proof_pointer": "Original reference credited in Blass–Kulshreshtha, proof of Corollary 8.2."
       }
+    },
+    {
+      "id": "pp_not_oep",
+      "kind": "nonimplication",
+      "antecedents": [
+        "pp"
+      ],
+      "consequent": "oep",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§4.1, pp. 17–18 (native order obstruction); §4.3, pp. 19–20 (explicit nonimplications)",
+      "status": "preliminary",
+      "proof_note": "Cançado's report proves that the native partial order in the original OpenAI model has no linear extension. The same model satisfies PP, so PP does not imply OEP.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying original symmetric-model construction. The OEP/BPI obstruction is attributed separately to Cançado’s report."
+      }
+    },
+    {
+      "id": "pp_not_bpi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "pp"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§4.1, pp. 17–18 (native order obstruction); §4.3, pp. 19–20 (explicit nonimplications)",
+      "status": "preliminary",
+      "proof_note": "Cançado's report proves that the native partial order in the original OpenAI model has no linear extension. The same model satisfies PP, so PP does not imply BPI. Failure of BPI follows from the classical implication BPI ⇒ OEP.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying original symmetric-model construction. The OEP/BPI obstruction is attributed separately to Cançado’s report."
+      }
+    },
+    {
+      "id": "nds_not_oep",
+      "kind": "nonimplication",
+      "antecedents": [
+        "nds_sets"
+      ],
+      "consequent": "oep",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§4.1, pp. 17–18 (native order obstruction); §4.3, pp. 19–20 (explicit nonimplications)",
+      "status": "preliminary",
+      "proof_note": "Cançado's report proves that the native partial order in the original OpenAI model has no linear extension. The same model satisfies NDS, so NDS does not imply OEP.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying original symmetric-model construction. The OEP/BPI obstruction is attributed separately to Cançado’s report."
+      }
+    },
+    {
+      "id": "nds_not_bpi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "nds_sets"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§4.1, pp. 17–18 (native order obstruction); §4.3, pp. 19–20 (explicit nonimplications)",
+      "status": "preliminary",
+      "proof_note": "Cançado's report proves that the native partial order in the original OpenAI model has no linear extension. The same model satisfies NDS, so NDS does not imply BPI. Failure of BPI follows from the classical implication BPI ⇒ OEP.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying original symmetric-model construction. The OEP/BPI obstruction is attributed separately to Cançado’s report."
+      }
+    },
+    {
+      "id": "fb_not_oep",
+      "kind": "nonimplication",
+      "antecedents": [
+        "fb"
+      ],
+      "consequent": "oep",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§4.1, pp. 17–18 (native order obstruction); §4.3, pp. 19–20 (explicit nonimplications)",
+      "status": "preliminary",
+      "proof_note": "Cançado's report proves that the native partial order in the original OpenAI model has no linear extension. The same model satisfies FB, so FB does not imply OEP.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying original symmetric-model construction. The OEP/BPI obstruction is attributed separately to Cançado’s report."
+      }
+    },
+    {
+      "id": "fb_not_bpi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "fb"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§4.1, pp. 17–18 (native order obstruction); §4.3, pp. 19–20 (explicit nonimplications)",
+      "status": "preliminary",
+      "proof_note": "Cançado's report proves that the native partial order in the original OpenAI model has no linear extension. The same model satisfies FB, so FB does not imply BPI. Failure of BPI follows from the classical implication BPI ⇒ OEP.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying original symmetric-model construction. The OEP/BPI obstruction is attributed separately to Cançado’s report."
+      }
+    },
+    {
+      "id": "finite_antichains_not_oep",
+      "kind": "nonimplication",
+      "antecedents": [
+        "finite_antichains"
+      ],
+      "consequent": "oep",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§2.2, pp. 7–8 (finite antichains); §4.1, pp. 17–18 (OEP/BPI failure)",
+      "status": "preliminary",
+      "proof_note": "The same original model has only finite set-sized cardinal antichains and fails OEP. This is an immediate combination of two claims of the report; it is not a claim of a new model or a separate novelty finding.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp"
+    },
+    {
+      "id": "finite_antichains_not_bpi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "finite_antichains"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§2.2, pp. 7–8 (finite antichains); §4.1, pp. 17–18 (OEP/BPI failure)",
+      "status": "preliminary",
+      "proof_note": "The same original model has only finite set-sized cardinal antichains and fails BPI. This is an immediate combination of two claims of the report; it is not a claim of a new model or a separate novelty finding.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp"
+    },
+    {
+      "id": "op_not_oep",
+      "kind": "nonimplication",
+      "antecedents": [
+        "op"
+      ],
+      "consequent": "oep",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026REPORT",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+      "locator": "§3.5, pp. 13–14; §4.1, pp. 17–18",
+      "status": "preliminary",
+      "proof_note": "The original model satisfies OP but its native partial order has no linear extension. This witnesses OP ↛ OEP. The general separation is classical; this record cites Cançado’s additional witness, not a claim of historical originality.",
+      "proof_access": "Published draft and saved AI-assisted mathematical audit inspected. The full forcing theorem has not been Lean-formalized or externally peer-reviewed.",
+      "layer": "recent",
+      "publication_status": "preliminary_research_report",
+      "show_by_default": false,
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "model": "openai_pp",
+      "also_source": {
+        "url": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026",
+        "locator": "Underlying original symmetric-model construction. The OEP/BPI obstruction is attributed separately to Cançado’s report."
+      }
+    },
+    {
+      "id": "ac_bpi",
+      "kind": "implication",
+      "antecedents": [
+        "ac"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "status": "elementary_argument",
+      "proof_note": "AC gives Zorn’s lemma. The proper ideals of a nontrivial Boolean algebra are nonempty and closed under unions of chains. A maximal proper ideal obtained by Zorn is prime.",
+      "proof_access": "Elementary argument included. No historical originality claim.",
+      "base_review": "The same argument works for Boolean algebras whose underlying sets may contain atoms.",
+      "layer": "standard"
+    },
+    {
+      "id": "bpi_oep",
+      "kind": "implication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "oep",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "Bodirsky",
+      "source_url": "https://wwwpub.zih.tu-dresden.de/~bodirsky/Automorphism-Groups.pdf",
+      "locator": "Appendix A.2, pp. 148–149",
+      "status": "source_checked",
+      "proof_note": "BPI is equivalent to the Ultrafilter Lemma, which implies the Order Extension Principle. This edge abbreviates the two recorded classical steps.",
+      "proof_access": "Derived from the existing source-checked BPI/Ultrafilter equivalence and Ultrafilter-to-OEP records. This is not a new proof audit.",
+      "layer": "standard"
+    },
+    {
+      "id": "bpi_not_pp",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "pp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "RANSOM2026",
+      "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+      "locator": "Corollary 4.2.2, p.79; Corollary 4.2.17, p.91; basic Cohen specialization I=omega, Q=2^{<omega}",
+      "status": "source_checked",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "proof_note": "The model has BPI and OEP but fails DC. Since PP implies AC_WO and hence DC, PP fails there.",
+      "proof_access": "Accessible classical model theorem and stated consequences checked; complete forcing construction not independently re-proved",
+      "original_source": {
+        "credit": "Halpern–Lévy (1971), BPI in the basic Cohen model",
+        "url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+        "proof_pointer": "Axiomatic Set Theory 13, Part I, pp.83–134"
+      },
+      "supporting_sources": [
+        {
+          "source": "DELACRUZ2002",
+          "url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
+          "locator": "Theorem 26 and §4.2, pp.69–70",
+          "source_url": "https://www.impan.pl/shop/publication/transaction/download/product/88439"
+        },
+        {
+          "source": "BK2026",
+          "url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Proof of Corollary 8.2 and Proposition 9.8",
+          "source_url": "https://arxiv.org/html/2310.09643v3"
+        }
+      ]
+    },
+    {
+      "id": "bpi_not_nds",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "RANSOM2026",
+      "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+      "locator": "Corollary 4.2.2, p.79; Corollary 4.2.17, p.91; basic Cohen specialization I=omega, Q=2^{<omega}",
+      "status": "source_checked",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "proof_note": "The model has BPI and OEP and an infinite Dedekind-finite set. By the cited NDS⇒every Dedekind-finite set is finite theorem, NDS fails.",
+      "proof_access": "Accessible classical model theorem and stated consequences checked; complete forcing construction not independently re-proved",
+      "original_source": {
+        "credit": "Halpern–Lévy (1971), BPI in the basic Cohen model",
+        "url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+        "proof_pointer": "Axiomatic Set Theory 13, Part I, pp.83–134"
+      },
+      "supporting_sources": [
+        {
+          "source": "DELACRUZ2002",
+          "url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
+          "locator": "Theorem 26 and §4.2, pp.69–70",
+          "source_url": "https://www.impan.pl/shop/publication/transaction/download/product/88439"
+        },
+        {
+          "source": "BK2026",
+          "url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Proposition 4.2 and Theorem 10.1 (Howard–Tachtsis Theorem 1)",
+          "source_url": "https://arxiv.org/html/2310.09643v3"
+        }
+      ]
+    },
+    {
+      "id": "bpi_not_fb",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "fb",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "RANSOM2026",
+      "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+      "locator": "Corollary 4.2.2, p.79; Corollary 4.2.17, p.91; basic Cohen specialization I=omega, Q=2^{<omega}",
+      "status": "source_checked",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "proof_note": "The same model fails NDS. Any strictly descending omega-chain of cardinalities prevents a finite coinitial basis for its family of sets, so FB fails too.",
+      "proof_access": "Accessible classical model theorem and stated consequences checked; complete forcing construction not independently re-proved",
+      "original_source": {
+        "credit": "Halpern–Lévy (1971), BPI in the basic Cohen model",
+        "url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+        "proof_pointer": "Axiomatic Set Theory 13, Part I, pp.83–134"
+      },
+      "supporting_sources": [
+        {
+          "source": "DELACRUZ2002",
+          "url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
+          "locator": "Theorem 26 and §4.2, pp.69–70",
+          "source_url": "https://www.impan.pl/shop/publication/transaction/download/product/88439"
+        },
+        {
+          "source": "BK2026",
+          "url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Proposition 4.2 and Theorem 10.1 (Howard–Tachtsis Theorem 1)",
+          "source_url": "https://arxiv.org/html/2310.09643v3"
+        }
+      ],
+      "attribution_note": "This edge is an explicit deduction about the atlas's FB definition from a classical countermodel. It is not claimed that Halpern–Lévy used the modern label FB, or that Cançado's new PP-model construction is needed for this direction."
+    },
+    {
+      "id": "oep_not_pp",
+      "kind": "nonimplication",
+      "antecedents": [
+        "oep"
+      ],
+      "consequent": "pp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "RANSOM2026",
+      "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+      "locator": "Corollary 4.2.2, p.79; Corollary 4.2.17, p.91; basic Cohen specialization I=omega, Q=2^{<omega}",
+      "status": "source_checked",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "proof_note": "The model has BPI and OEP but fails DC. Since PP implies AC_WO and hence DC, PP fails there.",
+      "proof_access": "Accessible classical model theorem and stated consequences checked; complete forcing construction not independently re-proved",
+      "original_source": {
+        "credit": "Halpern–Lévy (1971), BPI in the basic Cohen model",
+        "url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+        "proof_pointer": "Axiomatic Set Theory 13, Part I, pp.83–134"
+      },
+      "supporting_sources": [
+        {
+          "source": "DELACRUZ2002",
+          "url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
+          "locator": "Theorem 26 and §4.2, pp.69–70",
+          "source_url": "https://www.impan.pl/shop/publication/transaction/download/product/88439"
+        },
+        {
+          "source": "BK2026",
+          "url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Proof of Corollary 8.2 and Proposition 9.8",
+          "source_url": "https://arxiv.org/html/2310.09643v3"
+        }
+      ],
+      "derivation_note": "BPI⇒Ultrafilter Lemma⇒OEP is already represented in the atlas. A direct filter proof is included in the audit file."
+    },
+    {
+      "id": "oep_not_nds",
+      "kind": "nonimplication",
+      "antecedents": [
+        "oep"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "RANSOM2026",
+      "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+      "locator": "Corollary 4.2.2, p.79; Corollary 4.2.17, p.91; basic Cohen specialization I=omega, Q=2^{<omega}",
+      "status": "source_checked",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "proof_note": "The model has BPI and OEP and an infinite Dedekind-finite set. By the cited NDS⇒every Dedekind-finite set is finite theorem, NDS fails.",
+      "proof_access": "Accessible classical model theorem and stated consequences checked; complete forcing construction not independently re-proved",
+      "original_source": {
+        "credit": "Halpern–Lévy (1971), BPI in the basic Cohen model",
+        "url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+        "proof_pointer": "Axiomatic Set Theory 13, Part I, pp.83–134"
+      },
+      "supporting_sources": [
+        {
+          "source": "DELACRUZ2002",
+          "url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
+          "locator": "Theorem 26 and §4.2, pp.69–70",
+          "source_url": "https://www.impan.pl/shop/publication/transaction/download/product/88439"
+        },
+        {
+          "source": "BK2026",
+          "url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Proposition 4.2 and Theorem 10.1 (Howard–Tachtsis Theorem 1)",
+          "source_url": "https://arxiv.org/html/2310.09643v3"
+        }
+      ],
+      "derivation_note": "BPI⇒Ultrafilter Lemma⇒OEP is already represented in the atlas. A direct filter proof is included in the audit file."
+    },
+    {
+      "id": "oep_not_fb",
+      "kind": "nonimplication",
+      "antecedents": [
+        "oep"
+      ],
+      "consequent": "fb",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "RANSOM2026",
+      "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+      "locator": "Corollary 4.2.2, p.79; Corollary 4.2.17, p.91; basic Cohen specialization I=omega, Q=2^{<omega}",
+      "status": "source_checked",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "proof_note": "The same model fails NDS. Any strictly descending omega-chain of cardinalities prevents a finite coinitial basis for its family of sets, so FB fails too.",
+      "proof_access": "Accessible classical model theorem and stated consequences checked; complete forcing construction not independently re-proved",
+      "original_source": {
+        "credit": "Halpern–Lévy (1971), BPI in the basic Cohen model",
+        "url": "https://cris.huji.ac.il/en/publications/the-boolean-prime-ideal-theorem-does-not-imply-the-axiom-of-choic/",
+        "proof_pointer": "Axiomatic Set Theory 13, Part I, pp.83–134"
+      },
+      "supporting_sources": [
+        {
+          "source": "DELACRUZ2002",
+          "url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
+          "locator": "Theorem 26 and §4.2, pp.69–70",
+          "source_url": "https://www.impan.pl/shop/publication/transaction/download/product/88439"
+        },
+        {
+          "source": "BK2026",
+          "url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Proposition 4.2 and Theorem 10.1 (Howard–Tachtsis Theorem 1)",
+          "source_url": "https://arxiv.org/html/2310.09643v3"
+        }
+      ],
+      "derivation_note": "BPI⇒Ultrafilter Lemma⇒OEP is already represented in the atlas. A direct filter proof is included in the audit file.",
+      "attribution_note": "This edge is an explicit deduction about the atlas's FB definition from a classical countermodel. It is not claimed that Halpern–Lévy used the modern label FB, or that Cançado's new PP-model construction is needed for this direction."
     }
   ],
   "models": [
@@ -3371,14 +3968,18 @@
       "true_ids": [
         "op",
         "svc",
-        "kwp"
+        "kwp",
+        "bpi",
+        "oep"
       ],
       "false_ids": [
         "dc",
         "ac",
         "df_finite",
         "pp",
-        "ac_wo_index"
+        "ac_wo_index",
+        "nds_sets",
+        "fb"
       ],
       "source": "HS25",
       "source_url": "https://arxiv.org/html/2504.02744v1",
@@ -3407,6 +4008,44 @@
           "locator": "Proof of Corollary 8.2; failures derived from the existing model's failure of DC",
           "source_url": "https://arxiv.org/html/2310.09643v3",
           "status": "source_checked"
+        },
+        {
+          "principles": [
+            "bpi"
+          ],
+          "source": "RANSOM2026",
+          "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+          "locator": "Corollaries 4.2.2 and 4.2.17; I=omega and Q=2^{<omega}",
+          "status": "source_checked"
+        },
+        {
+          "principles": [
+            "oep"
+          ],
+          "source": "RANSOM2026",
+          "locator": "Corollaries 4.2.2 and 4.2.17 for BPI; the recorded BPI ⇒ OEP implication",
+          "status": "source_checked",
+          "source_url": "https://escholarship.org/content/qt0b35t7sd/qt0b35t7sd.pdf",
+          "proof_note": "BPI holds in the basic Cohen model, and the classical BPI ⇒ OEP implication gives order extension in the same model."
+        },
+        {
+          "principles": [
+            "nds_sets"
+          ],
+          "source": "BK2026",
+          "source_url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Proposition 4.2 and Theorem 10.1 applied to the infinite Dedekind-finite Cohen set",
+          "status": "source_checked"
+        },
+        {
+          "principles": [
+            "fb"
+          ],
+          "source": "DELACRUZ2002",
+          "locator": "§4.2, Theorem 26 and the infinite Dedekind-finite Cohen set; elementary deduction below",
+          "status": "elementary_argument",
+          "source_url": "https://www.impan.pl/shop/publication/transaction/download/product/88439",
+          "proof_note": "For an infinite Dedekind-finite set X, consider all cofinite subsets X\\F. Given finitely many such members, delete the union of their finite complements and one further point. The result is a proper subset of each chosen member; no chosen member injects into it, by Dedekind finiteness. Thus this family has no finite coinitial basis."
         }
       ]
     },
@@ -3447,7 +4086,7 @@
       "locator": "Main relative-consistency theorem; stronger construction package",
       "status": "source_dependent",
       "review": "Pinned released manuscript with formal source; relies on the previous workspace audit and has not been independently re-audited for this implementation.",
-      "description": "Recent pure symmetric-model construction. FB and its consequences are separate preliminary claims in Cançado’s note, not labelled here as claims of the original manuscript.",
+      "description": "OpenAI’s original pure symmetric model of PP without AC. Cançado’s separate preliminary notes derive FB, NDS, finite cardinal antichains and OP, and refute OEP and BPI in this same model. These follow-up claims retain their own citations and review status.",
       "layer": "recent",
       "show_by_default": false,
       "additional_claims": [
@@ -3462,6 +4101,29 @@
           "locator": "Theorem 2.3, p. 3; Corollaries 4.2–4.3, pp. 4–5; Corollary 5.1, p. 5",
           "status": "preliminary",
           "review": "Source-dependent consequences in an AI-assisted preliminary note, without independent peer review."
+        },
+        {
+          "true_ids": [],
+          "false_ids": [
+            "oep",
+            "bpi"
+          ],
+          "source": "FC2026REPORT",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+          "locator": "§4.1, pp. 17–18: the native partial order has no linear extension; BPI implies OEP",
+          "status": "preliminary",
+          "review": "Preliminary public report with separate AI-assisted mathematical audits. The full forcing argument is not Lean-formalized and has not received independent human peer review; no novelty certification is claimed."
+        },
+        {
+          "true_ids": [
+            "op"
+          ],
+          "false_ids": [],
+          "source": "FC2026REPORT",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/a8ddc9aca3030e07de616c444ca688d6f5bd80e8/reports/2026-10-07/Complete_research_results.pdf",
+          "locator": "§3.5, pp. 13–14; §4.1, p. 17 (OP still holds)",
+          "status": "preliminary",
+          "review": "Preliminary public report with separate AI-assisted mathematical audits. The full forcing argument is not Lean-formalized and has not received independent human peer review; no novelty certification is claimed."
         }
       ]
     }
@@ -3473,5 +4135,5 @@
     "preliminary": "Preliminary research"
   },
   "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer.",
-  "updated": "2026-10-07"
+  "updated": "2026-10-08"
 }

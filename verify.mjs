@@ -6,7 +6,7 @@ const ids=new Set(data.principles.map(n=>n.id));
 assert.equal(ids.size,88);
 for(const r of data.relations){assert.ok([...r.antecedents,r.consequent].every(id=>ids.has(id)));assert.ok(r.proof_note);if(r.kind==='nonimplication'){assert.ok(r.consistency_assumption);assert.ok(data.models.some(m=>m.id===r.model))}}
 const standard=visibleRelations(data,'ZF',false);
-assert.equal(standard.length,41);
+assert.equal(standard.length,49);
 assert.ok(!standard.some(r=>r.layer==='recent'));
 assert.ok(closure(['pp'],standard).known.has('ac_omega'));
 assert.ok(!closure(['pp'],visibleRelations(data,'ZF',true)).known.has('nds_sets'));
@@ -40,6 +40,25 @@ assert.ok(closure(['pp','svc_seed'],standard).known.has('svc_plus_seed'));
 assert.ok(!closure(['pp'],standard).known.has('svc_plus_seed'));
 assert.ok(!closure(['svc_seed'],standard).known.has('svc_plus_seed'));
 assert.ok(!data.relations.some(r=>r.kind==='nonimplication'&&r.antecedents.includes('nds_sets')&&r.consequent==='finite_antichains'));
+// The draft's original model refutes OEP/BPI; it does not prove their negations from PP.
+for(const from of ['pp','nds_sets','fb','finite_antichains'])for(const to of ['oep','bpi']){
+ const relation=data.relations.find(r=>r.kind==='nonimplication'&&r.antecedents.length===1&&r.antecedents[0]===from&&r.consequent===to);
+ assert.ok(relation&&relation.source==='FC2026REPORT'&&relation.layer==='recent');
+ const result=compare(data,from,to,'ZF',true);assert.equal(result.proof,null);
+ assert.ok(result.witnesses.some(w=>w.model.id==='openai_pp'&&w.factEvidence.some(e=>e.source==='FC2026REPORT'&&e.status==='preliminary'&&e.source_url.includes('a8ddc9aca'))));
+ assert.equal(compare(data,from,to,'ZF',false).witnesses.length,0);
+ assert.equal(compare(data,from,to,'ZFA',true).witnesses.length,0);
+}
+assert.ok(compare(data,'bpi','oep').proof);
+assert.ok(compare(data,'oep','op').proof);
+assert.equal(compare(data,'oep','bpi').proof,null);
+// Classical Cohen reverse separations stay distinct from the recent original-model obstruction.
+for(const from of ['oep','bpi'])for(const to of ['pp','nds_sets','fb']){
+ const result=compare(data,from,to,'ZF',false);assert.equal(result.proof,null);
+ assert.ok(result.witnesses.some(w=>w.model.id==='basic_cohen'));
+ assert.ok(data.relations.some(r=>r.antecedents.length===1&&r.antecedents[0]===from&&r.consequent===to&&r.layer==='standard'));
+}
+assert.ok(compare(data,'oep','fb').witnesses.some(w=>w.factEvidence.some(e=>e.principles.includes('fb')&&e.proof_note.includes('cofinite'))));
 const synthetic=[
  {id:'p_q',kind:'implication',antecedents:['p'],consequent:'q'},
  {id:'qr_s',kind:'implication',antecedents:['q','r'],consequent:'s'},

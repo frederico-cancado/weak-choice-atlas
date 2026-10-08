@@ -24,7 +24,7 @@ export function modelFacts(model,research=false){
  const truthEvidence=new Map(),falseEvidence=new Map();
  const evidence=(record,id)=>{
   const source=record.source??model.source;
-  return {principles:[id],source,source_url:record.source_url??(source===model.source?model.source_url:undefined),locator:record.locator??model.locator,status:record.status??model.status};
+  return {principles:[id],source,source_url:record.source_url??(source===model.source?model.source_url:undefined),locator:record.locator??model.locator,status:record.status??model.status,...(record.proof_note?{proof_note:record.proof_note}:{})};
  };
  const baseEvidence=id=>{
   const specific=(model.property_evidence||[]).find(record=>record.principles.includes(id)&&(research||record.layer!=='recent'));
@@ -52,7 +52,7 @@ function witnessFactEvidence(from,refuted,facts,modelClosure,data){
  for(const record of records){
   if(!record)continue;
   const source_url=record.source_url??data.sources?.[record.source]?.url;
-  const key=JSON.stringify([record.source,source_url,record.locator,record.status]);
+  const key=JSON.stringify([record.source,source_url,record.locator,record.status,record.proof_note]);
   const existing=grouped.get(key);
   if(existing)existing.principles=[...new Set([...existing.principles,...record.principles])];
   else grouped.set(key,{...record,principles:[...record.principles],source_url});

@@ -14,8 +14,14 @@ preliminary results are off by default and can be included with a toggle.
 Hidden research relationships are flagged in the graph and principle panels.
 The Small violations & coding view includes SVC, its fixed-seed versions,
 and their connections to PP and KWP.
+The Order extension & choice view collects OEP, OP and BPI alongside the
+report’s separating models. Recent OEP/BPI claims link to the pinned report.
 
-Initial edition: 88 statement/family records, 47 relationships, and 3 models.
+Choose Auto, Light or Dark in the header; the theme preference is saved on
+this device. On phones the atlas automatically uses Graph, Principles and
+Details tabs, with touch-sized controls and a list alternative to the graph.
+
+Initial edition: 88 statement/family records, 64 relationships, and 3 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
@@ -46,7 +52,9 @@ directory, including `.nojekyll`.
 ## Maintain the mathematics
 
 Edit `data.json` to add principles, sources, relationships, or models. Preserve
-stable IDs. Every relationship needs its exact statement, theory, provenance,
+stable IDs. Bump the asset version in HTML/module imports when changing
+software or styles, so returning visitors receive the update. Catalogue
+requests revalidate on load. Every relationship needs its exact statement, theory, provenance,
 review status and, for separations, a model and consistency assumption.
 
 - `principles`: definitions, aliases, source locators, parameters and notes.

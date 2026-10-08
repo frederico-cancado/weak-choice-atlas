@@ -1,4 +1,4 @@
-import {compare} from './engine.mjs';
+import {compare} from './engine.mjs?v=20261008-1';
 const proofCitation=p=>({id:p.id,proof:p.proof_note,source_id:p.source,source:p.source_url,locator:p.locator,review:p.status});
 export function registerAtlasTools(data){
  const context=document.modelContext;if(!context?.registerTool)return;

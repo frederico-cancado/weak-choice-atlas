@@ -6,7 +6,7 @@ export function renderGraph(host,{ids,relations,label,selected,onNode,onEdge}){
  const rows=[...groups.keys()].sort((a,b)=>a-b);let maxCols=Math.max(1,...[...groups.values()].map(g=>g.length));
  const W=Math.max(680,maxCols*225+60),H=Math.max(480,rows.length*82+40),positions=new Map();
  rows.forEach((row,ri)=>groups.get(row).forEach((id,i)=>positions.set(id,{x:W*(i+1)/(groups.get(row).length+1),y:55+ri*(H-110)/Math.max(1,rows.length-1)})));
- const markers=['implication','nonimplication','equivalence'].map((kind,i)=>`<marker id="arrow-${kind}" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="${['#2464b4','#b64c13','#7352ad'][i]}" stroke-width="2"/></marker>`).join('');
+ const markers=['implication','nonimplication','equivalence'].map((kind,i)=>`<marker id="arrow-${kind}" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="${['var(--blue)','var(--orange)','var(--purple)'][i]}" stroke-width="2"/></marker>`).join('');
  function curve(a,b,offset=0){
   if(Math.abs(a.y-b.y)<20){const sx=a.x+(a.x<b.x?85:-85),ex=b.x+(a.x<b.x?-85:85);return `M${sx},${a.y} C${sx},${a.y-65-offset} ${ex},${b.y-65-offset} ${ex},${b.y}`}
   const down=b.y>a.y,sy=a.y+(down?25:-25),ey=b.y+(down?-29:29),mid=(sy+ey)/2;
@@ -28,15 +28,15 @@ export function renderGraph(host,{ids,relations,label,selected,onNode,onEdge}){
   if(!positions.has(r.consequent)||!r.antecedents.every(id=>positions.has(id)))continue;
   if(r.antecedents.length===1){const a=positions.get(r.antecedents[0]),b=positions.get(r.consequent);const reverse=relations.some(e=>e.antecedents.length===1&&e.antecedents[0]===r.consequent&&e.consequent===r.antecedents[0]);paths+=edgePath(r,r.kind==='nonimplication'?separationCurve(a,b):curve(a,b,reverse?-14:0));}
   else{const as=r.antecedents.map(id=>positions.get(id)),b=positions.get(r.consequent);const joint={x:W-40,y:Math.max(40,as.reduce((s,p)=>s+p.y,0)/as.length)};
-   for(const a of as)paths+=`<path d="M${a.x},${a.y} L${joint.x},${joint.y}" fill="none" stroke="#8799ad" stroke-width="1.5"/>`;
-   paths+=edgePath(r,curve(joint,b));paths+=`<g><rect x="${joint.x-23}" y="${joint.y-14}" width="46" height="28" rx="7" fill="#fff" stroke="#b9c9df"/><text x="${joint.x}" y="${joint.y+5}" text-anchor="middle" font-size="12" fill="#58687b">AND</text></g>`;
+   for(const a of as)paths+=`<path d="M${a.x},${a.y} L${joint.x},${joint.y}" fill="none" stroke="var(--joint-line)" stroke-width="1.5"/>`;
+   paths+=edgePath(r,curve(joint,b));paths+=`<g><rect x="${joint.x-23}" y="${joint.y-14}" width="46" height="28" rx="7" fill="var(--node-bg)" stroke="var(--node-border)"/><text x="${joint.x}" y="${joint.y+5}" text-anchor="middle" font-size="12" fill="var(--muted)">AND</text></g>`;
   }
  }
  const nodes=ids.map(id=>{const p=positions.get(id),text=label(id);const chunks=text.length>22?text.split(/\s+/).reduce((a,w)=>{if(!a.length||a[a.length-1].length+w.length>22)a.push(w);else a[a.length-1]+=' '+w;return a},[]):[text];return `<g class="graph-node ${id===selected?'selected':''}" role="button" tabindex="0" data-node="${id}" aria-label="Open ${esc(text)}"><rect x="${p.x-90}" y="${p.y-27}" width="180" height="54" rx="8"/>${chunks.slice(0,2).map((s,i)=>`<text x="${p.x}" y="${p.y+(chunks.length===1?6:-3+i*19)}" text-anchor="middle">${esc(s)}</text>`).join('')}<title>${esc(text)}</title></g>`}).join('');
  host.innerHTML=`<svg viewBox="0 0 ${W} ${H}" aria-label="Interactive graph of choice principles" role="group"><defs>${markers}</defs><g class="viewport">${paths}${nodes}</g></svg>`;
  const svg=host.querySelector('svg');let box={x:0,y:0,w:W,h:H},drag=null,moved=false;
  const apply=()=>svg.setAttribute('viewBox',`${box.x} ${box.y} ${box.w} ${box.h}`);
- if(host.clientWidth<500){box.w=host.clientWidth*1.1;box.h=box.w*host.clientHeight/host.clientWidth;box.x=(W-box.w)/2;box.y=0;apply()}
+ if(host.clientWidth>0&&host.clientWidth<500){const center=positions.get(selected)||{x:W/2,y:H/2};box.w=Math.max(400,host.clientWidth*1.15);box.h=box.w*host.clientHeight/host.clientWidth;box.x=center.x-box.w/2;box.y=Math.max(0,center.y-box.h/2);apply()}
  function zoom(factor){const nw=Math.max(W*.22,Math.min(W*2.5,box.w*factor)),nh=nw*box.h/box.w;box.x+=(box.w-nw)/2;box.y+=(box.h-nh)/2;box.w=nw;box.h=nh;apply()}
  svg.addEventListener('wheel',e=>{if(!e.ctrlKey&&!e.metaKey)return;e.preventDefault();zoom(e.deltaY>0?1.13:.88)},{passive:false});
  svg.addEventListener('pointerdown',e=>{moved=false;if(e.target.closest('[data-node],[data-edge]'))return;drag={x:e.clientX,y:e.clientY,bx:box.x,by:box.y};moved=false;svg.setPointerCapture(e.pointerId)});
