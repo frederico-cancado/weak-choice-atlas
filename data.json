@@ -3,9 +3,9 @@
   "prepared": "2026-10-07",
   "prepared_for": "Frederico Cançado",
   "scope": "Broad coverage from the start. This is an extensible inventory, not an exhaustive enumeration or a certified implication graph.",
-  "record_count": 101,
+  "record_count": 102,
   "status": "Initial public catalogue; relation review levels are shown individually.",
-  "counts_note": "Records include parameterized families, equivalent anchors, ZF theorems and research candidates; 88 is not a count of pairwise inequivalent weak axioms.",
+  "counts_note": "Counts include parameterized families, equivalent formulations and ZF theorems; they are not counts of pairwise inequivalent weak axioms.",
   "notation": {
     "C(I,F)": "Every family (A_i) indexed by an index set of type I, with each A_i nonempty and of type F, admits a function c with c(i) in A_i.",
     "all": "No restriction.",
@@ -3400,6 +3400,46 @@
           "locator": "pp. 79–81"
         }
       ]
+    },
+    {
+      "id": "rpp",
+      "name": "Ramseyan Partition Principle (RPP)",
+      "category": "partition_and_duality",
+      "definition": "For every infinite set X and every coloring c:[X]²→{0,1}, there is an infinite subset Y⊆X such that c is constant on [Y]².",
+      "base_theory": "ZF",
+      "aliases": [
+        "RPP",
+        "RT",
+        "Ramsey’s theorem for arbitrary infinite sets"
+      ],
+      "parameters": {},
+      "node_kind": "specific_statement",
+      "status": "candidate",
+      "catalogue_status": "source_checked",
+      "definition_evidence": [
+        {
+          "source_id": "BLASS1977RAMSEY",
+          "locator": "Opening definition and main comparison statements"
+        },
+        {
+          "source_id": "HALBEISENAC",
+          "locator": "p. 124; Theorem 5.17, p. 125"
+        }
+      ],
+      "hypotheses": [
+        "[X]² consists of unordered two-element subsets. X need not be well-orderable.",
+        "Y need only be infinite; neither countability nor |Y|=|X| is required."
+      ],
+      "notes": "This is distinct from PP and from Ramsey Choice RCₙ. Ramsey’s theorem on ω is provable in ZF; its extension to arbitrary infinite sets is a weak choice principle.",
+      "definition_review": "Definition and choice-theoretic scope checked in the cited sources.",
+      "relation_review": "Each implication and countermodel retains its source and base theory.",
+      "history": "Blass (1977) located this principle among weak choice axioms; Halbeisen uses the abbreviation RPP.",
+      "history_evidence": [
+        {
+          "source_id": "BLASS1977RAMSEY",
+          "locator": "J. Symbolic Logic 42(3), 387–390"
+        }
+      ]
     }
   ],
   "sources": {
@@ -3850,6 +3890,62 @@
       "title": "John W. Tukey (1940), Convergence and Uniformity in Topology, Annals of Mathematics Studies 2",
       "url": "https://www.jstor.org/stable/j.ctt1b9x2d2",
       "role": "Original historical source for Tukey’s finite-character formulation; bibliographic metadata checked, original theorem text not inspected"
+    },
+    "BLASS1977RAMSEY": {
+      "title": "Ramsey’s theorem in the hierarchy of choice principles",
+      "authors": [
+        "Andreas Blass"
+      ],
+      "url": "https://doi.org/10.2307/2272866",
+      "year": 1977,
+      "access": "Original publisher extract inspected; full 1977 proof not retrieved."
+    },
+    "HALBEISENAC": {
+      "title": "Combinatorial Set Theory, Chapter 5: The Axiom of Choice",
+      "authors": [
+        "Lorenz Halbeisen"
+      ],
+      "url": "https://people.math.ethz.ch/~halorenz/4students/Algebra/AC.pdf",
+      "access": "Author-hosted chapter, pp. 124–125: definition, Proposition 5.16 and Theorem 5.17 inspected."
+    },
+    "HT2020RAMSEY": {
+      "title": "On Ramsey Choice and Partial Choice for infinite families of n-element sets",
+      "authors": [
+        "Lorenz Halbeisen",
+        "Eleftherios Tachtsis"
+      ],
+      "url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "year": 2020,
+      "version": "Author manuscript dated 29 October 2019; Archive for Mathematical Logic 59, 583–606 (2020).",
+      "access": "Definition 1; Theorem 1(3–5); Theorem 2(2) and its transfer proof inspected."
+    },
+    "HT2016NDS": {
+      "title": "No decreasing sequence of cardinals",
+      "authors": [
+        "Paul Howard",
+        "Eleftherios Tachtsis"
+      ],
+      "url": "https://doi.org/10.1007/s00153-015-0472-5",
+      "year": 2016,
+      "access": "Theorem 3 as explicitly stated in Blass–Kulshreshtha, Theorem 10.3; original full construction not independently checked."
+    },
+    "TACHTSIS2024": {
+      "title": "No Decreasing Sequence of Cardinals in the Hierarchy of Choice Principles",
+      "authors": [
+        "Eleftherios Tachtsis"
+      ],
+      "url": "https://doi.org/10.1215/00294527-2024-0020",
+      "year": 2024,
+      "access": "Theorem 6.4 as explicitly stated in Blass–Kulshreshtha, Theorem 10.5; original full construction not independently checked."
+    },
+    "SOLOVAY1970": {
+      "title": "A model of set-theory in which every set of reals is Lebesgue measurable",
+      "authors": [
+        "Robert M. Solovay"
+      ],
+      "url": "https://people.math.wisc.edu/~awmille1/old/m873-03/solovay.pdf",
+      "year": 1970,
+      "access": "Original Theorem 1, p. 1, visually inspected; full construction not independently audited."
     }
   },
   "cardinal_well_foundedness_template": {
@@ -6558,6 +6654,450 @@
       "proof_note": "For every fixed finite k≥2, AC gives linear comparability of all cardinals and hence a comparable pair in any k-element family. Conversely, Feldman–Orhon Theorem 1 derives the Well-Ordering Principle from k-Trichotomy. The distinct-cardinal and distinct-set formulations agree: equipotent distinct sets already form a comparable pair, while representatives of a finite family of Scott cardinals can be chosen in ZF. Blass’s appendix gives a direct construction of k mutually incomparable sets from any non-well-orderable set.",
       "proof_access": "Full primary PDF inspected, including the theorem and the direct construction in the appendix. This is a source-based theorem record, not a new formal verification.",
       "base_review": "Recorded over ZF, the base stated in the source. No ZFA extension is asserted by this record."
+    },
+    {
+      "id": "dedekind_rpp",
+      "kind": "implication",
+      "antecedents": [
+        "df_finite"
+      ],
+      "consequent": "rpp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "BLASS1977RAMSEY",
+      "source_url": "https://doi.org/10.2307/2272866",
+      "locator": "Main results B; also Halbeisen Theorem 5.17",
+      "proof_note": "Take a countably infinite subset and apply Ramsey’s theorem on ω, whose least-element recursion is available in ZF.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard"
+    },
+    {
+      "id": "cc_rpp",
+      "kind": "implication",
+      "antecedents": [
+        "ac_omega"
+      ],
+      "consequent": "rpp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "HALBEISENAC",
+      "source_url": "https://people.math.ethz.ch/~halorenz/4students/Algebra/AC.pdf",
+      "locator": "Theorem 5.17, p. 125",
+      "proof_note": "Countable choice gives a countably infinite subset of each infinite set, then the countable Ramsey theorem applies.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard"
+    },
+    {
+      "id": "rpp_cc_finite",
+      "kind": "implication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "ac_omega_finite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "HALBEISENAC",
+      "source_url": "https://people.math.ethz.ch/~halorenz/4students/Algebra/AC.pdf",
+      "locator": "Proposition 5.16 and Theorem 5.17, pp. 124–125",
+      "proof_note": "RPP supplies an infinite branch in an infinite finitely branching rooted tree. Apply this to the tree of finite choices from a sequence of nonempty finite sets.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard"
+    },
+    {
+      "id": "pp_rpp",
+      "kind": "implication",
+      "antecedents": [
+        "pp"
+      ],
+      "consequent": "rpp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Recorded chain PP ⇒ ACᵂᴼ ⇒ DC ⇒ CC ⇒ RPP",
+      "proof_note": "Compose the cited partition, dependent-choice and Ramsey implications. This is a classical consequence, not a new property requiring the OpenAI construction.",
+      "status": "elementary_argument",
+      "proof_access": "Argument given in the record.",
+      "layer": "standard"
+    },
+    {
+      "id": "nds_rpp",
+      "kind": "implication",
+      "antecedents": [
+        "nds_sets"
+      ],
+      "consequent": "rpp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "NDS ⇒ Dedekind infinitude ⇒ RPP",
+      "proof_note": "NDS excludes infinite Dedekind-finite sets by the recorded Blass–Kulshreshtha result. Apply Ramsey’s theorem to a countably infinite subset.",
+      "status": "elementary_argument",
+      "proof_access": "Argument given in the record.",
+      "layer": "standard"
+    },
+    {
+      "id": "bpi_not_rpp",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "rpp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 1(5) and proof of Theorem 1(2), pp. 3–4",
+      "proof_note": "BPI holds in the basic Cohen model, but RPP fails (Blass’s result).",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "basic_cohen",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "rpp_not_bpi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "PINCUSSOLOVAY1977",
+      "source_url": "https://doi.org/10.2307/2272118",
+      "locator": "§4.1; DC and no nonprincipal ultrafilters",
+      "proof_note": "DC gives RPP. BPI would produce a free ultrafilter on ω, contradicting this model’s defining property.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "pincus_solovay_no_free_ultrafilters",
+      "consistency_assumption": "Con(ZF); no inaccessible cardinal is required for the cited construction"
+    },
+    {
+      "id": "rpp_not_ac_omega",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "ac_omega",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 2(2), n=2, pp. 4–5",
+      "proof_note": "The transferred model satisfies RPP and ¬RC₂. The target principle implies RC₂: choice for pairs supplies it directly; Dedekind infinitude supplies a countably infinite subset. For stronger targets, use the recorded implication chains.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "ramsey_transfer",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "rpp_not_df_finite",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "df_finite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 2(2), n=2, pp. 4–5",
+      "proof_note": "The transferred model satisfies RPP and ¬RC₂. The target principle implies RC₂: choice for pairs supplies it directly; Dedekind infinitude supplies a countably infinite subset. For stronger targets, use the recorded implication chains.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "ramsey_transfer",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "rpp_not_pp",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "pp",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 2(2), n=2, pp. 4–5",
+      "proof_note": "The transferred model satisfies RPP and ¬RC₂. The target principle implies RC₂: choice for pairs supplies it directly; Dedekind infinitude supplies a countably infinite subset. For stronger targets, use the recorded implication chains.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "ramsey_transfer",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "rpp_not_op",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "op",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 2(2), n=2, pp. 4–5",
+      "proof_note": "The transferred model satisfies RPP and ¬RC₂. The target principle implies RC₂: choice for pairs supplies it directly; Dedekind infinitude supplies a countably infinite subset. For stronger targets, use the recorded implication chains.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "ramsey_transfer",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "rpp_not_ac_2",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "ac_2",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 2(2), n=2, pp. 4–5",
+      "proof_note": "The transferred model satisfies RPP and ¬RC₂. The target principle implies RC₂: choice for pairs supplies it directly; Dedekind infinitude supplies a countably infinite subset. For stronger targets, use the recorded implication chains.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "ramsey_transfer",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "rpp_not_ac_finite_fibers",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "ac_finite_fibers",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 2(2), n=2, pp. 4–5",
+      "proof_note": "The transferred model satisfies RPP and ¬RC₂. The target principle implies RC₂: choice for pairs supplies it directly; Dedekind infinitude supplies a countably infinite subset. For stronger targets, use the recorded implication chains.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "ramsey_transfer",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "rpp_not_ac",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "ac",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 2(2), n=2, pp. 4–5",
+      "proof_note": "The transferred model satisfies RPP and ¬RC₂. The target principle implies RC₂: choice for pairs supplies it directly; Dedekind infinitude supplies a countably infinite subset. For stronger targets, use the recorded implication chains.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "ramsey_transfer",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "rpp_not_nds",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "TACHTSIS2024",
+      "source_url": "https://doi.org/10.1215/00294527-2024-0020",
+      "locator": "Theorem 6.4; Blass–Kulshreshtha Theorem 10.5",
+      "proof_note": "Use the cited transferred model and its recorded choice consequences; NDS fails there.",
+      "status": "source_checked",
+      "proof_access": "Exact original result checked through the explicit theorem statement and transfer attribution in Blass–Kulshreshtha; original full proof not independently audited.",
+      "layer": "standard",
+      "model": "tachtsis_bpi_cc_nds",
+      "consistency_assumption": "Con(ZF)",
+      "readable_source_url": "https://arxiv.org/html/2310.09643v3",
+      "readable_locator": "Blass–Kulshreshtha Theorem 10.5"
+    },
+    {
+      "id": "cc_not_nds",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_omega"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "TACHTSIS2024",
+      "source_url": "https://doi.org/10.1215/00294527-2024-0020",
+      "locator": "Theorem 6.4; Blass–Kulshreshtha Theorem 10.5",
+      "proof_note": "Use the cited transferred model and its recorded choice consequences; NDS fails there.",
+      "status": "source_checked",
+      "proof_access": "Exact original result checked through the explicit theorem statement and transfer attribution in Blass–Kulshreshtha; original full proof not independently audited.",
+      "layer": "standard",
+      "model": "tachtsis_bpi_cc_nds",
+      "consistency_assumption": "Con(ZF)",
+      "readable_source_url": "https://arxiv.org/html/2310.09643v3",
+      "readable_locator": "Blass–Kulshreshtha Theorem 10.5"
+    },
+    {
+      "id": "bpi_cc_not_nds",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi",
+        "ac_omega"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "TACHTSIS2024",
+      "source_url": "https://doi.org/10.1215/00294527-2024-0020",
+      "locator": "Theorem 6.4; Blass–Kulshreshtha Theorem 10.5",
+      "proof_note": "Use the cited transferred model and its recorded choice consequences; NDS fails there.",
+      "status": "source_checked",
+      "proof_access": "Exact original result checked through the explicit theorem statement and transfer attribution in Blass–Kulshreshtha; original full proof not independently audited.",
+      "layer": "standard",
+      "model": "tachtsis_bpi_cc_nds",
+      "consistency_assumption": "Con(ZF)",
+      "readable_source_url": "https://arxiv.org/html/2310.09643v3",
+      "readable_locator": "Blass–Kulshreshtha Theorem 10.5"
+    },
+    {
+      "id": "acwo_not_nds",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_wo_index"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2016NDS",
+      "source_url": "https://doi.org/10.1007/s00153-015-0472-5",
+      "locator": "Theorem 3; Blass–Kulshreshtha Theorem 10.3",
+      "proof_note": "Use the cited transferred model and its recorded choice consequences; NDS fails there.",
+      "status": "source_checked",
+      "proof_access": "Exact original result checked through the explicit theorem statement and transfer attribution in Blass–Kulshreshtha; original full proof not independently audited.",
+      "layer": "standard",
+      "model": "howard_tachtsis_nds",
+      "consistency_assumption": "Con(ZF)",
+      "readable_source_url": "https://arxiv.org/html/2310.09643v3",
+      "readable_locator": "Blass–Kulshreshtha Theorem 10.3"
+    },
+    {
+      "id": "dc_not_nds",
+      "kind": "nonimplication",
+      "antecedents": [
+        "dc"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HT2016NDS",
+      "source_url": "https://doi.org/10.1007/s00153-015-0472-5",
+      "locator": "Theorem 3; Blass–Kulshreshtha Theorem 10.3",
+      "proof_note": "Use the cited transferred model and its recorded choice consequences; NDS fails there.",
+      "status": "source_checked",
+      "proof_access": "Exact original result checked through the explicit theorem statement and transfer attribution in Blass–Kulshreshtha; original full proof not independently audited.",
+      "layer": "standard",
+      "model": "howard_tachtsis_nds",
+      "consistency_assumption": "Con(ZF)",
+      "readable_source_url": "https://arxiv.org/html/2310.09643v3",
+      "readable_locator": "Blass–Kulshreshtha Theorem 10.3"
+    },
+    {
+      "id": "rpp_not_no_amorphous_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "rpp"
+      ],
+      "consequent": "no_amorphous",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 1(5); proof of Theorem 2(2)",
+      "proof_note": "The basic Fraenkel model satisfies RPP and contains an amorphous atom set. This entry asserts only a ZFA separation.",
+      "status": "source_checked",
+      "proof_access": "Cited statement inspected; any further deduction is identified in the proof note.",
+      "layer": "standard",
+      "model": "basic_fraenkel",
+      "consistency_assumption": "Con(ZFA + AC with infinitely many atoms); supplied, for example, by a ZFC ground model with a countable atom set."
+    },
+    {
+      "id": "countable_choice_dedekind",
+      "kind": "implication",
+      "antecedents": [
+        "ac_omega"
+      ],
+      "consequent": "df_finite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "HALBEISENAC",
+      "source_url": "https://people.math.ethz.ch/~halorenz/4students/Algebra/AC.pdf",
+      "locator": "Theorem 5.17, p. 125, first step",
+      "status": "source_checked",
+      "proof_note": "For infinite X, choose an injective finite sequence of length n in X for each n. Their ranges have infinite countable union; the enumerated sequences yield a countably infinite subset of X.",
+      "proof_access": "Displayed proof inspected; the same construction works with atoms.",
+      "layer": "standard"
     }
   ],
   "models": [
@@ -6583,7 +7123,8 @@
         "nds_sets",
         "fb",
         "dual_csb",
-        "wpp"
+        "wpp",
+        "rpp"
       ],
       "source": "HS25",
       "source_url": "https://arxiv.org/html/2504.02744v1",
@@ -6671,6 +7212,15 @@
           "locator": "Theorem 3.3; Corollaries 3.4 and 8.2",
           "status": "source_checked",
           "proof_note": "The basic Cohen model has an infinite Dedekind-finite set. Theorem 3.3 refutes WPP directly (and hence CSB*); Corollary 8.2 also gives WPP ⇒ AC_WO ⇒ DC, contrary to DC’s failure in this model."
+        },
+        {
+          "principles": [
+            "rpp"
+          ],
+          "source": "HT2020RAMSEY",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+          "locator": "Theorem 1(5), p. 3 (crediting Blass 1977)",
+          "status": "source_checked"
         }
       ]
     },
@@ -6681,7 +7231,8 @@
       "assumptions": "Con(ZF)",
       "true_ids": [
         "op",
-        "dc"
+        "dc",
+        "rpp"
       ],
       "false_ids": [
         "ac"
@@ -6692,7 +7243,19 @@
       "status": "source_checked",
       "review": "Theorem and consistency strength checked; no independent audit of the complete construction. Pincus (1977) is credited for the original result.",
       "description": "Finite-support iteration of symmetric systems giving OP and DC while preserving a failure of AC.",
-      "layer": "standard"
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "rpp"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "DC ⇒ countable choice ⇒ RPP",
+          "status": "elementary_argument",
+          "proof_note": "Apply the recorded implication chain to this model’s existing facts."
+        }
+      ]
     },
     {
       "id": "openai_pp",
@@ -6704,7 +7267,8 @@
         "ac_wo_index",
         "dual_csb",
         "wpp",
-        "svc"
+        "svc",
+        "rpp"
       ],
       "false_ids": [
         "ac"
@@ -6775,6 +7339,16 @@
           "locator": "Proposition 3.6 p.22; nonchoice in Proposition 3.8 p.24",
           "status": "source_dependent",
           "proof_note": "The constructed label set A witnesses the existential SVC statement. A is non-well-orderable; it is not a finite or ordinal seed. Remark 7.2 also derives SVC+(A) from PP for this same A."
+        },
+        {
+          "principles": [
+            "rpp"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "PP ⇒ DC ⇒ countable choice ⇒ RPP",
+          "status": "elementary_argument",
+          "proof_note": "Apply the recorded implication chain to this model’s existing facts."
         }
       ]
     },
@@ -6816,7 +7390,8 @@
       "true_ids": [
         "dc",
         "df_finite",
-        "no_amorphous"
+        "no_amorphous",
+        "rpp"
       ],
       "false_ids": [
         "some_free_ultrafilter",
@@ -6841,6 +7416,239 @@
           "locator": "DC in the model; elementary consequence",
           "status": "elementary_argument",
           "proof_note": "DC recursively chooses distinct elements from an infinite set, producing a countably infinite subset. Its even and odd subsequences split the set into two infinite parts."
+        },
+        {
+          "principles": [
+            "rpp"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "DC ⇒ countable choice ⇒ RPP",
+          "status": "elementary_argument",
+          "proof_note": "Apply the recorded implication chain to this model’s existing facts."
+        }
+      ]
+    },
+    {
+      "id": "basic_fraenkel",
+      "name": "Basic Fraenkel permutation model",
+      "base": "ZFA",
+      "assumptions": "Con(ZFA + AC with infinitely many atoms); supplied, for example, by a ZFC ground model with a countable atom set.",
+      "true_ids": [
+        "rpp"
+      ],
+      "false_ids": [
+        "ac",
+        "ac_2",
+        "df_finite",
+        "no_amorphous"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 1(5); proof of Theorem 2(2), pp. 3 and 5",
+      "status": "source_checked",
+      "description": "All permutations of a countable atom set, with finite supports. RPP holds, while the atom set is amorphous.",
+      "review": "Atom-model facts and cited proof passages checked; this entry itself is not a ZF countermodel.",
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "ac_2"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Finite-support argument",
+          "status": "elementary_argument",
+          "proof_note": "If a choice function on [A]² had finite support E, swapping two atoms outside E would fix their pair and exchange its chosen element. Thus AC₂ fails."
+        },
+        {
+          "principles": [
+            "ac",
+            "df_finite",
+            "no_amorphous"
+          ],
+          "source": "HT2020RAMSEY",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+          "locator": "Proof of Theorem 2(2)",
+          "status": "source_checked",
+          "proof_note": "The amorphous atom set is infinite and Dedekind-finite, so these principles fail."
+        }
+      ]
+    },
+    {
+      "id": "ramsey_transfer",
+      "name": "Transferred Fraenkel Ramsey model",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "rpp"
+      ],
+      "false_ids": [
+        "ac",
+        "ac_2",
+        "df_finite"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 2(2), n=2, and its Pincus-transfer proof, pp. 4–5",
+      "status": "source_checked",
+      "description": "A pure-ZF transfer preserving RPP and failure of Ramsey Choice RC₂.",
+      "review": "The transfer is explicitly proved in the cited passage. Only the transferred package and stated consequences are recorded.",
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "ac",
+            "ac_2",
+            "df_finite"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Consequences of ¬RC₂",
+          "status": "elementary_argument",
+          "proof_note": "AC₂ supplies choices on all pairs. A countably infinite subset also supplies such choices by its enumeration. Thus AC₂ and Dedekind infinitude each imply RC₂, and both fail here; so does AC."
+        }
+      ]
+    },
+    {
+      "id": "howard_tachtsis_nds",
+      "name": "Howard–Tachtsis: well-ordered choice without NDS",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "ac_wo_index",
+        "dc",
+        "rpp"
+      ],
+      "false_ids": [
+        "nds_sets",
+        "ac"
+      ],
+      "source": "HT2016NDS",
+      "source_url": "https://doi.org/10.1007/s00153-015-0472-5",
+      "locator": "Theorem 3; stated as Blass–Kulshreshtha Theorem 10.3",
+      "status": "source_checked",
+      "description": "A pure-ZF transfer of a permutation-model construction separates choice for well-ordered families from NDS.",
+      "review": "The transferred theorem was checked in the cited later paper; the complete original construction was not audited.",
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "ac_wo_index",
+            "nds_sets"
+          ],
+          "source": "BK2026",
+          "source_url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Theorem 10.3 and preceding transfer paragraph",
+          "status": "source_checked"
+        },
+        {
+          "principles": [
+            "dc",
+            "rpp",
+            "ac"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Recorded implication chains",
+          "status": "elementary_argument",
+          "proof_note": "ACᵂᴼ implies DC, hence RPP. AC implies NDS, so failure of NDS refutes AC."
+        }
+      ]
+    },
+    {
+      "id": "tachtsis_bpi_cc_nds",
+      "name": "Tachtsis: BPI and countable choice without NDS",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "bpi",
+        "ac_omega",
+        "rpp"
+      ],
+      "false_ids": [
+        "nds_sets",
+        "ac"
+      ],
+      "source": "TACHTSIS2024",
+      "source_url": "https://doi.org/10.1215/00294527-2024-0020",
+      "locator": "Theorem 6.4; stated as Blass–Kulshreshtha Theorem 10.5",
+      "status": "source_checked",
+      "description": "Pincus transfer from the Howard–Rubin N38 construction yields BPI and countable choice while NDS fails.",
+      "review": "The exact ZF statement and transfer attribution were checked in the cited later paper; the original full construction was not audited.",
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "bpi",
+            "ac_omega",
+            "nds_sets"
+          ],
+          "source": "BK2026",
+          "source_url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Theorem 10.5 and preceding paragraph",
+          "status": "source_checked"
+        },
+        {
+          "principles": [
+            "rpp",
+            "ac"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Recorded implication chains",
+          "status": "elementary_argument",
+          "proof_note": "Countable choice implies RPP. Failure of NDS refutes AC."
+        }
+      ]
+    },
+    {
+      "id": "solovay",
+      "name": "Solovay’s measurable-reals model",
+      "base": "ZF",
+      "assumptions": "A transitive model of ZFC with an inaccessible cardinal (the hypothesis of the original Theorem 1)",
+      "true_ids": [
+        "dc",
+        "ac_omega",
+        "df_finite",
+        "rpp"
+      ],
+      "false_ids": [
+        "ac",
+        "bpi",
+        "free_ultrafilter_omega"
+      ],
+      "source": "SOLOVAY1970",
+      "source_url": "https://people.math.wisc.edu/~awmille1/old/m873-03/solovay.pdf",
+      "locator": "Theorem 1, p. 1",
+      "status": "source_checked",
+      "description": "A pure-ZF model satisfying DC in which every set of reals is Lebesgue measurable and has the Baire property.",
+      "review": "Original theorem and its hypothesis checked. The listed choice consequences use the elementary arguments below; no optimal-strength claim is made.",
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "ac_omega",
+            "df_finite",
+            "rpp"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Consequences of DC",
+          "status": "elementary_argument",
+          "proof_note": "Apply DC ⇒ countable choice ⇒ Dedekind infinitude ⇒ RPP."
+        },
+        {
+          "principles": [
+            "free_ultrafilter_omega",
+            "bpi",
+            "ac"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Baire-property obstruction",
+          "status": "elementary_argument",
+          "proof_note": "A free ultrafilter U⊆2^ω is invariant under finite changes. If U had the Baire property, the category zero-one law would make it meager or comeager. The complement map exchanges U with its complement, contradicting either alternative. DC supplies the Baire category theorem; BPI and AC imply a free ultrafilter."
         }
       ]
     }

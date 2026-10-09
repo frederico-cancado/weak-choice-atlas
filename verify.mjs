@@ -180,3 +180,22 @@ console.log('PASS: historical order principles, atom-sensitive reversals, and un
 const maximalProfile=relationshipProfile(data,'maximal_antichain');
 for(const n of data.principles.filter(n=>n.id!=='maximal_antichain'&&classifyPrinciple(data,n,'ZF',false).group==='equivalent'))assert.ok(maximalProfile.groups.equivalent.some(e=>e.id===n.id),`All AC equivalents connect: ${n.id}`);
 console.log('PASS: every classified AC equivalent connects through explicit proof records.');
+
+// Ramsey consequences must not collapse RPP to stronger choice principles.
+for(const from of ['pp','nds_sets','ac_omega','df_finite'])assert.notEqual(compare(data,from,'rpp').proof,null,from);
+assert.notEqual(compare(data,'rpp','ac_omega_finite').proof,null);
+for(const to of ['ac','ac_omega','df_finite','pp','bpi','nds_sets','op','ac_2']){
+ const result=compare(data,'rpp',to);assert.equal(result.proof,null);assert.ok(result.witnesses.length,to);
+}
+assert.ok(compare(data,'bpi','rpp').witnesses.some(w=>w.model.id==='basic_cohen'));
+assert.ok(compare(data,'ac_omega','nds_sets').witnesses.some(w=>w.model.id==='tachtsis_bpi_cc_nds'));
+assert.ok(compare(data,'ac_wo_index','nds_sets').witnesses.some(w=>w.model.id==='howard_tachtsis_nds'));
+assert.ok(compare(data,'rpp','no_amorphous','ZFA').witnesses.some(w=>w.model.id==='basic_fraenkel'));
+assert.ok(!compare(data,'rpp','no_amorphous','ZF').witnesses.some(w=>w.model.id==='basic_fraenkel'));
+assert.ok(data.models.find(m=>m.id==='solovay').assumptions.includes('inaccessible'));
+for(const m of data.models){
+ assert.ok([...m.true_ids,...m.false_ids].every(id=>ids.has(id)),m.id);
+ assert.ok(!m.true_ids.some(id=>m.false_ids.includes(id)),m.id);
+ for(const e of m.property_evidence||[])assert.ok(data.sources[e.source],e.source);
+}
+console.log('PASS: RPP strength, classical separating models, explicit transfer boundaries and model-fact references.');

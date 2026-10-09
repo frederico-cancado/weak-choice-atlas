@@ -23,7 +23,7 @@ Choose Auto, Light or Dark in the header; the theme preference is saved on
 this device. On phones the atlas automatically uses Graph, Principles and
 Details tabs, with touch-sized controls and a list alternative to the graph.
 
-Current edition: 101 statement/family records, 115 relationships, and 5 models.
+Current edition: 102 statement/family records, 136 relationships, and 10 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
@@ -43,7 +43,7 @@ The AC-equivalence catalogue includes the maximal antichain principle, Kuratowsk
 
 ## Catalogue groups and graph scope
 
-The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 19, 70, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
+The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 19, 71, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
 
 AC equivalents have standalone pages with hypotheses and proof references, and are excluded from graph nodes and edges. The reasoning records are retained for comparison and citation. The selected 11 removal candidates are retained; the other 41 are hidden from graph navigation while remaining in the full catalogue. Retained item 10, choice for linearly orderable index sets, remains in the AC-equivalence catalogue.
 
@@ -117,3 +117,9 @@ Research notes: [AC-zoo-results](https://github.com/frederico-cancado/AC-zoo-res
 
 Developed with AI assistance. Original software: MIT. Original catalogue
 text: CC BY 4.0. Linked papers retain their own terms. See the license files.
+
+### RPP and countermodels
+
+RPP is the Ramseyan Partition Principle for two-colorings of unordered pairs of an arbitrary infinite set; the homogeneous subset need only be infinite. The Ramsey view connects it to PP, NDS, countable choice, Dedekind infinitude, finite choice and BPI. Citations distinguish Blass’s original results from later proofs and elementary consequences.
+
+Five additional model entries cover basic Fraenkel (ZFA), a transferred Ramsey model (ZF), Howard–Tachtsis AC_WO without NDS, Tachtsis BPI plus countable choice without NDS, and Solovay’s measurable-reals model. Transferred results are separate from their atom-model origins. Solovay’s stronger hypothesis is explicit; unrecorded truth values remain unknown. RPP also appears in the existing model tables where the recorded facts decide it.

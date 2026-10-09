@@ -1,5 +1,5 @@
-import {compare} from './engine.mjs?v=20261008-5';
-import {classifyPrinciple} from './classification.mjs?v=20261008-5';
+import {compare} from './engine.mjs?v=20261008-6';
+import {classifyPrinciple} from './classification.mjs?v=20261008-6';
 
 // A complete catalogue comparison uses the same proofs and single-model
 // witnesses as the graph. An unanswered direction is not an open-problem claim.
