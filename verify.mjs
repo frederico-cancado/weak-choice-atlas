@@ -4,6 +4,22 @@ import {visibleRelations,closure,compare} from './engine.mjs';
 import {classifyPrinciple,graphEligible,graphSlice} from './classification.mjs';
 const data=JSON.parse(fs.readFileSync(new URL('./data.json',import.meta.url)));
 const ids=new Set(data.principles.map(n=>n.id));
+// Construction recipes and separating facts must remain specific to ZFA.
+const atomModels=data.models.filter(m=>m.base==='ZFA');
+assert.equal(atomModels.length,5);
+for(const m of atomModels){
+ const c=m.permutation_construction;
+ for(const field of ['atoms','group','normal_filter','supports','convention','locator'])assert.ok(c[field],`${m.id}: ${field}`);
+ assert.ok(data.sources[c.source]);assert.ok(c.source_url);
+ assert.ok(c.normal_filter.includes('Fix_G(E)'));
+}
+for(const [a,b,m] of [['mc','rpp','second_fraenkel'],['no_amorphous','rpp','second_fraenkel'],['bpi','df_finite','ordered_mostowski'],['ac_lo_index','nds_sets','countable_support_fraenkel'],['ac_2','rpp','cyclic_triples']]){
+ assert.ok(compare(data,a,b,'ZFA').witnesses.some(w=>w.model.id===m));
+ assert.ok(!compare(data,a,b,'ZF').witnesses.some(w=>w.model.id===m));
+}
+assert.ok(compare(data,'ac_lo_index','ac','ZFA').witnesses.some(w=>w.model.id==='countable_support_fraenkel'));
+assert.equal(compare(data,'ac_lo_index','ac','ZFA').proof,null);
+assert.ok(data.permutation_models_guide.text.includes('does not automatically'));
 assert.equal(ids.size,data.principles.length);
 assert.ok(ids.size>=95);
 for(const r of data.relations){assert.ok([...r.antecedents,r.consequent].every(id=>ids.has(id)));assert.ok(r.proof_note);if(r.kind==='nonimplication'){assert.ok(r.consistency_assumption);assert.ok(data.models.some(m=>m.id===r.model))}}

@@ -1,4 +1,4 @@
-import {compare} from './engine.mjs?v=20261008-6';
+import {compare} from './engine.mjs?v=20261008-7';
 
 export const AC_GROUPS=[
  {id:'equivalent',title:'Equivalent to AC',description:'Equivalent formulations, collected here instead of repeated in the graph.'},

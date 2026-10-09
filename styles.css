@@ -465,3 +465,29 @@ details[open] > summary { margin-bottom: 12px; }
 .model-followup-evidence { margin-top: 20px; }
 .model-followup-evidence > summary { cursor: pointer; font-weight: 600; margin-bottom: 14px; }
 @media(max-width:740px){ .model-row-credit a { min-height: 44px; display: inline-flex; align-items: center; } }
+
+/* Distinct construction recipes for permutation models. */
+.model-guide { margin: 0 0 28px; padding: 24px; border-left: 4px solid var(--blue); background: var(--softblue); border-radius: 0 12px 12px 0; }
+.model-guide h2 { margin-top: 5px; }
+.model-guide details { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 18px; }
+.model-guide summary { min-height: 32px; font-weight: 600; }
+.permutation-construction { margin: 24px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-soft); overflow: hidden; }
+.construction-heading { padding: 20px 20px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.construction-heading .eyebrow { width: 100%; margin: 0; }
+.construction-heading h3 { margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; }
+.construction-grid { margin: 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-block: 1px solid var(--line); background: var(--surface); }
+.construction-part { min-width: 0; padding: 18px; }
+.construction-part + .construction-part { border-left: 1px solid var(--line); }
+.construction-part dt { display: flex; align-items: center; gap: 10px; font-size: .88rem; font-weight: 650; }
+.construction-symbol { display: inline-grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px; color: var(--blue); background: var(--softblue); font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; }
+.construction-part dd { margin: 14px 0 0; font-size: .9rem; line-height: 1.7; overflow-wrap: anywhere; }
+.construction-foot { padding: 12px 20px; }
+.construction-foot p { margin: 8px 0; }
+@media (max-width: 660px) {
+  .construction-grid { grid-template-columns: minmax(0,1fr); }
+  .construction-part { padding: 16px; }
+  .construction-part + .construction-part { border-left: 0; border-top: 1px solid var(--line); }
+  .construction-part dd { margin-top: 10px; }
+  .construction-heading, .construction-foot { padding-left: 16px; padding-right: 16px; }
+  .model-guide { padding: 20px 16px; }
+}

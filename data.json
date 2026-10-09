@@ -3917,7 +3917,7 @@
       "url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
       "year": 2020,
       "version": "Author manuscript dated 29 October 2019; Archive for Mathematical Logic 59, 583–606 (2020).",
-      "access": "Definition 1; Theorem 1(3–5); Theorem 2(2) and its transfer proof inspected."
+      "access": "Definition 1; Theorem 1(3–5); Theorem 2(2) and its transfer proof inspected. Also inspected: proof of Theorem 2(1), Theorem 3(3) and Remark 2, for the finite-block models."
     },
     "HT2016NDS": {
       "title": "No decreasing sequence of cardinals",
@@ -3927,7 +3927,7 @@
       ],
       "url": "https://doi.org/10.1007/s00153-015-0472-5",
       "year": 2016,
-      "access": "Theorem 3 as explicitly stated in Blass–Kulshreshtha, Theorem 10.3; original full construction not independently checked."
+      "access": "Theorems 2–3 as stated in Blass–Kulshreshtha, Theorems 10.2–10.3, including the description of N12(aleph_1); original full construction not independently checked."
     },
     "TACHTSIS2024": {
       "title": "No Decreasing Sequence of Cardinals in the Hierarchy of Choice Principles",
@@ -3946,6 +3946,25 @@
       "url": "https://people.math.wisc.edu/~awmille1/old/m873-03/solovay.pdf",
       "year": 1970,
       "access": "Original Theorem 1, p. 1, visually inspected; full construction not independently audited."
+    },
+    "HALBEISENCST": {
+      "title": "Combinatorial Set Theory — author-hosted book draft, Chapter 7",
+      "authors": [
+        "Lorenz Halbeisen"
+      ],
+      "url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+      "source_type": "Author exposition of classical constructions",
+      "access": "Printed pp. 172–180: second Fraenkel and ordered Mostowski constructions; Theorem 7.6, Proposition 7.8, Lemma 7.13 and Theorem 7.16 inspected. Numbering refers to this draft."
+    },
+    "HALBEISENSHELAH": {
+      "title": "Relations between some cardinals in the absence of the axiom of choice",
+      "authors": [
+        "Lorenz Halbeisen",
+        "Saharon Shelah"
+      ],
+      "url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
+      "source_type": "Author manuscript",
+      "access": "Section 6, pp. 8–9: pure kernel, Jech–Sochor embedding theorem, normal ideals and support filters inspected."
     }
   },
   "cardinal_well_foundedness_template": {
@@ -7098,6 +7117,132 @@
       "proof_note": "For infinite X, choose an injective finite sequence of length n in X for each n. Their ranges have infinite countable union; the enumerated sequences yield a countably infinite subset of X.",
       "proof_access": "Displayed proof inspected; the same construction works with atoms.",
       "layer": "standard"
+    },
+    {
+      "id": "mc_not_rpp_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "mc"
+      ],
+      "consequent": "rpp",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "HALBEISENCST",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+      "locator": "Proposition 7.8; MC from Halbeisen–Tachtsis, proof of Theorem 2(1)",
+      "proof_note": "The second Fraenkel model satisfies MC and refutes RPP. The ZF equivalence MC ⇔ AC is not imported into ZFA.",
+      "status": "source_checked",
+      "proof_access": "Cited model facts checked; the model card gives separate evidence for each property. This record is restricted to ZFA.",
+      "layer": "standard",
+      "model": "second_fraenkel",
+      "consistency_assumption": "Con(ZFA + AC with a countably infinite set of atoms), supplied by a ZFC ground model with atoms."
+    },
+    {
+      "id": "no_amorphous_not_rpp_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "no_amorphous"
+      ],
+      "consequent": "rpp",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "HALBEISENCST",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+      "locator": "Proposition 7.8; no amorphous sets from Halbeisen–Tachtsis, proof of Theorem 2(1)",
+      "proof_note": "The second Fraenkel model has no amorphous sets, but RPP fails there.",
+      "status": "source_checked",
+      "proof_access": "Cited model facts checked; the model card gives separate evidence for each property. This record is restricted to ZFA.",
+      "layer": "standard",
+      "model": "second_fraenkel",
+      "consistency_assumption": "Con(ZFA + AC with a countably infinite set of atoms), supplied by a ZFC ground model with atoms."
+    },
+    {
+      "id": "ac2_not_rpp_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_2"
+      ],
+      "consequent": "rpp",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Theorem 3(3); coloring argument on the model card",
+      "proof_note": "The cyclic-triples model satisfies AC₂. Coloring pairs of atoms by whether they share a triple refutes RPP, by the finite-support argument recorded on the model card.",
+      "status": "source_checked",
+      "proof_access": "Cited model facts checked; the model card gives separate evidence for each property. This record is restricted to ZFA.",
+      "layer": "standard",
+      "model": "cyclic_triples",
+      "consistency_assumption": "Con(ZFA + AC with a countably infinite set of atoms), supplied by a ZFC ground model with atoms."
+    },
+    {
+      "id": "bpi_not_df_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "df_finite",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "HALBEISENCST",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+      "locator": "Lemma 7.13 and Theorem 7.16",
+      "proof_note": "The ordered Mostowski model satisfies BPI and contains an infinite Dedekind-finite atom set.",
+      "status": "source_checked",
+      "proof_access": "Cited model facts checked; the model card gives separate evidence for each property. This record is restricted to ZFA.",
+      "layer": "standard",
+      "model": "ordered_mostowski",
+      "consistency_assumption": "Con(ZFA + AC with a countably infinite set of atoms), supplied by a ZFC ground model with atoms."
+    },
+    {
+      "id": "aclo_not_nds_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_lo_index"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "BK2026",
+      "source_url": "https://arxiv.org/html/2310.09643v3",
+      "locator": "Theorem 10.2; Howard–Tachtsis, Theorem 2",
+      "proof_note": "The countable-support Fraenkel model N12(ℵ₁) satisfies choice for linearly orderable families, hence for well-orderable families, while NDS fails. This is the ZFA construction, separate from the transferred ZF model.",
+      "status": "source_checked",
+      "proof_access": "Cited model facts checked; the model card gives separate evidence for each property. This record is restricted to ZFA.",
+      "layer": "standard",
+      "model": "countable_support_fraenkel",
+      "consistency_assumption": "Con(ZFA + AC with ℵ₁ atoms), with ℵ₁ and the countable supports computed in the ground model."
+    },
+    {
+      "id": "acwo_not_nds_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_wo_index"
+      ],
+      "consequent": "nds_sets",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "BK2026",
+      "source_url": "https://arxiv.org/html/2310.09643v3",
+      "locator": "Theorem 10.2; Howard–Tachtsis, Theorem 2",
+      "proof_note": "The countable-support Fraenkel model N12(ℵ₁) satisfies choice for linearly orderable families, hence for well-orderable families, while NDS fails. This is the ZFA construction, separate from the transferred ZF model.",
+      "status": "source_checked",
+      "proof_access": "Cited model facts checked; the model card gives separate evidence for each property. This record is restricted to ZFA.",
+      "layer": "standard",
+      "model": "countable_support_fraenkel",
+      "consistency_assumption": "Con(ZFA + AC with ℵ₁ atoms), with ℵ₁ and the countable supports computed in the ground model."
     }
   ],
   "models": [
@@ -7435,7 +7580,8 @@
       "base": "ZFA",
       "assumptions": "Con(ZFA + AC with infinitely many atoms); supplied, for example, by a ZFC ground model with a countable atom set.",
       "true_ids": [
-        "rpp"
+        "rpp",
+        "free_ultrafilter_omega"
       ],
       "false_ids": [
         "ac",
@@ -7472,8 +7618,28 @@
           "locator": "Proof of Theorem 2(2)",
           "status": "source_checked",
           "proof_note": "The amorphous atom set is infinite and Dedekind-finite, so these principles fail."
+        },
+        {
+          "principles": [
+            "free_ultrafilter_omega"
+          ],
+          "source": "HALBEISENSHELAH",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
+          "locator": "Section 6, pp. 8–9; elementary consequence of the unchanged pure kernel",
+          "status": "elementary_argument",
+          "proof_note": "All ground-model pure sets remain. In particular, P(ω) is unchanged and a ground-model free ultrafilter on ω remains an ultrafilter in the permutation model."
         }
-      ]
+      ],
+      "permutation_construction": {
+        "atoms": "A is countably infinite in the ground model; internally A is amorphous.",
+        "group": "G = Sym(A), the full group of permutations of A.",
+        "normal_filter": "𝓕 = {H ≤ G : Fix_G(E) ≤ H for some finite E ⊆ A}.",
+        "supports": "Finite subsets of A.",
+        "convention": "Fix_G(E) fixes every atom of E pointwise. Atom counts and permitted supports are specified in the ground model of ZFA + AC.",
+        "source": "HT2020RAMSEY",
+        "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+        "locator": "Theorem 1(5), proof of Theorem 2(2); standard basic Fraenkel construction"
+      }
     },
     {
       "id": "ramsey_transfer",
@@ -7651,6 +7817,289 @@
           "proof_note": "A free ultrafilter U⊆2^ω is invariant under finite changes. If U had the Baire property, the category zero-one law would make it meager or comeager. The complement map exchanges U with its complement, contradicting either alternative. DC supplies the Baire category theorem; BPI and AC imply a free ultrafilter."
         }
       ]
+    },
+    {
+      "id": "second_fraenkel",
+      "name": "Second Fraenkel model — fixed pairs",
+      "base": "ZFA",
+      "assumptions": "Con(ZFA + AC with a countably infinite set of atoms), supplied by a ZFC ground model with atoms.",
+      "true_ids": [
+        "mc",
+        "no_amorphous",
+        "free_ultrafilter_omega"
+      ],
+      "false_ids": [
+        "ac",
+        "ac_2",
+        "ac_omega_finite",
+        "df_finite",
+        "rpp"
+      ],
+      "source": "HALBEISENCST",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+      "locator": "Chapter 7, printed pp. 172–174; Theorem 7.6 and Proposition 7.8",
+      "status": "source_checked",
+      "description": "Multiple choice holds, but a countable family of pairs has no choice function. RPP also fails.",
+      "review": "The cited statements and construction description were checked. Elementary deductions are labeled separately. This is a ZFA model; no automatic ZF transfer is claimed.",
+      "layer": "standard",
+      "permutation_construction": {
+        "atoms": "A = ⋃{Pₙ : n ∈ ω}, a disjoint union of pairs Pₙ = {aₙ, bₙ}.",
+        "group": "G = {π ∈ Sym(A) : π[Pₙ] = Pₙ for every n}. Each pair may be flipped independently; the pair indices are fixed.",
+        "normal_filter": "𝓕 = {H ≤ G : Fix_G(E) ≤ H for some finite E ⊆ A}.",
+        "supports": "Finite subsets of A.",
+        "convention": "Fix_G(E) fixes every atom of E pointwise. Atom counts and permitted supports are specified in the ground model of ZFA + AC.",
+        "source": "HALBEISENCST",
+        "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+        "locator": "Printed pp. 172–173"
+      },
+      "property_evidence": [
+        {
+          "principles": [
+            "mc",
+            "no_amorphous"
+          ],
+          "source": "HT2020RAMSEY",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+          "locator": "Proof of Theorem 2(1), n = 2",
+          "status": "source_checked",
+          "proof_note": "The finite-block construction satisfies multiple choice and has no amorphous sets."
+        },
+        {
+          "principles": [
+            "ac",
+            "ac_2",
+            "ac_omega_finite",
+            "rpp"
+          ],
+          "source": "HALBEISENCST",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+          "locator": "Theorem 7.6 and Proposition 7.8",
+          "status": "source_checked",
+          "proof_note": "The sequence of pairs has no selector. Coloring two atoms by whether they belong to the same pair refutes RPP."
+        },
+        {
+          "principles": [
+            "df_finite"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Finite-support argument",
+          "status": "elementary_argument",
+          "proof_note": "An injection from ω into A would have finite support E. A flip of a pair disjoint from E forces its range to avoid that pair, leaving only finitely many possible values."
+        },
+        {
+          "principles": [
+            "free_ultrafilter_omega"
+          ],
+          "source": "HALBEISENSHELAH",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
+          "locator": "Section 6, pp. 8–9; elementary consequence of the unchanged pure kernel",
+          "status": "elementary_argument",
+          "proof_note": "All ground-model pure sets remain. In particular, P(ω) is unchanged and a ground-model free ultrafilter on ω remains an ultrafilter in the permutation model."
+        }
+      ]
+    },
+    {
+      "id": "ordered_mostowski",
+      "name": "Ordered Mostowski model",
+      "base": "ZFA",
+      "assumptions": "Con(ZFA + AC with a countably infinite set of atoms), supplied by a ZFC ground model with atoms.",
+      "true_ids": [
+        "bpi",
+        "free_ultrafilter_omega"
+      ],
+      "false_ids": [
+        "ac",
+        "df_finite"
+      ],
+      "source": "HALBEISENCST",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+      "locator": "Chapter 7, pp. 174–180; Lemma 7.13 and Theorem 7.16",
+      "status": "source_checked",
+      "description": "Halpern’s classical model of BPI without AC. Its atoms carry a dense linear order but form an infinite Dedekind-finite set.",
+      "review": "The cited statements and construction description were checked. Elementary deductions are labeled separately. This is a ZFA model; no automatic ZF transfer is claimed.",
+      "layer": "standard",
+      "permutation_construction": {
+        "atoms": "A carries a dense linear order ≺ without endpoints, externally isomorphic to (ℚ, <).",
+        "group": "G = Aut(A, ≺), all order-preserving permutations of A.",
+        "normal_filter": "𝓕 = {H ≤ G : Fix_G(E) ≤ H for some finite E ⊆ A}.",
+        "supports": "Finite subsets of A.",
+        "convention": "Fix_G(E) fixes every atom of E pointwise. Atom counts and permitted supports are specified in the ground model of ZFA + AC.",
+        "source": "HALBEISENCST",
+        "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+        "locator": "Printed pp. 174–175"
+      },
+      "property_evidence": [
+        {
+          "principles": [
+            "bpi"
+          ],
+          "source": "HALBEISENCST",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+          "locator": "Theorem 7.16; attributed there to Halpern",
+          "status": "source_checked",
+          "proof_note": "The Boolean prime ideal theorem holds throughout this permutation model."
+        },
+        {
+          "principles": [
+            "ac",
+            "df_finite"
+          ],
+          "source": "HALBEISENCST",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
+          "locator": "Lemma 7.13",
+          "status": "source_checked",
+          "proof_note": "The source proves that P(A) is Dedekind-finite. The injection a ↦ {a} then shows that the infinite atom set is Dedekind-finite as well."
+        },
+        {
+          "principles": [
+            "free_ultrafilter_omega"
+          ],
+          "source": "HALBEISENSHELAH",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
+          "locator": "Section 6, pp. 8–9; elementary consequence of the unchanged pure kernel",
+          "status": "elementary_argument",
+          "proof_note": "All ground-model pure sets remain. In particular, P(ω) is unchanged and a ground-model free ultrafilter on ω remains an ultrafilter in the permutation model."
+        }
+      ]
+    },
+    {
+      "id": "countable_support_fraenkel",
+      "name": "Countable-support Fraenkel model — N12(ℵ₁)",
+      "base": "ZFA",
+      "assumptions": "Con(ZFA + AC with ℵ₁ atoms), with ℵ₁ and the countable supports computed in the ground model.",
+      "true_ids": [
+        "ac_lo_index",
+        "ac_wo_index",
+        "dc",
+        "rpp",
+        "free_ultrafilter_omega"
+      ],
+      "false_ids": [
+        "nds_sets",
+        "ac"
+      ],
+      "source": "BK2026",
+      "source_url": "https://arxiv.org/html/2310.09643v3",
+      "locator": "Section 10, paragraph before Theorem 10.2 and Theorem 10.2; Howard–Tachtsis, Theorem 2",
+      "status": "source_checked",
+      "description": "Howard–Tachtsis use this variation to separate choice for linearly orderable families from NDS in ZFA.",
+      "review": "The cited statements and construction description were checked. Elementary deductions are labeled separately. This is a ZFA model; no automatic ZF transfer is claimed.",
+      "layer": "standard",
+      "permutation_construction": {
+        "atoms": "A has cardinality ℵ₁ in the ground model.",
+        "group": "G = Sym(A), the full permutation group.",
+        "normal_filter": "𝓕 = {H ≤ G : Fix_G(E) ≤ H for some ground-model countable E ⊆ A}.",
+        "supports": "All at most countable subsets of A in the ground model.",
+        "convention": "Fix_G(E) fixes every atom of E pointwise. Atom counts and permitted supports are specified in the ground model of ZFA + AC.",
+        "source": "BK2026",
+        "source_url": "https://arxiv.org/html/2310.09643v3",
+        "locator": "Section 10, description of N12(ℵ₁) before Theorem 10.2"
+      },
+      "property_evidence": [
+        {
+          "principles": [
+            "ac_lo_index",
+            "ac_wo_index",
+            "nds_sets",
+            "ac"
+          ],
+          "source": "BK2026",
+          "source_url": "https://arxiv.org/html/2310.09643v3",
+          "locator": "Theorem 10.2; Howard–Tachtsis, Theorem 2",
+          "status": "source_checked",
+          "proof_note": "AC for linearly orderable index sets holds while NDS fails. Restricting indices gives AC for well-orderable families. Failure of NDS entails failure of AC."
+        },
+        {
+          "principles": [
+            "dc",
+            "rpp"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Closure under countable sequences; DC implies Ramsey’s theorem",
+          "status": "elementary_argument",
+          "proof_note": "A ground-model countable sequence of members of this model has a countable union of countable supports, so belongs to the model. Ground choice builds a path through any internal serial relation, giving DC; the usual countable Ramsey theorem then yields RPP."
+        },
+        {
+          "principles": [
+            "free_ultrafilter_omega"
+          ],
+          "source": "HALBEISENSHELAH",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
+          "locator": "Section 6, pp. 8–9; elementary consequence of the unchanged pure kernel",
+          "status": "elementary_argument",
+          "proof_note": "All ground-model pure sets remain. In particular, P(ω) is unchanged and a ground-model free ultrafilter on ω remains an ultrafilter in the permutation model."
+        }
+      ]
+    },
+    {
+      "id": "cyclic_triples",
+      "name": "Cyclic-triples model — N2*(3)",
+      "base": "ZFA",
+      "assumptions": "Con(ZFA + AC with a countably infinite set of atoms), supplied by a ZFC ground model with atoms.",
+      "true_ids": [
+        "ac_2",
+        "free_ultrafilter_omega"
+      ],
+      "false_ids": [
+        "ac",
+        "ac_omega_finite",
+        "df_finite",
+        "rpp"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Proof of Theorem 3(3) and Remark 2, pp. 6–7",
+      "status": "source_checked",
+      "description": "Choice for pairs holds, although the countable family of triples has no partial choice function. This also provides a ZFA failure of RPP.",
+      "review": "The cited statements and construction description were checked. Elementary deductions are labeled separately. This is a ZFA model; no automatic ZF transfer is claimed.",
+      "layer": "standard",
+      "permutation_construction": {
+        "atoms": "A = ⋃{Tₙ : n ∈ ω}, a disjoint union of triples Tₙ = {aₙ, bₙ, cₙ}.",
+        "group": "G = ∏ₙ C₃. On each triple, π is a power of (aₙ bₙ cₙ); no triple is moved to another triple.",
+        "normal_filter": "𝓕 = {H ≤ G : Fix_G(E) ≤ H for some finite E ⊆ A}.",
+        "supports": "Finite subsets of A.",
+        "convention": "Fix_G(E) fixes every atom of E pointwise. Atom counts and permitted supports are specified in the ground model of ZFA + AC.",
+        "source": "HT2020RAMSEY",
+        "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+        "locator": "Proof of Theorem 3(3); Remark 2 also compares the direct-sum group"
+      },
+      "property_evidence": [
+        {
+          "principles": [
+            "ac_2",
+            "ac_omega_finite",
+            "ac"
+          ],
+          "source": "HT2020RAMSEY",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+          "locator": "Proof of Theorem 3(3)",
+          "status": "source_checked",
+          "proof_note": "AC₂ holds, while the countable family of triples has no partial choice function, hence no choice function."
+        },
+        {
+          "principles": [
+            "df_finite",
+            "rpp"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Finite-support arguments for cyclic triples",
+          "status": "elementary_argument",
+          "proof_note": "A sequence of atoms with finite support can take values only in the finitely many triples meeting its support. For RPP, color a pair of atoms by whether they lie in the same triple. An infinite homogeneous set must meet each triple in at most one atom; rotating an unsupported triple contradicts its finite support."
+        },
+        {
+          "principles": [
+            "free_ultrafilter_omega"
+          ],
+          "source": "HALBEISENSHELAH",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
+          "locator": "Section 6, pp. 8–9; elementary consequence of the unchanged pure kernel",
+          "status": "elementary_argument",
+          "proof_note": "All ground-model pure sets remain. In particular, P(ω) is unchanged and a ground-model free ultrafilter on ω remains an ultrafilter in the permutation model."
+        }
+      ]
     }
   ],
   "status_labels": {
@@ -7734,5 +8183,14 @@
       "powerset_comparison"
     ],
     "policy": "Unselected candidates are hidden from graph navigation, not deleted from the catalogue. AC equivalents remain outside the graphs, including retained item 10."
+  },
+  "permutation_models_guide": {
+    "title": "From atoms to ZF: the Jech–Sochor theorem",
+    "text": "A permutation model starts with atoms and restricts which sets are admitted by symmetry. The Jech–Sochor embedding theorem reproduces any specified bounded level of the hierarchy over those atoms inside a model of ZF. This transfers suitable bounded statements; it does not automatically transfer every choice principle true in the whole atom model.",
+    "caveat": "For stronger packages of statements, a suitable transfer result such as Pincus’s is needed. ZFA and ZF witnesses are therefore listed separately here.",
+    "source": "HALBEISENSHELAH",
+    "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
+    "locator": "Section 6, pp. 8–9",
+    "notation": "A is the atom set, G acts by permutations, and 𝓕 is a filter of subgroups closed under conjugation. Normality means this conjugation closure; the individual subgroups need not be normal. Fix_G(E) is the pointwise stabilizer of E. The model consists of hereditarily symmetric sets: stabilizers belong to 𝓕 throughout the membership hierarchy. All atom sizes and support bounds below are measured in the ground model of ZFA + AC."
   }
 }

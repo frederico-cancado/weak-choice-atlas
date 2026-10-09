@@ -23,11 +23,15 @@ Choose Auto, Light or Dark in the header; the theme preference is saved on
 this device. On phones the atlas automatically uses Graph, Principles and
 Details tabs, with touch-sized controls and a list alternative to the graph.
 
-Current edition: 102 statement/family records, 136 relationships, and 10 models.
+Current edition: 102 statement/family records, 142 relationships, and 14 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
 The OpenAI model card includes Cançado’s six recorded follow-up results directly in its truth-value table: FB, NDS, finite cardinal antichains and OP hold; OEP and BPI fail. Each follow-up row shows his name, preliminary status and a link to its source, in both the model listing and the full model page. The construction remains attributed to OpenAI.
+
+## Permutation models
+
+The five ZFA models have separate **A / G / 𝓕** construction panels: basic Fraenkel, second Fraenkel (fixed pairs), ordered Mostowski, countable-support Fraenkel N12(ℵ₁), and cyclic triples N2*(3). Atom sizes and support bounds are external, in the ground model. The introduction explains Jech–Sochor bounded transfer and why ZFA results are not automatically ZF results. Link directly to `#models?theory=ZFA&research=0`. Model properties retain their own sources or labeled elementary arguments.
 
 ## Complete relationship profiles
 
@@ -87,6 +91,7 @@ review status and, for separations, a model and consistency assumption.
 - `relations`: premise list, conclusion, logical kind, applicable theories,
   proof note, citations, evidence access, and standard/recent layer.
 - `models`: explicitly supported true/false values and source references;
+  `permutation_construction` records atoms, group, filter, supports and source;
   `property_evidence` gives citations for specific facts and `additional_claims`
   retains separate research attribution. Comparisons cite the facts used.
 - `sources`: bibliography. Original proofs and later expositions are distinct.
