@@ -2164,7 +2164,7 @@
           "locator": "Definitions 4.1; Section 10"
         }
       ],
-      "notes": "Do not silently substitute sequences of Scott cardinals, or sequences with all injection witnesses selected.",
+      "notes": "This is the set-sequence form. Cardinal-sequence NDS implies it, and it implies the chosen-injection form. Countable choice supplies the reverse implications; no unconditional equivalence of these variants is asserted.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "howard_rubin_reference": ""
@@ -2225,7 +2225,7 @@
           "locator": "Definition 4.1"
         }
       ],
-      "notes": "",
+      "notes": "Cardinals represent arbitrary equinumerosity types, for example by Scott codes. This form implies set-sequence NDS. The reverse is recorded only with countable choice as an additional premise; initial ordinals alone do not express this principle.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
       "howard_rubin_reference": "",
@@ -2261,7 +2261,7 @@
           "locator": "Definition 4.1"
         }
       ],
-      "notes": "",
+      "notes": "The injection maps are part of the supplied sequence. Set-sequence NDS implies this form by forgetting those maps. Countable choice supplies the reverse; merely knowing that each injection exists does not select all maps in ZF.",
       "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
       "relation_review": "See separate relation drafts; no automatic graph admission.",
       "howard_rubin_reference": "",
@@ -7957,6 +7957,70 @@
       "proof_note": "Finite subsets of the torsor compatibility conditions are satisfied at a common upper stage. Propositional compactness, equivalently BPI, gives a coherent point. The reverse implication is not proved here.",
       "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
       "layer": "recent"
+    },
+    {
+      "kind": "implication",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "BK2026",
+      "source_url": "https://arxiv.org/html/2310.09643v3",
+      "status": "source_checked",
+      "proof_access": "Original displayed statement and proof inspected; ZFA scope follows from the separately stated elementary argument.",
+      "layer": "standard",
+      "id": "nds_cardinal_sequence_sets",
+      "antecedents": [
+        "wf_cardinal_sequence"
+      ],
+      "consequent": "nds_sets",
+      "locator": "Definition 4.1; Proposition 4.2, WF_b2^i ⇒ WF_b3^i",
+      "proof_note": "Given a descending sequence of sets A_n, Replacement forms their canonical cardinal codes |A_n|. Cardinal-sequence NDS yields equal consecutive codes, hence equipollent consecutive sets. No representatives or injection maps are chosen.",
+      "base_review": "The same Replacement argument works for sets with atoms, using cardinal codes over the set of atoms (the standard ZFA Scott convention). This is a direct argument, not a model transfer."
+    },
+    {
+      "kind": "implication",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "BK2026",
+      "source_url": "https://arxiv.org/html/2310.09643v3",
+      "status": "source_checked",
+      "proof_access": "Original displayed statement and proof inspected; ZFA scope follows from the separately stated elementary argument.",
+      "layer": "standard",
+      "id": "nds_sets_chosen_injections",
+      "antecedents": [
+        "nds_sets"
+      ],
+      "consequent": "wf_maps",
+      "locator": "Definition 4.1; Proposition 4.2, WF_b3^i ⇒ WF_b4^i",
+      "proof_note": "A supplied sequence of injections witnesses the consecutive cardinal inequalities. Forget the maps and apply set-sequence NDS to obtain equipollent consecutive sets.",
+      "base_review": "Forgetting supplied maps and applying the same set-sequence statement works for arbitrary sets with atoms. No choice or model transfer is used."
+    },
+    {
+      "kind": "implication",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "BK2026",
+      "source_url": "https://arxiv.org/html/2310.09643v3",
+      "status": "source_checked",
+      "proof_access": "Original displayed statement and proof inspected; ZFA scope follows from the separately stated elementary argument.",
+      "layer": "standard",
+      "id": "cc_nds_sets_cardinal_sequence",
+      "antecedents": [
+        "ac_omega",
+        "nds_sets"
+      ],
+      "consequent": "wf_cardinal_sequence",
+      "locator": "Proposition 9.1 (ZF + CC), WF_b3^i ⇒ WF_b2^i",
+      "proof_note": "Countable choice selects a representative A_n from each nonempty cardinal code κ_n. The descending cardinal sequence becomes a descending set sequence; set-sequence NDS supplies equal consecutive cardinalities. Both premises are required.",
+      "base_review": "In standard ZFA with its set of atoms and Scott cardinal codes, CC selects representatives from the same nonempty codes; the rest is the direct set-sequence argument. No permutation-model transfer is used."
     }
   ],
   "models": [

@@ -87,6 +87,46 @@ assert.ok(!closure(['p'],synthetic).known.has('s'));
 assert.ok(!closure(['p'],synthetic).known.has('t'));
 assert.ok(closure(['p','r'],synthetic).known.has('u'));
 assert.ok(closure(['u'],synthetic).known.has('s'));
+// Nonimplications propagate only through positive paths around one model.
+const propagationFixture={sources:{},relations:[
+ {id:'a_x',kind:'implication',antecedents:['a'],consequent:'x',base:'ZF'},
+ {id:'x_xprime',kind:'equivalence',antecedents:['x'],consequent:'xprime',base:'ZF'},
+ {id:'y_mid',kind:'implication',antecedents:['y'],consequent:'mid',base:'ZF'},
+ {id:'mid_b',kind:'implication',antecedents:['mid'],consequent:'b',base:'ZF'},
+ {id:'strong_a',kind:'implication',antecedents:['strong'],consequent:'a',base:'ZF'},
+ {id:'b_weak',kind:'implication',antecedents:['b'],consequent:'weak',base:'ZF'},
+ {id:'a_z_joint',kind:'implication',antecedents:['a','z'],consequent:'joint',base:'ZF'},
+ {id:'a_recent',kind:'implication',antecedents:['a'],consequent:'recent',base:'ZF',layer:'recent'}
+],models:[
+ {id:'one',base:'ZF',true_ids:['a'],false_ids:['b']},
+ {id:'two',base:'ZF',true_ids:['b','z'],false_ids:['c']},
+ {id:'atoms',base:'ZFA',true_ids:['atom'],false_ids:['b']}
+]};
+const propagated=compare(propagationFixture,'xprime','y');
+assert.equal(propagated.proof,null);assert.equal(propagated.witnesses.length,1);
+assert.equal(propagated.witnesses[0].model.id,'one');
+assert.deepEqual(propagated.witnesses[0].sourceProof.map(r=>r.id),['a_x','x_xprime']);
+assert.deepEqual(propagated.witnesses[0].targetProof.map(r=>r.id),['y_mid','mid_b']);
+assert.equal(compare(propagationFixture,'strong','b').witnesses.length,0,'A false implication does not propagate to a stronger antecedent.');
+assert.equal(compare(propagationFixture,'a','weak').witnesses.length,0,'A false implication does not propagate to a weaker conclusion.');
+assert.equal(compare(propagationFixture,'a','c').witnesses.length,0,'Two nonimplications cannot be chained across models.');
+assert.equal(compare(propagationFixture,'joint','b').witnesses.length,0,'Joint premises must hold in the same model.');
+assert.equal(compare(propagationFixture,'recent','b').witnesses.length,0);
+assert.equal(compare(propagationFixture,'recent','b','ZF',true).witnesses[0].model.id,'one');
+assert.equal(compare(propagationFixture,'atom','b','ZF').witnesses.length,0);
+assert.equal(compare(propagationFixture,'atom','b','ZFA').witnesses[0].model.id,'atoms');
+// The screenshot's cardinal-sequence formulation retains its own definition.
+const cardinalComparison=compare(data,'df_finite','wf_cardinal_sequence');
+assert.equal(cardinalComparison.proof,null);
+const cardinalWitness=cardinalComparison.witnesses.find(w=>w.model.id==='tachtsis_bpi_cc_nds');
+assert.ok(cardinalWitness,'Countable choice without NDS refutes the stronger cardinal-sequence variant.');
+assert.equal(cardinalWitness.refuted,'nds_sets');
+assert.ok(cardinalWitness.sourceProof.some(r=>r.id==='countable_choice_dedekind'));
+assert.ok(cardinalWitness.targetProof.some(r=>r.antecedents.includes('wf_cardinal_sequence')&&r.consequent==='nds_sets'));
+assert.ok(compare(data,'wf_cardinal_sequence','df_finite').proof);
+assert.equal(compare(data,'nds_sets','wf_cardinal_sequence').proof,null,'The reverse needs countable choice.');
+assert.ok(closure(['ac_omega','nds_sets'],visibleRelations(data)).known.has('wf_cardinal_sequence'));
+
 // Provenance survives implication paths and facts that refute a target.
 const evidenceFixture={sources:{BASE:{url:'https://example.org/base'},EXTRA:{url:'https://example.org/note'}},relations:[{id:'p_q',kind:'implication',antecedents:['p'],consequent:'q',base:'ZF',layer:'standard'}],models:[{id:'witness',base:'ZF',layer:'standard',true_ids:['p'],false_ids:[],source:'BASE',locator:'Original model',status:'source_checked',property_evidence:[{principles:['p'],source:'BASE',locator:'Specific fact'}],additional_claims:[{false_ids:['r'],source:'EXTRA',locator:'Separate corollary',status:'preliminary'}]}]};
 assert.equal(compare(evidenceFixture,'q','r').witnesses.length,0);

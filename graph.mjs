@@ -1,4 +1,4 @@
-import {closure} from './engine.mjs?v=20261014-3';
+import {closure} from './engine.mjs?v=20261014-4';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rank={mc:0,noetherian_acc_fg:6,sequential_continuity_metric:6,infinite_weakly_dedekind_infinite:8,ac:0,wo:0,zorn:0,tychonoff:0,pp:1,dc:5,bpi:1,ultrafilter_lemma:1,dual_csb:2,oep:2,propositional_compactness:2,tychonoff_hausdorff:2,hahn_banach:3,op:3,wpp:3,baire_complete_metric:3,ac_wo_index:4,ac_finite_fibers:5,ac_omega:6,ac_omega_countable:7,ac_omega_finite:8,cuf:8,free_ultrafilter_omega:3,rpp:7,fb:1,nds_sets:3,finite_antichains:3,df_finite:7,svc_plus_seed:2,svc_seed:3,svc:4,kwp:5,ac_countable_fibers:4,graph_coloring_compactness:2,infinite_hall_finite_fibers:3,ac_n:6,ac_2:6,ac_3:6,ac_4:6,graph_coloring_compactness_2:7,ac_omega_n:9,cuc:7,no_amorphous:9,some_free_ultrafilter:10,algebraic_closure:3,unique_algebraic_closure:3};
 const round=n=>Math.round(n*10)/10;

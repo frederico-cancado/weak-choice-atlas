@@ -1,4 +1,7 @@
-// Only compatible implications participate in closure. Countermodels are separate.
+// Positive closure uses compatible implications and keeps every joint premise.
+// To refute X => Y, one model must prove X and refute a consequence of Y.
+// Thus A => X and A not=> B, together with Y => B, yield X not=> Y.
+// Two nonimplications never compose, and facts from distinct models never merge.
 export function visibleRelations(data, theory='ZF', research=false) {
  return data.relations.filter(r=>(r.valid_bases||[r.base]).includes(theory)&&(research||r.layer!=='recent'));
 }

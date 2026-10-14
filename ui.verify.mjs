@@ -57,6 +57,24 @@ try{
  for(const id of ['ac','ac_omega','ac_wo_index','ac_2','ac_3','ac_4'])assert.ok(nodes().includes(id));
  assert.equal(document.querySelector('[data-pick-node="dc_reals"]'),null);
 
+ const alphabetical=(a,b)=>a.localeCompare(b,'en',{sensitivity:'base',numeric:true});
+ const assertAlphabetical=values=>assert.deepEqual(values,[...values].sort(alphabetical));
+ for(const selector of ['#compare-from','#compare-to'])assertAlphabetical([...$(selector).options].map(option=>option.textContent));
+ assertAlphabetical([...document.querySelectorAll('#node-picker .node-option strong')].map(el=>el.textContent));
+ for(const heading of document.querySelectorAll('.catalog-group-heading')){
+  const names=[];for(let row=heading.nextElementSibling;row?.matches('[data-principle]');row=row.nextElementSibling)names.push(row.querySelector('strong').textContent);
+  assertAlphabetical(names);
+ }
+ change('#compare-from','df_finite');change('#compare-to','wf_cardinal_sequence');click('#compare-button');
+ const cardinalDirections=[...document.querySelectorAll('#compare-result .comparison-direction')];
+ assert.ok(cardinalDirections[0].querySelector('strong').textContent.includes('Dedekind infinitude ↛ NDS (cardinal sequence)'));
+ assert.ok(cardinalDirections[1].querySelector('strong').textContent.includes('NDS (cardinal sequence) ⇒ Dedekind infinitude'));
+ assert.ok(cardinalDirections[0].querySelector('a[href="#model/tachtsis_bpi_cc_nds"]'));
+ assert.ok(cardinalDirections[0].querySelector('[data-relation="countable_choice_dedekind"]'));
+ assert.ok(cardinalDirections[0].querySelector('.countermodel-paths').textContent.includes('which fails in this model'));
+ assert.ok(!$('#compare-result').textContent.includes('no result recorded'));
+
+
  change('#view','finitechoice');
  assert.equal($('#view').value,'finitechoice');
  const topicNodes=nodes();

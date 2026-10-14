@@ -23,7 +23,7 @@ Choose Auto, Light or Dark in the header; the theme preference is saved on
 this device. On phones the atlas automatically uses Graph, Principles and
 Details tabs, with touch-sized controls and a list alternative to the graph.
 
-Current edition: 103 statement/family records, 164 relationships, and 19 models.
+Current edition: 103 statement/family records, 167 relationships, and 19 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
@@ -160,3 +160,9 @@ The preliminary article **Algebraic closures: existence without uniqueness**, by
 The same article proves the genuinely joint implication E∧U ⇒ AC_fin. It defines P as surjectivity of every projection from a surjective inverse system of finite groups, and T as existence of coherent points in compatible surjective systems of finite torsors. The recorded recent relationships are P ⇔ T, T ⇒ U, T ⇒ AC_fin, E∧U ⇒ P, and BPI ⇒ T. No E premise is discarded, and no converse to BPI ⇒ T is asserted. These finite-algebra arguments explicitly apply in both ZF and ZFA; the new separating model is pure ZF only.
 
 The article and source locators are registered as `FC2026ALG`, version `2026-10-14.1`, pinned to commit `b3cbadd1082e3c078ba61aba68b8beccbbbd8d45`. The results are preliminary and have received internal AI-assisted mathematical audits; they are not externally peer-reviewed or formally verified. The research log and technical supplement are available beside the article in [AC-zoo-results](https://github.com/frederico-cancado/AC-zoo-results/tree/main/articles/2026-10-14-algebraic-closures).
+
+### Comparison deductions and alphabetical navigation — 14 October 2026
+
+The comparison panel propagates nonimplications through positive implication paths around a single separating model. If A implies C and a model witnesses A without B, the same model witnesses C without B. If D implies B, it also witnesses C without D. Each result shows the model facts and both supporting paths; facts from different models are never combined and nonimplications are not chained. Theory and recent-research filters still apply.
+
+The NDS variants now include the standard implications cardinal-sequence NDS ⇒ set-sequence NDS ⇒ NDS with chosen injections, and the joint converse CC ∧ set-sequence NDS ⇒ cardinal-sequence NDS (Blass–Kulshreshtha, Propositions 4.2 and 9.1). Consequently, the standard comparison gives Dedekind infinitude ↛ cardinal-sequence NDS through the countable-choice countermodel, and cardinal-sequence NDS ⇒ Dedekind infinitude. Comparison dropdowns, the axiom picker, and axiom lists within their existing groups use alphabetical order by their displayed labels or names.
