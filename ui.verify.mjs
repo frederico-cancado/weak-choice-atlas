@@ -32,6 +32,19 @@ const click=selector=>$(selector).dispatchEvent(new window.MouseEvent('click',{b
 const change=(selector,value)=>{const el=$(selector);el.value=value;el.dispatchEvent(new window.Event('change',{bubbles:true}))};
 const check=(selector,checked)=>{const el=$(selector);el.checked=checked;el.dispatchEvent(new window.Event('change',{bubbles:true}))};
 const route=hash=>{history.replaceState(null,'',hash);window.dispatchEvent(new window.HashChangeEvent('hashchange'))};
+const graphSettings=()=>({
+ view:$('#view').value,ids:nodes(),customIds:new URLSearchParams(location.hash.split('?')[1]||'').get('nodes'),
+ depth:$('#graph-depth').value,includeAC:$('#include-ac').checked,includeEquivalents:$('#include-equivalents').checked,
+ edgeKind:$('#edge-kind').value,focusArrows:$('#focus-arrows').checked,neighbors:$('#neighbors-mode').checked
+});
+const followDefinition=async(selector,id)=>{
+ const before=graphSettings(),destination=new URL($(selector).href);
+ assert.equal(new URLSearchParams(destination.hash.split('?')[1]).get('view'),before.view,'Definition links retain the current graph view.');
+ click(selector);
+ for(let i=0;i<100&&document.querySelector('#detail [data-profile-for]')?.dataset.profileFor!==id;i++)await new Promise(resolve=>setTimeout(resolve,5));
+ assert.equal($('#detail [data-profile-for]').dataset.profileFor,id,'The definition link selects its axiom.');
+ assert.deepEqual(graphSettings(),before,'Following a definition link preserves the graph and settings.');
+};
 const assertClean=()=>assert.equal(failures.length,0,failures.map(e=>e?.stack||e).join('\n'));
 
 try{
@@ -39,6 +52,7 @@ try{
  for(let i=0;i<100&&!document.querySelector('#view')&&!document.querySelector('#retry');i++)await new Promise(resolve=>setTimeout(resolve,5));
  assertClean();
  assert.equal($('#view').value,'choice');
+ assert.equal($('#neighbors-mode').checked,false,'Neighbors is opt-in at startup.');
  assert.ok(nodes().length>=15,'Startup presents a substantial graph.');
  for(const id of ['ac','ac_omega','ac_wo_index','ac_2','ac_3','ac_4'])assert.ok(nodes().includes(id));
  assert.equal(document.querySelector('[data-pick-node="dc_reals"]'),null);
@@ -47,9 +61,24 @@ try{
  assert.equal($('#view').value,'finitechoice');
  const topicNodes=nodes();
  click('#graph [data-node="ac_2"]');
- assert.equal($('#view').value,'neighbors','Clicking an axiom opens its full neighborhood.');
- for(const id of ['ac_2','ac_3','ac_4','rpp','graph_coloring_compactness_2'])assert.ok(nodes().includes(id));
+ assert.equal($('#view').value,'finitechoice','Clicking an axiom preserves the current topic.');
+ assert.deepEqual(nodes(),topicNodes,'Selecting a topic node does not replace its graph.');
+ assert.equal($('#neighbors-mode').checked,false);
  assert.ok($('#detail h2').textContent.includes('pairs'));
+ check('#neighbors-mode',true);
+ assert.equal($('#view').value,'neighbors','The checkbox explicitly opens the selected neighborhood.');
+ for(const id of ['edge-kind','focus-arrows','include-ac','include-equivalents'])assert.equal($(`#${id}`).disabled,true);
+ for(const id of ['ac_2','ac_3','ac_4','rpp','graph_coloring_compactness_2'])assert.ok(nodes().includes(id));
+ click('#graph [data-node="ac_3"]');
+ assert.equal($('#view').value,'neighbors');
+ assert.equal(new URLSearchParams(location.hash.split('?')[1]).get('node'),'ac_3');
+ assert.ok($('#detail h2').textContent.includes('triples'));
+ assert.ok($('#graph-title').textContent.includes('AC₃'),'The graph follows the new focus center.');
+ assert.ok(nodes().includes('ac_2'),'Choosing another axiom while enabled refocuses its neighborhood.');
+ check('#neighbors-mode',false);
+ for(const id of ['edge-kind','focus-arrows','include-ac','include-equivalents'])assert.equal($(`#${id}`).disabled,false);
+ assert.equal($('#view').value,'finitechoice');
+ assert.deepEqual(nodes(),topicNodes,'Turning neighbors off restores the prior topic.');
  assert.equal(new URL($('#graph-permalink').href).hash,location.hash,'The graph permalink tracks the selection.');
 
  check('[data-pick-node="infinite_weakly_dedekind_infinite"]',true);
@@ -61,6 +90,13 @@ try{
  assert.deepEqual(nodes(),[],'Clear is not overridden by Show AC.');
  for(const id of ['dc','ac_omega','ac_2','infinite_weakly_dedekind_infinite'])check(`[data-pick-node="${id}"]`,true);
  assert.deepEqual(nodes(),['dc','ac_omega','ac_2','infinite_weakly_dedekind_infinite']);
+ const customNodes=nodes();
+ click('#graph [data-node="ac_omega"]');
+ assert.equal($('#view').value,'custom','A custom graph survives an ordinary node click.');
+ assert.deepEqual(nodes(),customNodes);
+ click('[data-principle="ac_2"]');
+ assert.equal($('#view').value,'custom','Catalog selection also preserves a custom graph.');
+ assert.deepEqual(nodes(),customNodes);
  check('[data-pick-node="wo"]',true);
  assert.equal($('#include-equivalents').checked,true,'Picking an AC equivalent enables its display.');
  assert.ok(nodes().includes('wo'));
@@ -120,13 +156,23 @@ try{
 
  click('#focus-node');
  assert.equal($('#view').value,'neighbors');
+ assert.equal($('#neighbors-mode').checked,true,'The explicit Focus graph action synchronizes the checkbox.');
  assert.equal($('#graph-depth').value,'1');
  assert.ok(nodes().length>2,'Focus explicitly adds neighbors.');
  route('#explore?view=neighbors&node=ac');
+ assert.equal($('#neighbors-mode').checked,true,'A neighbors permalink synchronizes the checkbox.');
  assert.equal($('#graph-depth').value,'1');
  assert.ok(nodes().length>2,'AC can be the neighborhood center.');
  change('#graph-depth','0');
  assert.ok(nodes().includes('zorn')&&nodes().includes('mc'),'Focus includes equivalents and every direct neighbor even at depth zero.');
+ check('#neighbors-mode',false);
+ assert.equal($('#view').value,'choice','A direct neighbors link falls back to the default topic when disabled.');
+ assert.equal($('#graph-depth').value,'0');
+ assert.equal($('#include-ac').checked,true);
+ assert.equal($('#include-equivalents').checked,false);
+ assert.equal($('#edge-kind').value,'all');
+ assert.equal($('#focus-arrows').checked,false);
+ assert.equal($('#neighbors-mode').checked,false);
  route('#explore?view=choice&node=ac_2');
  const broadNodes=nodes(),broadEdges=document.querySelectorAll('#graph .graph-edge').length;
  check('#focus-arrows',true);
@@ -135,8 +181,13 @@ try{
  const records=new Map(JSON.parse(catalogue).relations.map(r=>[r.id,r]));
  for(const el of document.querySelectorAll('#graph .graph-edge')){const r=records.get(el.dataset.edge);assert.ok(r.antecedents.includes('ac_2')||r.consequent==='ac_2');}
  click('#graph [data-node="ac_3"]');
+ assert.equal($('#view').value,'choice','The arrows-only setting never makes node clicks change the view.');
+ assert.deepEqual(nodes(),broadNodes);
+ assert.equal($('#focus-arrows').checked,true);
+ assert.equal($('#neighbors-mode').checked,false);
+ check('#neighbors-mode',true);
  assert.equal($('#view').value,'neighbors');
- assert.equal($('#focus-arrows').checked,false);
+ assert.equal($('#focus-arrows').checked,false,'Neighbors opens every relation type.');
  assert.equal($('#edge-kind').disabled,true);
  assert.ok(nodes().includes('ac_2'));
  const focusedURL=location.hash,focusedNodes=nodes();
@@ -149,11 +200,74 @@ try{
  route('#explore?view=choice&node=ac_omega');
  change('#edge-kind','nonimplication');check('#focus-arrows',true);
  change('#view','neighbors');
+ assert.equal($('#neighbors-mode').checked,true,'The dropdown enables the same neighbors mode.');
  assert.equal($('#edge-kind').value,'all');assert.equal($('#focus-arrows').checked,false);
  const completeNodes=nodes(),completeEdges=[...document.querySelectorAll('#graph [data-edge]')].map(e=>e.dataset.edge).sort();
  click('#save-graph');click('#load-graph');
  assert.deepEqual(nodes(),completeNodes);
  assert.deepEqual([...document.querySelectorAll('#graph [data-edge]')].map(e=>e.dataset.edge).sort(),completeEdges);
+ route('#explore?view=finitechoice&node=ac_2&ac=0&equivalents=1&depth=2&edges=nonimplication&arrows=selected');
+ const presetSettings=graphSettings();
+ check('#neighbors-mode',true);
+ assert.equal($('#edge-kind').value,'all');
+ assert.equal($('#focus-arrows').checked,false);
+ click('#graph [data-node="ac_3"]');
+ change('#graph-depth','1');
+ check('#neighbors-mode',false);
+ assert.deepEqual(graphSettings(),presetSettings,'Disabling neighbors restores the preset, expanded nodes, AC flags, depth and arrow filters.');
+ assert.ok($('#detail h2').textContent.includes('triples'),'Restoration keeps the newly selected axiom in the details.');
+ route('#explore?view=custom&nodes=dc,ac_2,ac_3,wo,infinite_weakly_dedekind_infinite&node=ac_2&ac=0&equivalents=1&depth=2&edges=implication&arrows=selected');
+ const expandedCustomSettings=graphSettings();
+ click('#detail [data-relation="ac2_iff_ac4"]');
+ await followDefinition('#detail a[href^="#explore?node=ac_4&"]','ac_4');
+ const pair=$('#detail [data-pair-other="ac_2"]');pair.open=true;pair.dispatchEvent(new window.Event('toggle'));
+ await followDefinition('#detail [data-pair-other="ac_2"] a[href^="#explore?node=ac_2&"]','ac_2');
+ click('#graph [data-node="ac_3"]');
+ assert.deepEqual(graphSettings(),expandedCustomSettings,'Ordinary selection preserves the complete custom configuration.');
+ change('#view','neighbors');
+ assert.equal($('#neighbors-mode').checked,true);
+ click('#graph [data-node="ac_2"]');
+ click('#detail [data-relation="ac2_iff_ac4"]');
+ const focusDefinition=$('#detail a[href^="#explore?node=ac_4&"]');
+ assert.equal(new URLSearchParams(new URL(focusDefinition.href).hash.split('?')[1]).get('view'),'neighbors');
+ click('#detail a[href^="#explore?node=ac_4&"]');
+ for(let i=0;i<100&&document.querySelector('#detail [data-profile-for]')?.dataset.profileFor!=='ac_4';i++)await new Promise(resolve=>setTimeout(resolve,5));
+ assert.equal($('#detail [data-profile-for]').dataset.profileFor,'ac_4');
+ assert.equal($('#neighbors-mode').checked,true);
+ change('#graph-depth','1');
+ check('#neighbors-mode',false);
+ assert.deepEqual(graphSettings(),expandedCustomSettings,'Dropdown entry and checkbox exit restore the underlying custom IDs and every graph option.');
+ check('#neighbors-mode',true);
+ change('#view','cardinal');
+ assert.equal($('#neighbors-mode').checked,false,'Selecting a normal preset clears neighbors mode.');
+ assert.equal($('#view').value,'cardinal');
+ route('#explore?view=finitechoice&node=ac_2');
+ click('#detail [data-relation="ac2_iff_ac4"]');
+ change('#view','cardinal');
+ change('#edge-kind','nonimplication');
+ const changedSettings=graphSettings();
+ click('#detail a[href^="#explore?node=ac_4&"]');
+ for(let i=0;i<100&&document.querySelector('#detail [data-profile-for]')?.dataset.profileFor!=='ac_4';i++)await new Promise(resolve=>setTimeout(resolve,5));
+ assert.equal($('#detail [data-profile-for]').dataset.profileFor,'ac_4');
+ assert.deepEqual(graphSettings(),changedSettings,'An already rendered definition link preserves graph settings changed since it was rendered.');
+ route('#explore?view=custom&nodes=ac_2,ac_3,ac_4&node=ac_2&ac=0&depth=2&edges=implication&arrows=selected');
+ const profileRoundtripSettings=graphSettings();
+ check('#neighbors-mode',true);
+ click('#detail .profile-heading a');
+ for(let i=0;i<100&&!document.querySelector('.full-profile');i++)await new Promise(resolve=>setTimeout(resolve,5));
+ assert.ok(document.querySelector('.full-profile'),'The full relationship profile opens.');
+ click('a[href^="#explore?node=ac_2&"]');
+ for(let i=0;i<100&&!document.querySelector('#neighbors-mode');i++)await new Promise(resolve=>setTimeout(resolve,5));
+ assert.equal($('#neighbors-mode').checked,true,'Returning from a full profile retains neighbors mode.');
+ assert.equal(document.title,'Explore · Weak Choice Atlas');
+ assert.equal($('nav [data-page="explore"]').getAttribute('aria-current'),'page');
+ assert.equal($('nav [data-page="principles"]').hasAttribute('aria-current'),false);
+ check('#neighbors-mode',false);
+ assert.deepEqual(graphSettings(),profileRoundtripSettings,'A full profile roundtrip retains the graph to restore when neighbors is disabled.');
+ check('#neighbors-mode',true);
+ click('#graph [data-node="ac_3"]');
+ change('#view','custom');
+ assert.deepEqual(graphSettings(),profileRoundtripSettings,'Choosing the prior custom view in the dropdown restores its saved selection and settings.');
  route('#explore?view=choice');click('#save-graph');click('#load-graph');
  assert.ok(nodes().includes('mc'),'Saving the choice topic preserves Multiple Choice.');
  route('#explore?view=neighbors&node=ac_omega');
@@ -174,7 +288,7 @@ try{
  change('#directory-family','choice');assert.ok($('#directory-category-note').textContent.includes('Mostowski–Gauntt–Truss'));
  assert.ok(!document.querySelector('[data-pick-node="csb"]'));
  assertClean();
- console.log('PASS: DOM startup, actual SVG renderer, preset and node selection, custom picker, AC controls, save/load, deterministic permalinks, evidence settings and Focus neighborhoods.');
+ console.log('PASS: DOM startup, actual SVG renderer, stable preset/custom selection, opt-in neighbors and exact restoration, synchronized controls, custom picker, save/load, deterministic permalinks and evidence settings.');
 }finally{
  console.error=originalError;
  window.close();

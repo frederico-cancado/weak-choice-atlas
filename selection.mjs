@@ -1,5 +1,5 @@
-import {graphSlice,classifyPrinciple} from './classification.mjs?v=20261013-2';
-import {closure,modelFacts} from './engine.mjs?v=20261013-2';
+import {graphSlice,classifyPrinciple} from './classification.mjs?v=20261014-1';
+import {closure,modelFacts} from './engine.mjs?v=20261014-1';
 
 // Remove an implication only when the remaining displayed records prove it.
 // Forward chaining preserves conjunctions and equivalences; a pair of arrows
