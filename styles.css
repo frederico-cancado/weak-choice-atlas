@@ -539,3 +539,6 @@ select:disabled { opacity: .65; }
  #wide-graph { display: none; }
  .graph-option-row > label:last-child, .graph-option-row select { width: 100%; }
 }
+
+/* Each direction of a merged nonimplication keeps its own evidence. */
+.edge-evidence + .edge-evidence { border-top: 2px solid var(--line); margin-top: 30px; padding-top: 16px; }

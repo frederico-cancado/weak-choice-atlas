@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {GRAPH_PRESETS,normalizeSelection,selectGraph,reduceImplications,focusRoles} from './selection.mjs';
+import {GRAPH_PRESETS,normalizeSelection,selectGraph,reduceImplications,focusRoles,mergeReciprocalNonimplications} from './selection.mjs';
 import {visibleRelations,closure} from './engine.mjs';
 
 const data=JSON.parse(fs.readFileSync(new URL('./data.json',import.meta.url)));
@@ -85,10 +85,35 @@ const focusFixture={
 };
 const neighborhood=selectGraph(focusFixture,focusFixture.relations,{view:'neighbors',node:'center',depth:0,includeAC:false,includeEquivalents:false,edgeKind:'implication',focusArrows:true});
 assert.equal(neighborhood.ids.length,focusFixture.principles.length,'Complete neighborhoods have no cap and include neighbors of equivalent formulations.');
-assert.ok(neighborhood.edges.some(r=>r.id==='center_not_i')&&neighborhood.edges.some(r=>r.id==='i_not_center'),'Focus keeps both nonimplication directions despite topic arrow filters.');
+const neighborhoodEvidence=neighborhood.edges.flatMap(r=>r.evidence_ids||[r.id]);
+assert.ok(neighborhoodEvidence.includes('center_not_i')&&neighborhoodEvidence.includes('i_not_center'),'Focus keeps the evidence for both nonimplication directions despite topic arrow filters.');
 assert.equal(neighborhood.focusRoles.above,'stronger');assert.equal(neighborhood.focusRoles.below,'weaker');assert.equal(neighborhood.focusRoles.eq,'equivalent');assert.equal(neighborhood.focusRoles.incomparable,'incomparable');assert.equal(neighborhood.focusRoles.uncertain,'unknown');assert.equal(neighborhood.focusRoles.joint,'unknown','A joint premise alone is not classified as stronger.');
 const witnessed={models:[{id:'m1',base:'ZF',true_ids:['p'],false_ids:['q']},{id:'m2',base:'ZF',true_ids:['q'],false_ids:['p']}]};
 assert.equal(focusRoles(witnessed,['p','q'],[],'p').q,'incomparable','Two-sided model evidence can establish incomparability.');
 assert.equal(focusRoles({models:[witnessed.models[0]]},['p','q'],[],'p').q,'unknown','A one-sided separation is not incomparability.');
+
+
+// Only reciprocal unary counterexamples merge; both independently sourced
+// assertions survive intact, including a preliminary status in one direction.
+const forward={...relation('p_q','p','q','nonimplication'),source:'SOURCE_PQ',source_url:'https://example.test/pq',locator:'Theorem 1',status:'source_checked'};
+const reverse={...relation('q_p','q','p','nonimplication'),source:'SOURCE_QP',source_url:'https://example.test/qp',locator:'Theorem 2',layer:'recent',status:'preliminary'};
+const mutual=mergeReciprocalNonimplications([forward,reverse]);
+assert.equal(mutual.length,1);assert.equal(mutual[0].id,'mutual:p_q|q_p');
+assert.equal(mutual[0].kind,'nonimplication');assert.equal(mutual[0].bidirectional,true);
+assert.deepEqual(mutual[0].antecedents,['p']);assert.equal(mutual[0].consequent,'q');
+assert.deepEqual(mutual[0].evidence_ids,['p_q','q_p']);
+assert.deepEqual(mutual[0].evidence_relations,[forward,reverse]);
+assert.equal(mutual[0].layer,'recent','One preliminary direction marks the composite as recent.');
+assert.equal(mutual[0].status,'combined_evidence','A composite cannot claim a uniform source_checked status.');
+assert.deepEqual(mergeReciprocalNonimplications([reverse,forward]),mutual,'Composite IDs and evidence order are deterministic.');
+assert.deepEqual(mergeReciprocalNonimplications(mutual),mutual,'Merging a display edge twice is harmless.');
+assert.deepEqual(mergeReciprocalNonimplications([forward]),[forward],'A one-way nonimplication stays one-way.');
+assert.equal(mergeReciprocalNonimplications([forward,relation('joint_back',['q','r'],'p','nonimplication')]).length,2,'Joint hypotheses cannot become unary incomparability.');
+assert.equal(mergeReciprocalNonimplications([forward,relation('back','q','p')]).length,2,'An implication and a counterexample must not be merged.');
+assert.equal(mergeReciprocalNonimplications([{...forward,layer:'standard'},{...reverse,layer:'standard'}])[0].layer,'standard');
+assert.deepEqual(closure(['p'],mutual).known,new Set(['p']),'The display composite never enters implication closure.');
+const mutualFixture={principles:['p','q'].map(id=>({id,ac_classification:{kind:'weaker',valid_bases:['ZF']}})),models:[],relations:[forward,reverse]};
+const selectedMutual=selectGraph(mutualFixture,mutualFixture.relations,{view:'custom',customIds:['p','q']});
+assert.deepEqual(selectedMutual.edges,mutual,'Graph selection performs the merge after implication reduction.');
 
 console.log('PASS: presets and custom selections, complete focused neighborhoods, all countermodel directions, sound transitive reduction, joint premises, equivalence cycles, and evidence-based comparison roles.');

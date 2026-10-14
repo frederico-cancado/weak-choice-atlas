@@ -179,7 +179,7 @@ try{
  assert.deepEqual(nodes(),broadNodes,'Focusing arrows must retain the large graph.');
  assert.ok(document.querySelectorAll('#graph .graph-edge').length<broadEdges);
  const records=new Map(JSON.parse(catalogue).relations.map(r=>[r.id,r]));
- for(const el of document.querySelectorAll('#graph .graph-edge')){const r=records.get(el.dataset.edge);assert.ok(r.antecedents.includes('ac_2')||r.consequent==='ac_2');}
+ for(const el of document.querySelectorAll('#graph .graph-edge')){const r=records.get(el.dataset.edge)||records.get(el.dataset.edge.slice(7).split('|')[0]);assert.ok(r.antecedents.includes('ac_2')||r.consequent==='ac_2');}
  click('#graph [data-node="ac_3"]');
  assert.equal($('#view').value,'choice','The arrows-only setting never makes node clicks change the view.');
  assert.deepEqual(nodes(),broadNodes);
@@ -287,6 +287,36 @@ try{
  assert.equal(document.querySelector('#directory-family option[value="cardinal_arithmetic"]'),null);
  change('#directory-family','choice');assert.ok($('#directory-category-note').textContent.includes('Mostowski–Gauntt–Truss'));
  assert.ok(!document.querySelector('[data-pick-node="csb"]'));
+ route('#explore?view=finitechoice&node=ac_2');
+ const reciprocal=[...document.querySelectorAll('#graph .graph-edge')].find(el=>el.dataset.edge.startsWith('mutual:'));
+ assert.ok(reciprocal,'Opposite nonimplications share one graph edge.');
+ assert.ok(reciprocal.querySelector('.edge-line').hasAttribute('marker-start'));
+ assert.ok(reciprocal.querySelector('.edge-line').hasAttribute('marker-end'));
+ assert.ok(reciprocal.getAttribute('aria-label').includes('neither implies'));
+ const mutualId=reciprocal.dataset.edge,evidenceIds=mutualId.slice(7).split('|'),beforeMutual=graphSettings();
+ assert.equal(document.querySelectorAll(`#graph .graph-edge[data-edge="${mutualId}"]`).length,1);
+ for(const id of evidenceIds)assert.equal(document.querySelector(`#graph .graph-edge[data-edge="${id}"]`),null);
+ reciprocal.dispatchEvent(new window.MouseEvent('click',{bubbles:true}));
+ assert.equal(document.querySelectorAll('#detail [data-evidence-relation]').length,2);
+ for(const id of evidenceIds){const section=$(`#detail [data-evidence-relation="${id}"]`),record=records.get(id);assert.ok(section.textContent.includes(record.proof_note));assert.ok(section.querySelector(`a[href="${record.source_url}"]`));}
+ assert.ok($('#detail').textContent.includes('Nonimplication in both directions'));
+ assert.deepEqual(graphSettings(),beforeMutual,'Opening merged evidence preserves graph settings.');
+ click('#back-detail');
+ change('#edge-kind','nonimplication');
+ assert.ok(document.querySelector(`#graph .graph-edge[data-edge="${mutualId}"]`),'Merged edges remain available in the nonimplications filter.');
+ click('#graph-mode');
+ assert.ok($(`[data-relation="${mutualId}"]`).textContent.includes('↚↛'));
+ click(`[data-relation="${mutualId}"]`);
+ assert.equal(document.querySelectorAll('#detail [data-evidence-relation]').length,2,'List mode opens both directions too.');
+ route('#explore?view=custom&nodes=pp,bpi&research=1&ac=0');
+ const researchEdge=$('#graph .graph-edge');
+ assert.ok(researchEdge.dataset.edge.startsWith('mutual:'));
+ researchEdge.dispatchEvent(new window.KeyboardEvent('keydown',{key:'Enter',bubbles:true}));
+ assert.equal(document.querySelectorAll('#detail [data-evidence-relation]').length,2);
+ assert.ok($('#detail .research'),'The recent direction keeps its provenance badge.');
+ route('#explore?view=custom&nodes=pp,bpi&research=0&ac=0');
+ assert.equal(document.querySelectorAll('#graph .graph-edge').length,1);
+ assert.equal($('#graph .edge-line').hasAttribute('marker-start'),false,'A hidden reverse direction must not leave a double arrowhead.');
  assertClean();
  console.log('PASS: DOM startup, actual SVG renderer, stable preset/custom selection, opt-in neighbors and exact restoration, synchronized controls, custom picker, save/load, deterministic permalinks and evidence settings.');
 }finally{

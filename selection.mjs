@@ -1,5 +1,5 @@
-import {graphSlice,classifyPrinciple} from './classification.mjs?v=20261014-1';
-import {closure,modelFacts} from './engine.mjs?v=20261014-1';
+import {graphSlice,classifyPrinciple} from './classification.mjs?v=20261014-2';
+import {closure,modelFacts} from './engine.mjs?v=20261014-2';
 
 // Remove an implication only when the remaining displayed records prove it.
 // Forward chaining preserves conjunctions and equivalences; a pair of arrows
@@ -12,6 +12,26 @@ export function reduceImplications(relations){
   if(closure(candidate.antecedents,others).known.has(candidate.consequent))retained.splice(retained.indexOf(candidate),1);
  }
  return retained;
+}
+
+// A double-headed countermodel edge represents two separate claims. Keep the
+// original records so opening the edge can show the evidence in each direction.
+export function mergeReciprocalNonimplications(relations){
+ const buckets=new Map(),output=[];
+ for(const r of relations){
+  if(r.kind!=='nonimplication'||r.antecedents.length!==1||r.antecedents[0]===r.consequent){output.push(r);continue}
+  const pair=[r.antecedents[0],r.consequent].sort(),key=JSON.stringify(pair);
+  if(!buckets.has(key))buckets.set(key,[]);buckets.get(key).push(r);
+ }
+ for(const records of buckets.values()){
+  const pair=[records[0].antecedents[0],records[0].consequent].sort();
+  const reciprocal=records.some(r=>r.antecedents[0]===pair[0])&&records.some(r=>r.antecedents[0]===pair[1]);
+  if(!reciprocal){output.push(...records);continue}
+  const evidence_relations=records.flatMap(r=>r.evidence_relations||[r]).sort((a,b)=>a.id.localeCompare(b.id));
+  const evidence_ids=[...new Set(evidence_relations.map(r=>r.id))];
+  output.push({...evidence_relations[0],id:`mutual:${evidence_ids.join('|')}`,antecedents:[pair[0]],consequent:pair[1],bidirectional:true,evidence_relations,evidence_ids,layer:evidence_relations.some(r=>r.layer==='recent')?'recent':'standard',status:'combined_evidence'});
+ }
+ return output.sort((a,b)=>a.id.localeCompare(b.id));
 }
 
 export function focusRoles(data,ids,relations,node,theory='ZF',research=false){
@@ -86,7 +106,7 @@ export function selectGraph(data,relations,{view='choice',node='pp',theory='ZF',
  // other AC formulations is hidden. All other equivalents were filtered above.
  const slice=graphSlice(data,ids,relations,theory,focused?'all':edgeKind,{includeAC:focused||includeAC,includeEquivalents:focused||includeEquivalents||view==='choice',includeHidden:true});
  if(focusArrows&&!focused)slice.edges=slice.edges.filter(r=>r.antecedents.includes(node)||r.consequent===node);
- slice.edges=reduceImplications(slice.edges);
+ slice.edges=mergeReciprocalNonimplications(reduceImplications(slice.edges));
  if(focused){slice.focus=node;slice.focusRoles=focusRoles(data,slice.ids,relations,node,theory,research);}
  const connected=new Set(slice.edges.flatMap(r=>[...r.antecedents,r.consequent]));
  return {...slice,isolated:slice.ids.filter(id=>!connected.has(id)),title:view==='neighbors'?`Around ${node}`:view==='custom'?'My chosen axioms':view==='all'?'All default graph axioms':(GRAPH_PRESETS[view]||GRAPH_PRESETS.choice).title};

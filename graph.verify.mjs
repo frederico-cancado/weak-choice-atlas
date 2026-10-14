@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {graphGeometry} from './graph.mjs';
-import {selectGraph} from './selection.mjs';
+import {selectGraph,mergeReciprocalNonimplications} from './selection.mjs';
 import {visibleRelations} from './engine.mjs';
 const data=JSON.parse(fs.readFileSync(new URL('./data.json',import.meta.url)));
 function samplePath(d){
@@ -53,4 +53,14 @@ for(const node of ['ac','bpi','ac_omega','rpp','algebraic_closure']){
  const geometry=graphGeometry(selection.ids,selection.edges,{focus:selection.focus,focusRoles:selection.focusRoles});checkGeometry(geometry);
  for(const [id,role] of Object.entries(selection.focusRoles)){const p=geometry.positions.get(id),center=geometry.positions.get(node);if(role==='stronger')assert.ok(p.y<center.y);if(role==='weaker')assert.ok(p.y>center.y);}
 }
+
+const mergedRelations=mergeReciprocalNonimplications([edge('a_b','a','b'),edge('b_a','b','a'),edge('a_b_implication','a','b','implication')]);
+const mergedGeometry=graphGeometry(['a','b'],mergedRelations);checkGeometry(mergedGeometry);
+assert.equal(mergedGeometry.routes.length,2,'Reciprocal counterexamples use one route while a separate implication retains its own route.');
+const mergedRoute=mergedGeometry.routes.find(route=>route.relation.bidirectional);
+assert.ok(mergedRoute);assert.equal(mergedRoute.arms.length,0);
+assert.deepEqual(mergedRoute.relation.evidence_ids,['a_b','b_a'],'The rendered route retains both original evidence IDs.');
+assert.deepEqual(mergedRoute.relation.evidence_relations.map(r=>[r.antecedents[0],r.consequent]),[['a','b'],['b','a']]);
+assert.deepEqual(graphGeometry(['b','a'],[...mergedRelations].reverse()),mergedGeometry,'Merged geometry is deterministic.');
+
 console.log('PASS: unobstructed deterministic routes, joint premises, complete catalogue focus views, stronger/weaker ordering, side incomparability, unknown comparison labels, and equivalent placement.');
