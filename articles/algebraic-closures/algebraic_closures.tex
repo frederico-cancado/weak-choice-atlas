@@ -1,0 +1,457 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=26mm]{geometry}
+\usepackage{booktabs,longtable,array,enumitem,microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\hypersetup{pdftitle={Algebraic closures: existence without uniqueness},pdfauthor={Frederico Cançado}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Algebraic closures without choice}\fancyhead[R]{F. Can\c{c}ado}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{2pt}\setlength{\parindent}{1.2em}
+\setlist{topsep=3pt,itemsep=2pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\ZF}{\mathsf{ZF}}\newcommand{\ZFA}{\mathsf{ZFA}}
+\newcommand{\AC}{\mathsf{AC}}\newcommand{\BPI}{\mathsf{BPI}}
+\newcommand{\E}{\mathsf E}\newcommand{\U}{\mathsf U}
+\newcommand{\ACfin}{\mathsf{AC}_{\mathrm{fin}}}
+\newcommand{\ACwfin}{\mathsf{AC}^{\mathrm{fin}}_{\omega}}
+\newcommand{\ACWfin}{\mathsf{AC}^{\mathrm{fin}}_{\mathrm{WO}}}
+\newcommand{\Q}{\mathbb Q}\newcommand{\F}{\mathbb F}
+\DeclareMathOperator{\Iso}{Iso}\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Frac}{Frac}\DeclareMathOperator{\Fix}{Fix}
+\title{Algebraic closures: existence without uniqueness}
+\author{Frederico Can\c{c}ado}
+\date{14 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $\E$ assert that every field has an algebraic closure, and let $\U$ assert that any two algebraic closures of a field are isomorphic over that field. Relative to $\mathsf{ZFC}$, we construct a model of
+\[
+\ZF+\mathsf{DC}+\E+\neg\U+\neg\ACfin.
+\]
+The construction combines a free-group action on Boolean-valued fields with a family of pairs having no choice function. The failure of uniqueness occurs over a specified well-orderable field of characteristic zero. We also prove that $\E\wedge\U$ implies choice for arbitrary families of nonempty finite sets, and that, assuming $\E$, uniqueness is equivalent to compactness for finite group torsors. The reverse implication $\U\Rightarrow\E$ over pure $\ZF$ is not decided by these results.
+\end{abstract}
+\noindent\textit{Keywords.} Algebraic closure; weak choice principles; symmetric extensions; dependent choice; finite group torsors.
+
+\section{Introduction}
+An algebraic closure of a field $K$ is a pair $(L,i)$, where $L$ is algebraically closed and $i:K\hookrightarrow L$ is an embedding such that $L/i(K)$ is algebraic. Write
+\begin{align*}
+\E&:\quad \forall K\text{ field}\ \exists(L,i)\text{ an algebraic closure of }K,\\
+\U&:\quad \forall K\ \forall(L,i),(M,j)\text{ closures of }K\ 
+\exists h:L\xrightarrow{\sim}M\ (h\circ i=j).
+\end{align*}
+Thus uniqueness is conditional on the existence of the two closures, and every isomorphism in $\U$ must respect the specified base embeddings.
+
+The Boolean Prime Ideal Theorem implies both principles, as shown by Banaschewski~\cite{Banaschewski}. Their place among weak choice principles is recorded in Howard and Rubin~\cite{HR}. In the absence of choice, adjoining finitely many roots, constructing a closure, and choosing an isomorphism between two supplied closures are distinct existence problems. The present paper separates the last two at the level of their universal assertions.
+
+Our main result, Theorem~\ref{thm:pure-zf-separation}, is the relative consistency of
+\[
+\ZF+\mathsf{DC}+\E+\neg\U+\neg\ACfin+\neg\BPI.
+\]
+It is proved by a direct symmetric forcing construction in pure set theory. A free support group allows semilinear automorphisms to extend to Boolean-valued algebraic closures. A separate parity construction gives a well-ordered family of pairs with no selector. Theorem~\ref{thm:acfin}, which states $(\E\wedge\U)\Rightarrow\ACfin$, then gives the failure of uniqueness. We also exhibit the resulting two nonisomorphic closures over a specified well-orderable field.
+
+A second result identifies uniqueness, in the presence of existence, with a finite-group compactness principle. Let $\mathsf T$ assert that every directed surjective inverse system of finite torsors has a coherent point, and let $\mathsf P$ assert that every coordinate projection of a directed surjective inverse system of finite groups is onto. Precise definitions are given in Section~\ref{sec:finitegroups}. We prove
+\[
+\mathsf P\ \Longleftrightarrow\ \mathsf T\ \Longrightarrow\ \U\wedge\ACfin,
+\qquad
+\E\wedge\U\ \Longrightarrow\ \mathsf P.
+\]
+Consequently $\E\wedge\U$, $\E\wedge\mathsf P$, and $\E\wedge\mathsf T$ are equivalent over $\ZF$.
+
+Throughout, $\ACfin$ denotes choice for arbitrary families of nonempty finite sets, and $\BPI$ denotes the Boolean Prime Ideal Theorem, equivalently propositional compactness. Finite choices alone require no choice axiom. All internal assertions are over pure $\ZF$. The model construction uses an outer universe satisfying $\mathsf{ZFC}$; outer choices are used only to construct hereditarily symmetric witnesses, and are not assumed in the resulting model. We use the standard framework of symmetric extensions; see Jech~\cite{Jech}.
+
+\section{Finite algebra and well-orderable constructions}
+\begin{lemma}[Finite algebra in $\ZF$]\label{lem:finite}
+Every finite list of polynomials over a field has a finite splitting extension. Embeddings extend across finitely generated algebraic extensions into an algebraically closed field. Any two finite splitting fields of the same polynomial are isomorphic over the specified base.
+\end{lemma}
+\begin{proof}
+For a nonconstant polynomial, take an irreducible divisor of least positive degree and adjoin a root by quotienting a one-variable polynomial ring. Divide out a linear factor and induct on the degree. For a finite list use the product polynomial. An embedding extends one generator at a time by sending that generator to a root of its transported minimal polynomial. When both fields are splitting fields, the image contains all distinct roots and hence the entire target. Only finitely many witnesses are chosen in each such argument.
+\end{proof}
+
+\begin{lemma}[Splitting criterion]\label{lem:splitting}
+If $L/K$ is algebraic and every nonconstant polynomial over $K$ splits in $L$, then $L$ is algebraically closed.
+\end{lemma}
+\begin{proof}
+Algebraicity is transitive: the finitely many coefficients of a witnessing polynomial lie in a finite extension of the smaller field, and finite-dimensional linear algebra applies. If an irreducible polynomial over $L$ of degree greater than one existed, adjoin one root $a$. Then $a$ is algebraic over $K$. A polynomial over $K$ annihilating $a$ splits over $L$; evaluating its factorization in the extension field forces $a$ to equal one of its roots in $L$, a contradiction.
+\end{proof}
+
+\begin{theorem}\label{thm:wo}
+In $\ZF$, every well-orderable field has a well-orderable algebraic closure. Every countable field has a countable algebraic closure. Any two well-orderable algebraic closures of a fixed field are isomorphic over that field.
+\end{theorem}
+\begin{proof}
+Fix a well-order of $K$. Form the polynomial ring $R$ and proper splitting ideal $J$ described in the proof of Theorem~\ref{thm:bpie}; only that construction and its finite proof of properness are used here, not $\BPI$ or any prime-ideal theorem. Their formal data are well-orderable, so well-order $R$ as $(r_\alpha)_{\alpha<\theta}$. Starting with $J$, adjoin $r_\alpha$ to the current ideal precisely when doing so leaves it proper. At a limit take the union. A union at a limit is proper because membership in an ideal is witnessed by a finite expression. The final proper ideal is maximal: every omitted element would generate the unit ideal together with the ideal present when it was omitted, and therefore together with the final ideal. The quotient is a field, is algebraic over $K$, and splits all base polynomials. It is well-orderable by taking least representatives in $R$. If $K$ is countable then $R$ is countable and so is the quotient.
+
+For uniqueness, well-order the source closure and the target closure. Extend the base embedding recursively along the source well-order, sending the next generator to the least root of its transported minimal polynomial in the target. At limit stages take unions. Transfinite recursion is applicable because the next value is specified uniquely. The final embedding is surjective: any target element is algebraic over the image of $K$, and its base polynomial splits in the algebraically closed image of the source.
+\end{proof}
+
+\begin{remark}
+The theorem does not say that every algebraic closure of a well-orderable field is well-orderable. Proving that extra assertion requires attention to finite root fibers. A single countable closure of $\Q$ exists in $\ZF$, while another closure of $\Q$ need not be countable in every model of $\ZF$.
+\end{remark}
+
+\section{The Boolean Prime Ideal Theorem is sufficient}
+The implication in this section is due to Banaschewski~\cite{Banaschewski}. We record direct proofs for use below.
+
+\begin{lemma}\label{lem:ringprime}
+$\BPI$ implies that every proper ideal of a commutative ring with identity is contained in a prime ideal.
+\end{lemma}
+\begin{proof}
+Use propositional variables $P_a$, one for each ring element, and impose the clauses saying that the elements with $P_a$ true form a proper prime ideal containing the given ideal $I$. They include $P_0$, $\neg P_1$, addition and additive-inverse closure, absorption, and $P_{ab}\Rightarrow(P_a\vee P_b)$.
+
+A finite set of clauses concerns a finitely generated subring $S$ and finitely many required elements of $I\cap S$. The ideal they generate in $S$ is proper, since it is contained in $I$ in the original ring. The ring $S$ is countable, being generated by finitely many elements over $\mathbb Z$. The deterministic ideal recursion of Theorem~\ref{thm:wo} produces a maximal ideal of $S$ containing that proper ideal. Its membership truth values satisfy the finite clauses. Propositional compactness, obtained from $\BPI$, supplies all the clauses at once. This produces a prime ideal, without invoking the arbitrary-ring maximal ideal theorem.
+\end{proof}
+
+\begin{theorem}[$\BPI\Rightarrow\E$]\label{thm:bpie}
+Every field has an algebraic closure assuming $\BPI$.
+\end{theorem}
+\begin{proof}
+For each monic polynomial $f\in K[T]$ of degree $n\geq1$, introduce distinct variables $x_{f,1},\ldots,x_{f,n}$. In their polynomial ring $R$ over $K$, let $J$ be generated by the coefficient identities in
+\[
+f(T)=\prod_{j=1}^{n}(T-x_{f,j}).
+\]
+The ideal is proper. A finite expression purporting to put $1$ in $J$ involves finitely many polynomials and variables. A finite splitting field for those polynomials exists by Lemma~\ref{lem:finite}. Choose their root enumerations for this finite calculation, and set any other involved variables to zero. Evaluation sends the relevant relations to zero and $1$ to $1$, a contradiction.
+
+Take a prime ideal $P\supseteq J$ by Lemma~\ref{lem:ringprime}. It intersects $K$ trivially, since nonzero elements of $K$ are units. Let $L=\Frac(R/P)$. Each image $x_{f,j}$ is algebraic over $K$, and every element of $L$ involves finitely many such images, so $L/K$ is algebraic. The coefficient identities make every base polynomial split. Lemma~\ref{lem:splitting} completes the proof.
+\end{proof}
+
+
+
+\begin{theorem}[$\BPI\Rightarrow\U$]\label{thm:bpiu}
+Any two algebraic closures $L,M$ of $K$ are $K$-isomorphic assuming $\BPI$.
+\end{theorem}
+\begin{proof}
+For each nonzero monic $f\in K[T]$, let $L_f,M_f$ be the subfields generated by all roots of $f$ in the respective closures, and put
+\[
+H_f=\Iso_K(L_f,M_f).
+\]
+These sets are canonically defined; no root enumeration has been chosen. They are finite and nonempty by finite algebra. If $f\mid g$, extend a given member of $H_f$ across the finite extension $L_g/L_f$ into the algebraically closed field $M$. Its image is exactly $M_g$, because it bijects the distinct roots of $g$. Thus restriction $H_g\to H_f$ is surjective. Products of polynomials make divisibility a directed ordering.
+
+Use Boolean variables $q_{f,h}$ for $h\in H_f$ and clauses requiring exactly one selected isomorphism at every $f$, with compatibility under restriction. Any finite collection of clauses is satisfiable: take a common upper polynomial for all its indices, take one isomorphism there, and restrict it. Propositional compactness gives a compatible family $(h_f)$. Its union is a well-defined field embedding because any finitely many elements lie in some $L_f$. It is onto because every element of $M$ lies in some $M_f$ and every $h_f$ is onto.
+\end{proof}
+
+\section{Existence and uniqueness together imply finite choice}\label{sec:acfin}
+\begin{theorem}\label{thm:acfin}
+$\ZF$ proves $(\E\wedge\U)\Rightarrow\ACfin$.
+\end{theorem}
+\begin{proof}
+Let $(A_i)_{i\in I}$ be any family of nonempty finite sets, and put $n_i=|A_i|$. Tag the sets to avoid overlaps. Form independent-variable rational function fields
+\[
+L=\Q(x_{i,a}:i\in I,\ a\in A_i),\qquad
+L'=\Q(y_{i,j}:i\in I,\ 1\leq j\leq n_i).
+\]
+For $1\leq r\leq n_i$, let $s_{i,r}$ be the $r$th elementary symmetric function of the variables $x_{i,a}$, and $t_{i,r}$ the corresponding symmetric function of $y_{i,1},\ldots,y_{i,n_i}$. These definitions require no enumeration of $A_i$: use the sum of products over its $r$-element subsets.
+
+The family of all $s_{i,r}$ is algebraically independent over $\Q$, and so is the family of all $t_{i,r}$. To check this, a purported relation uses only finitely many blocks. Enumerate those finitely many finite blocks for this proof. Under a lexicographic monomial order, the leading monomial of the $r$th elementary symmetric function in a block is the product of the first $r$ variables. Products of powers of these leading monomials have distinct exponent vectors: the exponents form a triangular sum of the powers, recoverable by successive differences. Thus distinct monomials in the symmetric functions cannot cancel their largest leading term. This is a finite argument and makes no simultaneous choice over $I$.
+
+Consequently the fields
+\[
+K=\Q(s_{i,r}:i\in I,1\leq r\leq n_i),\qquad
+K'=\Q(t_{i,r}:i\in I,1\leq r\leq n_i)
+\]
+have a specified isomorphism $s_{i,r}\mapsto t_{i,r}$. Regard $L'$ as a $K$-extension via this map. Both $L/K$ and $L'/K$ are algebraic, because their generators satisfy the monic polynomials
+\[
+P_i(T)=T^{n_i}-s_{i,1}T^{n_i-1}+\cdots+(-1)^{n_i}s_{i,n_i}.
+\]
+Use $\E$ to obtain closures $C/L$ and $D/L'$. By transitivity of algebraicity these are also closures of the specified common base $K$. Use $\U$ to obtain a $K$-isomorphism $h:C\to D$.
+
+In $C$, the distinct roots of $P_i$ are exactly the $x_{i,a}$, and in $D$ they are exactly $y_{i,1},\ldots,y_{i,n_i}$, since the displayed factorizations already split a polynomial of degree $n_i$. There is therefore a unique $a\in A_i$ for which $h(x_{i,a})=y_{i,1}$. This unique specification defines a choice function by Replacement.
+\end{proof}
+
+\begin{remark}
+There are only two applications of the universal existence statement, to two single fields. No family of closures is selected. The argument proves a consequence of the conjunction; it does not prove $\E\Rightarrow\ACfin$ or $\U\Rightarrow\ACfin$. Its two closure extensions are the exact additional objects needed before applying uniqueness.
+\end{remark}
+
+\section{An exact finite-group correspondence under existence}\label{sec:finitegroups}
+The inverse systems in this section are indexed by nonempty directed posets. Write $\pi_{ji}:G_j\to G_i$ for a bonding homomorphism when $i\leq j$.
+
+\begin{definition}
+Let $\mathsf P$ assert that, for every inverse system of finite groups with surjective bonding homomorphisms, every projection $\varprojlim G_i\to G_i$ is surjective. Let $\mathsf T$ assert that every surjective inverse system of nonempty finite torsors has a coherent point: the data are finite groups $G_i$, finite nonempty sets $X_i$ on which $G_i$ acts freely and transitively, and surjective maps $f_{ji}:X_j\to X_i$ satisfying
+\[
+f_{ji}(g x)=\pi_{ji}(g)f_{ji}(x),
+\]
+with all inverse-system identities. No point of any $X_i$ is distinguished.
+\end{definition}
+The identity family always belongs to the inverse limit of groups in $\ZF$. Thus nonemptiness alone would be vacuous; $\mathsf P$ requires lifting every prescribed coordinate element.
+
+\begin{theorem}\label{thm:torsors}
+Over $\ZF$,
+\[
+\mathsf P\ \Longleftrightarrow\ \mathsf T
+\quad\Longrightarrow\quad \U\wedge\ACfin,
+\qquad
+\E\wedge\U\ \Longrightarrow\ \mathsf P.
+\]
+Consequently
+\[
+\E\wedge\U\ \Longleftrightarrow\ \E\wedge\mathsf P
+\ \Longleftrightarrow\ \E\wedge\mathsf T.
+\]
+No equivalence of these principles with $\BPI$ is asserted.
+\end{theorem}
+\begin{proof}[Proof that $\mathsf T\Rightarrow\mathsf P$]
+Fix $i_0$ and $a\in G_{i_0}$. On the cofinal directed set $j\geq i_0$, the fibers $Y_j=\pi_{j i_0}^{-1}(a)$ are nonempty finite torsors under $N_j=\ker\pi_{j i_0}$. The restrictions on both fibers and kernels are surjective: a lift in $G_k$ of an element of $G_j$ has the required image in $G_{i_0}$. Apply $\mathsf T$. A coherent family on this cofinal set extends uniquely to all indices by restriction from common upper bounds, and its $i_0$-coordinate is $a$.
+\end{proof}
+\begin{proof}[Proof that $\mathsf P\Rightarrow\mathsf T$]
+Put $Z_i=(\{0\}\times G_i)\sqcup(\{1\}\times X_i)$, with its two regular left $G_i$-orbits, and let $H_i=\Aut_{G_i}(Z_i)$ be the finite group of equivariant permutations. Its action on the two orbits gives a canonical surjection $\epsilon_i:H_i\to C_2$. Indeed, one point $x\in X_i$ gives the equivariant bijection $g\mapsto gx$ and an equivariant permutation interchanging the components. This verification does not select a family of points.
+
+The map $q_{ji}:Z_j\to Z_i$ induced by $\pi_{ji}$ and $f_{ji}$ has fibers precisely the $\ker\pi_{ji}$-orbits. Every element of $H_j$ commutes with this kernel, and therefore descends uniquely to $H_i$. The resulting homomorphisms $\rho_{ji}:H_j\to H_i$ commute with $\epsilon$ and are surjective. To verify surjectivity for one map, temporarily choose one point of $X_j$ and its image in $X_i$. Under these identifications the groups are the wreath products $G_j^{\mathrm{op}}\wr C_2$ and $G_i^{\mathrm{op}}\wr C_2$, and $\rho_{ji}$ applies $\pi_{ji}$ to both group coordinates and fixes the permutation coordinate. Only two finite choices are needed to lift an element. The definition of $\rho_{ji}$ is independent of these temporary identifications.
+
+Adjoin a least index carrying $C_2$, with bonding maps $\epsilon_i$. By $\mathsf P$, the nonidentity of $C_2$ lifts to a coherent family $h_i\in H_i$. Each $h_i$ interchanges the components. Define $x_i$ by $h_i(0,e_i)=(1,x_i)$. The descent equations give $f_{ji}(x_j)=x_i$, as required.
+\end{proof}
+\begin{proof}[Proof that $\mathsf T\Rightarrow\ACfin\wedge\U$]
+For a family $(A_s)_{s\in S}$ of nonempty finite sets, put $n_s=|A_s|$. On the directed set of finite subsets $F\subseteq S$, take
+\[
+X_F=\prod_{s\in F}\operatorname{Bij}(n_s,A_s),
+\qquad G_F=\prod_{s\in F}\operatorname{Sym}(n_s),
+\]
+with $\sigma\cdot b=b\circ\sigma^{-1}$. These are nonempty finite torsors by finite choice, and restrictions are surjective. A coherent point gives enumerations of all $A_s$; their first entries give a choice function.
+
+For supplied closures $C,D$ of $K$, use the finite splitting subfields $C_F,D_F$ generated by the roots of finite sets $F$ of nonzero monic polynomials in $K[T]$. The sets $\Iso_K(C_F,D_F)$ are nonempty finite torsors under $\Aut_K(C_F)$, acting by inverse precomposition. Restrictions are surjective on groups and torsors: extend an embedding by finite algebra into the specified algebraically closed field $D$, and use the complete root sets to identify its image. This remains valid with inseparable polynomials, whose purely inseparable roots have unique images. Apply $\mathsf T$ and unite the compatible isomorphisms. Every element of either closure belongs to some such splitting subfield, so the union is a $K$-isomorphism.
+\end{proof}
+
+\begin{lemma}[Finite fixed-field theorem in $\ZF$]\label{lem:finiteartin}
+If a finite group $G$ acts faithfully on a field $L$, then $L/L^G$ is finite Galois of degree $|G|$, with full automorphism group $G$.
+\end{lemma}
+\begin{proof}
+For each $a\in L$, its distinct orbit elements give a separable polynomial over $L^G$ of degree at most $|G|$. A finite set of elements generates a finite separable extension; the finite primitive-element theorem shows that its degree is at most $|G|$. Hence any $|G|+1$ elements of $L$ are linearly dependent. Choose one independent tuple of the largest possible finite length; it is a basis. The finite embedding bound gives the reverse inequality $|G|\leq[L:L^G]$. Orbit polynomials give normality, and the same embedding bound shows that no additional automorphisms exist. These are finite arguments, with no choice of infinitely many bases or primitive elements.
+\end{proof}
+
+\begin{proof}[Proof that $\E\wedge\U\Rightarrow\mathsf P$]
+Given a surjective finite-group inverse system, put
+\[
+L_i=\Q(x_{i,g}:g\in G_i),\qquad K_i=L_i^{G_i},
+\]
+where $G_i$ acts by left translation on variable indices. Lemma~\ref{lem:finiteartin} identifies $\Aut_{K_i}(L_i)$ with $G_i$. Define embeddings
+\[
+\alpha_{ji}(x_{i,g})=\sum_{\pi_{ji}(h)=g}x_{j,h}.
+\]
+The sums have disjoint nonempty supports and are algebraically independent: selecting one representative in each of these finitely many fibers, and setting all remaining variables to zero, gives a polynomial-ring retraction. Representatives are used only to verify injectivity; the displayed map is canonical. The maps compose and are equivariant, so they take $K_i$ into $K_j$.
+
+Take the directed colimit fields $K\subseteq L$. Then $L/K$ is algebraic, since every element comes from a finite extension $L_i/K_i$. Fix $\sigma\in G_{i_0}$. It extends to a $K$-automorphism $\widetilde\sigma$ of $F=K L_{i_0}$. To check this carefully, prescribe that it fix coefficients in $K$ and act by $\sigma$ on $L_{i_0}$. Any equality of rational expressions uses finitely many coefficients and is witnessed at a stage $j\geq i_0$. A single lift of $\sigma$ in $G_j$ fixes $K_j$ and preserves that equality. The rule is therefore well-defined, and the corresponding rule for $\sigma^{-1}$ is its inverse. No coherent family of lifts has been assumed.
+
+By $\E$, choose a closure $C$ of $L$. It is also a closure of $F$. Apply $\U$ to the identity and $\widetilde\sigma$ embeddings of $F$ into $C$, obtaining an automorphism $\tau$ of $C$ extending $\widetilde\sigma$. It fixes $K$. Normality of $L_j/K_j$ implies $\tau(L_j)=L_j$: every relevant minimal polynomial splits in $L_j$, and the same observation applies to $\tau^{-1}$. Its restriction therefore corresponds to a unique $g_j\in G_j$. Equivariance and faithfulness give $\pi_{ji}(g_j)=g_i$, while $g_{i_0}=\sigma$. Unique specification defines this entire coherent family in $\ZF$, proving $\mathsf P$.
+\end{proof}
+
+\begin{remark}
+$\BPI$ implies $\mathsf T$ by compactness, since any finite set of compatibility requirements is realized at a common upper stage. The converse has not been established here. General finite-set inverse systems cannot be identified directly with torsor systems: equivariant surjections between torsors have equal-sized fibers, whereas restriction of ultrafilters after splitting one of two Boolean atoms has fiber sizes $2$ and $1$. Also, $\mathsf P\Rightarrow\E$ is not proved. The generic-field argument above explicitly uses $\E$ to close its colimit field.
+\end{remark}
+
+\section{A pure-ZF model of existence without uniqueness}\label{sec:pure-separation}
+\begin{theorem}\label{thm:pure-zf-separation}
+Relative to $\mathsf{ZFC}$, there is a pure symmetric model of
+\[
+\ZF+\mathsf{DC}+\E+\neg\U+\neg\ACfin+\neg\BPI.
+\]
+In particular $\E$ does not imply $\U$ over pure $\ZF$, even in the presence of dependent choice. The model contains two nonisomorphic algebraic closures over a specified well-orderable field.
+\end{theorem}
+We construct a symmetric extension of a ground universe satisfying $\mathsf{ZFC}$. The proof first produces algebraic closures as Boolean-valued structures with semilinear actions, then realizes those structures by hereditarily symmetric names.
+
+\subsection{The symmetric system}
+In the ground universe choose infinite cardinals $\mu,\kappa$ with
+\[
+\mu^{\aleph_0}=\mu<\kappa,
+\]
+for example $\mu=2^{\aleph_0}$ and $\kappa=\mu^+$. Let $G$ be the free group on $(b_i:i<\kappa)$ and put
+\[
+\mathcal F=\{H\leq G:[G:H]\leq\mu\},\qquad
+A=\coprod_{J\in\mathcal F}G/J.
+\]
+Each summand of $A$ is tagged by its subgroup. The family $\mathcal F$ is a normal filter of subgroups. Indeed conjugation preserves index, supergroups have smaller index, and an intersection of countably many members has index at most $\mu^{\aleph_0}=\mu$.
+
+Let $P=\operatorname{Fn}(A\times\omega,2,{<}\omega)$, ordered by reverse inclusion, and let $G$ act by its left action on $A$ and trivially on the bit coordinate. Let $B=\operatorname{RO}(P)$. The forcing is ccc, by the finite-condition $\Delta$-system argument. The ordinary symmetric extension associated with $(P,G,\mathcal F)$ is denoted by $N$. Thus $N\models\ZF$. Each condition has stabilizer in $\mathcal F$: its finite coordinate support consists of points whose individual orbits have size at most $\mu$.
+
+Let $r_a$ be the canonical Cohen-real name at $a\in A$. These names are hereditarily symmetric (HS), and distinct coordinates give distinct reals with Boolean truth one. Every $b\in B$ depends on countably many coordinates: use a countable maximal antichain of conditions deciding $b$. The pointwise stabilizer of those coordinates fixes $b$, so
+\begin{equation}\label{eq:boolean-small-orbit}
+|G\cdot b|\leq\mu.
+\end{equation}
+The same bound holds for the orbit under any subgroup of $G$.
+
+\subsection{Boolean fields and the lifting lemma}
+All Boolean-valued arguments in this subsection are in the ground $\mathsf{ZFC}$ universe. A \emph{full $B$-valued field} is its set of full sections modulo equality with Boolean truth one, equipped with Boolean equality and field operations. Fullness means that every partition of one by Boolean values and every matching family of sections has a mixing. Since $B$ is ccc, only countable partitions are needed. Every such field is an ordinary field internally in the $B$-valued universe.
+
+An $H$-semilinear action consists of the given action of $H$ on $B$ and bijections on sections satisfying
+\[
+\lVert hs=ht\rVert=h\lVert s=t\rVert,
+\qquad h(s+t)=hs+ht,\qquad h(st)=(hs)(ht).
+\]
+Mixings transform covariantly as well. This is an external action on a Boolean-valued structure; no action on a fixed evaluated generic universe is asserted.
+
+For a complete subalgebra $B_0\subseteq B$, extension of Boolean scalars means taking all $B$-mixings of the $B_0$-sections and retaining their original atomic Boolean truth values. A finite tuple of new sections is, on a countable common partition, a tuple of old sections. Consequently field identities, inverses, the existence of polynomial roots, and algebraicity are preserved by this scalar extension, using a countable partition by the degree when necessary. These are assertions about the specified structures; unrestricted elementarity between the full forcing universes is not needed.
+
+\begin{lemma}[Small semilinear closure]\label{lem:boolean-small-closure}
+Suppose $H$ is free, $B$ is complete and ccc, $\mu^{\aleph_0}=\mu$, and every Boolean value has $H$-orbit of size at most $\mu$. Let $K$ be a full $B$-valued field with an $H$-semilinear action, such that every section has $H$-orbit of size at most $\mu$. Then $K$ has a full $B$-valued algebraic closure with an extending $H$-semilinear action and the same bound on every section orbit.
+\end{lemma}
+\begin{proof}
+We give the construction, including the size and compatibility requirements.
+
+\emph{Small complete Boolean algebras.} An invariant set of at most $\mu$ Boolean values lies in an invariant complete subalgebra of size at most $\mu$. Close under complements and countable joins in one continuous recursion of length $\omega_1$. Cardinality stays at most $\mu$, since $\mu^{\aleph_0}=\mu$ and $\omega_1\leq\mu$. Every countable family in the final union occurs before some earlier stage, so that union is countably complete. In a complete ccc Boolean algebra, every join is the join of a countable subfamily: take a maximal disjoint refinement below that join. Hence the subalgebra is complete, with the same joins as $B$. All the closure operations preserve invariance.
+
+\emph{Perfectification.} Split $B$ by the countable partition of characteristic values; these values are $H$-fixed. Work separately on each nonzero part. In positive characteristic, adjoin the unique iterated $p$th roots, and take the full mixing completion. The uniqueness of these roots extends the action and preserves the orbit bound. This is an algebraic extension. Thus at the outset we may make $K$ perfect. Every later algebraic extension remains perfect. Combining the characteristic pieces at the end preserves the orbit bound by $\mu^{\aleph_0}=\mu$.
+
+\emph{A small relatively closed subfield after scalar extension.} Let $L$ be a current perfect full field, with the required action and orbit bounds, and let a finite tuple of its sections be specified. Construct sets of sections and Boolean values through a continuous $\omega_1$ recursion. Start with the $H$-orbits of that tuple, zero and one. At successors include the following data from the previous stage:
+\begin{enumerate}
+\item field operations, conditional inverses (zero at zero), perfect roots, and Boolean equality values;
+\item complements and countable Boolean joins, and all countable mixings of the sections along partitions available in the Boolean set;
+\item for every monic polynomial of positive fixed standard degree $d$ over the available sections, a finite list of all its roots already in $L$, together with their Boolean domains of existence;
+\item all $H$-translates of the newly included data.
+\end{enumerate}
+For item 3, internally there are at most $d$ roots. The ambient Boolean-valued universe satisfies $\mathsf{ZFC}$, so choose at most $d$ full sections listing them with Boolean domains, filling unused slots with zero. Every chosen section is in $L$ and therefore already has small orbit. There are at most $\mu$ polynomials at a stage. Thus every stage, and the final union, has at most $\mu$ Boolean values and sections. All these choices are made in the outer universe.
+
+The final Boolean algebra $B_0$ is complete by the preceding argument. The final section set is closed under its countable mixings, field operations and perfect roots; all equality values lie in $B_0$. It is therefore a full perfect $B_0$-valued field $A_0$ with at most $\mu$ sections. Its $B$-scalar extension $A$ embeds into $L$ by the original Boolean equality.
+
+We claim that $A$ is internally relatively algebraically closed in $L$. Given a section of $L$ algebraic over $A$, partition according to the degree of a witnessing polynomial and normalize its leading coefficient. Refine the finitely many coefficient mixings on each piece. This gives a countable partition on each piece of which the witness is a monic polynomial of fixed standard degree over $A_0$. Its finite root list in $L$ was included in the construction. On a further finite refinement the section is one of those listed roots. It is consequently a $B$-mixing of sections from $A_0$, hence is in $A$. Relative algebraic closure is asserted for $A$ after scalar extension, not for the small external section ring $A_0$; the latter would already fail for arbitrary Boolean mixings of the roots of $T^2-T$.
+
+\emph{A small equivariant closure of $A_0$.} Choose an algebraic closure $D_0/A_0$ in the outer $B_0$-valued universe. Internally $A_0$ is an image of $\check\mu$, so its closure can be chosen of cardinality at most $\check\mu$. Every full section of such a closure is represented by a countable $B_0$-mixing of elements of $\check\mu$. Since $|B_0|\leq\mu$, $D_0$ has at most $\mu$ sections externally.
+
+Each semilinear automorphism $\sigma$ of $A_0$, covering $\beta\in\Aut(B_0)$, extends to $D_0$. To see this precisely, twist the Boolean truth values of $D_0$ by $\beta^{-1}$. The map $a\mapsto\sigma(a)$ is then a $B_0$-linear embedding of $A_0$ into that twisted closure. The ordinary uniqueness theorem in the outer Boolean-valued $\mathsf{ZFC}$ universe provides an isomorphism from $D_0$ to the twisted closure extending this embedding. On the original sections it is the desired semilinear extension. Choose one extension for every member of a free basis of $H$. Freeness, using inverses for inverse generators, makes these choices an action of all of $H$. Every section orbit is at most $\mu$, since the entire section set of $D_0$ has that size.
+
+\emph{Compatible adjoining.} Extend scalars to obtain an algebraic closure $D/A$ over $B$. All its sections are countable $B$-mixings of $D_0$-sections, so they have small orbits. Internally $A$ is perfect and relatively algebraically closed in $L$. Therefore
+\[
+L\otimes_A D
+\]
+is a domain. Here is the algebraic reason: an irreducible polynomial over $A$ cannot acquire a proper monic factor over $L$, since the coefficients of such a factor are algebraic over $A$ and would lie in $A$. Every finite extension of the perfect field $A$ is separable and simple. Its tensor product with $L$ is therefore a field; the union over finite subextensions of $D$ is a domain. This reasoning is applied inside the Boolean-valued universe.
+
+Take the fraction field of this tensor product. The actions on $L$ and $D$ agree on $A$, so they induce a canonical semilinear action on the tensor product and its fraction field. The new field is algebraic over $L$. Every full section is locally a finite rational expression in sections from $L$ and $D$, and hence is a countable mixing of such expressions. Finite expressions and countable mixings preserve the orbit bound. Every polynomial whose coefficients were in the specified finite tuple now splits. This step uses the relative-closure preparation: it does not amalgamate arbitrary preselected algebraic extensions with unrelated actions.
+
+\emph{Iteration.} Well-order externally all monic polynomials of positive fixed standard finite degree over the original $K$. At each successor apply the preceding construction to the next coefficient tuple. The small subfield is $H$-invariant, even when that particular tuple is not, so the action on every earlier field is retained. At limits take the direct limit and its full mixing completion. Each new section is a countable mixing of earlier sections and still has orbit at most $\mu$. Algebraicity over $K$ remains true internally: the local polynomial witnesses may have different, even unbounded, standard degrees on different Boolean pieces. External integrality in a ring of sections is neither asserted nor needed.
+
+The recursion is set-sized. Choose an outer cardinal $\theta\geq|B|,|H|,\mu,|K|$ with $\theta^{\aleph_0}=\theta$. There are at most $\theta$ initial polynomials. Each successor and each fullified limit has a presentation on at most $\theta$ section labels. All operations, truth values, actions and embeddings can be coded in one set of sufficiently high rank using those labels. Outer choice thus performs an ordinary set-length recursion; no class choice is involved.
+
+The final field is algebraic over $K$ and splits every polynomial over $K$. Polynomials with internally varying degree are covered by the countable degree partition. The splitting criterion makes it algebraically closed. This proves the lemma.
+\end{proof}
+
+\subsection{Application to every field in the symmetric model}
+Let a field in $N$ be given by an HS name. Choose its support $H_0\in\mathcal F$. The field axioms for this existing set and its operations are bounded, hence remain true in the full generic extension. Some condition $p$ in the generic filter therefore forces them in the ordinary forcing sense. Replace $H_0$ by its intersection with the stabilizer of $p$. The resulting $H\in\mathcal F$ fixes $p$, and acts on the complete interval algebra $B\mathbin{\upharpoonright}p$. By the Nielsen--Schreier theorem, $H$ is free in the outer universe.
+
+The given field determines a full Boolean-valued field $K$. Every full section has $H$-orbit at most $\mu$. Indeed it is, with Boolean truth one, a mixing of member subnames of the carrier name along a maximal antichain. The antichain is countable. Each such subname is HS and has orbit at most $\mu$; its membership domain can be zero-filled using the canonical zero section. The Boolean pieces also have small orbit by~\eqref{eq:boolean-small-orbit}. Their countable intersection of stabilizers has index at most $\mu$. The full-section collection is a set: use the countable mixtures of the fixed set of member subnames and then quotient by equality one. Literal invariant choices of representatives are unnecessary.
+
+Apply Lemma~\ref{lem:boolean-small-closure} over $B\mathbin{\upharpoonright}p$. It remains to realize the resulting abstract Boolean closure by actual HS names; an abstract action alone would not suffice.
+
+Let $S$ be its set of full sections. For every $H$-orbit choose an outer representative $s$ and a distinct pure ordinal tag. Its stabilizer $J\leq H$ satisfies
+\[
+[G:J]=[G:H][H:J]\leq\mu.
+\]
+The coordinate set $A$ therefore contains the tagged orbit $G/J$. Its suborbit $H/J$ gives names
+\[
+c(hs)=(\text{tag},r_{hJ})
+\]
+which are pairwise distinct with Boolean truth one and literally $H$-equivariant. Each is HS. Different orbit tags separate any reused coordinate labels.
+
+For each $s\in S$ define the Boolean name
+\[
+E_s=\{(c(t),\lVert s=t\rVert):t\in S\}.
+\]
+Reflexivity, transitivity and symmetry of Boolean equality give
+\begin{equation}\label{eq:closure-code-equality}
+\lVert E_s=E_t\rVert=\lVert s=t\rVert.
+\end{equation}
+For the reverse inequality, $c(s)$ belongs to $E_s$ with truth one, so equality forces it into $E_t$; distinctness of the labels makes that membership value exactly $\lVert s=t\rVert$. The other inequality follows from transitivity. These statements are relative to the current Boolean unit $p$.
+
+Literal equivariance gives $hE_s=E_{hs}$. Thus the stabilizer of $s$, a member of $\mathcal F$, supports $E_s$, and all its constituent names are HS. The name containing every $E_s$, with the Boolean graphs of the field operations, is $H$-supported and HS. Equation~\eqref{eq:closure-code-equality} ensures the correct quotient equality and hence the required field assertions.
+
+For completeness, the embedding of the original field is an HS name as well. Write its carrier name as pairs $(t,b)$. Let $s(t,b)$ be the full section equal to $t$ on $b$ and to the zero section elsewhere. The zero section is canonical, and therefore
+\[
+hs(t,b)=s(ht,hb).
+\]
+If $j:K\hookrightarrow S$ is the abstract embedding, use the graph with pairs $(t,E_{j(s(t,b))})$ on Boolean domain $b$, for every pair in the carrier name. This graph is literally $H$-invariant. The membership join gives its full domain, and equality on overlapping pieces together with~\eqref{eq:closure-code-equality} makes it single-valued and injective. The operation identities make it a field embedding. All its subnames are HS. Boolean names are converted equivariantly to $P$-names by using all conditions below each Boolean coefficient, without selecting antichains. Outside $p$ use empty or default data.
+
+The evaluation in the chosen generic extension is consequently an algebraic closure of the original field, with its base embedding, belonging to $N$. The field was arbitrary, so $N\models\E$.
+
+\subsection{A family of pairs without a selector}\label{sec:boolean-pairs}
+Continue with the universal-orbit Cohen symmetric system: $G$ is free on $(b_i:i<\kappa)$, $\kappa>\mu$, the normal filter consists of the subgroups of index at most $\mu$, and the Cohen coordinate set contains a tagged copy of $G/J$ for every such subgroup $J$.
+
+Let $\phi_i:G\to\mathbb Z$ be exponent sum at $b_i$ and let $J_i=\ker\phi_i$. The $G/J_i$ coordinates can be written $a(i,n)$, $n\in\mathbb Z$, with
+\[
+g a(i,n)=a(i,n+\phi_i(g)).
+\]
+Write $r_{i,n}$ for their Cohen reals and $x_{i,n}=r_{i,n}(0)$. For integers $n,m$, let
+\[
+\eta_i(n,m)=\sum_{\min(n,m)\leq k<\max(n,m)}x_{i,k}\pmod2.
+\]
+On the distinct labels $c_{i,n,e}=(e,r_{i,n})$, $e\in\F_2$, use the equivalence relation
+\[
+c_{i,n,e}\sim c_{i,m,f}\quad\Longleftrightarrow\quad e+f=\eta_i(n,m).
+\]
+Define the Boolean name $E_{i,n,e}$ for the class of $c_{i,n,e}$ by giving $c_{i,m,f}$ membership coefficient $\lVert e+f=\eta_i(n,m)\rVert$. Then
+\begin{align}
+\lVert E_{i,n,e}=E_{i,m,f}\rVert
+ &=\lVert e+f=\eta_i(n,m)\rVert,\label{eq:class-equality}\\
+gE_{i,n,e}&=E_{i,n+\phi_i(g),e}.\label{eq:class-action}
+\end{align}
+The first identity follows by testing membership of $c_{i,n,e}$ in one direction and using the parity cocycle identity in the other. Distinct labels have Boolean equality zero. The second identity is literal equivariance of the names. Thus every class name is hereditarily symmetric, supported by $J_i$.
+
+Let $X_i$ contain all the names $E_{i,n,e}$ with membership coefficient one. This is literally $G$-fixed, and its evaluation has precisely two elements. Hence $(X_i:i<\kappa)$ is a hereditarily symmetric, well-ordered family of pairs. Its members are infinite sets of real labels; ordering the real labels does not order these classes in a way that selects a class.
+
+\begin{lemma}[Finite-condition recurrence]\label{lem:cohen-recurrence}
+If $h$ permutes Cohen coordinates and $p$ is a finite condition, then $p$ and $h^np$ are compatible for arbitrarily large positive integers $n$.
+\end{lemma}
+\begin{proof}
+For the finitely many finite $h$-orbits meeting the coordinate support of $p$, take $n$ divisible by their lengths. In each infinite orbit, the finitely many involved coordinates have finitely many pairwise integer displacements. For sufficiently large such $n$, the infinite-orbit supports of $p$ and $h^np$ are disjoint, while their finite-orbit coordinates are fixed. Their assignments therefore agree on the intersection.
+\end{proof}
+
+\begin{proposition}\label{prop:boolean-no-pairs}
+The symmetric model has no choice function for $(X_i:i<\kappa)$. In particular it satisfies $\neg\mathsf{AC}_{\kappa}^{2}$.
+\end{proposition}
+\begin{proof}
+Suppose an HS name $f$ evaluates to a selector, and choose a subgroup $H$ of index at most $\mu$ fixing $f$. Let $a\ne0$ be the ordinary Boolean truth value that $f$ selects one member of every $X_i$. This assertion about the existing sets is bounded and absolute to the full forcing extension. The family is $G$-fixed, so $a$ is $H$-fixed.
+
+Fix $i$ and put $d_i=\lVert (i,E_{i,0,0})\in f\rVert$. For $h\in H$, set $m=\phi_i(h)$. Equations~\eqref{eq:class-equality}--\eqref{eq:class-action} give, on the domain $a$,
+\[
+d_i\mathbin{\triangle}h^n(d_i)=\eta_i(0,nm) \qquad(n>0),
+\]
+where $\triangle$ is Boolean symmetric difference and a bit on the right denotes its truth value of being one.
+
+If $m\ne0$, choose a finite condition $p\leq a$ deciding $d_i$, say as $\epsilon\in\{0,1\}$. By Lemma~\ref{lem:cohen-recurrence}, choose $n$ so large that $p$ and $h^np$ are compatible and $|nm|>2|\operatorname{dom}(p)|$. Their union forces both $d_i$ and $h^n(d_i)$ to equal $\epsilon$. Yet at least one first-bit coordinate in the segment defining $\eta_i(0,nm)$ remains free. Extend the union to decide that finite segment with odd parity. This contradicts the displayed identity. All auxiliary universal-orbit coordinates are allowed in $p$; the recurrence lemma already handles them.
+
+Consequently $\phi_i(h)=0$ for every $i<\kappa$ and $h\in H$, so
+\[
+H\leq\bigcap_{i<\kappa}\ker\phi_i=[G,G].
+\]
+The quotient $G/[G,G]$ is free abelian of cardinality $\kappa$. Hence $[G:H]\geq\kappa>\mu$, a contradiction.
+\end{proof}
+
+Together with existence of algebraic closures in this same symmetric model, Proposition~\ref{prop:boolean-no-pairs} and the proved implication $\E\wedge\U\Rightarrow\ACfin$ give $\E\wedge\neg\U$ in pure $\ZF$. This conclusion uses the explicit Boolean construction; it does not use a transfer from a model with atoms.
+
+\subsection{Dependent choice and explicit nonisomorphic closures}
+We verify dependent choice directly. Let $R$ be a serial relation on a nonempty set $X$ in $N$, represented by HS names. In the full forcing extension, where choice holds, there is an $\omega$-sequence following $R$. Choose a name for it and a condition $p$ forcing that it is such a sequence. For each $n$, choose in the ground universe a maximal antichain below $p$ deciding its $n$th entry equal to a member subname of the fixed carrier name $X$. The ordinary membership join makes these decisions dense; the antichains are countable by ccc. Each selected member subname is HS.
+
+Only countably many selected names and conditions occur. Intersect their supports and condition stabilizers, also fixing $p$; the result belongs to $\mathcal F$. The graph name formed from these antichain decisions is therefore HS. Its evaluation below $p$ is the required following sequence and belongs to $N$. All antichains and support choices used in this proof are ground countable sets; no completeness of the filter for newly added sequences is presumed. Thus $N\models\mathsf{DC}$. This is also the ccc case of Karagila's preservation lemma~\cite[Lemma~3.3]{KaragilaDC}; every condition here has stabilizer in the support filter.
+
+Here is a specified base and a pair of nonisomorphic closures witnessing $\neg\U$. Use the family of pairs $(X_i:i<\kappa)$ constructed above. Take the pure well-orderable field
+\[
+F=\Q(s_i,p_i:i<\kappa)
+\]
+on algebraically independent variables. In $N$ form
+\[
+L=\Q(x_{i,a}:i<\kappa,\ a\in X_i),\qquad
+L'=\Q(y_{i,0},y_{i,1}:i<\kappa).
+\]
+Embed $F$ into these fields by the respective elementary symmetric expressions in each pair of variables. For example, in $L$ send $s_i$ to $\sum_{a\in X_i}x_{i,a}$ and $p_i$ to $\prod_{a\in X_i}x_{i,a}$; these expressions require no ordering of $X_i$. Algebraic independence of blockwise symmetric polynomials makes both maps injective. Every displayed variable satisfies $T^2-s_iT+p_i$, so both extensions are algebraic.
+
+By $\E$ in $N$, choose an algebraic closure $\Omega$ of $L$. Choose a well-orderable closure $\Omega'$ of the pure well-orderable field $L'$, using Theorem~\ref{thm:wo}; it may also be taken from the ground universe. With the composite base embeddings, both are algebraic closures of $F$.
+
+An $F$-isomorphism $u:\Omega\to\Omega'$ would make $u^{-1}(y_{i,0})$ a root of $T^2-s_iT+p_i$. Its roots in $\Omega$ are precisely the two distinct elements $x_{i,a}$, $a\in X_i$, since the polynomial already splits in $L$. The unique $a$ for which $u(x_{i,a})=y_{i,0}$ would select one member of every $X_i$. Proposition~\ref{prop:boolean-no-pairs} excludes this. Hence these supplied closures are not $F$-isomorphic.
+
+This completes Theorem~\ref{thm:pure-zf-separation}. The converse $\U\Rightarrow\E$ over pure $\ZF$ is not decided by this construction.
+
+\section{Further questions}
+The implications established above leave two natural questions. Does $\U$ imply $\E$ over pure $\ZF$? And how does unrestricted finite-group torsor compactness compare with $\BPI$? The equivalence under $\E$ does not answer either question: the generic-field proof of $\E\wedge\U\Rightarrow\mathsf P$ uses a closure of its colimit field, while the fibers in a torsor system have compatibility structure that arbitrary finite inverse systems need not possess.
+
+The separation theorem also distinguishes existence from a labelled splitting construction. Its model has a closure for every field but has a family of pairs without a selector. A closure therefore cannot in general be accompanied by simultaneous choices of roots for every polynomial. The proof uses full Boolean-valued fields to retain local root witnesses without selecting such a global family.
+
+\paragraph{Acknowledgment.} The preparation and internal checking of this preprint used AI assistance. The arguments have not been externally peer reviewed or formally verified.
+
+\begin{thebibliography}{9}
+\bibitem{Banaschewski} B. Banaschewski, \emph{Algebraic closure without choice}, Z. Math. Logik Grundlagen Math. 38 (1992), 383--385. \href{https://doi.org/10.1002/malq.19920380136}{doi:10.1002/malq.19920380136}.
+\bibitem{Jech} T. Jech, \emph{The Axiom of Choice}, North-Holland, 1973. \href{https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf}{Accessible scanned edition}.
+\bibitem{HR} P. Howard and J. E. Rubin, \emph{Consequences of the Axiom of Choice}, Mathematical Surveys and Monographs 59, AMS, 1998; introduction, Forms~14, 69, 233, and Note~41. \href{https://doi.org/10.1090/surv/059}{doi:10.1090/surv/059}.
+\bibitem{KaragilaDC} A. Karagila, \emph{Preserving Dependent Choice}, Bull. Polish Acad. Sci. Math. 67 (2019), 19--29, Lemma 3.3. \href{https://doi.org/10.4064/ba8169-12-2018}{doi:10.4064/ba8169-12-2018}. \href{https://ueaeprints.uea.ac.uk/69607/1/Accepted_Manuscript.pdf}{Accepted manuscript}.
+\end{thebibliography}
+\end{document}

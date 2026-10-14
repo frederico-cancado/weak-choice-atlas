@@ -1,5 +1,5 @@
-import {graphSlice,classifyPrinciple} from './classification.mjs?v=20261014-2';
-import {closure,modelFacts} from './engine.mjs?v=20261014-2';
+import {graphSlice,classifyPrinciple} from './classification.mjs?v=20261014-3';
+import {closure,modelFacts} from './engine.mjs?v=20261014-3';
 
 // Remove an implication only when the remaining displayed records prove it.
 // Forward chaining preserves conjunctions and equivalences; a pair of arrows
@@ -61,7 +61,7 @@ export const GRAPH_PRESETS={
  models:{title:'Separating principles',ids:['dc','op','oep','ac_finite_fibers','bpi','pp','rpp','nds_sets','df_finite','no_amorphous','ac_2','ac_3','ac_omega_finite','free_ultrafilter_omega']},
  finitechoice:{title:'Finite choice, Hall & colourings',ids:['bpi','graph_coloring_compactness','infinite_hall_finite_fibers','ac_countable_fibers','ac_finite_fibers','ac_n','ac_2','ac_3','ac_4','graph_coloring_compactness_2','ac_omega_finite','ac_omega_n','rpp','ac_omega']},
  infinitude:{title:'Infinite sets & ultrafilters',ids:['dc','ac_omega','nds_sets','df_finite','infinite_weakly_dedekind_infinite','no_amorphous','op','ultrafilter_lemma','free_ultrafilter_omega','some_free_ultrafilter','rpp','ac_omega_finite','bpi']},
- algebra:{title:'Algebraic closures, Noetherian rings & choice',ids:['bpi','algebraic_closure','unique_algebraic_closure','noetherian_acc_fg','dc','infinite_weakly_dedekind_infinite','ac_finite_fibers','ac_2','ac_countable_fibers','oep','op','ultrafilter_lemma','propositional_compactness']}
+ algebra:{title:'Algebraic closures, Noetherian rings & choice',ids:['bpi','algebraic_closure','unique_algebraic_closure','finite_group_projection','finite_torsor_compactness','noetherian_acc_fg','dc','infinite_weakly_dedekind_infinite','ac_finite_fibers','ac_2','ac_countable_fibers','oep','op','ultrafilter_lemma','propositional_compactness']}
 };
 export const GRAPH_VIEWS=[...Object.entries(GRAPH_PRESETS).map(([id,p])=>[id,p.title]),['neighbors','Around the selected principle'],['all','All default graph axioms'],['custom','My chosen axioms']];
 

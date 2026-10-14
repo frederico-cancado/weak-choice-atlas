@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A preprint by Frederico Cançado on algebraic closures without choice: a pure-ZF model of existence without uniqueness, finite-choice consequences, and finite group torsors.">
+  <meta name="author" content="Frederico Cançado">
+  <meta name="theme-color" content="#122b46">
+  <meta name="citation_title" content="Algebraic closures: existence without uniqueness">
+  <meta name="citation_author" content="Cançado, Frederico">
+  <meta name="citation_publication_date" content="2026/10/14">
+  <meta name="citation_pdf_url" content="https://frederico-cancado.github.io/weak-choice-atlas/articles/algebraic-closures/algebraic_closures.pdf">
+  <title>Algebraic closures: existence without uniqueness · Frederico Cançado</title>
+  <script src="../../appearance.js?v=20261014-3"></script>
+  <link rel="stylesheet" href="../../styles.css?v=20261014-3">
+  <style>
+    .article-shell { max-width: 1160px; margin: 0 auto; padding: 44px 30px 64px; }
+    .article-trail { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: .85rem; margin-bottom: 30px; }
+    .article-hero { max-width: 890px; }
+    .article-hero h1 { font-size: clamp(2.3rem, 5vw, 3.65rem); line-height: 1.08; letter-spacing: -.025em; margin: 15px 0 22px; max-width: 850px; }
+    .article-byline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 22px; color: var(--muted); font-size: .95rem; }
+    .article-byline strong { color: var(--ink); font-weight: 550; }
+    .article-lead { font-size: 1.1rem; line-height: 1.65; margin: 25px 0 30px; max-width: 780px; }
+    .article-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-bottom: 36px; }
+    .article-button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 19px; border: 1px solid var(--control-border); border-radius: 7px; color: var(--ink); background: var(--surface); font-weight: 550; }
+    .article-button:hover { text-decoration: none; border-color: var(--blue); background: var(--hover); }
+    .article-button.primary { background: var(--blue); color: var(--bg); border-color: var(--blue); }
+    :root:not([data-theme='dark']) .article-button.primary { color: white; }
+    .article-status { margin: 0; max-width: 810px; font-size: .88rem; color: var(--muted); }
+    .article-grid { display: grid; grid-template-columns: minmax(0,1fr) 290px; gap: 44px; margin-top: 44px; align-items: start; }
+    .article-body, .article-sidebar { min-width: 0; }
+    .article-section { margin-bottom: 39px; }
+    .article-section h2 { font-size: 1.65rem; margin-bottom: 18px; }
+    .article-section h3 { margin-top: 23px; }
+    .article-definitions { margin: 0; }
+    .article-definition { display: grid; grid-template-columns: 38px minmax(0,1fr); gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .article-definition:first-child { border-top: 1px solid var(--line); }
+    .article-definition dt { font-family: 'Source Serif 4',Georgia,serif; font-size: 1.65rem; color: var(--blue); }
+    .article-definition dd { margin: 0; }
+    .article-definition dd strong { display: block; margin-bottom: 3px; font-weight: 550; }
+    .article-theorem { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 9px 9px 0; padding: 22px 23px; margin: 23px 0; }
+    .article-theorem .eyebrow { color: var(--blue); }
+    .article-formula { font-family: 'Source Serif 4',Georgia,serif; font-size: clamp(1.1rem,2.3vw,1.3rem); line-height: 1.65; margin: 14px 0; overflow-wrap: anywhere; }
+    .formula-part { display: inline-block; }
+    .article-theorem p:last-child { margin-bottom: 0; }
+    .article-sidebar { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+    .article-sidebar h2 { font-size: 1.35rem; margin-bottom: 7px; }
+    .download-list { list-style: none; padding: 0; margin: 16px 0 26px; }
+    .download-list li { border-bottom: 1px solid var(--line); padding: 12px 0; }
+    .download-list a { display: block; font-weight: 550; }
+    .download-list small { display: block; color: var(--muted); margin-top: 3px; font-size: .8rem; }
+    .article-sidebar p { font-size: .86rem; }
+    .article-proof { padding-left: 22px; }
+    .article-proof li { padding-left: 5px; margin: 13px 0; }
+    .article-proof strong { font-weight: 550; }
+    .article-open { border-top: 1px solid var(--line); padding-top: 21px; }
+    .article-sources { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .article-source { border: 1px solid var(--line); border-radius: 8px; padding: 18px; background: var(--surface); min-width: 0; }
+    .article-source h3 { margin: 0 0 9px; font-size: .98rem; font-weight: 550; }
+    .article-source p { font-size: .83rem; color: var(--muted); margin-bottom: 13px; }
+    .article-source .source-links { display: flex; flex-wrap: wrap; gap: 7px 14px; font-size: .8rem; }
+    .article-source-wide { grid-column: 1 / -1; }
+    .article-citation { font-size: .9rem; border-left: 2px solid var(--line); padding-left: 16px; color: var(--muted); }
+    .article-footer { max-width: 1160px; margin: 0 auto; }
+    @media(max-width: 850px) { .article-grid { grid-template-columns: 1fr; gap: 0; } .article-sidebar { order: -1; margin-bottom: 35px; } .download-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; } .article-shell { padding-top: 30px; } }
+    @media(max-width: 540px) { .article-shell { padding: 25px 18px 40px; } .article-hero h1 { font-size: 2.35rem; } .article-sources, .download-list { grid-template-columns: 1fr; } .article-source-wide { grid-column: auto; } .article-grid { margin-top: 30px; } .article-theorem { padding: 19px 17px; } .article-actions .article-button { flex: 1 1 auto; } .article-header { min-height: 78px; padding: 12px 14px; } .article-header nav { display: none; } .article-trail { margin-bottom: 23px; } .article-footer { flex-wrap: wrap; gap: 12px; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to article</a>
+  <header class="site-header article-header">
+    <a class="brand" href="../../#explore"><span class="brand-mark" aria-hidden="true">⋈</span><span>Weak Choice <strong>Atlas</strong></span></a>
+    <nav aria-label="Main navigation"><a href="../../#explore">Explore</a><a href="../../#research">Research</a><a href="../../#sources">Sources</a></nav>
+    <label class="theme-control"><span>Theme</span><select id="theme-select" aria-label="Color theme"><option value="auto">Auto</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
+  </header>
+  <main id="main" class="article-shell" tabindex="-1">
+    <div class="article-trail"><a href="../../#research">Research articles</a><span aria-hidden="true">/</span><span>Algebraic closures</span></div>
+    <article>
+      <header class="article-hero">
+        <p class="eyebrow">Algebra &amp; weak choice principles</p>
+        <h1>Algebraic closures:<br>existence without uniqueness</h1>
+        <div class="article-byline"><strong>Frederico Cançado</strong><time datetime="2026-10-14">14 October 2026</time><span class="tag research">Preliminary preprint</span></div>
+        <p class="article-lead">A symmetric model in pure set theory separates the existence of algebraic closures from their uniqueness—even with dependent choice. Two further results connect uniqueness to finite choice and compactness for finite group torsors.</p>
+        <div class="article-actions"><a class="article-button primary" href="algebraic_closures.pdf">Read the article <span aria-hidden="true">↗</span></a><a class="article-button" href="https://github.com/frederico-cancado/AC-zoo-results/tree/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures">Source &amp; research record</a></div>
+        <p class="article-status">These are preliminary manuscript results. The arguments have not been externally peer reviewed or formally verified. The article makes no claim of historical novelty.</p>
+      </header>
+      <div class="article-grid">
+        <div class="article-body">
+          <section class="article-section" aria-labelledby="statements">
+            <h2 id="statements">The two assertions</h2>
+            <dl class="article-definitions">
+              <div class="article-definition"><dt>E</dt><dd><strong>Existence</strong>Every field has an algebraic closure.</dd></div>
+              <div class="article-definition"><dt>U</dt><dd><strong>Conditional uniqueness</strong>Whenever two algebraic closures of the same field are given, there is an isomorphism between them respecting the specified embeddings of the base field.</dd></div>
+            </dl>
+            <p class="small muted" style="margin-top:16px">Uniqueness concerns the supplied closures and the specified base field. Its formulation does not itself assert that a closure exists.</p>
+          </section>
+          <section class="article-section" aria-labelledby="results">
+            <h2 id="results">Main results</h2>
+            <div class="article-theorem">
+              <p class="eyebrow">A separation in pure ZF</p>
+              <div class="article-formula" aria-label="Consistency of ZFC implies consistency of ZF plus dependent choice plus E plus not U plus not finite choice plus not the Boolean Prime Ideal Theorem"><span class="formula-part">Con(ZFC) ⇒</span> <span>Con(ZF + DC + E + ¬U + ¬AC<sub>fin</sub> + ¬BPI).</span></div>
+              <p>Existence therefore does not imply uniqueness over ZF, even with dependent choice. The two nonisomorphic closures can be taken over a specified well-orderable field of characteristic zero.</p>
+            </div>
+            <h3>Existence and uniqueness imply finite choice</h3>
+            <p class="article-formula">BPI ⇒ (E ∧ U) ⇒ AC<sub>fin</sub>.</p>
+            <p>The implication from BPI is the established result of Banaschewski. The article gives a direct argument for the second implication: an isomorphism between closures of two generic algebraic extensions selects a member of every set in an arbitrary family of nonempty finite sets.</p>
+            <h3>A finite-group correspondence</h3>
+            <p class="article-formula">Assuming E: &nbsp; U ⇔ P ⇔ T.</p>
+            <p><strong>P</strong> says that every coordinate projection from the inverse limit of a directed system of finite groups with surjective bonding homomorphisms is onto. <strong>T</strong> says that every directed surjective inverse system of nonempty finite group torsors has a coherent point.</p>
+            <p>Over ZF, P and T are equivalent and imply U together with AC<sub>fin</sub>. The converse from U is proved with E as an additional hypothesis.</p>
+          </section>
+          <section class="article-section" aria-labelledby="construction">
+            <h2 id="construction">How the separation is built</h2>
+            <ol class="article-proof">
+              <li><strong>Construct closures with controlled symmetry.</strong> A free group acts on Cohen forcing. A semilinear lifting argument builds Boolean-valued algebraic closures while keeping each section orbit small enough to have an admissible support.</li>
+              <li><strong>Realize the closures inside the model.</strong> Equivariant names represent the closure and its base embedding as hereditarily symmetric sets. This establishes E for every field in the symmetric extension.</li>
+              <li><strong>Obstruct finite choice.</strong> A parity construction gives a well-ordered family of pairs with no selector. Together with (E ∧ U) ⇒ AC<sub>fin</sub>, this yields ¬U. The forcing and support filter also preserve DC.</li>
+            </ol>
+            <p class="small muted">The main article includes the complete construction and proofs. The supplement collects further choice consequences, restricted equivalences, and permutation models with atoms.</p>
+            <div class="article-open"><h3>What remains undecided here</h3><p>The reverse implication <strong>U ⇒ E over pure ZF</strong> is not settled by this construction. Nor is unrestricted finite-group torsor compactness identified with BPI. These are limits of the present results, not claims about the status of every result in the literature.</p></div>
+          </section>
+          <section class="article-section" aria-labelledby="related">
+            <h2 id="related">Related articles</h2>
+            <p class="small muted">Primary sources for the background and related choice principles. The two local papers below are unchanged copies distributed under CC BY 4.0; authorship and copyright remain with their authors.</p>
+            <div class="article-sources">
+              <div class="article-source"><h3>Algebraic closure without choice</h3><p>B. Banaschewski · 1992<br>Background for the implications from the Boolean Prime Ideal Theorem.</p><div class="source-links"><a href="https://doi.org/10.1002/malq.19920380136">Publisher &amp; DOI ↗</a></div></div>
+              <div class="article-source"><h3>Preserving Dependent Choice</h3><p>Asaf Karagila · 2019<br>Preservation of DC in symmetric extensions; see Lemma 3.3.</p><div class="source-links"><a href="https://doi.org/10.4064/ba8169-12-2018">Publisher &amp; DOI ↗</a><a href="https://ueaeprints.uea.ac.uk/69607/1/Accepted_Manuscript.pdf">Accepted manuscript ↗</a></div></div>
+              <div class="article-source"><h3>Partition models, Permutations of infinite sets without fixed points, and weak forms of AC</h3><p>Amitayu Banerjee · 2023<br>Related permutation-model results; ZFA statements retain their theory qualification.</p><div class="source-links"><a href="related-articles/banerjee-2023-partition-models.pdf">Read PDF</a><a href="https://arxiv.org/abs/2109.05914v4">Source &amp; license ↗</a></div></div>
+              <div class="article-source"><h3>The CSP Dichotomy, the Axiom of Choice, and Cyclic Polymorphisms</h3><p>Tamás Kátay, László Márton Tóth, Zoltán Vidnyánszky · 2024<br>Related compactness results discussed in the supplement.</p><div class="source-links"><a href="related-articles/katay-toth-vidnyanszky-2024-csp-dichotomy.pdf">Read PDF</a><a href="https://arxiv.org/abs/2310.00514v2">Source &amp; license ↗</a></div></div>
+            </div>
+            <p class="small" style="margin-top:18px"><a href="RELATED_ARTICLES.md">Full annotated bibliography</a> · <a href="related-articles/README.md">Attribution and redistribution terms</a></p>
+          </section>
+          <section class="article-section" aria-labelledby="citation"><h2 id="citation">Cite this preprint</h2><p class="article-citation">Cançado, Frederico. <cite>Algebraic closures: existence without uniqueness.</cite> Preliminary preprint, 14 October 2026. Version and supporting materials are recorded in <a href="https://github.com/frederico-cancado/AC-zoo-results/tree/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures">AC-zoo-results</a>.</p></section>
+        </div>
+        <aside class="article-sidebar" aria-label="Article downloads">
+          <h2>Read &amp; inspect</h2><p class="muted">The proof and its supporting record.</p>
+          <ul class="download-list">
+            <li><a href="algebraic_closures.pdf">Main article · PDF</a><small>The separation and central equivalences</small></li>
+            <li><a href="algebraic_closures_supplement.pdf">Supplement · PDF</a><small>Further results and model constructions</small></li>
+            <li><a href="algebraic_closures.tex" download>Article source · LaTeX</a><small>Editable mathematical source</small></li>
+            <li><a href="research_log.md">Research record · Markdown</a><small>Arguments, repairs, and unsuccessful routes</small></li>
+            <li><a href="RELATED_ARTICLES.md">Related articles</a><small>Licensed copies and attribution</small></li>
+          </ul>
+          <p><a href="https://github.com/frederico-cancado/AC-zoo-results/tree/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures">View the publication bundle on GitHub ↗</a></p>
+          <p class="muted">Version 2026-10-14.1 · <a href="CITATION.cff">Citation metadata</a> · <a href="SHA256SUMS">Checksums</a></p>
+        </aside>
+      </div>
+    </article>
+  </main>
+  <footer class="article-footer"><span>A project by <strong>Frederico Cançado</strong></span><a href="../../#research">More research</a><a href="../../#explore">Return to the atlas</a></footer>
+</body>
+</html>

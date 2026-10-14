@@ -23,7 +23,7 @@ Choose Auto, Light or Dark in the header; the theme preference is saved on
 this device. On phones the atlas automatically uses Graph, Principles and
 Details tabs, with touch-sized controls and a list alternative to the graph.
 
-Current edition: 101 statement/family records, 154 relationships, and 18 models.
+Current edition: 103 statement/family records, 164 relationships, and 19 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
@@ -151,4 +151,12 @@ The metric sequential-continuity principle states that every sequentially contin
 
 The Noetherian entry uses stabilization of ascending **sequences** of ideals in commutative rings with identity, equivalent to finite generation of every ideal. The recorded bounds are DC ⇒ N ⇒ IWDI ⇒ no amorphous sets, and N is incomparable with BPI. The reverse direction from finite generation to ACC is a ZF theorem; the included finite/cofinite Boolean-ring argument justifies N ⇒ IWDI. No equivalence N ⇔ DC is asserted. All relationships with other recorded axioms are available through the inference profiles.
 
-Algebraic-closure existence and uniqueness retain BPI upper bounds. The Howard–Rubin table records uniqueness failing to imply existence in **ZFA**, not a verified pure-ZF separation. The existence-to-uniqueness direction is unresolved in that catalogue; the atlas does not claim a current ZF incomparability theorem.
+Algebraic-closure existence and conditional uniqueness retain their classical BPI upper bounds. The Howard–Rubin matrix is historical: its reverse separation is in **ZFA**, and its unrecorded existence-to-uniqueness entry is not a current openness assertion. The recent research layer now includes Cançado’s 14 October 2026 preliminary pure-ZF construction separating existence from uniqueness. The reverse implication, uniqueness to existence, remains unresolved here over pure ZF.
+
+### Algebraic closures — 14 October 2026
+
+The preliminary article **Algebraic closures: existence without uniqueness**, by Frederico Cançado, supplies a direct pure-ZF symmetric model of DC plus existence of algebraic closures for every field, with failure of conditional uniqueness, finite choice, choice for pairs and BPI, relative to Con(ZFC). The model card records its free group, universal quotient-orbit coordinates, small-index support filter, Boolean closure construction, parity pair obstruction and exact property evidence. Its four explicit existence nonimplications and model are hidden unless recent research is enabled. They are not asserted in the ZFA view.
+
+The same article proves the genuinely joint implication E∧U ⇒ AC_fin. It defines P as surjectivity of every projection from a surjective inverse system of finite groups, and T as existence of coherent points in compatible surjective systems of finite torsors. The recorded recent relationships are P ⇔ T, T ⇒ U, T ⇒ AC_fin, E∧U ⇒ P, and BPI ⇒ T. No E premise is discarded, and no converse to BPI ⇒ T is asserted. These finite-algebra arguments explicitly apply in both ZF and ZFA; the new separating model is pure ZF only.
+
+The article and source locators are registered as `FC2026ALG`, version `2026-10-14.1`, pinned to commit `b3cbadd1082e3c078ba61aba68b8beccbbbd8d45`. The results are preliminary and have received internal AI-assisted mathematical audits; they are not externally peer-reviewed or formally verified. The research log and technical supplement are available beside the article in [AC-zoo-results](https://github.com/frederico-cancado/AC-zoo-results/tree/main/articles/2026-10-14-algebraic-closures).

@@ -1,0 +1,1280 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=26mm]{geometry}
+\usepackage{booktabs,longtable,array,enumitem,microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\hypersetup{pdftitle={Algebraic closures and weak choice: supplementary results},pdfauthor={Frederico Cançado}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Algebraic closures without choice}\fancyhead[R]{F. Can\c{c}ado}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+\setlist{topsep=3pt,itemsep=2pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\ZF}{\mathsf{ZF}}\newcommand{\ZFA}{\mathsf{ZFA}}
+\newcommand{\AC}{\mathsf{AC}}\newcommand{\BPI}{\mathsf{BPI}}
+\newcommand{\E}{\mathsf E}\newcommand{\U}{\mathsf U}
+\newcommand{\ACfin}{\mathsf{AC}_{\mathrm{fin}}}
+\newcommand{\ACwfin}{\mathsf{AC}^{\mathrm{fin}}_{\omega}}
+\newcommand{\ACWfin}{\mathsf{AC}^{\mathrm{fin}}_{\mathrm{WO}}}
+\newcommand{\Q}{\mathbb Q}\newcommand{\F}{\mathbb F}
+\DeclareMathOperator{\Iso}{Iso}\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Frac}{Frac}\DeclareMathOperator{\Fix}{Fix}
+\title{Algebraic closures and weak choice\\\large Supplementary results}
+\author{Frederico Can\c{c}ado}
+\date{14 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+This supplement develops further consequences and comparisons for algebraic-closure existence $\E$ and conditional uniqueness $\U$ over $\ZF$. It gives finite-choice, linear-compactness, character-extension, and restricted prime-ideal formulations; exact finite-group correspondences; and permutation models separating existence and uniqueness over $\ZFA$. It also includes the full pure symmetric construction of $\ZF+\mathsf{DC}+\E+\neg\U$ from the accompanying article. Foundations and base embeddings are explicit throughout. The reverse implication $\U\Rightarrow\E$ remains unresolved by these results in pure $\ZF$.
+\end{abstract}
+\begingroup
+\small\setlength{\parskip}{0pt}
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{2em}}
+\makeatother
+\setcounter{tocdepth}{1}
+\tableofcontents
+\endgroup
+\newpage
+
+\section{Statements, foundations, and scope}
+An algebraic closure of a field $K$ is a pair $(L,i)$, where $L$ is algebraically closed and $i:K\hookrightarrow L$ is an embedding such that $L/i(K)$ is algebraic. Write
+\begin{align*}
+\E&:\quad \forall K\text{ field}\ \exists(L,i)\text{ an algebraic closure of }K,\\
+\U&:\quad \forall K\ \forall(L,i),(M,j)\text{ closures of }K\ 
+\exists h:L\xrightarrow{\sim}M\ (h\circ i=j).
+\end{align*}
+When convenient, base embeddings are replaced by inclusions through transport of structure. This replacement does not discard the requirement to fix the base field.
+
+$\BPI$ denotes the Boolean Prime Ideal Theorem, equivalently the ultrafilter extension principle or propositional compactness. $\ACfin$ is choice for arbitrary families of nonempty finite sets. $\ACWfin$ restricts the index set to a well-orderable set, and $\ACwfin$ restricts it to a countable set. These principles concern an infinite family of finite choices, not merely finitely many choices; the latter already follow in $\ZF$.
+
+The main implication question is interpreted over pure $\ZF$. Results over $\ZFA$, which permits atoms, are labelled explicitly. Relative model constructions use an ambient model with choice. Ambient choice does not become an internal axiom of the permutation model; internal witnesses must have the required supports.
+
+We distinguish implications, relative model constructions, literature attributions, and unresolved transfer questions. A search which does not find a proof is not a proof of current openness. The historical data discussed in Section~\ref{sec:status} are not a substitute for a mathematical argument.
+
+The principal separation is proved directly by pure symmetric forcing in Section~\ref{sec:pure-separation}. Its nonisomorphic closures can be taken over a well-orderable field of characteristic zero. The accompanying article gives a focused presentation of that construction and the finite-group correspondence; the present supplement retains the additional results and comparisons.
+
+\section{Finite algebra and well-orderable constructions}
+\begin{lemma}[Finite algebra in $\ZF$]\label{lem:finite}
+Every finite list of polynomials over a field has a finite splitting extension. Embeddings extend across finitely generated algebraic extensions into an algebraically closed field. Any two finite splitting fields of the same polynomial are isomorphic over the specified base.
+\end{lemma}
+\begin{proof}
+For a nonconstant polynomial, take an irreducible divisor of least positive degree and adjoin a root by quotienting a one-variable polynomial ring. Divide out a linear factor and induct on the degree. For a finite list use the product polynomial. An embedding extends one generator at a time by sending that generator to a root of its transported minimal polynomial. When both fields are splitting fields, the image contains all distinct roots and hence the entire target. Only finitely many witnesses are chosen in each such argument.
+\end{proof}
+
+\begin{lemma}[Splitting criterion]\label{lem:splitting}
+If $L/K$ is algebraic and every nonconstant polynomial over $K$ splits in $L$, then $L$ is algebraically closed.
+\end{lemma}
+\begin{proof}
+Algebraicity is transitive: the finitely many coefficients of a witnessing polynomial lie in a finite extension of the smaller field, and finite-dimensional linear algebra applies. If an irreducible polynomial over $L$ of degree greater than one existed, adjoin one root $a$. Then $a$ is algebraic over $K$. A polynomial over $K$ annihilating $a$ splits over $L$; evaluating its factorization in the extension field forces $a$ to equal one of its roots in $L$, a contradiction.
+\end{proof}
+
+\begin{theorem}\label{thm:wo}
+In $\ZF$, every well-orderable field has a well-orderable algebraic closure. Every countable field has a countable algebraic closure. Any two well-orderable algebraic closures of a fixed field are isomorphic over that field.
+\end{theorem}
+\begin{proof}
+Fix a well-order of $K$. Form the polynomial ring $R$ and proper splitting ideal $J$ described in the proof of Theorem~\ref{thm:bpie}; only that construction and its finite proof of properness are used here, not $\BPI$ or any prime-ideal theorem. Their formal data are well-orderable, so well-order $R$ as $(r_\alpha)_{\alpha<\theta}$. Starting with $J$, adjoin $r_\alpha$ to the current ideal precisely when doing so leaves it proper. At a limit take the union. A union at a limit is proper because membership in an ideal is witnessed by a finite expression. The final proper ideal is maximal: every omitted element would generate the unit ideal together with the ideal present when it was omitted, and therefore together with the final ideal. The quotient is a field, is algebraic over $K$, and splits all base polynomials. It is well-orderable by taking least representatives in $R$. If $K$ is countable then $R$ is countable and so is the quotient.
+
+For uniqueness, well-order the source closure and the target closure. Extend the base embedding recursively along the source well-order, sending the next generator to the least root of its transported minimal polynomial in the target. At limit stages take unions. Transfinite recursion is applicable because the next value is specified uniquely. The final embedding is surjective: any target element is algebraic over the image of $K$, and its base polynomial splits in the algebraically closed image of the source.
+\end{proof}
+
+\begin{remark}
+The theorem does not say that every algebraic closure of a well-orderable field is well-orderable. Proving that extra assertion requires attention to finite root fibers. A single countable closure of $\Q$ exists in $\ZF$, while another closure of $\Q$ need not be countable in every model of $\ZF$.
+\end{remark}
+
+\section{The Boolean Prime Ideal Theorem is sufficient}
+The implication in this section is due to Banaschewski~\cite{Banaschewski}. We supply explicit proofs and audit the uses of choice.
+
+\begin{lemma}\label{lem:ringprime}
+$\BPI$ implies that every proper ideal of a commutative ring with identity is contained in a prime ideal.
+\end{lemma}
+\begin{proof}
+Use propositional variables $P_a$, one for each ring element, and impose the clauses saying that the elements with $P_a$ true form a proper prime ideal containing the given ideal $I$. They include $P_0$, $\neg P_1$, addition and additive-inverse closure, absorption, and $P_{ab}\Rightarrow(P_a\vee P_b)$.
+
+A finite set of clauses concerns a finitely generated subring $S$ and finitely many required elements of $I\cap S$. The ideal they generate in $S$ is proper, since it is contained in $I$ in the original ring. The ring $S$ is countable, being generated by finitely many elements over $\mathbb Z$. The deterministic ideal recursion of Theorem~\ref{thm:wo} produces a maximal ideal of $S$ containing that proper ideal. Its membership truth values satisfy the finite clauses. Propositional compactness, obtained from $\BPI$, supplies all the clauses at once. This produces a prime ideal, without invoking the arbitrary-ring maximal ideal theorem.
+\end{proof}
+
+\begin{theorem}[$\BPI\Rightarrow\E$]\label{thm:bpie}
+Every field has an algebraic closure assuming $\BPI$.
+\end{theorem}
+\begin{proof}
+For each monic polynomial $f\in K[T]$ of degree $n\geq1$, introduce distinct variables $x_{f,1},\ldots,x_{f,n}$. In their polynomial ring $R$ over $K$, let $J$ be generated by the coefficient identities in
+\[
+f(T)=\prod_{j=1}^{n}(T-x_{f,j}).
+\]
+The ideal is proper. A finite expression purporting to put $1$ in $J$ involves finitely many polynomials and variables. A finite splitting field for those polynomials exists by Lemma~\ref{lem:finite}. Choose their root enumerations for this finite calculation, and set any other involved variables to zero. Evaluation sends the relevant relations to zero and $1$ to $1$, a contradiction.
+
+Take a prime ideal $P\supseteq J$ by Lemma~\ref{lem:ringprime}. It intersects $K$ trivially, since nonzero elements of $K$ are units. Let $L=\Frac(R/P)$. Each image $x_{f,j}$ is algebraic over $K$, and every element of $L$ involves finitely many such images, so $L/K$ is algebraic. The coefficient identities make every base polynomial split. Lemma~\ref{lem:splitting} completes the proof.
+\end{proof}
+
+\begin{remark}[The iteration trap]
+The assertion that a root-adjoining extension exists at each stage does not specify a unique next extension. Iterating that assertion countably many times may use dependent choice. The proof above uses one prime-ideal application. Conversely, a closure supplied by $\E$ does not automatically define an evaluation of every labelled root variable into that closure: simultaneous enumerations of its finite root sets would be an additional choice step.
+\end{remark}
+
+\begin{theorem}[$\BPI\Rightarrow\U$]\label{thm:bpiu}
+Any two algebraic closures $L,M$ of $K$ are $K$-isomorphic assuming $\BPI$.
+\end{theorem}
+\begin{proof}
+For each nonzero monic $f\in K[T]$, let $L_f,M_f$ be the subfields generated by all roots of $f$ in the respective closures, and put
+\[
+H_f=\Iso_K(L_f,M_f).
+\]
+These sets are canonically defined; no root enumeration has been chosen. They are finite and nonempty by finite algebra. If $f\mid g$, extend a given member of $H_f$ across the finite extension $L_g/L_f$ into the algebraically closed field $M$. Its image is exactly $M_g$, because it bijects the distinct roots of $g$. Thus restriction $H_g\to H_f$ is surjective. Products of polynomials make divisibility a directed ordering.
+
+Use Boolean variables $q_{f,h}$ for $h\in H_f$ and clauses requiring exactly one selected isomorphism at every $f$, with compatibility under restriction. Any finite collection of clauses is satisfiable: take a common upper polynomial for all its indices, take one isomorphism there, and restrict it. Propositional compactness gives a compatible family $(h_f)$. Its union is a well-defined field embedding because any finitely many elements lie in some $L_f$. It is onto because every element of $M$ lies in some $M_f$ and every $h_f$ is onto.
+\end{proof}
+
+\section{Exact reformulations of uniqueness}
+\begin{theorem}\label{thm:tensor}
+For fixed algebraic closures $L,M$ of $K$, the following statements are equivalent in $\ZF$:
+\begin{enumerate}
+\item $L$ and $M$ are $K$-isomorphic.
+\item There is a field containing compatible embedded copies of both over $K$.
+\item $L\otimes_K M$ has a prime ideal.
+\item The canonical inverse system $(\Iso_K(L_f,M_f))_f$ has a nonempty inverse limit.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+An isomorphism supplies a common field. Conversely, in a common field every element of either closure is algebraic over $K$; its annihilating base polynomial splits in the other closure. Evaluating the product of linear factors shows the element already lies in the other closure. Thus the embedded copies are equal.
+
+An isomorphism $h:L\to M$ induces a ring homomorphism $L\otimes_K M\to M$, $a\otimes b\mapsto h(a)b$, with prime kernel. A prime ideal in the tensor product gives a nonzero quotient domain. The maps from the two fields to that domain are injective, since unital maps from fields to nonzero rings have zero kernel. Passing to the fraction field gives a common field. Finally, restriction of an isomorphism gives a compatible family, and the union of a compatible family is an isomorphism as in Theorem~\ref{thm:bpiu}.
+\end{proof}
+
+\begin{remark}
+The tensor product here is nonzero already in $\ZF$. It is the directed union of tensor products of finite subextensions; finite bases show that the transition maps are injective and that $1$ remains nonzero. This observation does not produce a prime ideal. The theorem identifies the precise restricted prime-ideal and compatibility principles equivalent to $\U$; it does not identify them with full $\BPI$.
+\end{remark}
+
+\begin{proposition}\label{prop:ilbpi}
+Over $\ZF$, $\BPI$ is equivalent to the assertion that every directed inverse system of nonempty finite sets with surjective bonding maps has a nonempty inverse limit.
+\end{proposition}
+\begin{proof}
+The forward direction is the same finite Boolean-compatibility argument as above. For the converse, let $B$ be a nontrivial Boolean algebra. Index by its finite Boolean subalgebras, taking at each index the finite nonempty set of ultrafilters of that subalgebra. Restriction is surjective: an atom of a smaller finite algebra contains an atom of the larger one. A compatible family has a union which is an ultrafilter of $B$.
+\end{proof}
+
+The unresolved step in an attempted $\U\Rightarrow\BPI$ proof is to represent enough arbitrary inverse systems by the field systems of Theorem~\ref{thm:tensor}. The finite sets there are isomorphism torsors with specific field compatibility maps; arbitrary finite systems cannot simply be declared to have that form.
+
+\section{An exact finite-group correspondence under existence}\label{sec:finitegroups}
+The inverse systems in this section are indexed by nonempty directed posets. Write $\pi_{ji}:G_j\to G_i$ for a bonding homomorphism when $i\leq j$.
+
+\begin{definition}
+Let $\mathsf P$ assert that, for every inverse system of finite groups with surjective bonding homomorphisms, every projection $\varprojlim G_i\to G_i$ is surjective. Let $\mathsf T$ assert that every surjective inverse system of nonempty finite torsors has a coherent point: the data are finite groups $G_i$, finite nonempty sets $X_i$ on which $G_i$ acts freely and transitively, and surjective maps $f_{ji}:X_j\to X_i$ satisfying
+\[
+f_{ji}(g x)=\pi_{ji}(g)f_{ji}(x),
+\]
+with all inverse-system identities. No point of any $X_i$ is distinguished.
+\end{definition}
+The identity family always belongs to the inverse limit of groups in $\ZF$. Thus nonemptiness alone would be vacuous; $\mathsf P$ requires lifting every prescribed coordinate element.
+
+\begin{theorem}\label{thm:torsors}
+Over $\ZF$ (also over $\ZFA$),
+\[
+\mathsf P\ \Longleftrightarrow\ \mathsf T
+\quad\Longrightarrow\quad \U\wedge\ACfin,
+\qquad
+\E\wedge\U\ \Longrightarrow\ \mathsf P.
+\]
+Consequently
+\[
+\E\wedge\U\ \Longleftrightarrow\ \E\wedge\mathsf P
+\ \Longleftrightarrow\ \E\wedge\mathsf T.
+\]
+No equivalence of these principles with $\BPI$ is asserted.
+\end{theorem}
+\begin{proof}[Proof that $\mathsf T\Rightarrow\mathsf P$]
+Fix $i_0$ and $a\in G_{i_0}$. On the cofinal directed set $j\geq i_0$, the fibers $Y_j=\pi_{j i_0}^{-1}(a)$ are nonempty finite torsors under $N_j=\ker\pi_{j i_0}$. The restrictions on both fibers and kernels are surjective: a lift in $G_k$ of an element of $G_j$ has the required image in $G_{i_0}$. Apply $\mathsf T$. A coherent family on this cofinal set extends uniquely to all indices by restriction from common upper bounds, and its $i_0$-coordinate is $a$.
+\end{proof}
+\begin{proof}[Proof that $\mathsf P\Rightarrow\mathsf T$]
+Put $Z_i=(\{0\}\times G_i)\sqcup(\{1\}\times X_i)$, with its two regular left $G_i$-orbits, and let $H_i=\Aut_{G_i}(Z_i)$ be the finite group of equivariant permutations. Its action on the two orbits gives a canonical surjection $\epsilon_i:H_i\to C_2$. Indeed, one point $x\in X_i$ gives the equivariant bijection $g\mapsto gx$ and an equivariant permutation interchanging the components. This verification does not select a family of points.
+
+The map $q_{ji}:Z_j\to Z_i$ induced by $\pi_{ji}$ and $f_{ji}$ has fibers precisely the $\ker\pi_{ji}$-orbits. Every element of $H_j$ commutes with this kernel, and therefore descends uniquely to $H_i$. The resulting homomorphisms $\rho_{ji}:H_j\to H_i$ commute with $\epsilon$ and are surjective. To verify surjectivity for one map, temporarily choose one point of $X_j$ and its image in $X_i$. Under these identifications the groups are the wreath products $G_j^{\mathrm{op}}\wr C_2$ and $G_i^{\mathrm{op}}\wr C_2$, and $\rho_{ji}$ applies $\pi_{ji}$ to both group coordinates and fixes the permutation coordinate. Only two finite choices are needed to lift an element. The definition of $\rho_{ji}$ is independent of these temporary identifications.
+
+Adjoin a least index carrying $C_2$, with bonding maps $\epsilon_i$. By $\mathsf P$, the nonidentity of $C_2$ lifts to a coherent family $h_i\in H_i$. Each $h_i$ interchanges the components. Define $x_i$ by $h_i(0,e_i)=(1,x_i)$. The descent equations give $f_{ji}(x_j)=x_i$, as required.
+\end{proof}
+\begin{proof}[Proof that $\mathsf T\Rightarrow\ACfin\wedge\U$]
+For a family $(A_s)_{s\in S}$ of nonempty finite sets, put $n_s=|A_s|$. On the directed set of finite subsets $F\subseteq S$, take
+\[
+X_F=\prod_{s\in F}\operatorname{Bij}(n_s,A_s),
+\qquad G_F=\prod_{s\in F}\operatorname{Sym}(n_s),
+\]
+with $\sigma\cdot b=b\circ\sigma^{-1}$. These are nonempty finite torsors by finite choice, and restrictions are surjective. A coherent point gives enumerations of all $A_s$; their first entries give a choice function.
+
+For supplied closures $C,D$ of $K$, use the finite splitting subfields $C_F,D_F$ generated by the roots of finite sets $F$ of nonzero monic polynomials in $K[T]$. The sets $\Iso_K(C_F,D_F)$ are nonempty finite torsors under $\Aut_K(C_F)$, acting by inverse precomposition. Restrictions are surjective on groups and torsors: extend an embedding by finite algebra into the specified algebraically closed field $D$, and use the complete root sets to identify its image. This remains valid with inseparable polynomials, whose purely inseparable roots have unique images. Apply $\mathsf T$ and unite the compatible isomorphisms. Every element of either closure belongs to some such splitting subfield, so the union is a $K$-isomorphism.
+\end{proof}
+
+\begin{lemma}[Finite fixed-field theorem in $\ZF$]\label{lem:finiteartin}
+If a finite group $G$ acts faithfully on a field $L$, then $L/L^G$ is finite Galois of degree $|G|$, with full automorphism group $G$.
+\end{lemma}
+\begin{proof}
+For each $a\in L$, its distinct orbit elements give a separable polynomial over $L^G$ of degree at most $|G|$. A finite set of elements generates a finite separable extension; the finite primitive-element theorem shows that its degree is at most $|G|$. Hence any $|G|+1$ elements of $L$ are linearly dependent. Choose one independent tuple of the largest possible finite length; it is a basis. The finite embedding bound gives the reverse inequality $|G|\leq[L:L^G]$. Orbit polynomials give normality, and the same embedding bound shows that no additional automorphisms exist. These are finite arguments, with no choice of infinitely many bases or primitive elements.
+\end{proof}
+
+\begin{proof}[Proof that $\E\wedge\U\Rightarrow\mathsf P$]
+Given a surjective finite-group inverse system, put
+\[
+L_i=\Q(x_{i,g}:g\in G_i),\qquad K_i=L_i^{G_i},
+\]
+where $G_i$ acts by left translation on variable indices. Lemma~\ref{lem:finiteartin} identifies $\Aut_{K_i}(L_i)$ with $G_i$. Define embeddings
+\[
+\alpha_{ji}(x_{i,g})=\sum_{\pi_{ji}(h)=g}x_{j,h}.
+\]
+The sums have disjoint nonempty supports and are algebraically independent: selecting one representative in each of these finitely many fibers, and setting all remaining variables to zero, gives a polynomial-ring retraction. Representatives are used only to verify injectivity; the displayed map is canonical. The maps compose and are equivariant, so they take $K_i$ into $K_j$.
+
+Take the directed colimit fields $K\subseteq L$. Then $L/K$ is algebraic, since every element comes from a finite extension $L_i/K_i$. Fix $\sigma\in G_{i_0}$. It extends to a $K$-automorphism $\widetilde\sigma$ of $F=K L_{i_0}$. To check this carefully, prescribe that it fix coefficients in $K$ and act by $\sigma$ on $L_{i_0}$. Any equality of rational expressions uses finitely many coefficients and is witnessed at a stage $j\geq i_0$. A single lift of $\sigma$ in $G_j$ fixes $K_j$ and preserves that equality. The rule is therefore well-defined, and the corresponding rule for $\sigma^{-1}$ is its inverse. No coherent family of lifts has been assumed.
+
+By $\E$, choose a closure $C$ of $L$. It is also a closure of $F$. Apply $\U$ to the identity and $\widetilde\sigma$ embeddings of $F$ into $C$, obtaining an automorphism $\tau$ of $C$ extending $\widetilde\sigma$. It fixes $K$. Normality of $L_j/K_j$ implies $\tau(L_j)=L_j$: every relevant minimal polynomial splits in $L_j$, and the same observation applies to $\tau^{-1}$. Its restriction therefore corresponds to a unique $g_j\in G_j$. Equivariance and faithfulness give $\pi_{ji}(g_j)=g_i$, while $g_{i_0}=\sigma$. Unique specification defines this entire coherent family in $\ZF$, proving $\mathsf P$.
+\end{proof}
+
+\begin{remark}
+$\BPI$ implies $\mathsf T$ by compactness, since any finite set of compatibility requirements is realized at a common upper stage. The converse has not been established here. General finite-set inverse systems cannot be identified directly with torsor systems: equivariant surjections between torsors have equal-sized fibers, whereas restriction of ultrafilters after splitting one of two Boolean atoms has fiber sizes $2$ and $1$. Also, $\mathsf P\Rightarrow\E$ is not proved. The generic-field argument above explicitly uses $\E$ to close its colimit field.
+\end{remark}
+
+\subsection{Elementary abelian groups and fixed finite groups}\label{sec:restrictedgroups}
+
+\begin{proposition}\label{prop:elementary-projection}
+For each prime $p$, the restriction of $\mathsf P$ to finite elementary abelian $p$-groups is equivalent in $\ZF$ to extension of linear functionals over $\F_p$, and hence to $\mathsf{SLin}(\F_p)$.
+\end{proposition}
+\begin{proof}
+Given an $\F_p$-vector space $V$, use the inverse system $G_W=\operatorname{Hom}_{\F_p}(W,\F_p)$ over all finite-dimensional subspaces $W\leq V$. These groups are finite, and restrictions are surjective by finite-dimensional algebra. For $v\ne0$, the projection principle lifts the functional on $\F_pv$ taking $v$ to $1$. The compatible functionals unite to one on $V$. This separation property gives full extension: for a nonzero $f:B\to\F_p$, choose $b\in B$ with $f(b)=1$ and separate $b+\ker f$ in $V/\ker f$. The resulting functional agrees with $f$ because $b'-f(b')b\in\ker f$. The zero functional has the zero extension.
+
+Conversely, for a surjective system $(G_i)$ of finite elementary abelian groups, form the direct limit $D$ of their finite dual spaces $D_i=\operatorname{Hom}(G_i,\F_p)$, whose bonding maps are injective. A prescribed $a\in G_i$ gives evaluation at $a$ on $D_i$. Extend it to $D$. Finite biduality uniquely identifies its restriction to each $D_j$ with evaluation at some $g_j\in G_j$. These $g_j$ form the desired coherent family. Neither direction chooses a family of bases.
+\end{proof}
+
+For a fixed finite group $H$, let $\mathsf C_H$ assert compactness for constraints with variables valued in $H$ and relations arbitrary cosets of subgroups of $H^n$, for arbitrary finite $n$. Let $\mathsf T_{\mathrm{SP}(H)}$ restrict $\mathsf T$ to groups isomorphic to subgroups of finite powers of $H$, and let $\mathsf T_{\mathrm{HSP}(H)}$ also allow quotients of those subgroups.
+
+\begin{proposition}\label{prop:fixedgroupcompactness}
+In $\ZF$,
+\[
+\mathsf C_H\quad\Longleftrightarrow\quad
+\mathsf T_{\mathrm{SP}(H)}\quad\Longleftrightarrow\quad
+\mathsf T_{\mathrm{HSP}(H)}.
+\]
+No additional finite-choice principle is needed.
+\end{proposition}
+\begin{proof}
+Assume $\mathsf C_H$ and take a torsor system in the largest indicated class. For each $i$, let $n_i$ be the least possible dimension of a representation $q:S\twoheadrightarrow G_i$ with $S\leq H^{n_i}$. Use \emph{all} triples $(S,q,x)$ of this kind with $x\in X_i$; they form a finite nonempty set. Introduce an $H^{n_i}$-valued variable $s$ for every such triple, constrained to belong to $S$. It represents the point $q(s)x$ of $X_i$. Require all representations at one stage to give the same point, and require compatibility between every pair of presentations at stages $i\leq j$.
+
+If the chosen presentation points satisfy $f_{ji}(x_j)=a x_i$, the compatibility equation is
+\[
+q_i(s_i)=\pi_{ji}(q_j(s_j))a.
+\]
+This is a right coset of the subgroup defined by the corresponding homogeneous equality in $S_j\times S_i$, and hence is a coset relation in a finite power of $H$. Every finite subsystem is solvable by taking a point at a common upper stage and finitely many lifts through the $q$'s. Apply $\mathsf C_H$. All presentations at stage $i$ then represent one uniquely determined point, so unique specification gives a coherent family. Using every presentation avoids choosing a family of labels or basepoints.
+
+Conversely, start with a finitely satisfiable coset system over $H$. Its finite subsystems, together with finite sets of their variables, have nonempty finite solution sets $X_i\subseteq H^{F_i}$. Each is a coset of a subgroup; coordinate restrictions need not be surjective. Replace $X_i$ by its stable image
+\[
+Y_i=\bigcap_{j\geq i}\operatorname{im}(X_j\longrightarrow X_i).
+\]
+Directedness gives the finite intersection property, and finiteness of $X_i$ gives $Y_i\ne\varnothing$. Translating by one point for verification shows that $Y_i$ is a coset of a subgroup. The maps $Y_j\to Y_i$ are surjective: above a specified point of $Y_i$, the images from higher stages have the finite intersection property inside the finite set $X_j$. Their intersection supplies a lift. The groups $Y_iY_i^{-1}\leq H^{F_i}$ act regularly on $Y_i$, and their induced restriction homomorphisms are surjective. Apply $\mathsf T_{\mathrm{SP}(H)}$ and unite the coherent finite solutions.
+\end{proof}
+
+\begin{remark}[Finite-signature and uniformity boundaries]
+Although $\mathsf C_H$ uses relations of unbounded arity, it can be reduced to one finite relational template. The heap operation $m(x,y,z)=xy^{-1}z$ has precisely subgroup cosets as its nonempty invariant relations. The finite-relatedness theorem of Aichinger--Mayr--McKenzie~\cite{AMM}, applied to the clone generated by $m$, and finite Pol--Inv duality give one finite template in which every such coset relation has a primitive-positive definition. Fix an order of the single finite set $H$ and use the least formula for each definition; thus no countable choice of definitions is concealed. Replacing constraints by their finite defining gadgets preserves finite satisfiability. This template has a Mal'cev polymorphism and hence cyclic polymorphisms.
+
+The model in K\'atay--T\'oth--Vidny\'anszky~\cite[Theorem~1.2]{KTV} therefore satisfies $\mathsf C_H$ for every fixed finite $H$ while $\BPI$ fails. It fails finite choice, so it does not satisfy unrestricted $\mathsf T$. Neither the conjunction of these fixed-$H$ principles nor this example settles what happens after adjoining $\ACfin$. An arbitrary finite-group system can have unbounded prime exponents, whereas all quotients of subgroups of powers of a fixed $H$ have exponent dividing the exponent of $H$.
+\end{remark}
+
+\section{Existence and uniqueness together imply finite choice}\label{sec:acfin}
+\begin{theorem}\label{thm:acfin}
+$\ZF$ proves $(\E\wedge\U)\Rightarrow\ACfin$.
+\end{theorem}
+\begin{proof}
+Let $(A_i)_{i\in I}$ be any family of nonempty finite sets, and put $n_i=|A_i|$. Tag the sets to avoid overlaps. Form independent-variable rational function fields
+\[
+L=\Q(x_{i,a}:i\in I,\ a\in A_i),\qquad
+L'=\Q(y_{i,j}:i\in I,\ 1\leq j\leq n_i).
+\]
+For $1\leq r\leq n_i$, let $s_{i,r}$ be the $r$th elementary symmetric function of the variables $x_{i,a}$, and $t_{i,r}$ the corresponding symmetric function of $y_{i,1},\ldots,y_{i,n_i}$. These definitions require no enumeration of $A_i$: use the sum of products over its $r$-element subsets.
+
+The family of all $s_{i,r}$ is algebraically independent over $\Q$, and so is the family of all $t_{i,r}$. To check this, a purported relation uses only finitely many blocks. Enumerate those finitely many finite blocks for this proof. Under a lexicographic monomial order, the leading monomial of the $r$th elementary symmetric function in a block is the product of the first $r$ variables. Products of powers of these leading monomials have distinct exponent vectors: the exponents form a triangular sum of the powers, recoverable by successive differences. Thus distinct monomials in the symmetric functions cannot cancel their largest leading term. This is a finite argument and makes no simultaneous choice over $I$.
+
+Consequently the fields
+\[
+K=\Q(s_{i,r}:i\in I,1\leq r\leq n_i),\qquad
+K'=\Q(t_{i,r}:i\in I,1\leq r\leq n_i)
+\]
+have a specified isomorphism $s_{i,r}\mapsto t_{i,r}$. Regard $L'$ as a $K$-extension via this map. Both $L/K$ and $L'/K$ are algebraic, because their generators satisfy the monic polynomials
+\[
+P_i(T)=T^{n_i}-s_{i,1}T^{n_i-1}+\cdots+(-1)^{n_i}s_{i,n_i}.
+\]
+Use $\E$ to obtain closures $C/L$ and $D/L'$. By transitivity of algebraicity these are also closures of the specified common base $K$. Use $\U$ to obtain a $K$-isomorphism $h:C\to D$.
+
+In $C$, the distinct roots of $P_i$ are exactly the $x_{i,a}$, and in $D$ they are exactly $y_{i,1},\ldots,y_{i,n_i}$, since the displayed factorizations already split a polynomial of degree $n_i$. There is therefore a unique $a\in A_i$ for which $h(x_{i,a})=y_{i,1}$. This unique specification defines a choice function by Replacement.
+\end{proof}
+
+\begin{remark}[What the proof does and does not imply]
+There are only two applications of the universal existence statement, to two single fields. No family of closures is selected. The argument proves a consequence of the conjunction; it does not prove $\E\Rightarrow\ACfin$ or $\U\Rightarrow\ACfin$. Its two closure extensions are the exact additional objects needed before applying uniqueness.
+\end{remark}
+
+\begin{proposition}[A field-amalgamation version of finite choice]\label{prop:generic}
+For the two generic algebraic extensions $L,L'$ constructed from an arbitrary finite-set family above, their compatible embeddability in a common field is equivalent to the existence of a choice of a bijection $A_i\to\{1,\ldots,n_i\}$ for every $i$. Accordingly, the assertion that all such generic pairs have a common field is equivalent to $\ACfin$.
+\end{proposition}
+\begin{proof}
+Compatible embeddings identify the roots of each $P_i$, yielding all those bijections. Conversely, chosen bijections induce a $K$-isomorphism between the rational function fields by matching their variables. Under $\ACfin$, the nonempty finite sets of such bijections have a choice function. Conversely any family of such bijections selects the inverse image of $1$ in every block.
+\end{proof}
+
+\begin{theorem}[Root selection and labelled splitting algebras]\label{thm:rootselect}
+The following are equivalent over $\ZF$:
+\begin{enumerate}
+\item $\E\wedge\ACfin$.
+\item Every field $K$ has a closure $C$ together with a function choosing a root in $C$ of every nonconstant polynomial over $K$.
+\item For every $K$, the universal complete-splitting algebra $R/J$ in the proof of Theorem~\ref{thm:bpie} has a prime ideal.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+From (1), take a closure and choose from its nonempty finite root sets, giving (2). Conversely, (2) implies $\E$. For any finite-set family $(A_i)$ apply (2) to $L=\Q(x_{i,a}:a\in A_i,i\in I)$. The roots, in any extension of $L$, of
+\[
+f_i(T)=\prod_{a\in A_i}(T-x_{i,a})
+\]
+are exactly the displayed variables. The selected root determines a unique $a\in A_i$. Thus (2) implies $\ACfin$.
+
+From (1), choose in a closure, for every monic polynomial, one of the finitely many lists of its roots counted with multiplicity. Evaluation gives a homomorphism $R/J\to C$ with prime kernel, proving (3). From (3), a prime quotient is a domain algebraic over $K$ and therefore a field: the inverse of a nonzero algebraic element is a polynomial in that element by its minimal polynomial. Every base polynomial splits there, so Lemma~\ref{lem:splitting} makes the quotient a closure. The image of $x_{f,1}$ selects a root of each monic $f$; divide a general polynomial by its leading coefficient to select its root. This proves (2).
+\end{proof}
+
+The theorem locates the additional choice in a labelled splitting construction exactly. It does not assert that these particular splitting algebras test full $\BPI$, or that $\E\wedge\ACfin$ implies $\U$.
+
+\section{A further consequence: linear compactness over finite fields}
+
+The conjunction $\E+\U$ also implies an extension principle for linear
+functionals.  The proof below uses formal monomials and does not choose a
+basis of the vector space under consideration.
+
+\begin{proposition}\label{prop:kummer-linear}
+Assume $\E+\U$.  Let $p$ be prime, $V$ an $\F_p$-vector space, $W\leq V$,
+and $f:W\to\F_p$ linear.  Then $f$ extends to a linear map $V\to\F_p$.
+\end{proposition}
+\begin{proof}
+Fix $k=\Q(\zeta_p)$, with a specified primitive $p$th root of unity; for
+$p=2$ take $\zeta_2=-1$.  These are concrete countable fields available in
+$\ZF$.  Let
+\[
+ \Gamma=\tfrac1p\mathbb Z^{(V)},\qquad
+ \pi(\gamma)=\sum_{v\in\operatorname{supp}(\gamma)}
+                  (p\gamma(v)\bmod p)v.
+\]
+Here the superscript $(V)$ denotes finite support.  The homomorphism
+$\pi:\Gamma\to V$ is onto, since $\pi(\tfrac1p e_v)=v$.
+Put $\Lambda=\ker\pi$ and $\Lambda_W=\pi^{-1}(W)$.
+In particular $p\Gamma\subseteq\Lambda$.
+
+Write $X^\gamma$ for the formal monomials of $k[\Gamma]$.
+This group algebra is a domain: two nonzero elements involve only finitely
+many coordinates of $V$, and their product can be computed in a Laurent
+polynomial ring on that one finite coordinate set.  Ordering a single
+finite set requires no choice axiom.  Define
+\[
+ L=\operatorname{Frac}(k[\Gamma]),\quad
+ K=\operatorname{Frac}(k[\Lambda]),\quad
+ F=\operatorname{Frac}(k[\Lambda_W]).
+\]
+Every $X^\gamma$ satisfies
+$T^p-X^{p\gamma}\in K[T]$, so $L/K$, and hence $L/F$, is algebraic.
+
+The rule
+\[
+ \sigma(X^\lambda)=\zeta_p^{f(\pi(\lambda))}X^\lambda
+ \qquad(\lambda\in\Lambda_W)
+\]
+defines a $k$-automorphism of $F$ fixing $K$ pointwise.
+By $\E$, take an algebraic closure $C$ of $L$; it is also a closure of $F$.
+Applying $\U$ to its two base embeddings, the usual one and the one twisted
+by $\sigma$, gives an automorphism $\tau$ of $C$ extending $\sigma$.
+Thus $\tau$ fixes $K$.
+
+For every $\gamma\in\Gamma$, the polynomial $T^p-X^{p\gamma}$ has
+exactly the $p$ distinct roots $\zeta_p^jX^\gamma$ in $L$.
+Consequently there is a unique $g(\gamma)\in\F_p$ with
+\[
+       \tau(X^\gamma)=\zeta_p^{g(\gamma)}X^\gamma.
+\]
+Multiplicativity and distinctness of the powers of $\zeta_p$ imply that
+$g$ is additive.  It vanishes on $\Lambda$, since $\tau$ fixes $K$.
+It therefore descends to an additive, hence $\F_p$-linear, map
+$h:V\to\F_p$.  On $\Lambda_W$ the displayed formula agrees with the
+formula defining $\sigma$, so $h|_W=f$.
+\end{proof}
+
+\begin{proposition}\label{prop:linear-compactness-equivalence}
+For a fixed field $k$, the following are equivalent in $\ZF$:
+\begin{enumerate}
+\item Every linear functional on a subspace extends to the whole vector space.
+\item For every vector space $V$ and nonzero $v\in V$, a linear functional
+      $h:V\to k$ exists with $h(v)=1$.
+\item Every system of linear equations over $k$ whose finite subsystems
+      have solutions in $k$ has a simultaneous solution in $k$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+The first assertion implies the second by extending the functional
+$av\mapsto a$ on $kv$.
+For the reverse implication, let $f:W\to k$ be nonzero and choose one
+$w\in W$ with $f(w)=1$.  A functional on $V/\ker f$ taking value $1$
+at $w+\ker f$, composed with the quotient map, extends $f$.
+The zero functional has the zero extension.
+
+For the first assertion to imply the third, let $I$ index the unknowns
+and use the free space $P=k^{(I)}$ with its specified basis $(e_i)$.
+Write each equation as a coefficient vector $a_j\in P$ and a constant
+$b_j\in k$.  The assignment $a_j\mapsto b_j$ defines a linear functional
+on the span of the $a_j$: every relation among them involves finitely many
+equations, and a solution of those equations verifies the same relation
+among the $b_j$.  Extend this functional to $h:P\to k$.
+The values $x_i=h(e_i)$ solve the system.
+
+Conversely, to extend $f:W\to k$, introduce variables $x_v$ for $v\in V$
+and impose
+\[
+ x_{v+w}=x_v+x_w,\qquad x_{av}=a x_v,\qquad x_w=f(w)\quad(w\in W).
+\]
+Any finite subsystem involves a finite-dimensional subspace $D\leq V$.
+Finite-dimensional linear algebra extends $f|_{W\cap D}$ to $D$, giving
+a solution of that subsystem.  A simultaneous solution gives the desired
+functional on $V$.
+\end{proof}
+
+\begin{proposition}\label{prop:finite-field-compactness}
+The conjunction $\E+\U$ implies finite-consistency compactness for systems
+of linear equations over every finite field.
+\end{proposition}
+\begin{proof}
+Propositions~\ref{prop:kummer-linear} and
+\ref{prop:linear-compactness-equivalence} give the result over $\F_p$.
+Fix a finite basis of $\F_{p^r}$ over $\F_p$ and expand each unknown in
+that basis.  Equating coordinates converts an $\F_{p^r}$-linear system
+to an $\F_p$-linear system.  Finite consistency is preserved, and a
+solution of the expanded system gives a solution of the original system.
+\end{proof}
+
+\begin{proposition}\label{prop:torsion-character-extension}
+Assume $\E+\U$.  If $B\leq A$ are abelian groups, $A/B$ is torsion,
+and $\chi:B\to\Q/\mathbb Z$ is a homomorphism, then $\chi$ extends
+to a homomorphism $A\to\Q/\mathbb Z$.
+In particular this holds for every subgroup of an abelian torsion group.
+\end{proposition}
+\begin{proof}
+Use the concrete countable cyclotomic field $k=\Q(\mu_\infty)$, with its
+specified identification $\Q/\mathbb Z\simeq\mu_\infty$.
+Let $\Gamma=\mathbb Z^{(A)}$, let $\pi:\Gamma\to A$ be evaluation,
+and put $\Lambda=\ker\pi$ and $\Lambda_B=\pi^{-1}(B)$.
+Form $L,K,F$ from these three group algebras as in the first proof.
+They are fraction fields of domains by the same finite-coordinate argument.
+For every $\gamma\in\Gamma$ there is a positive $n$ with
+$n\gamma\in\Lambda_B$, because $A/B$ is torsion.
+Thus $L/F$ is algebraic.
+
+The character $\chi\circ\pi$ on $\Lambda_B$ defines a $K$-automorphism
+$\sigma$ of $F$ by multiplication of monomials by the corresponding roots
+of unity.  Apply $\E$ to $L$ and $\U$ over $F$ to extend it to an
+automorphism $\tau$ of an algebraic closure $C$ of $L$.
+For $\gamma\in\Gamma$ define directly
+\[
+             u(\gamma)=\frac{\tau(X^\gamma)}{X^\gamma}.
+\]
+If $n\pi(\gamma)\in B$, then $u(\gamma)^n$ is the root of unity
+specified by $\chi(n\pi(\gamma))$.  Hence $u(\gamma)$ is itself a root
+of unity. All roots of unity in $C$ already lie in the specified $k$,
+since their polynomials split there.  This verifies its range without making a simultaneous choice
+of the integers $n$.  Multiplicativity shows that $u$ is a character
+$\Gamma\to\mu_\infty$, and it vanishes on $\Lambda$ in additive
+notation because $\tau$ fixes $K$.  It descends to $A$ and agrees with
+$\chi$ on $B$.
+\end{proof}
+
+\paragraph{Scope of the lower bound.}
+Linear equations and arbitrary polynomial equations must be distinguished.
+Compactness for arbitrary polynomial equations over $\F_2$ is equivalent
+to BPI.  Compactness for linear equations over finite fields is strictly weaker than
+BPI even over pure $\ZF$: K\'atay--T\'oth--Vidny\'anszky~\cite[Theorem~1.2]{KTV}
+give one model with compactness for all finite relational templates
+admitting cyclic polymorphisms and with failure of BPI.
+For linear equations over a finite field of characteristic $p$, averaging
+an $\ell$-tuple, for a prime $\ell\ne p$, is a cyclic polymorphism.
+A finite signature consisting of addition, the finitely many scalar
+multiplications, and singleton constants encodes arbitrary finite-support
+linear equations by uniquely determined auxiliary partial sums.
+Thus their theorem applies simultaneously to all these linear systems.
+The earlier atoms-allowing separation is discussed by
+Herrlich--Tachtsis~\cite[pp.~243--244]{HTlinear}.
+This comparison concerns the linear lower bound alone; it supplies no
+model satisfying $\E$ or $\U$, and does not settle the strength of their
+conjunction.
+No novelty claim or unrestricted character-extension claim is made.
+
+\section{Choice consequences of conditional uniqueness alone}
+
+The next result removes $\E$ from a restricted version of the preceding
+linear-extension argument.  Its additional input is a theorem of
+Lombardi--Roy~\cite[Theorem~12]{LR}: every \emph{ordered} field has a real
+closure in $\ZF$, unique up to a unique order-preserving base isomorphism.
+Their full proof constructs degree-bounded closures, glues finite root
+adjunctions by the unique ordered comparison maps, and takes their union.
+The uniqueness of those maps is what makes this gluing choice-free.
+
+\begin{lemma}\label{lem:lo-rational-closure}
+Let $X$ be a linearly orderable set and $p$ a prime.  Both fields
+$\Q(\zeta_p)(t_x:x\in X)$ and
+$\Q(\mu_\infty)(t_x:x\in X)$ have algebraic closures in $\ZF$.
+Here $\zeta_p$ is a specified primitive $p$th root of unity, and
+$\Q(\mu_\infty)$ is the standard countable cyclotomic field.
+\end{lemma}
+\begin{proof}
+Fix one linear order on $X$.  Order finitely supported integer exponent
+vectors by the coefficient at the largest coordinate where they differ.
+This is a translation-invariant linear order.  The sign of the coefficient
+of a polynomial's largest monomial therefore orders $\Q(t_x:x\in X)$;
+the order extends to fractions.  This construction uses maxima of finite
+supports, not a well-order of $X$.
+
+Take the real closure $R$ of this ordered field using the cited $\ZF$
+theorem.  The finite algebraic characterization of real-closed fields
+shows that $C=R(i)$, where $i^2=-1$, is algebraically closed and algebraic
+over $\Q(t_x:x\in X)$.
+Choose one primitive $p$th root $\eta$ in $C$.  The map
+$\zeta_p\mapsto\eta$ embeds $\Q(\zeta_p)$ in $C$.
+The variables $t_x$ remain algebraically independent over this finite
+algebraic coefficient extension: any proposed relation involves finitely
+many variables, and the finite field norm reduces it to a nonzero relation
+over $\Q$.  Thus the coefficient embedding and the assignments
+$t_x\mapsto t_x$ give an embedding of $\Q(\zeta_p)(t_x:x\in X)$ in $C$.
+The field $C$ is algebraic over its image, so it is the required closure.
+Only one root $\eta$ was selected; there is no simultaneous root selection.
+
+For the full cyclotomic field, the standard real algebraic numbers
+embed uniquely as an ordered field in $R$, by the universal property of
+the ordered real closure of $\Q$.  Extending this embedding by the
+specified $i$ embeds the standard complex algebraic numbers in $R(i)$,
+and hence embeds their cyclotomic subfield.  Algebraic independence is
+again checked on each finite set of coefficients.  This gives the
+second assertion without selecting roots of unity individually.
+\end{proof}
+
+\begin{theorem}\label{thm:u-lo-linear}
+Assume $\U$.  Let $V$ be an $\F_p$-vector space with a specified spanning
+family $(v_s)_{s\in S}$ indexed by a linearly orderable set $S$.
+Then every linear functional $f:W\to\F_p$ on a subspace $W\leq V$
+extends to $V$.
+\end{theorem}
+\begin{proof}
+Adapt the fields in Proposition~\ref{prop:kummer-linear} by putting
+\[
+ \Gamma=\tfrac1p\mathbb Z^{(S)},\qquad
+ \pi(\tfrac1p e_s)=v_s,\qquad
+ \Lambda=\ker\pi,\qquad \Lambda_W=\pi^{-1}(W),
+\]
+and $L=\Frac(\Q(\zeta_p)[\Gamma])$.
+The spanning hypothesis makes $\pi$ onto.
+The specified free generators $\tfrac1p e_s$ identify $L$ with
+$\Q(\zeta_p)(t_s:s\in S)$.  Lemma~\ref{lem:lo-rational-closure}
+therefore supplies its algebraic closure $C$ in $\ZF$.
+Every remaining step of Proposition~\ref{prop:kummer-linear} uses $\U$
+and finite algebra: extend the automorphism
+$X^\lambda\mapsto\zeta_p^{f(\pi\lambda)}X^\lambda$ of
+$F=\Frac(\Q(\zeta_p)[\Lambda_W])$ to $C$, and read off the uniquely
+specified exponents in
+\[
+       \tau(X^\gamma)=\zeta_p^{g(\gamma)}X^\gamma.
+\]
+They define an additive map on $\Gamma$ vanishing on $\Lambda$, and hence
+the required extension on $V$.  No application of $\E$ occurs.
+\end{proof}
+
+In particular the theorem applies whenever the carrier of $V$ is
+linearly orderable, by taking $S=V$ and $v_s=s$.  Neither a basis nor an
+order compatible with vector-space operations is required.  Without a
+linearly orderable spanning family, this proof again requires $\E$ to
+supply the closure of $L$.
+
+\begin{proposition}\label{prop:u-lo-characters}
+Assume $\U$.  Let $A$ be an abelian group with a specified generating
+family indexed by a linearly orderable set, let $B\leq A$, and suppose
+$A/B$ is torsion.  Every homomorphism $\chi:B\to\Q/\mathbb Z$ extends
+to a homomorphism on $A$.
+\end{proposition}
+\begin{proof}
+If $(a_s)_{s\in S}$ is the given generating family, replace
+$\Gamma=\mathbb Z^{(A)}$ in
+Proposition~\ref{prop:torsion-character-extension} by
+$\Gamma=\mathbb Z^{(S)}$, with $\pi(e_s)=a_s$.
+This is still a surjection.  The field
+$L=\Frac(\Q(\mu_\infty)[\Gamma])$ is now a rational function field
+on the linearly orderable set $S$, so
+Lemma~\ref{lem:lo-rational-closure} supplies its closure in $\ZF$.
+The rest of that proposition's proof uses only $\U$: extend the
+character automorphism of
+$F=\Frac(\Q(\mu_\infty)[\pi^{-1}(B)])$, and read off the root of
+unity $\tau(X^\gamma)/X^\gamma$.  It descends through $\pi$ to the
+required character of $A$.
+\end{proof}
+
+\begin{theorem}\label{thm:u-lo-cover-finite-choice}
+Assume $\U$.  If a set $X$ is a surjective image of a linearly orderable
+set, the family of all nonempty finite subsets of $X$ has a choice
+function.  Consequently $\U$ implies choice for any family of nonempty
+finite sets whose union has such a cover.
+\end{theorem}
+\begin{proof}
+Fix a surjection $q:S\to X$ and a linear order on $S$.
+For each finite $D\subseteq X$ with $n_D=|D|>1$, let
+$T_D=(\mathbb Z/n_D\mathbb Z)^{(D)}$, with specified generators
+$e_{D,x}$ for $x\in D$, and put $T=\bigoplus_D T_D$.
+The generating set of $T$ has a linearly orderable covering index set:
+finite tuples $(s_0,\ldots,s_m)$ with more than one distinct image under
+$q$ map to
+\[
+  \bigl(\{q(s_0),\ldots,q(s_m)\},q(s_0)\bigr).
+\]
+This covers every label $(D,x)$, using only finite preimage choices to
+verify surjectivity.  Order the tuples by length and then
+lexicographically.  Hence $T$ has a generating family indexed by a
+linearly orderable set.
+
+The elements $u_D=\sum_{x\in D}e_{D,x}$ generate a direct sum
+$H\leq T$ of cyclic groups of orders $n_D$.
+The prescription $\chi(u_D)=1/n_D+\mathbb Z$ defines a homomorphism
+$H\to\Q/\mathbb Z$.  By Proposition~\ref{prop:u-lo-characters},
+extend it once to $h:T\to\Q/\mathbb Z$; $T/H$ is torsion.
+
+Each value $h(e_{D,x})$ has a unique representative
+$j/n_D$ with $0\leq j<n_D$.  These labels cannot all coincide, since
+then $h(u_D)=n_Dh(e_{D,x})=0$, contrary to $h(u_D)=1/n_D+\mathbb Z$.
+Take the fiber with least label.  This defines a nonempty proper subset
+$c(D)\subsetneq D$ for each $|D|>1$; put $c(D)=D$ for singletons.
+The uniquely specified finite iteration of $c$ from any nonempty finite
+$D$ reaches a singleton.  Its element defines the choice function.
+There is one character extension for all $D$, so no sequence of
+independently chosen characters or dependent-choice argument is hidden
+in the iteration.
+\end{proof}
+
+The covering hypothesis has not been proved for arbitrary sets in
+$\ZF$.  A surjection from a linearly ordered set does not supply a
+linear order on its image: its fibers need not have least elements.
+
+\begin{corollary}\label{cor:u-cover-named}
+Assume $\U$. Each of the following additional hypotheses implies $\ACfin$:
+\begin{enumerate}
+\item $\mathsf{SVC}(S)$ for a linearly orderable set $S$: every nonempty set is a surjective image of $S\times\alpha$ for some ordinal $\alpha$;
+\item the dual first Kinna--Wagner principle $\mathsf{KWP}^{*}_{1}$: every set is an image of a subset of $\mathcal P(\alpha)$ for some ordinal $\alpha$.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+In the first case $S\times\alpha$ is linearly orderable. In the second, subsets of $\mathcal P(\alpha)$ have the lexicographic order at the least ordinal in the symmetric difference. Theorem~\ref{thm:u-lo-cover-finite-choice} therefore applies to every set. These are the conventions of Karagila--Schilhan~\cite[Definitions~2.1 and 3.1]{KS}; the ordinary injective $\mathsf{KWP}_1$ already implies finite choice without $\U$.
+\end{proof}
+
+\begin{corollary}
+Under $\U$, no amorphous set is a surjective image of a linearly orderable set.
+\end{corollary}
+\begin{proof}
+Such a cover would give a selector on pairs. This orients a tournament on the amorphous set $A$. At each vertex precisely one of its incoming and outgoing neighbor sets is finite. On a cofinite subset $B$, the same alternative holds; reverse the arrows if necessary so every vertex in $B$ has finite out-degree within $B$. A map from an amorphous set to $\omega$ has finite image: otherwise splitting its infinite range into two infinite subsets would split its domain into two infinite subsets. Thus the out-degrees have a common bound $N$. But a tournament on $2N+2$ vertices has $(2N+2)(2N+1)/2>(2N+2)N$ arrows, a contradiction. This is only a finite counting argument.
+\end{proof}
+
+\begin{corollary}\label{cor:u-parity}
+$\ZF+\U$ proves that there is an additive function
+\[
+ h:\bigl(\mathcal P(\omega),\mathbin\triangle\bigr)\longrightarrow\F_2
+ \quad\text{with}\quad h(a)=|a|\bmod2
+ \quad(a\subseteq\omega\text{ finite}).
+\]
+Consequently there is a subset of Cantor space without the Baire property.
+\end{corollary}
+\begin{proof}
+The set $\mathcal P(\omega)$ is linearly ordered lexicographically at the
+least natural number where two characteristic functions differ.
+Under symmetric difference it is an $\F_2$-vector space.  The finite
+subsets form a subspace with the linear functional $a\mapsto|a|\bmod2$.
+Apply Theorem~\ref{thm:u-lo-linear}.
+
+Identify subsets of $\omega$ with points of $2^\omega$, and put
+$P=h^{-1}(\{1\})$.  Flipping any one coordinate exchanges $P$ and its
+complement.  Suppose $P$ differs from an open set $O$ by a meager set.
+If $O$ is empty, both $P$ and its complement are meager, because the
+coordinate flip is a homeomorphism.  This contradicts the Baire theorem
+for Cantor space.  If $O$ is nonempty, choose a basic cylinder $[s]\subseteq O$.
+The set $P$ is comeager in $[s]$.  Flipping a coordinate outside the finite
+domain of $s$ preserves $[s]$ and exchanges $P$ and its complement, making
+both comeager there, again a contradiction.
+
+The particular Baire theorem used here needs no dependent choice.
+Given a specified sequence of nowhere-dense sets and a nonempty basic
+cylinder, recursively take the first cylinder in a fixed enumeration
+which lies inside the current cylinder, avoids the next closed
+nowhere-dense set, and has greater length.  The union of the resulting
+finite binary strings gives a point outside all the sets.
+\end{proof}
+
+Such a function is called an infinite parity function or a
+\emph{2-flutter}; ours is additionally additive.
+The parity condition is equivalent to choice for a particular family of
+pairs.  In each equivalence class modulo finite symmetric difference,
+the equivalence relation modulo \emph{even} finite symmetric difference
+has exactly two classes.  A parity function chooses its zero class;
+conversely a choice of one class in each such pair defines a parity
+function.  This is a restricted choice-for-pairs correspondence, not full
+choice for pairs.
+Geschke--Lubarsky--Rahn~\cite[Theorem~10]{GLR} give the standard
+non-Baire consequence.  An arbitrary parity function does not imply a
+free ultrafilter: Serafin~\cite[Theorem~8]{Serafin} constructs a
+$\ZF+\mathsf{DC}$ countermodel relative to an inaccessible cardinal.
+That result concerns arbitrary parity functions; no assertion about the
+converse for additive parity functions is made here.
+
+\begin{corollary}\label{cor:bp-twisted-closure}
+Suppose every subset of $2^\omega$ has the Baire property.  Then there
+are an algebraic closure $C$ of a field $F$ and an automorphism $\sigma$
+of $F$ such that $\sigma$ has no extension to an automorphism of $C$.
+The carriers of both $F$ and $C$ can be linearly ordered.
+\end{corollary}
+\begin{proof}
+In the Kummer construction take $p=2$,
+$V=\mathcal P(\omega)$, $W=[\omega]^{<\omega}$, and
+$f(a)=|a|\bmod2$.  The fields $L,F,K$ and the automorphism $\sigma$
+are defined in $\ZF$.  Lemma~\ref{lem:lo-rational-closure} supplies a
+closure $C=R(i)$ of $L$, which is also a closure of $F$.
+An extension of $\sigma$ would give the parity function by the same
+Kummer calculation, contradicting Corollary~\ref{cor:u-parity}'s Baire
+argument.  Thus $(C,\iota)$ and $(C,\iota\circ\sigma)$ are two
+nonisomorphic $F$-closures, where $\iota:F\hookrightarrow C$ is the
+inclusion.  The bijection $R^2\to R(i)$ gives a lexicographic order on
+$C$, which restricts to $F$.
+\end{proof}
+
+This explicitly refutes the claim that linearly orderable carriers of
+supplied closures suffice for uniqueness.  It does not determine $\E$
+in an all-Baire-property model.
+
+\begin{proposition}\label{prop:all-acf-wo}
+In pure $\ZF$, the assertion that every algebraically closed field has
+a well-orderable carrier is equivalent to $\AC$.
+\end{proposition}
+\begin{proof}
+Only the forward direction needs proof.  Every linearly ordered set $X$
+injects into the algebraic closure $R(i)$ of $\Q(t_x:x\in X)$ constructed
+in Lemma~\ref{lem:lo-rational-closure}.  Hence every linearly ordered set
+is well-orderable.  In particular $\mathcal P(\kappa)$ is well-orderable
+for every ordinal $\kappa$, using the lexicographic order at the least
+ordinal in the symmetric difference.
+
+Fix a limit ordinal $\alpha$, let $\kappa$ be the Hartogs ordinal of
+$V_\alpha$, and choose one well-order of $\mathcal P(\kappa)$.
+Recursively well-order $V_\beta$ for $\beta<\alpha$.
+At a successor, the preceding well-order has order type below $\kappa$;
+its unique order isomorphism identifies its power set with a subset of
+$\mathcal P(\kappa)$, whose fixed well-order can be pulled back.
+At a limit, use the least earlier rank containing an element and then
+the previously constructed order within that rank layer.
+This is a uniquely specified recursion from the one fixed well-order,
+so it does not choose a family of well-orders.  It well-orders
+$V_\alpha$.  Foundation places every set inside such a $V_\alpha$,
+proving $\AC$; compare Jech~\cite[Theorem~9.1(b)]{Jech}.
+\end{proof}
+
+The basic Fraenkel model's stronger assertion that all algebraically
+closed fields are well-orderable therefore cannot transfer to pure
+$\ZF$ together with failure of choice.  This does not prohibit a transfer
+of $\U+\neg\E$ itself: $\U$ does not assert that stronger property.
+
+
+\section{Exact restricted choice correspondences}
+\begin{theorem}\label{thm:wocorr}
+In $\ZF$, $\ACWfin$ is equivalent to the assertion that every algebraic extension of every well-orderable field is well-orderable. The countable analogue is: $\ACwfin$ is equivalent to every algebraic extension of every countable field being countable.
+\end{theorem}
+\begin{proof}
+Assume the appropriate finite-choice principle. The monic polynomials over the base have a well-orderable, respectively countable, index set. In an algebraic extension their finite root sets cover the extension. Choose a linear ordering of each nonempty finite root set; the set of possible orderings is itself finite and nonempty. An element is encoded by the first polynomial having it as a root and its position in that polynomial's ordered root set. This embeds the extension into a well-ordered index set times $\omega$, or into $\omega\times\omega$ in the countable case.
+
+Conversely, use just the field $L/K$ of Theorem~\ref{thm:acfin} for a well-ordered or countable family. The symmetric coefficient field $K$ is well-orderable or countable: formal rational expressions in its canonically indexed generators give a surjection from a well-orderable or countable set, with least representatives. The assumed assertion makes $L$ well-orderable or countable. The tagged union of the $A_i$ injects into $L$, and the induced well-order chooses a least element in each block.
+\end{proof}
+
+Let $\U_{\rm WO}$ and $\U_{\rm ct}$ restrict uniqueness to well-orderable and countable base fields, respectively, without imposing that restriction on the closures.
+\begin{corollary}\label{cor:relative}
+Over $\ZF+\E$,
+\[
+\U_{\rm WO}\ \Longleftrightarrow\ \ACWfin,
+\qquad
+\U_{\rm ct}\ \Longleftrightarrow\ \ACwfin.
+\]
+\end{corollary}
+\begin{proof}
+In one direction, Theorem~\ref{thm:wocorr} makes both closures well-orderable, so Theorem~\ref{thm:wo} applies. Conversely, for a family in the respective class use $L/K$ from the proof above. By $\E$, a closure $C$ of $L$ exists and is a closure of $K$. Theorem~\ref{thm:wo} supplies a well-orderable, respectively countable, closure $D$ of $K$. Restricted uniqueness identifies $C$ with $D$, making the tagged family union well-orderable and yielding a choice function.
+\end{proof}
+
+\begin{proposition}\label{prop:countable}
+For a fixed countable field $K$, $\ZF$ proves that uniqueness of its algebraic closure is equivalent to each of the following: every closure is countable; every closure is well-orderable; every closure's underlying set is linearly orderable.
+\end{proposition}
+\begin{proof}
+A fixed countable closure exists by Theorem~\ref{thm:wo}; uniqueness transfers its countability to any closure. Countability implies well-orderability and hence linear orderability. If a closure has a linear order, enumerate the base polynomials and order each of its finite root sets by restriction of that order. Least polynomial index and position among roots inject the closure into $\omega\times\omega$. Two countable closures are isomorphic by Theorem~\ref{thm:wo}.
+\end{proof}
+
+\section{Perfect fields, separability, and extension of maps}
+\begin{proposition}\label{prop:perfect}
+Over $\ZF$, each of $\E$ and $\U$ is equivalent to its restriction to perfect base fields. They are also respectively equivalent to existence and conditional uniqueness of separable closures.
+\end{proposition}
+\begin{proof}
+In characteristic $p>0$ construct $K^{\rm perf}$ as the direct limit of the specified sequence
+\[
+K\xrightarrow{a\mapsto a^p}K\xrightarrow{a\mapsto a^p}K\longrightarrow\cdots.
+\]
+Use pairs $(a,n)$ modulo agreement at a later stage. The $p$th root of $[(a,n)]$ is $[(a,n+1)]$. All transition maps are specified, so no choice of a sequence is made. This is a perfect, purely inseparable algebraic extension of $K$. In characteristic zero set $K^{\rm perf}=K$. Any closure of $K^{\rm perf}$ is a closure of $K$, proving the existence reduction. Every existing closure of $K$ contains a unique embedded copy of $K^{\rm perf}$, by uniqueness of purely inseparable roots. Two such closures can therefore be compared over this common perfect base, proving the uniqueness reduction.
+
+Inside an algebraic closure $C/K$, the elements separable over $K$ form a separable closure $S$. Finite separable extensions are transitive, and an irreducible polynomial in characteristic $p$ has the form $h(T^{p^r})$ with $h$ separable. Thus every $a\in C$ has some $a^{p^r}\in S$, and $C$ is the perfect closure of $S$.
+
+Conversely let $S/K$ be a separable closure. For a polynomial over $S^{\rm perf}$, raise its finitely many coefficients to a common $p$-power, obtaining a polynomial over $S$. Every irreducible factor over the separably closed field $S$ has the form $h(T^{p^r})$ with $h$ linear. Hence it has a root in $S^{\rm perf}$; taking the appropriate further $p$-power root gives a root of the original polynomial. Thus $S^{\rm perf}$ is algebraically closed. In characteristic zero this conclusion is immediate. These constructions give the existence equivalence. An isomorphism of separable closures extends uniquely to their perfect closures, while an isomorphism of algebraic closures restricts to their maximal separable subfields. This gives the uniqueness equivalence.
+\end{proof}
+
+\begin{proposition}[What uniqueness extends]\label{prop:extend}
+Assume $\U$. Given an embedding $f:K\hookrightarrow L$ and existing algebraic closures $B/K$ and $C/L$, there is an embedding $B\hookrightarrow C$ extending $f$. In particular every automorphism of $K$ extends to every existing algebraic closure of $K$.
+\end{proposition}
+\begin{proof}
+In $C$, the elements algebraic over $f(K)$ form a subfield $D$. It is algebraically closed: the coefficients of a polynomial over $D$ are algebraic over $f(K)$, and any root in $C$ is algebraic over those coefficients, hence over $f(K)$. Thus $D$, viewed through $f$, is a closure of $K$. Apply $\U$ to $B,D$ and compose with $D\hookrightarrow C$. For an automorphism of $K$, the resulting embedding of its closure is onto by algebraicity and algebraic closedness of its image.
+\end{proof}
+
+Under $\E\wedge\U$, every algebraic extension $L/K$ embeds in any specified closure of $K$: first close $L$ and then compare the two closures of $K$. The existence of that closure of $L$ cannot be omitted from this argument.
+
+\section{A verified ZFA model of uniqueness without existence}\label{sec:fraenkel}
+\begin{lemma}[An elementary involution obstruction]\label{lem:involution}
+Let $C$ be algebraically closed and $\sigma^2=\mathrm{id}_C$. In characteristic $2$, $\sigma$ is the identity. In characteristic different from $2$, if $\sigma$ fixes one $i$ with $i^2=-1$, then $\sigma$ is the identity.
+\end{lemma}
+\begin{proof}
+In characteristic different from $2$, suppose $a\ne\sigma(a)$ and put $b=a-\sigma(a)$. Choose $y^2=b$. Then $(\sigma(y)/y)^2=-1$, so $\sigma(y)=\varepsilon i y$ for $\varepsilon\in\{1,-1\}$. Applying $\sigma$ again gives $y=-y$, a contradiction.
+
+In characteristic $2$, suppose $a$ is moved, put $d=a+\sigma(a)\ne0$, and set $t=a/d$. Then $\sigma(t)=t+1$. The element $c=t^2+t$ is fixed. Choose $y$ with $y^2+y=ct$, and put $s=y+\sigma(y)$. Then $s$ is fixed and
+\[
+s^2+s=c(t+\sigma(t))=c.
+\]
+Thus $(s+t)^2+(s+t)=0$, so $s+t\in\{0,1\}$ is fixed. This forces $t$ fixed, a contradiction.
+\end{proof}
+
+\begin{theorem}\label{thm:fraenkel}
+The basic Fraenkel permutation model satisfies $\U\wedge\neg\E$.
+\end{theorem}
+\begin{proof}
+Work in an ambient model of $\ZFA+\AC$ with a countably infinite set $A$ of atoms. Let $G=\operatorname{Sym}(A)$ and let the normal filter be generated by pointwise stabilizers of finite subsets of $A$. The hereditarily symmetric universe $N$ is the basic Fraenkel model.
+
+For an algebraically closed field $C$ in $N$, choose a finite support $S$ for its carrier and operations. In characteristic different from $2$, enlarge $S$ to support one $i\in C$ with $i^2=-1$. Every transposition outside $S$ acts as a field involution fixing $i$ if needed, so acts trivially by Lemma~\ref{lem:involution}. Every finite-support permutation fixing $S$ therefore acts trivially.
+
+If $\pi\in\Fix(S)$ and $x\in C$, take a finite support $T\supseteq S$ for $x$. Extend the finite partial map $\pi|T$ to a finite-support permutation $\rho$ fixing $S$. This is possible by completing the finitely many finite paths of the partial injection to cycles. Since $\rho^{-1}\pi$ fixes $T$, we have $\pi x=\rho x=x$. Thus $\Fix(S)$ fixes $C$ pointwise.
+
+An ambient well-order of $C$ is consequently fixed by $\Fix(S)$ and belongs to $N$. All algebraically closed fields in $N$ are well-orderable there. Theorem~\ref{thm:wo} proves $\U$ inside $N$.
+
+The field $\Q(X_a:a\in A)$ belongs to $N$ and contains an injected copy of $A$. A closure would be well-orderable by the preceding paragraph, forcing $A$ well-orderable. This is impossible: a finite support for such a well-order would allow a transposition of two atoms outside the support, whereas an automorphism of a well-order fixes every element. Hence this field has no closure in $N$.
+\end{proof}
+
+This is the Pincus/basic-Fraenkel uniqueness argument recorded in Howard--Rubin Note~41 and reiterated in Banerjee~\cite{Banerjee}. The failure of existence is the classical L\"auchli example discussed by Jech~\cite[Theorem~10.13]{Jech}. The elementary characteristic-two calculation above makes the field-action step explicit. In this same model, choice for the family of all two-element subsets of $A$ fails: a transposition of a pair outside a proposed finite support contradicts a selector.
+
+\subsection{Countable supports retain dependent choice}
+\begin{theorem}\label{thm:countablesupportu}
+A countable-support permutation model satisfies
+\[
+\ZFA+\U+\mathsf{DC}+\neg\E+\neg\mathsf{AC}_2+\neg\mathsf{MC}.
+\]
+It also satisfies choice for every family of nonempty sets whose index set is well-orderable. No pure-$\ZF$ transfer is asserted.
+\end{theorem}
+\begin{proof}
+In an outer model with choice, take an uncountable set $A$ of atoms, the full group $G=\operatorname{Sym}(A)$, and the normal filter generated by $\Fix(S)$ for at most countable $S\subseteq A$. The filter is countably complete. Any outer countable sequence of internal objects has a support given by the union of countably many chosen countable supports, and hence belongs to the model. Applying outer dependent choice to an internal serial relation proves internal $\mathsf{DC}$.
+
+Let $C$ be an internal algebraically closed field. Choose a countable support $S$ for its structure, enlarged to support one $i$ with $i^2=-1$ in characteristic different from two. Every involution in $\Fix(S)$ fixes $C$ pointwise by Lemma~\ref{lem:involution}.
+Every permutation $\pi\in\Fix(S)$ is a product of two involutions in $\Fix(S)$: in the outer universe, choose an origin on each orbit of $\pi$ in $A\setminus S$. Such an orbit is indexed by $\mathbb Z/n\mathbb Z$ or $\mathbb Z$, with $\pi(k)=k+1$. The reflections $r(k)=-k$ and $s(k)=1-k$ satisfy $\pi=sr$; set both maps equal to the identity on $S$. Thus all of $\Fix(S)$ fixes $C$ pointwise, and an outer well-order of $C$ is internal.
+
+As before, this proves $\U$. It also refutes $\E$ for $\Q(t_a:a\in A)$, since a closure would well-order $A$. No such well-order can have a countable support: two atoms outside it can still be transposed. The same transposition refutes a choice function on $[A]^2$.
+
+For the stronger positive choice assertion, let $(X_i)_{i<\alpha}$ be an internal family with countable support $S$. Fix externally one countably infinite reservoir $B\subseteq A\setminus S$. Choose externally $x_i\in X_i$ with countable support $T_i$. For each $i$, some permutation $g_i$ fixing $S$ moves $T_i\setminus S$ into $B$: a countable partial bijection extends to a permutation of the uncountable complement of $S$. Then $g_i(x_i)\in X_i$ and all these values have the common support $S\cup B$. Their choice function is therefore internal. This concerns well-orderable \emph{index sets}, and does not provide a well-order of $[A]^2$.
+
+Finally, consider the internal family of all co-countable subsets of $A$. If a multiple-choice function had countable support $S$, its value at $A\setminus S$ would be a finite nonempty set invariant under every permutation fixing $S$. Transposing a member of that finite set with an atom outside it contradicts invariance. Thus $\mathsf{MC}$ fails.
+\end{proof}
+
+The stronger statement that all algebraically closed fields are well-orderable remains the obstruction to transferring this particular proof: Proposition~\ref{prop:all-acf-wo} makes it equivalent to $\AC$ in pure $\ZF$.
+
+\section{Cyclic construction: existence without uniqueness in ZFA}\label{sec:cyclic}
+The argument below constructs actual hereditarily symmetric closures, including their base embeddings. It has been independently audited in this work. It is presented as a proof, without an assertion that the construction is historically new. No pure-$\ZF$ transfer is supplied.
+
+\subsection{The group and its supports}
+In a ground model $M$ of $\ZFA+\AC$, fix a countably infinite atom set $A$, a prime $p$, and a pure copy $C_0$ of $\overline{\F_p}$. Choose an external bijection $A\to C_0$ and transport the field operations to $A$. Let $g$ be the permutation corresponding to Frobenius, and let $G=\langle g\rangle$. This is an infinite cyclic group: $g$ has finite cycles of every positive length, since finite fields have elements of every positive degree over $\F_p$.
+
+Use the normal filter generated by
+\[
+H_n=\langle g^n\rangle\qquad(n\geq1).
+\]
+It is normal because $G$ is abelian, and $H_r\cap H_s=H_{\operatorname{lcm}(r,s)}$. Each atom stabilizer is one of these groups, and each $H_n$ is the stabilizer of an atom of degree $n$. Thus this is exactly the filter of finite atom supports. Let $N$ be the associated hereditarily symmetric model of $\ZFA$.
+
+Every object of $N$ has a finite $G$-orbit externally: its stabilizer contains some $H_n$. A finite collection of objects has a common support $H_n$ by taking a common multiple of their support indices. There is no assertion that a single $H_n$ fixes every object.
+
+\begin{lemma}[Realizing locally finite actions]\label{lem:realize}
+Fix $H=H_n$. Every ground-model $H$-set $S$ with finite individual orbits has an $H$-equivariant realization using atoms and pure ordinal tags. If $S$ contains an $H$-invariant set $K\in N$ with its actual ambient action, the realization can be the identity on $K$ and disjointly code $S\setminus K$.
+\end{lemma}
+\begin{proof}
+For every $m\geq1$, choose externally an atom $a_m$ of exact degree $nm$. Its $H$-orbit $O_m$ has length $m$, since the $g$-orbit has length $nm$ and $g^n$ moves $n$ steps. Every finite transitive $H$-set of size $m$ is therefore $H$-isomorphic to $O_m$.
+
+Use ambient choice to index the $H$-orbits of $S\setminus K$ by distinct pure ordinals and to choose an equivariant bijection from each orbit to its tagged copy of $O_m$. Use a further pure ordinal tag of rank greater than $\operatorname{rank}(K)+\omega$, so every new code has rank above the members of $K$. The new codes are disjoint from $K$. Fix $K$ under the coding. The resulting bijection is $H$-equivariant, the coded set is $H$-invariant, and each code is hereditarily symmetric because it consists of an atom and pure tags. The external choices and the original set $S$ need not belong to $N$; only the final coded structure is claimed to belong to $N$.
+\end{proof}
+
+\begin{lemma}[Local finiteness survives algebraic extension]\label{lem:lift}
+Let $\sigma$ be a field automorphism of $K$ such that each element of $K$ has a finite $\sigma$-orbit. If $\tau$ is an extension of $\sigma$ to an automorphism of an algebraic extension $\Omega/K$, then every element of $\Omega$ has a finite $\tau$-orbit.
+\end{lemma}
+\begin{proof}
+For $\alpha\in\Omega$, choose a nonzero $q\in K[T]$ with $q(\alpha)=0$. Some positive power $\sigma^r$ fixes all its finitely many coefficients. Consequently $\tau^r$ permutes the finite root set of $q$ in $\Omega$. Some further positive power fixes $\alpha$.
+\end{proof}
+
+\begin{theorem}\label{thm:cyclic}
+The cyclic model $N$ satisfies $\E\wedge\neg\U\wedge\neg\ACwfin$.
+\end{theorem}
+\begin{proof}
+\emph{Existence for every field.} Let a field $K$ belong to $N$, and choose a common support $H_n$ for its carrier, both operation graphs, and its constants. The actual ambient permutation $g^n$ induces a field automorphism $\sigma$ of $K$. Each member of $K$ has a finite orbit. In the ground model $M$, take an algebraic closure $\Omega$ of $K$ and extend $\sigma$ to an automorphism $\tau$ of $\Omega$, using the ordinary theorem with ambient choice. Lemma~\ref{lem:lift} shows that $\tau$ is locally finite.
+
+Let the generator $g^n$ of the \emph{infinite} cyclic group $H_n$ act on $\Omega$ as $\tau$. There is no finite-order relation to preserve. Apply Lemma~\ref{lem:realize}, fixing $K$, to obtain an equivariant copy $\Omega'=K\cup T$ and transport the field operations to it. Equivariance and the automorphism property make the carrier and operation graphs $H_n$-invariant. Every operand and every ordered tuple in these graphs is hereditarily symmetric, so the graphs themselves belong to $N$. The constants remain the original constants of $K$. The inclusion $K\hookrightarrow\Omega'$ is likewise an internal map.
+
+Algebraicity and algebraic closedness hold inside $N$. Any polynomial has finitely many coefficients in its carrier, whose finite sequence is an object of $N$. Its external root in $\Omega'$ is already an element of that carrier, hence an element of $N$. Polynomial witnesses to algebraicity over $K$ are also finite objects of $N$. Thus $\Omega'$ is an algebraic closure of $K$ in $N$. The construction applies to an arbitrary field of $N$ and proves the universal assertion $\E$; it does not supply an internal global function choosing closures.
+
+\emph{Failure of uniqueness.} The atom field $A$ belongs to $N$, since Frobenius preserves its operation graphs. Its prime-field embedding from the pure $\F_p$ belongs to $N$ because Frobenius fixes the prime-field atoms. Hence $A$ and the pure $C_0$ are algebraic closures of the same pure $\F_p$. If $h:A\to C_0$ were an isomorphism in $N$, its graph would have support $H_n$ for some $n\geq1$. Purity of the target gives
+\[
+h(g^n a)=g^n h(a)=h(a)\qquad(a\in A).
+\]
+Injectivity would force $g^n$ to fix all atoms, contrary to the existence of an atom of degree $n+1$. Thus even an abstract field isomorphism is impossible in $N$.
+
+\emph{Failure of countable finite choice.} Let $D_m$ be the set of atoms of exact degree $m$, for $m\geq1$. This is a nonempty finite set, and the entire sequence $(D_m)$ is fixed by $G$. A choice function with support $H_n$ would choose in every $D_m$ an atom fixed by $g^n$, requiring $m\mid n$ for every $m$. Taking $m=n+1$ gives a contradiction.
+\end{proof}
+
+\begin{proposition}[Further failures in the cyclic model]
+For odd $p$, this model also fails choice for arbitrary families of pairs and finite-field linear compactness over $\F_2$. In every characteristic it fails projection lifting even for a countable inverse system of finite cyclic $2$-groups.
+\end{proposition}
+\begin{proof}
+For odd $p$, consider the invariant family $\{\{a,-a\}:a\in A\setminus\{0\}\}$. A selector supported by $H_n$ is impossible: choose a nonzero root of $T^{p^n}+T$. Such a root exists because this polynomial has $p^n$ distinct roots. Frobenius to the $n$th power interchanges the two members of its pair.
+
+Finite-field linear compactness over $\F_2$ would select from any family of pairs. For each finite set $F$ of indices, the set $X_F$ of choices is canonically a torsor for $G_F=\F_2^F$. Homogenize it to the vector space $V_F=G_F\sqcup X_F$: the even part has its group addition, even--odd addition is the torsor action, and the sum of two odd points is their unique translation difference. A temporary choice of one point verifies the vector-space axioms, but does not enter the definition. Restrictions give a surjective inverse system of finite elementary abelian groups. Lifting $1$ at the empty stage gives compatible odd points and hence a selector. Proposition~\ref{prop:elementary-projection} identifies this lifting principle with linear compactness.
+
+For the cyclic-group assertion, externally take $C_n=\mathbb Z/2^{n+2}\mathbb Z$ with $g$ acting by multiplication by $5$, and use the reduction maps. All individual orbits are finite, so Lemma~\ref{lem:realize} codes the entire diagram internally with pure tags. The element $1\bmod4$ is fixed by $G$. A coherent lift supported by $H_m$ would have odd coordinates $x_n$ satisfying $(5^m-1)x_n=0\bmod2^{n+2}$. Thus the nonzero integer $5^m-1$ would be divisible by arbitrarily large powers of $2$, a contradiction.
+\end{proof}
+
+\begin{remark}[Why free cyclic matters]
+One cannot replace $H_n$ by a finite cyclic group in the proof: the extended automorphism could have a larger order, violating the group's defining relation. In the basic Fraenkel example, finite-order permutations yield exactly the obstruction of Lemma~\ref{lem:involution}. Here individual orbits are finite, while the supporting group remains infinite cyclic.
+\end{remark}
+
+\begin{proposition}[A warning against wholesale transfer]\label{prop:mc}
+The cyclic model satisfies the Axiom of Multiple Choice, while $\ACwfin$ fails there.
+\end{proposition}
+\begin{proof}
+Let a family of nonempty sets in $N$ have support $H_n$. Externally select a representative $X$ of each $H_n$-orbit of family members, and an element $x\in X$. The orbit of $x$ under the stabilizer of $X$ is a finite nonempty subset of $X$, invariant under that stabilizer. Transport these subsets around the family orbit. The resulting finite-subset selector is well-defined, $H_n$-invariant, and hereditarily symmetric, so belongs to $N$. The failure of $\ACwfin$ was proved in Theorem~\ref{thm:cyclic}.
+\end{proof}
+
+Multiple Choice implies full choice in pure $\ZF$; thus this model's entire theory cannot transfer together with its choice failure. This observation does not rule out a transfer preserving only $\E\wedge\neg\U$. It explains why a separate theorem is necessary.
+
+\section{A free-group model with dependent choice}\label{sec:freegroupdc}
+The next construction strengthens the atom-model separation by retaining dependent choice and refuting multiple choice. It is developed here without a claim of historical novelty. All choices in its construction are made in an outer model with choice.
+
+\begin{theorem}\label{thm:freegroupdc}
+There is a relative permutation-model construction satisfying
+\[
+\ZFA+\E+\mathsf{DC}+\neg\U+\neg\mathsf{MC}.
+\]
+It also fails choice for a particular well-orderable family of pairs. No transfer of this conjunction to pure $\ZF$ is asserted.
+\end{theorem}
+\begin{proof}
+Work in an outer model $M$ of $\ZFA+\AC$. Put $\mu=2^{\aleph_0}$, choose a pure cardinal $\kappa>\mu$, and let $G$ be the pure free group on generators $(b_i)_{i<\kappa}$. Use the normal filter
+\[
+\mathcal F=\{J\leq G:[G:J]\leq\mu\}.
+\]
+It excludes the trivial subgroup, is closed under finite-index refinements, and is countably complete: the diagonal map embeds $G/\bigcap_nJ_n$ into $\prod_nG/J_n$, whose cardinality is at most $\mu^{\aleph_0}=\mu$. Take genuine atoms carrying disjoint copies of $G/J$ for every $J\in\mathcal F$, with the left $G$-action. The supply is set-sized. Every atom stabilizer lies in $\mathcal F$, and each $J\in\mathcal F$ occurs as a stabilizer. Let $N$ be the hereditarily symmetric model.
+
+First, $N$ satisfies $\mathsf{DC}$. Any outer sequence $(x_n)_{n<\omega}$ of elements of $N$ has a support in $\mathcal F$: choose supports of its terms in $M$ and intersect them. The sequence is then hereditarily symmetric. For any internal serial relation on an internal nonempty set, an outer dependent-choice sequence has internal terms and therefore belongs to $N$.
+
+We next prove $\E$ for every internal field $K$. Choose $H\in\mathcal F$ supporting its carrier and operations. The actual $H$-action on $K$ is by field automorphisms. In $M$, choose a closure $\Omega/K$. The Nielsen--Schreier theorem in $M$ makes $H$ free. Choose a free basis and extend each basis automorphism of $K$ to an automorphism of $\Omega$. Freeness gives an $H$-action on $\Omega$ extending its actual action on $K$; there are no relations among the chosen generators to check.
+
+Every point stabilizer of this lifted action lies in $\mathcal F$. Indeed, for $a\in\Omega$ take a polynomial over $K$ annihilating $a$, and let $J_0\in\mathcal F$ be $H$ intersected with the stabilizers of its finitely many coefficients. The $J_0$-orbit of $a$ lies in the finite root set. Hence $J_0\cap\operatorname{Stab}_H(a)$ has finite index in $J_0$, and therefore index at most $\mu$ in $G$. The larger subgroup $\operatorname{Stab}_H(a)$ also lies in $\mathcal F$.
+
+An $H$-orbit with stabilizer $J$ is isomorphic to $H/J$, which occurs as an $H$-suborbit in the available atom component $G/J$. Use outer orbit representatives and distinct pure ordinal tags to code all orbits of $\Omega\setminus K$, keeping $K$ unchanged. Tags above the rank of $K$ prevent collisions, and distinct tags allow arbitrarily many copies of any orbit type. Every coded point is hereditarily symmetric. The transported carrier and operations have support $H$, so the resulting field $C$ and inclusion $K\hookrightarrow C$ belong to $N$. Algebraicity and algebraic closedness hold internally because their witnesses are finite polynomials and roots already in the internal carrier. This proves $\E$.
+
+For $\neg\U$, take the pure field $F=\Q(t_i:i<\kappa)$ and its pure multiquadratic extension $L=F(\sqrt{t_i}:i<\kappa)$. The independent square classes of the variables give independent sign changes $\sigma_i$ of $L$. Choose a pure closure $\Omega_0/F$ containing $L$, and extend $\sigma_i$ to an $F$-automorphism $\tau_i$ of $\Omega_0$. Sending $b_i$ to $\tau_i$ defines a $G$-action with image of cardinality at least $\kappa$, since its restriction to $L$ contains $\bigoplus_{i<\kappa}C_2$. Every point orbit is finite, because $F$ is fixed pointwise and each element is algebraic over $F$.
+
+Code this action as an atom field $C_1$ by the preceding orbit construction, keeping $F$ fixed. Let $C_0=\Omega_0$ be the original pure closure. Both are internal closures of the same included field $F$. If an internal isomorphism $h:C_1\to C_0$ had support $H\in\mathcal F$, then
+\[
+h(gc)=g h(c)=h(c)\qquad(g\in H,c\in C_1),
+\]
+because $C_0$ is pure. Injectivity forces $H$ to fix $C_1$ pointwise. Its index would then be at least the cardinality of the action image, which is at least $\kappa>\mu$, a contradiction. The same argument applied to the family of root pairs of $T^2-t_i$ proves failure of $\mathsf{AC}_{\kappa}^{2}$.
+
+Finally, $\mathsf{MC}$ fails explicitly. For each $i$, let $\phi_i:G\to\mathbb Z$ be exponent sum in $b_i$. The atom supply contains $O_i=G/\ker\phi_i$, a regular $\mathbb Z$-orbit, and the family $(O_i)_{i<\kappa}$ has support $G$. If an $H$-supported multiple-choice function selected a finite nonempty subset of every $O_i$, every translation in $\phi_i(H)$ would preserve that subset. Thus $\phi_i(H)=0$ for all $i$, so $H\subseteq[G,G]$. But the free abelian quotient $G/[G,G]$ has cardinality $\kappa>\mu$, again a contradiction.
+\end{proof}
+
+\begin{remark}
+This model removes the specific obstruction caused by an atom model satisfying $\mathsf{MC}$, since $\mathsf{MC}$ implies $\AC$ in pure $\ZF$. It does not solve the remaining transfer problem: a forcing construction still needs closures of arbitrary internal fields, with symmetric names for the carrier, operations, and specified base embedding.
+\end{remark}
+
+\section{A pure-ZF model of existence without uniqueness}\label{sec:pure-separation}
+\begin{theorem}\label{thm:pure-zf-separation}
+Relative to $\mathsf{ZFC}$, there is a pure symmetric model of
+\[
+\ZF+\mathsf{DC}+\E+\neg\U+\neg\ACfin+\neg\BPI.
+\]
+In particular $\E$ does not imply $\U$ over pure $\ZF$, even in the presence of dependent choice. The model contains two nonisomorphic algebraic closures over a specified well-orderable field.
+\end{theorem}
+The construction and its proof are developed here; no historical novelty claim is made. The argument takes place in an ambient universe with choice and constructs actual hereditarily symmetric witnesses. It does not identify the action on forcing names with an automorphism of an evaluated field, and it does not invoke a transfer theorem from $\ZFA$.
+
+\subsection{The symmetric system}
+In the ground universe choose infinite cardinals $\mu,\kappa$ with
+\[
+\mu^{\aleph_0}=\mu<\kappa,
+\]
+for example $\mu=2^{\aleph_0}$ and $\kappa=\mu^+$. Let $G$ be the free group on $(b_i:i<\kappa)$ and put
+\[
+\mathcal F=\{H\leq G:[G:H]\leq\mu\},\qquad
+A=\coprod_{J\in\mathcal F}G/J.
+\]
+Each summand of $A$ is tagged by its subgroup. The family $\mathcal F$ is a normal filter of subgroups. Indeed conjugation preserves index, supergroups have smaller index, and an intersection of countably many members has index at most $\mu^{\aleph_0}=\mu$.
+
+Let $P=\operatorname{Fn}(A\times\omega,2,{<}\omega)$, ordered by reverse inclusion, and let $G$ act by its left action on $A$ and trivially on the bit coordinate. Let $B=\operatorname{RO}(P)$. The forcing is ccc, by the finite-condition $\Delta$-system argument. The ordinary symmetric extension associated with $(P,G,\mathcal F)$ is denoted by $N$. Thus $N\models\ZF$. Each condition has stabilizer in $\mathcal F$: its finite coordinate support consists of points whose individual orbits have size at most $\mu$.
+
+Let $r_a$ be the canonical Cohen-real name at $a\in A$. These names are hereditarily symmetric (HS), and distinct coordinates give distinct reals with Boolean truth one. Every $b\in B$ depends on countably many coordinates: use a countable maximal antichain of conditions deciding $b$. The pointwise stabilizer of those coordinates fixes $b$, so
+\begin{equation}\label{eq:boolean-small-orbit}
+|G\cdot b|\leq\mu.
+\end{equation}
+The same bound holds for the orbit under any subgroup of $G$.
+
+\subsection{Boolean fields and the lifting lemma}
+All Boolean-valued arguments in this subsection are in the ground $\mathsf{ZFC}$ universe. A \emph{full $B$-valued field} is its set of full sections modulo equality with Boolean truth one, equipped with Boolean equality and field operations. Fullness means that every partition of one by Boolean values and every matching family of sections has a mixing. Since $B$ is ccc, only countable partitions are needed. Every such field is an ordinary field internally in the $B$-valued universe.
+
+An $H$-semilinear action consists of the given action of $H$ on $B$ and bijections on sections satisfying
+\[
+\lVert hs=ht\rVert=h\lVert s=t\rVert,
+\qquad h(s+t)=hs+ht,\qquad h(st)=(hs)(ht).
+\]
+Mixings transform covariantly as well. This is an external action on a Boolean-valued structure; no action on a fixed evaluated generic universe is asserted.
+
+For a complete subalgebra $B_0\subseteq B$, extension of Boolean scalars means taking all $B$-mixings of the $B_0$-sections and retaining their original atomic Boolean truth values. A finite tuple of new sections is, on a countable common partition, a tuple of old sections. Consequently field identities, inverses, the existence of polynomial roots, and algebraicity are preserved by this scalar extension, using a countable partition by the degree when necessary. These are assertions about the specified structures; unrestricted elementarity between the full forcing universes is not needed.
+
+\begin{lemma}[Small semilinear closure]\label{lem:boolean-small-closure}
+Suppose $H$ is free, $B$ is complete and ccc, $\mu^{\aleph_0}=\mu$, and every Boolean value has $H$-orbit of size at most $\mu$. Let $K$ be a full $B$-valued field with an $H$-semilinear action, such that every section has $H$-orbit of size at most $\mu$. Then $K$ has a full $B$-valued algebraic closure with an extending $H$-semilinear action and the same bound on every section orbit.
+\end{lemma}
+\begin{proof}
+We give the construction, including the size and compatibility requirements.
+
+\emph{Small complete Boolean algebras.} An invariant set of at most $\mu$ Boolean values lies in an invariant complete subalgebra of size at most $\mu$. Close under complements and countable joins in one continuous recursion of length $\omega_1$. Cardinality stays at most $\mu$, since $\mu^{\aleph_0}=\mu$ and $\omega_1\leq\mu$. Every countable family in the final union occurs before some earlier stage, so that union is countably complete. In a complete ccc Boolean algebra, every join is the join of a countable subfamily: take a maximal disjoint refinement below that join. Hence the subalgebra is complete, with the same joins as $B$. All the closure operations preserve invariance.
+
+\emph{Perfectification.} Split $B$ by the countable partition of characteristic values; these values are $H$-fixed. Work separately on each nonzero part. In positive characteristic, adjoin the unique iterated $p$th roots, and take the full mixing completion. The uniqueness of these roots extends the action and preserves the orbit bound. This is an algebraic extension. Thus at the outset we may make $K$ perfect. Every later algebraic extension remains perfect. Combining the characteristic pieces at the end preserves the orbit bound by $\mu^{\aleph_0}=\mu$.
+
+\emph{A small relatively closed subfield after scalar extension.} Let $L$ be a current perfect full field, with the required action and orbit bounds, and let a finite tuple of its sections be specified. Construct sets of sections and Boolean values through a continuous $\omega_1$ recursion. Start with the $H$-orbits of that tuple, zero and one. At successors include the following data from the previous stage:
+\begin{enumerate}
+\item field operations, conditional inverses (zero at zero), perfect roots, and Boolean equality values;
+\item complements and countable Boolean joins, and all countable mixings of the sections along partitions available in the Boolean set;
+\item for every monic polynomial of positive fixed standard degree $d$ over the available sections, a finite list of all its roots already in $L$, together with their Boolean domains of existence;
+\item all $H$-translates of the newly included data.
+\end{enumerate}
+For item 3, internally there are at most $d$ roots. The ambient Boolean-valued universe satisfies $\mathsf{ZFC}$, so choose at most $d$ full sections listing them with Boolean domains, filling unused slots with zero. Every chosen section is in $L$ and therefore already has small orbit. There are at most $\mu$ polynomials at a stage. Thus every stage, and the final union, has at most $\mu$ Boolean values and sections. All these choices are made in the outer universe.
+
+The final Boolean algebra $B_0$ is complete by the preceding argument. The final section set is closed under its countable mixings, field operations and perfect roots; all equality values lie in $B_0$. It is therefore a full perfect $B_0$-valued field $A_0$ with at most $\mu$ sections. Its $B$-scalar extension $A$ embeds into $L$ by the original Boolean equality.
+
+We claim that $A$ is internally relatively algebraically closed in $L$. Given a section of $L$ algebraic over $A$, partition according to the degree of a witnessing polynomial and normalize its leading coefficient. Refine the finitely many coefficient mixings on each piece. This gives a countable partition on each piece of which the witness is a monic polynomial of fixed standard degree over $A_0$. Its finite root list in $L$ was included in the construction. On a further finite refinement the section is one of those listed roots. It is consequently a $B$-mixing of sections from $A_0$, hence is in $A$. Relative algebraic closure is asserted for $A$ after scalar extension, not for the small external section ring $A_0$; the latter would already fail for arbitrary Boolean mixings of the roots of $T^2-T$.
+
+\emph{A small equivariant closure of $A_0$.} Choose an algebraic closure $D_0/A_0$ in the outer $B_0$-valued universe. Internally $A_0$ is an image of $\check\mu$, so its closure can be chosen of cardinality at most $\check\mu$. Every full section of such a closure is represented by a countable $B_0$-mixing of elements of $\check\mu$. Since $|B_0|\leq\mu$, $D_0$ has at most $\mu$ sections externally.
+
+Each semilinear automorphism $\sigma$ of $A_0$, covering $\beta\in\Aut(B_0)$, extends to $D_0$. To see this precisely, twist the Boolean truth values of $D_0$ by $\beta^{-1}$. The map $a\mapsto\sigma(a)$ is then a $B_0$-linear embedding of $A_0$ into that twisted closure. The ordinary uniqueness theorem in the outer Boolean-valued $\mathsf{ZFC}$ universe provides an isomorphism from $D_0$ to the twisted closure extending this embedding. On the original sections it is the desired semilinear extension. Choose one extension for every member of a free basis of $H$. Freeness, using inverses for inverse generators, makes these choices an action of all of $H$. Every section orbit is at most $\mu$, since the entire section set of $D_0$ has that size.
+
+\emph{Compatible adjoining.} Extend scalars to obtain an algebraic closure $D/A$ over $B$. All its sections are countable $B$-mixings of $D_0$-sections, so they have small orbits. Internally $A$ is perfect and relatively algebraically closed in $L$. Therefore
+\[
+L\otimes_A D
+\]
+is a domain. Here is the algebraic reason: an irreducible polynomial over $A$ cannot acquire a proper monic factor over $L$, since the coefficients of such a factor are algebraic over $A$ and would lie in $A$. Every finite extension of the perfect field $A$ is separable and simple. Its tensor product with $L$ is therefore a field; the union over finite subextensions of $D$ is a domain. This reasoning is applied inside the Boolean-valued universe.
+
+Take the fraction field of this tensor product. The actions on $L$ and $D$ agree on $A$, so they induce a canonical semilinear action on the tensor product and its fraction field. The new field is algebraic over $L$. Every full section is locally a finite rational expression in sections from $L$ and $D$, and hence is a countable mixing of such expressions. Finite expressions and countable mixings preserve the orbit bound. Every polynomial whose coefficients were in the specified finite tuple now splits. This step uses the relative-closure preparation: it does not amalgamate arbitrary preselected algebraic extensions with unrelated actions.
+
+\emph{Iteration.} Well-order externally all monic polynomials of positive fixed standard finite degree over the original $K$. At each successor apply the preceding construction to the next coefficient tuple. The small subfield is $H$-invariant, even when that particular tuple is not, so the action on every earlier field is retained. At limits take the direct limit and its full mixing completion. Each new section is a countable mixing of earlier sections and still has orbit at most $\mu$. Algebraicity over $K$ remains true internally: the local polynomial witnesses may have different, even unbounded, standard degrees on different Boolean pieces. External integrality in a ring of sections is neither asserted nor needed.
+
+The recursion is set-sized. Choose an outer cardinal $\theta\geq|B|,|H|,\mu,|K|$ with $\theta^{\aleph_0}=\theta$. There are at most $\theta$ initial polynomials. Each successor and each fullified limit has a presentation on at most $\theta$ section labels. All operations, truth values, actions and embeddings can be coded in one set of sufficiently high rank using those labels. Outer choice thus performs an ordinary set-length recursion; no class choice is involved.
+
+The final field is algebraic over $K$ and splits every polynomial over $K$. Polynomials with internally varying degree are covered by the countable degree partition. The splitting criterion makes it algebraically closed. This proves the lemma.
+\end{proof}
+
+\subsection{Application to every field in the symmetric model}
+Let a field in $N$ be given by an HS name. Choose its support $H_0\in\mathcal F$. The field axioms for this existing set and its operations are bounded, hence remain true in the full generic extension. Some condition $p$ in the generic filter therefore forces them in the ordinary forcing sense. Replace $H_0$ by its intersection with the stabilizer of $p$. The resulting $H\in\mathcal F$ fixes $p$, and acts on the complete interval algebra $B\mathbin{\upharpoonright}p$. By the Nielsen--Schreier theorem, $H$ is free in the outer universe.
+
+The given field determines a full Boolean-valued field $K$. Every full section has $H$-orbit at most $\mu$. Indeed it is, with Boolean truth one, a mixing of member subnames of the carrier name along a maximal antichain. The antichain is countable. Each such subname is HS and has orbit at most $\mu$; its membership domain can be zero-filled using the canonical zero section. The Boolean pieces also have small orbit by~\eqref{eq:boolean-small-orbit}. Their countable intersection of stabilizers has index at most $\mu$. The full-section collection is a set: use the countable mixtures of the fixed set of member subnames and then quotient by equality one. Literal invariant choices of representatives are unnecessary.
+
+Apply Lemma~\ref{lem:boolean-small-closure} over $B\mathbin{\upharpoonright}p$. It remains to realize the resulting abstract Boolean closure by actual HS names; an abstract action alone would not suffice.
+
+Let $S$ be its set of full sections. For every $H$-orbit choose an outer representative $s$ and a distinct pure ordinal tag. Its stabilizer $J\leq H$ satisfies
+\[
+[G:J]=[G:H][H:J]\leq\mu.
+\]
+The coordinate set $A$ therefore contains the tagged orbit $G/J$. Its suborbit $H/J$ gives names
+\[
+c(hs)=(\text{tag},r_{hJ})
+\]
+which are pairwise distinct with Boolean truth one and literally $H$-equivariant. Each is HS. Different orbit tags separate any reused coordinate labels.
+
+For each $s\in S$ define the Boolean name
+\[
+E_s=\{(c(t),\lVert s=t\rVert):t\in S\}.
+\]
+Reflexivity, transitivity and symmetry of Boolean equality give
+\begin{equation}\label{eq:closure-code-equality}
+\lVert E_s=E_t\rVert=\lVert s=t\rVert.
+\end{equation}
+For the reverse inequality, $c(s)$ belongs to $E_s$ with truth one, so equality forces it into $E_t$; distinctness of the labels makes that membership value exactly $\lVert s=t\rVert$. The other inequality follows from transitivity. These statements are relative to the current Boolean unit $p$.
+
+Literal equivariance gives $hE_s=E_{hs}$. Thus the stabilizer of $s$, a member of $\mathcal F$, supports $E_s$, and all its constituent names are HS. The name containing every $E_s$, with the Boolean graphs of the field operations, is $H$-supported and HS. Equation~\eqref{eq:closure-code-equality} ensures the correct quotient equality and hence the required field assertions.
+
+For completeness, the embedding of the original field is an HS name as well. Write its carrier name as pairs $(t,b)$. Let $s(t,b)$ be the full section equal to $t$ on $b$ and to the zero section elsewhere. The zero section is canonical, and therefore
+\[
+hs(t,b)=s(ht,hb).
+\]
+If $j:K\hookrightarrow S$ is the abstract embedding, use the graph with pairs $(t,E_{j(s(t,b))})$ on Boolean domain $b$, for every pair in the carrier name. This graph is literally $H$-invariant. The membership join gives its full domain, and equality on overlapping pieces together with~\eqref{eq:closure-code-equality} makes it single-valued and injective. The operation identities make it a field embedding. All its subnames are HS. Boolean names are converted equivariantly to $P$-names by using all conditions below each Boolean coefficient, without selecting antichains. Outside $p$ use empty or default data.
+
+The evaluation in the chosen generic extension is consequently an algebraic closure of the original field, with its base embedding, belonging to $N$. The field was arbitrary, so $N\models\E$.
+
+\subsection{A family of pairs without a selector}\label{sec:boolean-pairs}
+Continue with the universal-orbit Cohen symmetric system: $G$ is free on $(b_i:i<\kappa)$, $\kappa>\mu$, the normal filter consists of the subgroups of index at most $\mu$, and the Cohen coordinate set contains a tagged copy of $G/J$ for every such subgroup $J$.
+
+Let $\phi_i:G\to\mathbb Z$ be exponent sum at $b_i$ and let $J_i=\ker\phi_i$. The $G/J_i$ coordinates can be written $a(i,n)$, $n\in\mathbb Z$, with
+\[
+g a(i,n)=a(i,n+\phi_i(g)).
+\]
+Write $r_{i,n}$ for their Cohen reals and $x_{i,n}=r_{i,n}(0)$. For integers $n,m$, let
+\[
+\eta_i(n,m)=\sum_{\min(n,m)\leq k<\max(n,m)}x_{i,k}\pmod2.
+\]
+On the distinct labels $c_{i,n,e}=(e,r_{i,n})$, $e\in\F_2$, use the equivalence relation
+\[
+c_{i,n,e}\sim c_{i,m,f}\quad\Longleftrightarrow\quad e+f=\eta_i(n,m).
+\]
+Define the Boolean name $E_{i,n,e}$ for the class of $c_{i,n,e}$ by giving $c_{i,m,f}$ membership coefficient $\lVert e+f=\eta_i(n,m)\rVert$. Then
+\begin{align}
+\lVert E_{i,n,e}=E_{i,m,f}\rVert
+ &=\lVert e+f=\eta_i(n,m)\rVert,\label{eq:class-equality}\\
+gE_{i,n,e}&=E_{i,n+\phi_i(g),e}.\label{eq:class-action}
+\end{align}
+The first identity follows by testing membership of $c_{i,n,e}$ in one direction and using the parity cocycle identity in the other. Distinct labels have Boolean equality zero. The second identity is literal equivariance of the names. Thus every class name is hereditarily symmetric, supported by $J_i$.
+
+Let $X_i$ contain all the names $E_{i,n,e}$ with membership coefficient one. This is literally $G$-fixed, and its evaluation has precisely two elements. Hence $(X_i:i<\kappa)$ is a hereditarily symmetric, well-ordered family of pairs. Its members are infinite sets of real labels; ordering the real labels does not order these classes in a way that selects a class.
+
+\begin{lemma}[Finite-condition recurrence]\label{lem:cohen-recurrence}
+If $h$ permutes Cohen coordinates and $p$ is a finite condition, then $p$ and $h^np$ are compatible for arbitrarily large positive integers $n$.
+\end{lemma}
+\begin{proof}
+For the finitely many finite $h$-orbits meeting the coordinate support of $p$, take $n$ divisible by their lengths. In each infinite orbit, the finitely many involved coordinates have finitely many pairwise integer displacements. For sufficiently large such $n$, the infinite-orbit supports of $p$ and $h^np$ are disjoint, while their finite-orbit coordinates are fixed. Their assignments therefore agree on the intersection.
+\end{proof}
+
+\begin{proposition}\label{prop:boolean-no-pairs}
+The symmetric model has no choice function for $(X_i:i<\kappa)$. In particular it satisfies $\neg\mathsf{AC}_{\kappa}^{2}$.
+\end{proposition}
+\begin{proof}
+Suppose an HS name $f$ evaluates to a selector, and choose a subgroup $H$ of index at most $\mu$ fixing $f$. Let $a\ne0$ be the ordinary Boolean truth value that $f$ selects one member of every $X_i$. This assertion about the existing sets is bounded and absolute to the full forcing extension. The family is $G$-fixed, so $a$ is $H$-fixed.
+
+Fix $i$ and put $d_i=\lVert (i,E_{i,0,0})\in f\rVert$. For $h\in H$, set $m=\phi_i(h)$. Equations~\eqref{eq:class-equality}--\eqref{eq:class-action} give, on the domain $a$,
+\[
+d_i\mathbin{\triangle}h^n(d_i)=\eta_i(0,nm) \qquad(n>0),
+\]
+where $\triangle$ is Boolean symmetric difference and a bit on the right denotes its truth value of being one.
+
+If $m\ne0$, choose a finite condition $p\leq a$ deciding $d_i$, say as $\epsilon\in\{0,1\}$. By Lemma~\ref{lem:cohen-recurrence}, choose $n$ so large that $p$ and $h^np$ are compatible and $|nm|>2|\operatorname{dom}(p)|$. Their union forces both $d_i$ and $h^n(d_i)$ to equal $\epsilon$. Yet at least one first-bit coordinate in the segment defining $\eta_i(0,nm)$ remains free. Extend the union to decide that finite segment with odd parity. This contradicts the displayed identity. All auxiliary universal-orbit coordinates are allowed in $p$; the recurrence lemma already handles them.
+
+Consequently $\phi_i(h)=0$ for every $i<\kappa$ and $h\in H$, so
+\[
+H\leq\bigcap_{i<\kappa}\ker\phi_i=[G,G].
+\]
+The quotient $G/[G,G]$ is free abelian of cardinality $\kappa$. Hence $[G:H]\geq\kappa>\mu$, a contradiction.
+\end{proof}
+
+Together with existence of algebraic closures in this same symmetric model, Proposition~\ref{prop:boolean-no-pairs} and the proved implication $\E\wedge\U\Rightarrow\ACfin$ give $\E\wedge\neg\U$ in pure $\ZF$. This conclusion uses the explicit Boolean construction; it does not use a transfer from a model with atoms.
+
+\subsection{Dependent choice and explicit nonisomorphic closures}
+We verify dependent choice directly. Let $R$ be a serial relation on a nonempty set $X$ in $N$, represented by HS names. In the full forcing extension, where choice holds, there is an $\omega$-sequence following $R$. Choose a name for it and a condition $p$ forcing that it is such a sequence. For each $n$, choose in the ground universe a maximal antichain below $p$ deciding its $n$th entry equal to a member subname of the fixed carrier name $X$. The ordinary membership join makes these decisions dense; the antichains are countable by ccc. Each selected member subname is HS.
+
+Only countably many selected names and conditions occur. Intersect their supports and condition stabilizers, also fixing $p$; the result belongs to $\mathcal F$. The graph name formed from these antichain decisions is therefore HS. Its evaluation below $p$ is the required following sequence and belongs to $N$. All antichains and support choices used in this proof are ground countable sets; no completeness of the filter for newly added sequences is presumed. Thus $N\models\mathsf{DC}$. This is also the ccc case of Karagila's preservation lemma~\cite[Lemma~3.3]{KaragilaDC}; every condition here has stabilizer in the support filter.
+
+Here is a specified base and a pair of nonisomorphic closures witnessing $\neg\U$. Use the family of pairs $(X_i:i<\kappa)$ constructed above. Take the pure well-orderable field
+\[
+F=\Q(s_i,p_i:i<\kappa)
+\]
+on algebraically independent variables. In $N$ form
+\[
+L=\Q(x_{i,a}:i<\kappa,\ a\in X_i),\qquad
+L'=\Q(y_{i,0},y_{i,1}:i<\kappa).
+\]
+Embed $F$ into these fields by the respective elementary symmetric expressions in each pair of variables. For example, in $L$ send $s_i$ to $\sum_{a\in X_i}x_{i,a}$ and $p_i$ to $\prod_{a\in X_i}x_{i,a}$; these expressions require no ordering of $X_i$. Algebraic independence of blockwise symmetric polynomials makes both maps injective. Every displayed variable satisfies $T^2-s_iT+p_i$, so both extensions are algebraic.
+
+By $\E$ in $N$, choose an algebraic closure $\Omega$ of $L$. Choose a well-orderable closure $\Omega'$ of the pure well-orderable field $L'$, using Theorem~\ref{thm:wo}; it may also be taken from the ground universe. With the composite base embeddings, both are algebraic closures of $F$.
+
+An $F$-isomorphism $u:\Omega\to\Omega'$ would make $u^{-1}(y_{i,0})$ a root of $T^2-s_iT+p_i$. Its roots in $\Omega$ are precisely the two distinct elements $x_{i,a}$, $a\in X_i$, since the polynomial already splits in $L$. The unique $a$ for which $u(x_{i,a})=y_{i,0}$ would select one member of every $X_i$. Proposition~\ref{prop:boolean-no-pairs} excludes this. Hence these supplied closures are not $F$-isomorphic.
+
+This completes Theorem~\ref{thm:pure-zf-separation}. It settles the implication $\E\Rightarrow\U$ negatively in pure $\ZF$. The converse $\U\Rightarrow\E$ is not decided by this construction; the earlier reverse separation remains a result over $\ZFA$.
+
+\section{A separate exact correspondence with Multiple Choice}\label{sec:mcfield}
+Write $\mathsf{MC}$ for the assertion that every indexed family of nonempty sets has a function selecting a nonempty finite subset of each member.
+\begin{theorem}\label{thm:mcfield}
+Over $\ZFA$, the following statements are equivalent:
+\begin{enumerate}
+\item $\mathsf{MC}$.
+\item Every set is a union of a well-ordered family of finite sets.
+\item Every field is algebraic over a well-orderable subfield.
+\end{enumerate}
+In pure $\ZF$ these are equivalent to $\AC$. This is a correspondence for statement~(3), not a claimed equivalence between $\E$ and $\mathsf{MC}$.
+\end{theorem}
+\begin{proof}
+From (1), obtain a function $c$ selecting a nonempty finite subset of every nonempty subset of a fixed set $X$. Recursively remove $c$ of the remaining set, taking intersections of remainders at limits. This process stops before the Hartogs ordinal of $\mathcal P(X)$: otherwise its distinct nonempty blocks inject that ordinal into $\mathcal P(X)$. The blocks give (2). Conversely, apply (2) to the tagged union of a family $(X_i)$. For each $i$, take its intersection with the first finite cover block meeting its fiber. Projecting that intersection to $X_i$ gives a nonempty finite subset and proves (1).
+
+For (2)$\Rightarrow$(3), cover a field $K$ by finite sets $B_\alpha$ indexed by an ordinal. Let $F$ be generated by the prime field and the coefficients of all polynomials $\prod_{b\in B_\alpha}(T-b)$. Their coefficients have a well-ordered indexing $(\alpha,j)$, so finite rational expressions and least representatives well-order $F$. Each member of $K$ lies in one block and is a root of its polynomial over $F$. Thus $K/F$ is algebraic.
+
+For (3)$\Rightarrow$(2), set $K=\Q(t_x:x\in X)$, and take a well-orderable $F\subseteq K$ with $K/F$ algebraic. Every rational function $b$ has a unique least finite variable support $S(b)$. Indeed, for finite $S,T\subseteq X$,
+\[
+\Q(t_x:x\in S)\cap\Q(t_x:x\in T)
+=\Q(t_x:x\in S\cap T).
+\]
+To verify this, work over the field of the common variables and compare coefficients in $p(U)s(V)=q(U)r(V)$, where $U,V$ are the disjoint remaining variable sets. A nonzero coefficient of $q$ shows that $r/s$ is in the common field. Intersecting the finitely many supporting subsets of one finite support now gives the unique least support. The sets $S(b)$ for $b\in F$ cover $X$: if $x$ is omitted from all of them, then $t_x$ is transcendental over $\Q(t_y:y\ne x)$ and hence over $F$, a contradiction. This is a well-orderable family of finite sets, giving (2).
+
+For completeness, the pure-$\ZF$ last assertion uses the classical implication $\mathsf{MC}\Rightarrow\AC$~\cite[Theorem~9.1]{Jech}. Here is its rank argument. Multiple choice makes every linearly ordered set well-orderable: from a multiple-choice function on its nonempty subsets take the least element of each selected finite subset. Hence the power set of a well-orderable set is well-orderable by its lexicographic order. Fix a limit ordinal $\alpha$, let $\kappa$ be the Hartogs ordinal of $V_\alpha$, and fix one well-order of $\mathcal P(\kappa)$. Recursively well-order $V_\beta$ for $\beta<\alpha$. At a successor, its previous order identifies $V_\gamma$ with an ordinal below $\kappa$, and the fixed order on $\mathcal P(\kappa)$ orders $\mathcal P(V_\gamma)$. At a limit use least rank and the earlier orders. Thus $V_\alpha$ is well-orderable. Every set is contained in such a $V_\alpha$, proving $\AC$.
+\end{proof}
+
+In the cyclic model, if $H_n$ supports a field $K$, its fixed subfield $K^{H_n}$ is well-orderable internally: an ambient well-order of this pointwise fixed set is supported by $H_n$. Each element of $K$ has a finite orbit whose orbit polynomial has coefficients in $K^{H_n}$. This verifies statement~(3) in that model, and explains exactly why transferring this additional field description to pure $\ZF$ would also transfer full choice.
+
+\section{Literature status and the transfer boundary}\label{sec:status}
+Howard--Rubin's catalogue numbers the statements $\BPI$, $\E$, and $\U$ as Forms~14, 69, and~233. Its historical matrix records $\BPI\Rightarrow\E,\U$, and records code~0 (no implication status recorded) for $\E\Rightarrow\U$ and $\E\Rightarrow\BPI$. Crucially, its codes for $\U\not\Rightarrow\E$ and $\U\not\Rightarrow\BPI$ are the codes for the theory permitting atoms. Codes for transferred pure-$\ZF$ nonimplications are different. These entries do not by themselves certify either historical or current openness over pure $\ZF$.
+
+The newer primary results of Banerjee and Banerjee--Gopaulsingh~\cite{Banerjee,BG} explicitly retain the $\ZFA$ qualification for their uniqueness nonimplications. L\"auchli's construction with Pincus's transfer yields a $\ZF$ model with a field lacking a closure. A different construction of L\"auchli, transferred by Jech--Sochor and discussed by Hodges~\cite{Hodges}, yields a $\ZF$ algebraic closure of $\Q$ with no real-closed subfield, refuting uniqueness over $\Q$. These are separate consistency statements. They do not establish $\U\wedge\neg\E$ or $\E\wedge\neg\U$ in the same pure-$\ZF$ model.
+
+Jech--Sochor preservation of a bounded atom structure is insufficient by itself to preserve a universal statement about \emph{all} fields in a target universe. Any claimed transfer of a conjunction here must specify the applicable transfer theorem and verify its hypotheses. No such transfer is claimed. Section~\ref{sec:pure-separation} instead proves $\E\wedge\neg\U$ by a direct pure symmetric construction. The opposite conjunction $\U\wedge\neg\E$ remains unresolved here in pure $\ZF$.
+
+\section{What the unsuccessful routes establish}
+\begin{proposition}[No functorial algebraic closure]\label{prop:nofunctor}
+Even under $\AC$, there is no functor assigning algebraic closures to all fields and field embeddings with natural embeddings of the original fields.
+\end{proposition}
+\begin{proof}
+Let $K=\F_2(t)$ and let $\sigma(t)=t+1$. This is an automorphism of order two. A functor would extend it to an automorphism $\tau$ of the assigned closure with $\tau^2=\mathrm{id}$. Lemma~\ref{lem:involution} forces $\tau=\mathrm{id}$, whereas naturality requires $\tau(t)=t+1$. This is a contradiction. In characteristic zero one can instead use $\Q(i,t)$ and $\sigma(t)=-t$, fixing $i$.
+\end{proof}
+
+This obstruction concerns a rule for all embeddings; it does not rule out a compatible choice for a particular diagram. It explains why uniqueness up to isomorphism cannot simply be converted into functorial transition maps.
+
+\begin{enumerate}
+\item Finite splitting-field isomorphisms exist in $\ZF$, but their compatibility over all indices is the missing global assertion. Choosing one at each index does not impose compatibility.
+\item The ordinary Zorn argument proves the result from choice; it does not derive either requested implication from its stated antecedent.
+\item A field which has two nonisomorphic closures refutes $\U$. To refute $\E\Rightarrow\U$, the same model must also satisfy existence for every field.
+\item A field without a closure refutes $\E$. To refute $\U\Rightarrow\E$, the same model must satisfy uniqueness for every pair of closures that does exist.
+\item A maximal ideal of an arbitrary commutative ring invokes a stronger principle than a prime ideal. The proof uses the latter explicitly.
+\item A prime ideal in a labelled splitting algebra cannot be recovered from an arbitrary supplied closure by silently choosing labels for every finite root set.
+\item Replacing atoms by pure sets preserves only the properties justified by the relevant transfer theorem. Separate transfer proofs cannot be conjoined without checking simultaneous preservation.
+\item Finite computations can verify examples and identities, but cannot verify a universal set-theoretic implication or the axioms of an infinite permutation model. The arguments are mathematical; computational checks are not certificates of the set-theoretic assertions.
+\end{enumerate}
+
+\paragraph{Acknowledgment.} Preparation and internal checking used AI assistance. These preliminary manuscripts have not been externally peer reviewed or formally verified. Attribution to earlier work is stated with the corresponding results.
+
+\begin{thebibliography}{99}
+\bibitem{Banaschewski} B. Banaschewski, \emph{Algebraic closure without choice}, Z. Math. Logik Grundlagen Math. 38 (1992), 383--385. \href{https://doi.org/10.1002/malq.19920380136}{doi:10.1002/malq.19920380136}.
+\bibitem{Jech} T. Jech, \emph{The Axiom of Choice}, North-Holland, 1973, especially Theorem~10.13. \href{https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf}{Accessible scanned edition}.
+\bibitem{HR} P. Howard and J. E. Rubin, \emph{Consequences of the Axiom of Choice}, Mathematical Surveys and Monographs 59, AMS, 1998; introduction, Forms~14, 69, 233, and Note~41. \href{https://doi.org/10.1090/surv/059}{doi:10.1090/surv/059}. Historical author-supplied matrix distributed in \href{https://github.com/ioannad/jeffrey}{Choiceless Grapher}.
+\bibitem{Hodges} W. Hodges, \emph{L\"auchli's algebraic closure of $\Q$}, Math. Proc. Cambridge Philos. Soc. 79 (1976), 289--297. \href{https://doi.org/10.1017/S0305004100052282}{doi:10.1017/S0305004100052282}.
+\bibitem{Pincus} D. Pincus, \emph{Zermelo--Fraenkel consistency results by Fraenkel--Mostowski methods}, J. Symbolic Logic 37 (1972), 721--743. \href{https://doi.org/10.2307/2272420}{doi:10.2307/2272420}.
+\bibitem{Banerjee} A. Banerjee, \emph{Partition models, permutations of infinite sets without fixed points, and weak forms of AC}, accepted revision, 2023, especially Theorem~3.3 and the introduction. \href{https://arxiv.org/abs/2109.05914}{arXiv:2109.05914}.
+\bibitem{BG} A. Banerjee and A. Gopaulsingh, \emph{On the Erd\H{o}s--Dushnik--Miller theorem without AC}, Bull. Polish Acad. Sci. Math. 71 (2023), section on uniqueness. \href{https://doi.org/10.4064/ba221221-6-6}{doi:10.4064/ba221221-6-6}.
+\bibitem{HTlinear} H. Herrlich and E. Tachtsis, \emph{On the solvability of systems of linear equations over the ring $\mathbb Z$ of integers}, Comment. Math. Univ. Carol. 58 (2017), 241--260, especially 243--244. \href{https://doi.org/10.14712/1213-7243.2015.207}{doi:10.14712/1213-7243.2015.207}.
+\bibitem{BrunnerRubin} N. Brunner and J. E. Rubin, \emph{Permutation models and topological groups}, Rend. Sem. Mat. Univ. Padova 76 (1986), 149--161. \href{https://www.numdam.org/item/RSMUP_1986__76__149_0/}{Primary archive}.
+\bibitem{Karagila} A. Karagila, \emph{Iterated failures of choice}, version 3, 2021, especially sections 5.2 and 6. \href{https://arxiv.org/abs/1911.09285}{arXiv:1911.09285}.
+\bibitem{LR} H. Lombardi and M.-F. Roy, \emph{Th\'eorie constructive \'el\'ementaire des corps ordonn\'es}, Publications math\'ematiques de Besan\c{c}on, Alg\`ebre et th\'eorie des nombres (1991), article 3, 1--23, Theorem 12. \href{https://doi.org/10.5802/pmb.a-64}{doi:10.5802/pmb.a-64}.
+\bibitem{GLR} S. Geschke, R. Lubarsky, and M. Rahn, \emph{Choice and the Hat Game}, preprint, 13 March 2015, Theorem 10. \href{https://www.math.fau.edu/people/faculty/lubarsky/choice-and-the-hat-game.pdf}{Author-hosted text}.
+\bibitem{Serafin} L. Serafin, \emph{Ultrafilters, Transversals, and the Hat Game}, version 2 (2023), Theorem 8. \href{https://arxiv.org/abs/2311.07886}{arXiv:2311.07886}.
+\bibitem{KTV} T. K\'atay, L. T\'oth, and Z. Vidny\'anszky, \emph{The CSP Dichotomy, the Axiom of Choice, and Cyclic Polymorphisms}, version 2, 29 October 2024, Theorem 1.2. \href{https://arxiv.org/abs/2310.00514}{arXiv:2310.00514}.
+\bibitem{AMM} E. Aichinger, P. Mayr, and R. McKenzie, \emph{On the number of finite algebraic structures}, J. Eur. Math. Soc. 16 (2014), 1673--1686. \href{https://doi.org/10.4171/JEMS/472}{doi:10.4171/JEMS/472}.
+\bibitem{KS} A. Karagila and J. Schilhan, \emph{Intermediate models and Kinna--Wagner principles}, Proc. Amer. Math. Soc. 154 (2026), 393--403, Definitions 2.1 and 3.1. \href{https://doi.org/10.1090/proc/17425}{doi:10.1090/proc/17425}.
+\bibitem{KaragilaDC} A. Karagila, \emph{Preserving Dependent Choice}, Bull. Polish Acad. Sci. Math. 67 (2019), 19--29, Lemma 3.3. \href{https://doi.org/10.4064/ba8169-12-2018}{doi:10.4064/ba8169-12-2018}. \href{https://ueaeprints.uea.ac.uk/69607/1/Accepted_Manuscript.pdf}{Accepted manuscript}.
+\end{thebibliography}
+\end{document}

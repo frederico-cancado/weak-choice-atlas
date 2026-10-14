@@ -1,0 +1,42 @@
+{
+  "third_party_articles": [
+    {
+      "file": "banerjee-2023-partition-models.pdf",
+      "title": "Partition models, Permutations of infinite sets without fixed points, and weak forms of AC",
+      "authors": [
+        "Amitayu Banerjee"
+      ],
+      "version": "arXiv:2109.05914v4",
+      "version_date": "2023-06-15",
+      "record_url": "https://arxiv.org/abs/2109.05914v4",
+      "source_url": "https://arxiv.org/pdf/2109.05914v4",
+      "pages": 14,
+      "bytes": 325003,
+      "sha256": "fb74ee0363d750c705035e421a533d25687503cdebbdfe09632312ad1fbbec42",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None. Original PDF preserved unchanged.",
+      "retrieved_date": "2026-10-14"
+    },
+    {
+      "file": "katay-toth-vidnyanszky-2024-csp-dichotomy.pdf",
+      "title": "The CSP Dichotomy, the Axiom of Choice, and Cyclic Polymorphisms",
+      "authors": [
+        "Tamás Kátay",
+        "László Márton Tóth",
+        "Zoltán Vidnyánszky"
+      ],
+      "version": "arXiv:2310.00514v2",
+      "version_date": "2024-10-29",
+      "record_url": "https://arxiv.org/abs/2310.00514v2",
+      "source_url": "https://arxiv.org/pdf/2310.00514v2",
+      "pages": 24,
+      "bytes": 285027,
+      "sha256": "610698d69cf983d0b7294b67def263ff2f73c657b71843cfdea01e41faeb769f",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "None. Original PDF preserved unchanged.",
+      "retrieved_date": "2026-10-14"
+    }
+  ]
+}

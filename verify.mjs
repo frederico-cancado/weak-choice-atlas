@@ -244,3 +244,59 @@ assert.equal(grouped.filter(g=>g.members.some(e=>e.id==='wo')).length,1);
 assert.equal(equivalenceClasses(data).byId.get('ultrafilter_lemma').id,'bpi');
 assert.equal(equivalenceClasses(data,'ZFA').byId.get('mc').id,'mc','MC must not be grouped with AC over ZFA');
 console.log('PASS: new metric continuity and Noetherian bounds, separating models, categories, removed theorems and theory-aware equivalence groups.');
+
+// The algebraic-closure preprint is research-gated; its pure model is never transferred implicitly.
+const algebraicSource=data.sources.FC2026ALG;
+const algebraicModel=data.models.find(m=>m.id==='free_group_boolean_algebraic');
+assert.ok(algebraicSource&&algebraicModel);
+assert.deepEqual(algebraicSource.authors,['Frederico Cançado']);
+assert.equal(algebraicSource.title,'Algebraic closures: existence without uniqueness');
+assert.equal(algebraicModel.base,'ZF');
+assert.equal(algebraicModel.layer,'recent');
+assert.equal(algebraicModel.status,'preliminary');
+assert.equal(algebraicModel.assumptions,'Con(ZFC)');
+assert.equal(algebraicModel.permutation_construction,undefined,'The new model is a direct pure-ZF forcing construction, not an atom model.');
+assert.deepEqual(new Set(algebraicModel.true_ids),new Set(['dc','algebraic_closure']));
+assert.deepEqual(new Set(algebraicModel.false_ids),new Set(['unique_algebraic_closure','ac_finite_fibers','ac_2','bpi']));
+for(const id of [...algebraicModel.true_ids,...algebraicModel.false_ids])assert.ok(algebraicModel.property_evidence.some(e=>e.principles.includes(id)&&e.source==='FC2026ALG'&&e.status==='preliminary'&&e.locator&&e.proof_note),`Exact preliminary model evidence: ${id}`);
+for(const target of ['unique_algebraic_closure','bpi','ac_finite_fibers','ac_2']){
+ const record=data.relations.find(r=>r.kind==='nonimplication'&&r.antecedents.length===1&&r.antecedents[0]==='algebraic_closure'&&r.consequent===target&&r.source==='FC2026ALG');
+ assert.ok(record);assert.equal(record.layer,'recent');assert.equal(record.status,'preliminary');assert.deepEqual(record.valid_bases,['ZF']);
+ const result=compare(data,'algebraic_closure',target,'ZF',true);
+ assert.equal(result.proof,null);
+ assert.ok(result.witnesses.some(w=>w.model.id===algebraicModel.id&&w.factEvidence.every(e=>e.source==='FC2026ALG'&&e.status==='preliminary')));
+ for(const [theory,research] of [['ZF',false],['ZFA',true],['ZFA',false]])assert.ok(!compare(data,'algebraic_closure',target,theory,research).witnesses.some(w=>w.model.id===algebraicModel.id),'Pure-ZF preliminary witness leaked across a filter.');
+}
+for(const theory of ['ZF','ZFA']){
+ const recent=visibleRelations(data,theory,true);
+ const joint=closure(['algebraic_closure','unique_algebraic_closure'],recent);
+ assert.ok(joint.known.has('ac_finite_fibers'));
+ assert.ok(joint.known.has('finite_group_projection'));
+ assert.ok(joint.known.has('finite_torsor_compactness'));
+ for(const seed of ['algebraic_closure','unique_algebraic_closure']){
+  const alone=closure([seed],recent);
+  assert.ok(!alone.known.has('ac_finite_fibers'),`${seed} must not silently lose a joint hypothesis.`);
+  assert.ok(!alone.known.has('finite_group_projection'));
+ }
+ for(const [from,to] of [['finite_group_projection','finite_torsor_compactness'],['finite_torsor_compactness','finite_group_projection'],['finite_torsor_compactness','unique_algebraic_closure'],['finite_torsor_compactness','ac_finite_fibers'],['bpi','finite_torsor_compactness']]){
+  assert.ok(compare(data,from,to,theory,true).proof,`${from} => ${to} in ${theory}`);
+  assert.equal(compare(data,from,to,theory,false).proof,null,'A new preprint proof became a standard arrow.');
+ }
+ assert.equal(compare(data,'finite_group_projection','algebraic_closure',theory,true).proof,null,'P => E is not proved.');
+ assert.equal(compare(data,'finite_torsor_compactness','bpi',theory,true).proof,null,'T => BPI is not proved.');
+}
+assert.equal(compare(data,'unique_algebraic_closure','algebraic_closure','ZF',true).proof,null);
+assert.equal(compare(data,'unique_algebraic_closure','algebraic_closure','ZF',true).witnesses.length,0,'The reverse pure-ZF separation is not supplied by this article.');
+assert.ok(node('algebraic_closure').notes.includes('historical'));
+assert.ok(node('unique_algebraic_closure').notes.includes('remains unresolved here over pure ZF'));
+assert.ok(node('finite_group_projection').definition.includes('every canonical projection'));
+assert.ok(node('finite_torsor_compactness').definition.includes('f_ji(gx)=π_ji(g)f_ji(x)'));
+// Every displayed preprint citation must resolve to the same published artifact.
+const algebraicRecords=[algebraicModel,...algebraicModel.property_evidence,...data.relations.filter(r=>r.source==='FC2026ALG')];
+for(const record of algebraicRecords)assert.equal(record.source_url,algebraicSource.url);
+assert.match(algebraicSource.url,/^https:\/\/github\.com\/frederico-cancado\/AC-zoo-results\/blob\/[a-f0-9]{40}\/articles\/2026-10-14-algebraic-closures\/algebraic_closures\.pdf$/);
+assert.ok(algebraicSource.version.includes('pinned commit'),'An immutable publication citation must identify its pinned version.');
+assert.ok(algebraicSource.version.startsWith('2026-10-14.1'));
+assert.ok(algebraicSource.review.includes('internal AI-assisted mathematical audits'));
+assert.ok(!algebraicRecords.some(record=>record.source_url.includes('/blob/main/')),'Publication evidence must use immutable commit citations.');
+console.log('PASS: algebraic-closure preliminary provenance, pure-ZF witness isolation, joint E/U premises, exact P/T definitions, unproved converses, and citation consistency.');

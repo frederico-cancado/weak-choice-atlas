@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Please cite this preprint version and the exact GitHub commit used."
+title: "Algebraic closures: existence without uniqueness"
+authors:
+  - family-names: "Cançado"
+    given-names: "Frederico"
+version: "2026-10-14.1"
+date-released: "2026-10-14"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/frederico-cancado/AC-zoo-results"
+url: "https://frederico-cancado.github.io/weak-choice-atlas/articles/algebraic-closures/"
+preferred-citation:
+  type: article
+  title: "Algebraic closures: existence without uniqueness"
+  authors:
+    - family-names: "Cançado"
+      given-names: "Frederico"
+  year: 2026
+  month: 10
+  day: 14
+  version: "2026-10-14.1"
+  notes: "Preliminary preprint; internal AI-assisted audits are not external peer review or formal verification."

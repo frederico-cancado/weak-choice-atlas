@@ -3,7 +3,7 @@
   "prepared": "2026-10-07",
   "prepared_for": "Frederico Cançado",
   "scope": "Broad coverage from the start. This is an extensible inventory, not an exhaustive enumeration or a certified implication graph.",
-  "record_count": 101,
+  "record_count": 103,
   "status": "Initial public catalogue; relation review levels are shown individually.",
   "counts_note": "Counts include parameterized families and equivalent formulations; they are not counts of pairwise inequivalent weak axioms. ZF theorem-only entries are excluded.",
   "notation": {
@@ -1606,13 +1606,16 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "69",
       "status": "candidate",
-      "notes": "BPI proves both existence and uniqueness. The Howard–Rubin catalogue records uniqueness not implying existence in ZFA, not a ZF separation. Existence implying uniqueness is unresolved in that catalogue; no stronger current conclusion is asserted here. The base theory must be kept explicit.",
+      "notes": "BPI proves both existence and conditional uniqueness. The historical Howard–Rubin matrix records the reverse separation only in ZFA and leaves existence-to-uniqueness unrecorded; this historical entry is not a current openness assertion. Cançado’s preliminary article of 14 October 2026 constructs, relative to ZFC, a pure-ZF model with DC and existence but without uniqueness, AC_fin or AC₂. These new relationships are shown only when recent research is enabled. The reverse implication from conditional uniqueness to existence remains unresolved here over pure ZF.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "E",
+        "algebraic closure existence"
+      ],
       "definition_evidence": [
         {
           "source_id": "Banaschewski92",
@@ -1621,6 +1624,10 @@
         {
           "source_id": "HRALGEBRAICMATRIX",
           "locator": "Matrix entries (69,233) and (233,69); Howard–Rubin Note 41"
+        },
+        {
+          "source_id": "FC2026ALG",
+          "locator": "§1, formulations E and U; Theorem 6.1 (preliminary separation)"
         }
       ],
       "ac_classification": {
@@ -1647,17 +1654,20 @@
       "id": "unique_algebraic_closure",
       "name": "Uniqueness of algebraic closures",
       "category": "algebra",
-      "definition": "Any two algebraic closures of the same field are isomorphic over that field.",
+      "definition": "For every field K and supplied algebraic-closure embeddings i:K→C and j:K→D, there is a field isomorphism u:C→D with u∘i=j. This assertion is conditional and does not assert existence of a closure.",
       "base_theory": "ZF",
       "howard_rubin_reference": "233",
       "status": "candidate",
-      "notes": "Conditional uniqueness does not assert that a closure exists. BPI proves both existence and uniqueness. The Howard–Rubin catalogue records uniqueness not implying existence in ZFA, not a ZF separation. Existence implying uniqueness is unresolved in that catalogue; no stronger current conclusion is asserted here. The base theory must be kept explicit.",
+      "notes": "Conditional uniqueness does not assert that a closure exists. BPI proves both existence and conditional uniqueness. The historical Howard–Rubin matrix records the reverse separation only in ZFA and leaves existence-to-uniqueness unrecorded; this historical entry is not a current openness assertion. Cançado’s preliminary article of 14 October 2026 constructs, relative to ZFC, a pure-ZF model with DC and existence but without uniqueness, AC_fin or AC₂. These new relationships are shown only when recent research is enabled. The reverse implication from conditional uniqueness to existence remains unresolved here over pure ZF.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "U",
+        "conditional uniqueness of algebraic closures"
+      ],
       "definition_evidence": [
         {
           "source_id": "Banaschewski92",
@@ -1666,6 +1676,10 @@
         {
           "source_id": "HRALGEBRAICMATRIX",
           "locator": "Matrix entries (69,233) and (233,69); Howard–Rubin Note 41"
+        },
+        {
+          "source_id": "FC2026ALG",
+          "locator": "§1, formulations E and U; Theorem 6.1 (preliminary separation)"
         }
       ],
       "ac_classification": {
@@ -3502,6 +3516,72 @@
         ],
         "base": "ZF"
       }
+    },
+    {
+      "id": "finite_group_projection",
+      "name": "Surjective finite-group limit projections (P)",
+      "category": "algebra",
+      "definition": "For every inverse system (G_i, π_ji) of finite groups on a nonempty directed poset, with surjective bonding homomorphisms satisfying the inverse-system identities, every canonical projection lim← G_j → G_i is surjective.",
+      "base_theory": "ZF",
+      "status": "candidate",
+      "notes": "The identity family already makes the group inverse limit nonempty in ZF. P requires a coherent family lifting each prescribed element at each coordinate. The preliminary article proves P ⇔ T and, assuming E, U ⇔ P. It does not prove P ⇒ E or P ⇔ BPI.",
+      "aliases": [
+        "P",
+        "finite group projection principle",
+        "surjective inverse limit projections"
+      ],
+      "hypotheses": [
+        "The index poset is nonempty and directed.",
+        "Every bonding homomorphism is surjective.",
+        "Every coordinate element must lift; mere nonemptiness is insufficient."
+      ],
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "graph_visibility": "visible",
+      "definition_review": "Complete finite-group systems, index set and compatibility data are specified; definitions checked against the preliminary article.",
+      "relation_review": "All new relationships remain in the recent research layer with their exact premises.",
+      "source_locators": {
+        "FC2026ALG": "§5, Definition 5.1 and Theorem 5.2"
+      },
+      "definition_evidence": [
+        {
+          "source_id": "FC2026ALG",
+          "locator": "§5, Definition 5.1"
+        }
+      ]
+    },
+    {
+      "id": "finite_torsor_compactness",
+      "name": "Finite torsor compactness (T)",
+      "category": "algebra",
+      "definition": "Every inverse system on a nonempty directed poset consisting of finite groups G_i, nonempty finite sets X_i with free transitive G_i-actions, surjective homomorphisms π_ji:G_j→G_i and surjective maps f_ji:X_j→X_i satisfying f_ji(gx)=π_ji(g)f_ji(x) and all inverse-system identities has a coherent family (x_i), with f_ji(x_j)=x_i.",
+      "base_theory": "ZF",
+      "status": "candidate",
+      "notes": "No point of X_i is supplied. The preliminary article proves T ⇔ P, T ⇒ U and T ⇒ AC_fin, and E∧U ⇒ T. No equivalence with compactness for arbitrary finite sets or with BPI is asserted.",
+      "aliases": [
+        "T",
+        "finite torsor compactness",
+        "coherent finite torsors"
+      ],
+      "hypotheses": [
+        "The index poset is nonempty and directed.",
+        "The actions are free and transitive.",
+        "Both the bonding group maps and torsor maps are surjective and compatible."
+      ],
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "graph_visibility": "visible",
+      "definition_review": "Complete finite-group systems, index set and compatibility data are specified; definitions checked against the preliminary article.",
+      "relation_review": "All new relationships remain in the recent research layer with their exact premises.",
+      "source_locators": {
+        "FC2026ALG": "§5, Definition 5.1 and Theorem 5.2"
+      },
+      "definition_evidence": [
+        {
+          "source_id": "FC2026ALG",
+          "locator": "§5, Definition 5.1"
+        }
+      ]
     }
   ],
   "sources": {
@@ -4111,6 +4191,18 @@
       "version": "Bulletin of the Polish Academy of Sciences, Mathematics 71(1) (2023).",
       "source_type": "original_research",
       "access": "Section 1.1, pp. 2–3, explicitly attributes uniqueness of algebraic closures with amorphous sets in ZFA to Pincus, Howard–Rubin Note 41."
+    },
+    "FC2026ALG": {
+      "title": "Algebraic closures: existence without uniqueness",
+      "authors": [
+        "Frederico Cançado"
+      ],
+      "url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "version": "2026-10-14.1, 14 October 2026; pinned commit b3cbadd1082e3c078ba61aba68b8beccbbbd8d45",
+      "source_type": "preliminary_research_article",
+      "access": "Complete local article and supporting proofs inspected",
+      "review": "Preliminary preprint with internal AI-assisted mathematical audits. Not externally peer-reviewed or formally verified; no historical novelty claim is made.",
+      "role": "Pure-ZF separation of existence from conditional uniqueness, together with finite-choice and finite-group compactness results."
     }
   },
   "cardinal_well_foundedness_template": {
@@ -7655,6 +7747,216 @@
       "model": "iwdi_without_countable_finite_choice_zf",
       "assumptions": "Con(ZF)",
       "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "algebraic_existence_not_uniqueness",
+      "kind": "nonimplication",
+      "antecedents": [
+        "algebraic_closure"
+      ],
+      "consequent": "unique_algebraic_closure",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 6.1; §§6.3–6.5",
+      "status": "preliminary",
+      "proof_note": "The free-group Boolean symmetric model satisfies existence for every field and DC, while it has a specified family of pairs without a selector and two nonisomorphic closures over a well-orderable base. The stated failure is proved in this same pure-ZF model.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent",
+      "model": "free_group_boolean_algebraic",
+      "assumptions": "Con(ZFC)",
+      "consistency_assumption": "Con(ZFC)"
+    },
+    {
+      "id": "algebraic_existence_not_bpi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "algebraic_closure"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 6.1; §§6.3–6.5",
+      "status": "preliminary",
+      "proof_note": "The free-group Boolean symmetric model satisfies existence for every field and DC, while it has a specified family of pairs without a selector and two nonisomorphic closures over a well-orderable base. The stated failure is proved in this same pure-ZF model.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent",
+      "model": "free_group_boolean_algebraic",
+      "assumptions": "Con(ZFC)",
+      "consistency_assumption": "Con(ZFC)"
+    },
+    {
+      "id": "algebraic_existence_not_finite_choice",
+      "kind": "nonimplication",
+      "antecedents": [
+        "algebraic_closure"
+      ],
+      "consequent": "ac_finite_fibers",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 6.1; §§6.3–6.5",
+      "status": "preliminary",
+      "proof_note": "The free-group Boolean symmetric model satisfies existence for every field and DC, while it has a specified family of pairs without a selector and two nonisomorphic closures over a well-orderable base. The stated failure is proved in this same pure-ZF model.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent",
+      "model": "free_group_boolean_algebraic",
+      "assumptions": "Con(ZFC)",
+      "consistency_assumption": "Con(ZFC)"
+    },
+    {
+      "id": "algebraic_existence_not_pair_choice",
+      "kind": "nonimplication",
+      "antecedents": [
+        "algebraic_closure"
+      ],
+      "consequent": "ac_2",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 6.1; §§6.3–6.5",
+      "status": "preliminary",
+      "proof_note": "The free-group Boolean symmetric model satisfies existence for every field and DC, while it has a specified family of pairs without a selector and two nonisomorphic closures over a well-orderable base. The stated failure is proved in this same pure-ZF model.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent",
+      "model": "free_group_boolean_algebraic",
+      "assumptions": "Con(ZFC)",
+      "consistency_assumption": "Con(ZFC)"
+    },
+    {
+      "id": "algebraic_existence_uniqueness_finite_choice",
+      "kind": "implication",
+      "antecedents": [
+        "algebraic_closure",
+        "unique_algebraic_closure"
+      ],
+      "consequent": "ac_finite_fibers",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 4.1",
+      "status": "preliminary",
+      "proof_note": "For an arbitrary family of nonempty finite sets, form rational function fields on the given fibres and on canonical finite labels, identifying the elementary symmetric coefficient fields. Existence supplies both closures; an isomorphism over their common base picks the unique original variable mapping to each first canonical label. Both E and U are required.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent"
+    },
+    {
+      "id": "finite_group_projection_torsor_equivalence",
+      "kind": "equivalence",
+      "antecedents": [
+        "finite_group_projection"
+      ],
+      "consequent": "finite_torsor_compactness",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 5.2, first two proofs",
+      "status": "preliminary",
+      "proof_note": "T lifts a prescribed group coordinate by applying torsor compactness to its inverse-image fibres. Conversely, from each torsor form the finite group of equivariant permutations of the disjoint union of the group and torsor; P lifts the nonidentity component-swap in C₂, producing coherent points without choosing a family of torsor bases.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent"
+    },
+    {
+      "id": "finite_torsor_unique_algebraic_closure",
+      "kind": "implication",
+      "antecedents": [
+        "finite_torsor_compactness"
+      ],
+      "consequent": "unique_algebraic_closure",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 5.2, T ⇒ U∧AC_fin",
+      "status": "preliminary",
+      "proof_note": "For two supplied closures, isomorphisms between their finite splitting subfields form nonempty finite torsors with surjective restrictions. A coherent family has a union that is an isomorphism over the specified base. This does not assert existence of a closure.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent"
+    },
+    {
+      "id": "finite_torsor_finite_choice",
+      "kind": "implication",
+      "antecedents": [
+        "finite_torsor_compactness"
+      ],
+      "consequent": "ac_finite_fibers",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 5.2, T ⇒ U∧AC_fin",
+      "status": "preliminary",
+      "proof_note": "For a family of finite nonempty sets A_s, use the products over finite index sets F of the torsors Bij(|A_s|,A_s), acted on by the corresponding finite symmetric groups. Coherence gives enumerations of every fibre and hence a choice function.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent"
+    },
+    {
+      "id": "algebraic_existence_uniqueness_group_projection",
+      "kind": "implication",
+      "antecedents": [
+        "algebraic_closure",
+        "unique_algebraic_closure"
+      ],
+      "consequent": "finite_group_projection",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 5.2, E∧U ⇒ P",
+      "status": "preliminary",
+      "proof_note": "Represent a surjective finite-group system by equivariant embeddings of rational function fields, using sums over bonding-map fibres, and their finite fixed fields. E supplies a closure of the colimit field. U extends a prescribed finite-stage automorphism to that closure; its compatible restrictions lift the prescribed coordinate. The existence premise is essential to this recorded proof and cannot be dropped.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent"
+    },
+    {
+      "id": "bpi_finite_torsor_compactness",
+      "kind": "implication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "finite_torsor_compactness",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "§5, remark following Theorem 5.2",
+      "status": "preliminary",
+      "proof_note": "Finite subsets of the torsor compatibility conditions are satisfied at a common upper stage. Propositional compactness, equivalently BPI, gives a coherent point. The reverse implication is not proved here.",
+      "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
+      "layer": "recent"
     }
   ],
   "models": [
@@ -8685,6 +8987,74 @@
           "proof_note": "The source explicitly states that IWDI∧¬CAC_fin has a ZF model by Pincus’ transfer theorems."
         }
       ]
+    },
+    {
+      "id": "free_group_boolean_algebraic",
+      "name": "Free-group Boolean symmetric model",
+      "base": "ZF",
+      "assumptions": "Con(ZFC)",
+      "true_ids": [
+        "dc",
+        "algebraic_closure"
+      ],
+      "false_ids": [
+        "unique_algebraic_closure",
+        "ac_finite_fibers",
+        "ac_2",
+        "bpi"
+      ],
+      "source": "FC2026ALG",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "locator": "Theorem 6.1; §§6.1–6.5",
+      "status": "preliminary",
+      "review": "Preliminary preprint with internal AI-assisted mathematical audits. Not externally peer-reviewed or formally verified; no historical novelty claim is made.",
+      "layer": "recent",
+      "show_by_default": false,
+      "description": "In a ground universe of ZFC choose μ^ω=μ<κ. Let G be free on κ generators, let 𝓕={H≤G:[G:H]≤μ}, and take the tagged coordinate set A=∐_{J∈𝓕}G/J. Force with finite partial functions A×ω→2 and use G’s coordinate action and the normal filter 𝓕. The ccc Boolean completion supports a small-orbit semilinear closure construction for every internal field. Parity classes on the integer quotient orbits give an ordinal-indexed family of pairs with no selector. This is a direct pure-ZF construction, not a transfer of a model with atoms.",
+      "property_evidence": [
+        {
+          "principles": [
+            "algebraic_closure"
+          ],
+          "source": "FC2026ALG",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+          "locator": "Lemma 6.2 and §6.3",
+          "status": "preliminary",
+          "proof_note": "A simultaneous ω₁ closure builds small invariant Boolean subalgebras and relatively algebraically closed coefficient fields. Free-group generators lift to algebraic closures; regularity makes the compatible tensor step a domain. The universal coordinate orbits realize the resulting section orbits as hereditarily symmetric names, including the specified source-field embedding."
+        },
+        {
+          "principles": [
+            "ac_2",
+            "ac_finite_fibers",
+            "bpi"
+          ],
+          "source": "FC2026ALG",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+          "locator": "§6.4, Proposition 6.4; classical BPI ⇒ AC_fin ⇒ AC₂",
+          "status": "preliminary",
+          "proof_note": "For each free generator, its exponent-sum quotient G→Z gives two parity classes of real labels. A supported selector would force its support into every exponent-sum kernel and hence into [G,G], whose index κ exceeds μ. Thus choice fails for a specified κ-indexed family of pairs; AC_fin and BPI fail as consequences."
+        },
+        {
+          "principles": [
+            "unique_algebraic_closure"
+          ],
+          "source": "FC2026ALG",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+          "locator": "§6.5, explicit nonisomorphic closures",
+          "status": "preliminary",
+          "proof_note": "Over F=Q(s_i,p_i:i<κ), use rational function fields on the unchosen pairs and on canonically labelled pairs. Their elementary symmetric base embeddings are algebraic. An F-isomorphism of their supplied algebraic closures would choose the labelled root mapping to each first canonical root, selecting from the forbidden pair family."
+        },
+        {
+          "principles": [
+            "dc"
+          ],
+          "source": "FC2026ALG",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+          "locator": "§6.5, dependent-choice argument",
+          "status": "preliminary",
+          "proof_note": "Each entry of a full-extension following sequence is represented by a countable deciding antichain of HS member subnames of one fixed carrier. Countable completeness of 𝓕 and stabilizers of finite conditions support the resulting sequence name."
+        }
+      ]
     }
   ],
   "status_labels": {
@@ -8695,7 +9065,7 @@
     "preprint_statement_checked": "Preprint statement checked"
   },
   "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer.",
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "graph_selection": {
     "selected_on": "2026-10-08",
     "kept_candidate_numbers": [
