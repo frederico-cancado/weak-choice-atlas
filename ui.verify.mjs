@@ -1,0 +1,154 @@
+// Optional development dependencies: jsdom and svg-path-properties.
+// Set ATLAS_TEST_MODULES to an external directory containing node_modules,
+// or install the packages beside this script. No browser automation is used.
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {createRequire} from 'node:module';
+const require=createRequire(process.env.ATLAS_TEST_MODULES?path.join(process.env.ATLAS_TEST_MODULES,'package.json'):import.meta.url);
+const {JSDOM,VirtualConsole}=require('jsdom');
+const {svgPathProperties}=require('svg-path-properties');
+const failures=[];
+const virtualConsole=new VirtualConsole();
+virtualConsole.on('jsdomError',e=>failures.push(e));
+const dom=new JSDOM(fs.readFileSync(new URL('./index.html',import.meta.url),'utf8'),{
+ url:'https://atlas.test/#explore',pretendToBeVisual:true,virtualConsole
+});
+const {window}=dom;
+window.scrollTo=()=>{};
+window.HTMLElement.prototype.scrollIntoView=()=>{};
+window.matchMedia=query=>({media:query,matches:false,addEventListener(){},removeEventListener(){}});
+window.SVGElement.prototype.getTotalLength=function(){return new svgPathProperties(this.getAttribute('d')||'M0 0').getTotalLength()};
+window.SVGElement.prototype.getPointAtLength=function(length){return new svgPathProperties(this.getAttribute('d')||'M0 0').getPointAtLength(length)};
+for(const name of ['window','document','location','history','localStorage','matchMedia'])globalThis[name]=window[name];
+globalThis.innerWidth=1440;
+const catalogue=fs.readFileSync(new URL('./data.json',import.meta.url),'utf8');
+globalThis.fetch=async url=>{assert.equal(url,'./data.json');return new Response(catalogue,{headers:{'Content-Type':'application/json'}})};
+const originalError=console.error;
+console.error=(...args)=>{failures.push(...args);originalError(...args)};
+const $=selector=>{const el=document.querySelector(selector);assert.ok(el,`Missing UI element: ${selector}`);return el};
+const nodes=()=>[...document.querySelectorAll('#graph [data-node]')].map(el=>el.dataset.node);
+const click=selector=>$(selector).dispatchEvent(new window.MouseEvent('click',{bubbles:true}));
+const change=(selector,value)=>{const el=$(selector);el.value=value;el.dispatchEvent(new window.Event('change',{bubbles:true}))};
+const check=(selector,checked)=>{const el=$(selector);el.checked=checked;el.dispatchEvent(new window.Event('change',{bubbles:true}))};
+const route=hash=>{history.replaceState(null,'',hash);window.dispatchEvent(new window.HashChangeEvent('hashchange'))};
+const assertClean=()=>assert.equal(failures.length,0,failures.map(e=>e?.stack||e).join('\n'));
+
+try{
+ await import('./atlas.js');
+ for(let i=0;i<100&&!document.querySelector('#view')&&!document.querySelector('#retry');i++)await new Promise(resolve=>setTimeout(resolve,5));
+ assertClean();
+ assert.equal($('#view').value,'choice');
+ assert.ok(nodes().length>=15,'Startup presents a substantial graph.');
+ for(const id of ['ac','ac_omega','ac_wo_index','ac_2','ac_3','ac_4'])assert.ok(nodes().includes(id));
+ assert.equal(document.querySelector('[data-pick-node="dc_reals"]'),null);
+
+ change('#view','finitechoice');
+ assert.equal($('#view').value,'finitechoice');
+ const topicNodes=nodes();
+ click('#graph [data-node="ac_2"]');
+ assert.deepEqual(nodes(),topicNodes,'Opening a node does not replace the graph.');
+ assert.ok($('#detail h2').textContent.includes('pairs'));
+ assert.equal(new URL($('#graph-permalink').href).hash,location.hash,'The graph permalink tracks the selection.');
+
+ check('[data-pick-node="finite_index_choice"]',true);
+ assert.equal($('#view').value,'custom');
+ assert.ok(nodes().includes('finite_index_choice'));
+ check('[data-pick-node="finite_index_choice"]',false);
+ assert.ok(!nodes().includes('finite_index_choice'));
+ click('#pick-none');
+ assert.deepEqual(nodes(),[],'Clear is not overridden by Show AC.');
+ for(const id of ['dc','ac_omega','ac_2','finite_index_choice'])check(`[data-pick-node="${id}"]`,true);
+ assert.deepEqual(nodes(),['dc','ac_omega','ac_2','finite_index_choice']);
+ check('[data-pick-node="wo"]',true);
+ assert.equal($('#include-equivalents').checked,true,'Picking an AC equivalent enables its display.');
+ assert.ok(nodes().includes('wo'));
+ check('[data-pick-node="wo"]',false);
+ check('#include-equivalents',false);
+ check('#include-ac',true);
+ assert.ok(nodes().includes('ac'));
+ check('#include-ac',false);
+ assert.ok(!nodes().includes('ac'));
+
+ click('[data-theory="ZFA"]');
+ check('#research-toggle',true);
+ change('#edge-kind','implication');
+ const savedNodes=nodes();
+ click('#save-graph');
+ const saved=JSON.parse(localStorage.getItem('weak-choice-custom-graph'));
+ assert.deepEqual(saved.ids,savedNodes);
+ assert.equal(saved.theory,'ZFA');
+ assert.equal(saved.research,true);
+ assert.equal(saved.edgeKind,'implication');
+ click('#pick-none');
+ click('[data-theory="ZF"]');
+ check('#research-toggle',false);
+ change('#edge-kind','all');
+ click('#load-graph');
+ assert.deepEqual(nodes(),savedNodes);
+ assert.equal($('[data-theory="ZFA"]').getAttribute('aria-pressed'),'true');
+ assert.equal($('#research-toggle').checked,true);
+ assert.equal($('#edge-kind').value,'implication');
+ assert.equal($('#graph-builder').open,true);
+
+ const permalink=location.hash;
+ change('#view','choice');
+ check('#include-equivalents',true);
+ change('#graph-depth','2');
+ change('#edge-kind','nonimplication');
+ click('#graph-mode');
+ assert.equal($('#graph').className,'graph-list');
+ route(permalink);
+ assert.deepEqual(nodes(),savedNodes,'A permalink restores the exact graph after unrelated settings.');
+ assert.equal($('#edge-kind').value,'implication');
+ assert.equal($('#graph-depth').value,'0');
+ assert.equal($('#include-equivalents').checked,false);
+ assert.equal($('#graph').className,'graph-canvas','A permalink opens the graph rather than an inherited list.');
+
+ route('#explore?view=choice');
+ assert.equal($('#edge-kind').value,'all');
+ assert.equal($('#graph-depth').value,'0');
+ assert.equal($('#include-equivalents').checked,false);
+ assert.equal($('#research-toggle').checked,false);
+ assert.equal($('[data-theory="ZF"]').getAttribute('aria-pressed'),'true');
+ const defaultNodes=nodes();
+ check('#include-ac',false);
+ change('#graph-depth','2');
+ route('#explore?view=choice');
+ assert.deepEqual(nodes(),defaultNodes,'The same short permalink has deterministic defaults.');
+
+ click('#focus-node');
+ assert.equal($('#view').value,'neighbors');
+ assert.equal($('#graph-depth').value,'1');
+ assert.ok(nodes().length>2,'Focus explicitly adds neighbors.');
+ route('#explore?view=neighbors&node=ac');
+ assert.equal($('#graph-depth').value,'1');
+ assert.ok(nodes().length>2,'AC can be the neighborhood center.');
+ change('#graph-depth','0');
+ assert.deepEqual(nodes(),['ac'],'Explicit zero-depth is respected.');
+ route('#explore?view=choice&node=ac_2');
+ const broadNodes=nodes(),broadEdges=document.querySelectorAll('#graph .graph-edge').length;
+ check('#focus-arrows',true);
+ assert.deepEqual(nodes(),broadNodes,'Focusing arrows must retain the large graph.');
+ assert.ok(document.querySelectorAll('#graph .graph-edge').length<broadEdges);
+ const records=new Map(JSON.parse(catalogue).relations.map(r=>[r.id,r]));
+ for(const el of document.querySelectorAll('#graph .graph-edge')){const r=records.get(el.dataset.edge);assert.ok(r.antecedents.includes('ac_2')||r.consequent==='ac_2');}
+ click('#graph [data-node="ac_3"]');
+ assert.deepEqual(nodes(),broadNodes);
+ assert.equal($('#view').value,'choice');
+ for(const el of document.querySelectorAll('#graph .graph-edge')){const r=records.get(el.dataset.edge);assert.ok(r.antecedents.includes('ac_3')||r.consequent==='ac_3');}
+ const focusedURL=location.hash;
+ click('#save-graph');
+ route('#explore');
+ click('#load-graph');
+ assert.equal($('#focus-arrows').checked,true);
+ assert.ok($('#selection-summary').textContent.includes('AC₃'));
+ route(focusedURL);
+ assert.equal($('#focus-arrows').checked,true);
+ assert.deepEqual(nodes(),broadNodes);
+ assertClean();
+ console.log('PASS: DOM startup, actual SVG renderer, preset and node selection, custom picker, AC controls, save/load, deterministic permalinks, evidence settings and Focus neighborhoods.');
+}finally{
+ console.error=originalError;
+ window.close();
+}

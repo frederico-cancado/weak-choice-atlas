@@ -491,3 +491,39 @@ details[open] > summary { margin-bottom: 12px; }
   .construction-heading, .construction-foot { padding-left: 16px; padding-right: 16px; }
   .model-guide { padding: 20px 16px; }
 }
+
+/* Explicit selections: topics are starting points, not hidden graph rules. */
+.graph-builder { margin: 16px 0; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; background: var(--surface); }
+.graph-builder > summary { font-weight: 650; min-height: 30px; }
+.graph-option-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 10px 0; }
+.graph-option-row > label:last-child { display: grid; gap: 6px; font-size: .85rem; }
+.picker-search { display: grid; gap: 7px; margin: 12px 0; font-size: .85rem; }
+.picker-search input { width: 100%; }
+.graph-picker-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0; }
+.graph-picker-actions button, .graph-picker-actions a { font-size: .8rem; }
+.node-picker { max-height: 285px; overflow-y: auto; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); border: 1px solid var(--line); border-radius: 8px; }
+.node-option { display: flex; gap: 10px; align-items: start; padding: 12px; border-bottom: 1px solid var(--line); cursor: pointer; min-width: 0; }
+.node-option:hover { background: var(--hover); }
+.node-option input { margin-top: 5px; flex-shrink: 0; }
+.node-option span { min-width: 0; overflow-wrap: anywhere; }
+.node-option strong { display: block; font-size: .85rem; }
+.node-option small { display: block; color: var(--muted); font-size: .72rem; margin-top: 3px; }
+.graph-rules { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 16px; }
+.graph-rules summary { font-size: .85rem; }
+#selection-summary { margin: 10px 0 16px; }
+.finite-choice-note { margin: 16px 0; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+.finite-choice-note summary { font-weight: 600; }
+.edge-emphasis .graph-node:not(.edge-endpoint) { opacity: .35; }
+.graph-node.edge-endpoint rect { stroke-width: 3; }
+@media (min-width: 741px) {
+ .explore-layout.wide-graph { grid-template-columns: minmax(0,1fr) 310px; }
+ .explore-layout.wide-graph .catalog-sidebar { display: none; }
+ .explore-layout.wide-graph .detail-panel { grid-column: 2; grid-row: 1; }
+ .explore-layout.wide-graph .graph-canvas { height: 740px; }
+}
+@media (max-width: 740px) {
+ .node-picker { grid-template-columns: minmax(0,1fr); }
+ .graph-builder { padding: 12px; }
+ #wide-graph { display: none; }
+ .graph-option-row > label:last-child, .graph-option-row select { width: 100%; }
+}

@@ -23,11 +23,21 @@ Choose Auto, Light or Dark in the header; the theme preference is saved on
 this device. On phones the atlas automatically uses Graph, Principles and
 Details tabs, with touch-sized controls and a list alternative to the graph.
 
-Current edition: 102 statement/family records, 142 relationships, and 14 models.
+Current edition: 103 statement/family records, 148 relationships, and 16 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
 The OpenAI model card includes Cançado’s six recorded follow-up results directly in its truth-value table: FB, NDS, finite cardinal antichains and OP hold; OEP and BPI fail. Each follow-up row shows his name, preliminary status and a link to its source, in both the model listing and the full model page. The construction remains attributed to OpenAI.
+
+## Choose your graph
+
+The default **Types of choice** view includes AC, AC_WO, CC, DC, finite-fiber choice, AC₂, AC₃, AC₄ and related restrictions. Topic presets contain at least eleven nodes with current settings; their exact node lists are in `selection.mjs`. They are editorial starting points, not a ranking of mathematical importance. The selected theory and evidence settings filter arrows, not arbitrary isolated nodes.
+
+Open **Choose axioms & graph settings** to select individual entries, include AC equivalents, or expand by one or two steps of recorded relationships. **Only chosen axioms** means exactly the selection. Connection expansion finds adjacent records; it never treats a chain of nonimplications as a deduction. Previously omitted catalogue entries are available in the picker. Choose **All default graph axioms** for a larger overview. **Wider graph** hides the principle list while keeping the evidence panel.
+
+For dense views, **Only the selected axiom’s arrows** retains every node while showing only the arrows touching the selected axiom. Clicking a node opens its details without changing the topic or custom selection. **Around the selected principle** and **Focus graph** explicitly request a neighborhood. **Save this graph** stores its exact nodes and evidence settings on the current device; **Graph permalink** encodes the custom selection in the URL. The same permalink restores the same settings, regardless of the previous graph.
+
+The finite-size note distinguishes exactly n elements from at most n. For each fixed n≥3, C_n and C_(n−1) are incomparable over ZF and ZFA, assuming consistency; C_1 is a theorem. The concrete graph includes AC₂ ⇔ AC₄ and both nonimplications between AC₂ and AC₃, with classical sources and separate atom/pure-set witnesses. No parameterized AC_n family is silently instantiated at a different n.
 
 ## Permutation models
 
@@ -47,11 +57,11 @@ The AC-equivalence catalogue includes the maximal antichain principle, Kuratowsk
 
 ## Catalogue groups and graph scope
 
-The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 19, 71, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
+The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 19, 72, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
 
-AC equivalents have standalone pages with hypotheses and proof references, and are excluded from graph nodes and edges. The reasoning records are retained for comparison and citation. The selected 11 removal candidates are retained; the other 41 are hidden from graph navigation while remaining in the full catalogue. Retained item 10, choice for linearly orderable index sets, remains in the AC-equivalence catalogue.
+AC equivalents have standalone pages with hypotheses and proof references. AC is included by default as a graph reference; other equivalents can be enabled in the graph settings. The reasoning records are retained for comparison and citation. The earlier 11 retained candidates remain in default graph navigation. The other 41 remain outside default topic selection, but every retained catalogue entry can now be selected explicitly. Retained item 10, choice for linearly orderable index sets, remains in the AC-equivalence catalogue. DC on the reals has been removed at the maintainer’s request.
 
-Non-implications use bold orange dashed paths, explicit ↛ badges, large click/tap targets and hover/focus emphasis. The **Non-implications only** filter isolates them. Multiple proofs of the same directed statement share a single graph arrow, preferring the classical source; individual evidence records remain in the principle panel.
+Non-implications use orange dashed paths, explicit ↛ badges, large click/tap targets and hover/focus emphasis. Routes follow rounded local gaps around cards; reciprocal and parallel arrows use distinct ports. Hover/focus highlights the endpoints and dims other routes. Large rows wrap instead of extending indefinitely sideways. The **Non-implications only** filter isolates them. Multiple proofs of the same directed statement share a single graph arrow, preferring the classical source; individual evidence records remain in the principle panel.
 
 The added equivalences distinguish cardinal from ordinal trichotomy, finite index choice from finite-fiber choice and multiple choice, and full Tychonoff from its compact Hausdorff version. Compactness and product nonemptiness are stated separately. Mathias’s 1967/1974 OP ↛ OEP separation is credited independently of Cançado’s additional PP-model witness.
 
@@ -69,7 +79,9 @@ hash routes work under a GitHub Pages project URL.
 
 ## Check the data and reasoning engine
 
-With Node.js installed, run `node verify.mjs`. The check covers source/model
+With Node.js installed, run `node verify.mjs`, `node selection.verify.mjs`, and `node graph.verify.mjs`. For interaction regressions, install `jsdom` and `svg-path-properties` in a separate development directory and run `ATLAS_TEST_MODULES=/path/to/development node ui.verify.mjs`. These dependencies are not used by the website.
+
+The checks cover source/model
 references, conjunctions, theory isolation, research filtering, and conflicts
 between entered implications and countermodels. It does not certify proofs.
 

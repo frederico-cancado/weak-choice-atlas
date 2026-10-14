@@ -1,7 +1,7 @@
-import {compare} from './engine.mjs?v=20261008-7';
+import {compare} from './engine.mjs?v=20261013-1';
 
 export const AC_GROUPS=[
- {id:'equivalent',title:'Equivalent to AC',description:'Equivalent formulations, collected here instead of repeated in the graph.'},
+ {id:'equivalent',title:'Equivalent to AC',description:'Equivalent formulations, collected here and optionally included in custom graphs.'},
  {id:'weaker',title:'Known not equivalent to AC',description:'Principles that can hold without AC. Preprint-dependent results and theorems of ZF are labelled separately.'},
  {id:'unresolved',title:'Unresolved / to verify',description:'Documented open questions, parameter-dependent families, and entries whose AC status has not yet been verified in this atlas.'}
 ];
@@ -26,12 +26,13 @@ export function classifyPrinciple(data,node,theory='ZF',includeResearch=true){
  return {group:'unresolved',label:parameterized?'Depends on parameters / to verify':'Not yet classified',note:parameterized?'Fix the displayed parameters before comparing this family with AC. No uniform classification is asserted.':'The atlas has not yet recorded enough evidence to classify this statement. This is not a claim that the mathematical question is open.'};
 }
 
-export function graphEligible(data,node,theory='ZF'){
- return node.graph_visibility!=='hidden'&&classifyPrinciple(data,node,theory,true).group!=='equivalent';
+export function graphEligible(data,node,theory='ZF',options={}){
+ if(node.id==='ac'&&options.includeAC)return true;
+ return (options.includeHidden||node.graph_visibility!=='hidden')&&(options.includeEquivalents||classifyPrinciple(data,node,theory,true).group!=='equivalent');
 }
 
-export function graphSlice(data,ids,relations,theory='ZF',kind='all'){
- const eligible=ids.filter(id=>{const node=data.principles.find(n=>n.id===id);return node&&graphEligible(data,node,theory)});
+export function graphSlice(data,ids,relations,theory='ZF',kind='all',options={}){
+ const eligible=ids.filter(id=>{const node=data.principles.find(n=>n.id===id);return node&&graphEligible(data,node,theory,options)});
  const logical=new Map();
  for(const r of relations.filter(r=>r.antecedents.length>0&&eligible.includes(r.consequent)&&r.antecedents.every(id=>eligible.includes(id)))){
   if(kind==='nonimplication'&&r.kind!=='nonimplication')continue;

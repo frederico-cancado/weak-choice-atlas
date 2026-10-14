@@ -215,3 +215,14 @@ for(const m of data.models){
  for(const e of m.property_evidence||[])assert.ok(data.sources[e.source],e.source);
 }
 console.log('PASS: RPP strength, classical separating models, explicit transfer boundaries and model-fact references.');
+
+// Exact-size finite choice must not be mistaken for choice up to a size bound.
+assert.ok(!ids.has('dc_reals'));
+for(const theory of ['ZF','ZFA']){
+ assert.ok(compare(data,'ac_2','ac_4',theory).proof);
+ assert.ok(compare(data,'ac_4','ac_2',theory).proof);
+ for(const [a,b] of [['ac_2','ac_3'],['ac_3','ac_2'],['ac_4','ac_3'],['ac_3','ac_4']]){
+  const result=compare(data,a,b,theory);assert.equal(result.proof,null);assert.ok(result.witnesses.length);
+ }
+}
+console.log('PASS: DC on reals removed; exact-size choice equivalence, adjacent countermodels and ZF/ZFA evidence.');

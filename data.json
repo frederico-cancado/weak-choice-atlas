@@ -3,7 +3,7 @@
   "prepared": "2026-10-07",
   "prepared_for": "Frederico Cançado",
   "scope": "Broad coverage from the start. This is an extensible inventory, not an exhaustive enumeration or a certified implication graph.",
-  "record_count": 102,
+  "record_count": 103,
   "status": "Initial public catalogue; relation review levels are shown individually.",
   "counts_note": "Counts include parameterized families, equivalent formulations and ZF theorems; they are not counts of pairwise inequivalent weak axioms.",
   "notation": {
@@ -632,30 +632,6 @@
         {
           "source_id": "HS25",
           "locator": ""
-        }
-      ]
-    },
-    {
-      "id": "dc_reals",
-      "name": "Dependent choice on the reals",
-      "category": "dependent_choice",
-      "definition": "DC restricted to nonempty subsets of R and relations on them.",
-      "base_theory": "ZF",
-      "howard_rubin_reference": "211",
-      "status": "candidate",
-      "notes": "Encode the domain restriction, not only the abbreviation DC_R.",
-      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
-      "source_locators": {
-        "HR": "Form 211"
-      },
-      "node_kind": "specific_statement",
-      "catalogue_status": "draft_inventory",
-      "aliases": [],
-      "definition_evidence": [
-        {
-          "source_id": "HR",
-          "locator": "Form 211"
         }
       ]
     },
@@ -3440,6 +3416,90 @@
           "locator": "J. Symbolic Logic 42(3), 387–390"
         }
       ]
+    },
+    {
+      "base_theory": "ZF",
+      "status": "candidate",
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "definition_review": "Exact fiber size and arbitrary index set checked against Mostowski, p.137.",
+      "relation_review": "Classical equivalence and countermodel records specify ZF and ZFA separately, with proof notes.",
+      "source_locators": {
+        "MOSTOWSKI1945": "p.137, definition [n]"
+      },
+      "id": "ac_3",
+      "name": "Choice for triples (AC₃)",
+      "category": "restricted_choice",
+      "definition": "For every set-indexed family (A_i) with exactly 3 elements in each A_i, there is a function f with domain I such that f(i)∈A_i for every i∈I.",
+      "howard_rubin_reference": null,
+      "notes": "The index set is arbitrary. The fiber size is exact, not merely an upper bound. Incomparable with AC₂ (and hence AC₄) over both ZF and ZFA.",
+      "aliases": [
+        "AC_3",
+        "C(all,3)",
+        "C_3"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "MOSTOWSKI1945",
+          "locator": "p.137, definition [n]"
+        }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Thomas Jech, The Axiom of Choice (1973)",
+        "locator": "§7.5, Problems 20–21, p. 116",
+        "note": "The cited ZF model satisfies AC₃ and refutes AC₂, hence refutes full AC.",
+        "layer": "standard",
+        "review": "Source statement inspected; the specialization and elementary consequence are identified."
+      },
+      "hypotheses": [
+        "The index set I is arbitrary.",
+        "Each fiber has exactly 3 elements."
+      ]
+    },
+    {
+      "base_theory": "ZF",
+      "status": "candidate",
+      "node_kind": "specific_statement",
+      "catalogue_status": "draft_inventory",
+      "definition_review": "Exact fiber size and arbitrary index set checked against Mostowski, p.137.",
+      "relation_review": "Classical equivalence and countermodel records specify ZF and ZFA separately, with proof notes.",
+      "source_locators": {
+        "MOSTOWSKI1945": "p.137, definition [n]"
+      },
+      "id": "ac_4",
+      "name": "Choice for four-element sets (AC₄)",
+      "category": "restricted_choice",
+      "definition": "For every set-indexed family (A_i) with exactly 4 elements in each A_i, there is a function f with domain I such that f(i)∈A_i for every i∈I.",
+      "howard_rubin_reference": null,
+      "notes": "The index set is arbitrary. The fiber size is exact, not merely an upper bound. Equivalent to AC₂ by the classical Tarski argument. It does not imply AC₃.",
+      "aliases": [
+        "AC_4",
+        "C(all,4)",
+        "C_4"
+      ],
+      "definition_evidence": [
+        {
+          "source_id": "MOSTOWSKI1945",
+          "locator": "p.137, definition [n]"
+        }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "base": "ZF",
+        "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+        "source_title": "Thomas Jech, The Axiom of Choice (1973)",
+        "locator": "§7.4, Example 7.13, pp. 108–109; AC₂ ⇔ AC₄",
+        "note": "The cited ZF model satisfies AC₂, hence AC₄, while AC₃ and full AC fail.",
+        "layer": "standard",
+        "review": "Source statement inspected; the specialization and elementary consequence are identified."
+      },
+      "hypotheses": [
+        "The index set I is arbitrary.",
+        "Each fiber has exactly 4 elements."
+      ]
     }
   ],
   "sources": {
@@ -3838,7 +3898,8 @@
       "title": "Thomas Jech (1973), The Axiom of Choice",
       "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
       "source_type": "author_monograph",
-      "role": "Countable choice implies the countable union theorem; Example 2.4.2, p. 20."
+      "role": "Countable choice implies the countable union theorem; Example 2.4.2, p. 20.",
+      "finite_choice_access": "§7.4, Examples 7.12–7.13, pp. 107–109, and §7.5, Problems 20–21, p. 116 inspected; fixed-size choice transfer distinguished from general transfer."
     },
     "CLARK2013": {
       "title": "Pete L. Clark (2013), Graph Derangements",
@@ -3965,6 +4026,18 @@
       "url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
       "source_type": "Author manuscript",
       "access": "Section 6, pp. 8–9: pure kernel, Jech–Sochor embedding theorem, normal ideals and support filters inspected."
+    },
+    "MOSTOWSKI1945": {
+      "title": "Axiom of choice for finite sets",
+      "authors": [
+        "Andrzej Mostowski"
+      ],
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/93513",
+      "doi": "10.4064/fm-33-1-137-168",
+      "version": "Fundamenta Mathematicae 33 (1945),137–168",
+      "source_type": "original_research",
+      "access": "Publisher PDF inspected visually: p.138; Theorem IV pp.160–161; Theorem VII and Lemma 13 p.164.",
+      "role": "Classical exact-size choice implications and prime-sum nonimplication criterion; pure-ZF transfer is documented separately in Jech."
     }
   },
   "cardinal_well_foundedness_template": {
@@ -4237,27 +4310,6 @@
       "locator": "Proof note in this record",
       "status": "elementary_argument",
       "proof_note": "Apply DC to finite choice sequences for the first n members of the family, with the relation of extension by one coordinate. Finite choice makes this relation serial; the union of the resulting chain is a choice function.",
-      "proof_access": "Argument included in this record; not independently peer reviewed",
-      "layer": "standard",
-      "valid_bases": [
-        "ZF",
-        "ZFA"
-      ],
-      "base_review": "The displayed elementary argument also applies to sets with atoms; this is a direct argument in ZFA, not a model-transfer claim."
-    },
-    {
-      "id": "dc_reals_restriction",
-      "kind": "implication",
-      "antecedents": [
-        "dc"
-      ],
-      "consequent": "dc_reals",
-      "base": "ZF",
-      "source": "ELEMENTARY",
-      "source_url": null,
-      "locator": "Proof note in this record",
-      "status": "elementary_argument",
-      "proof_note": "Restrict the underlying nonempty set to a subset of the real numbers.",
       "proof_access": "Argument included in this record; not independently peer reviewed",
       "layer": "standard",
       "valid_bases": [
@@ -7243,6 +7295,150 @@
       "layer": "standard",
       "model": "countable_support_fraenkel",
       "consistency_assumption": "Con(ZFA + AC with ℵ₁ atoms), with ℵ₁ and the countable supports computed in the ground model."
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "status": "elementary_argument",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "proof_access": "Complete elementary proof included; valid for sets with or without atoms.",
+      "id": "finite_choice_ac3",
+      "kind": "implication",
+      "antecedents": [
+        "ac_finite_fibers"
+      ],
+      "consequent": "ac_3",
+      "proof_note": "Restrict the family in AC_fin to fibers with exactly 3 elements."
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "status": "elementary_argument",
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Proof note",
+      "proof_access": "Complete elementary proof included; valid for sets with or without atoms.",
+      "id": "finite_choice_ac4",
+      "kind": "implication",
+      "antecedents": [
+        "ac_finite_fibers"
+      ],
+      "consequent": "ac_4",
+      "proof_note": "Restrict the family in AC_fin to fibers with exactly 4 elements."
+    },
+    {
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "layer": "standard",
+      "status": "elementary_argument",
+      "source": "MOSTOWSKI1945",
+      "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/93513",
+      "locator": "p.138 (Tarski argument); Lemma 13 p.164",
+      "proof_access": "Complete elementary proof included; valid for sets with or without atoms.",
+      "id": "ac2_iff_ac4",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac_2"
+      ],
+      "consequent": "ac_4",
+      "proof_note": "AC₂⇒AC₄: given a family of four-element sets, use AC₂ on all pairs appearing in their union. For each four-set A, count q(a), the pairs in A on which a was selected. Since the four counts sum to 6, they are not all equal. The set B of elements attaining the smallest count has size 1, 2, or 3. If its size is 1, select its element; if 2, use the pair-choice function; if 3, select the unique element of A minus B. This defines a choice function uniformly. AC₄⇒AC₂: replace each pair X by the four-set X×{0,1}, choose an ordered pair, and project onto X."
+    },
+    {
+      "id": "ac_3_not_ac_2_zf",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_3"
+      ],
+      "consequent": "ac_2",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "JECH1973",
+      "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+      "locator": "§7.5, Problems 20–21, p.116; Mostowski Theorem IV, pp.160–161",
+      "status": "source_checked",
+      "proof_note": "Apply the finite-group nonimplication criterion with Z={3} and target 2. The fixed-point-free group C₂ on two points has no nontrivial subgroup indices except2; every admissible sum of indices is even, so none belongs to {3}. The cited theorem supplies a model of ZF with C₃ and not C₂. Since C₄ implies C₂, C₄ also fails. This is a specific application of a classical theorem, not a new consistency claim.",
+      "proof_access": "Source passage inspected; deductions and specialization are identified in the proof note.",
+      "layer": "standard",
+      "model": "finite_choice_triples_not_pairs_zf",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "ac_2_not_ac_3_zf",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_2"
+      ],
+      "consequent": "ac_3",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "JECH1973",
+      "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+      "locator": "§7.4, Example 7.13, pp.108–109",
+      "status": "source_checked",
+      "proof_note": "Jech constructs the cyclic-triples permutation model and explicitly transfers it to pure ZF while preserving C₂ and failure of C₃. C₄ follows by the Tarski equivalence C₂⇔C₄. The support-model transfer is part of the cited proof; no other facts about the original atom model are being transferred here.",
+      "proof_access": "Source passage inspected; deductions and specialization are identified in the proof note.",
+      "layer": "standard",
+      "model": "finite_choice_pairs_not_triples_zf",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "ac_3_not_ac_2_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_3"
+      ],
+      "consequent": "ac_2",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Recorded model; proof note",
+      "status": "elementary_argument",
+      "proof_note": "The fixed-pair model has C₃ by the stabilizer-orbit argument: a finite action of any subgroup of the elementary abelian 2-group has orbit sizes powers of2, so an odd three-element set has a fixed point. Choose fixed points on representatives of family orbits in the ground model and extend equivariantly to obtain a symmetric choice function. The atom pairs have no selector.",
+      "proof_access": "Source passage inspected; deductions and specialization are identified in the proof note.",
+      "layer": "standard",
+      "model": "second_fraenkel",
+      "consistency_assumption": "Con(ZFA + AC with a countably infinite set of atoms)."
+    },
+    {
+      "id": "ac_2_not_ac_3_zfa",
+      "kind": "nonimplication",
+      "antecedents": [
+        "ac_2"
+      ],
+      "consequent": "ac_3",
+      "base": "ZFA",
+      "valid_bases": [
+        "ZFA"
+      ],
+      "source": "HT2020RAMSEY",
+      "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+      "locator": "Recorded model; proof note",
+      "status": "source_checked",
+      "proof_note": "The recorded model satisfies C₂ and its countable family of atom triples has no choice function, refuting C₃.",
+      "proof_access": "Source passage inspected; deductions and specialization are identified in the proof note.",
+      "layer": "standard",
+      "model": "cyclic_triples",
+      "consistency_assumption": "Con(ZFA + AC with a countably infinite set of atoms)."
     }
   ],
   "models": [
@@ -7826,14 +8022,16 @@
       "true_ids": [
         "mc",
         "no_amorphous",
-        "free_ultrafilter_omega"
+        "free_ultrafilter_omega",
+        "ac_3"
       ],
       "false_ids": [
         "ac",
         "ac_2",
         "ac_omega_finite",
         "df_finite",
-        "rpp"
+        "rpp",
+        "ac_4"
       ],
       "source": "HALBEISENCST",
       "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/cst.pdf",
@@ -7896,6 +8094,17 @@
           "locator": "Section 6, pp. 8–9; elementary consequence of the unchanged pure kernel",
           "status": "elementary_argument",
           "proof_note": "All ground-model pure sets remain. In particular, P(ω) is unchanged and a ground-model free ultrafilter on ω remains an ultrafilter in the permutation model."
+        },
+        {
+          "principles": [
+            "ac_3",
+            "ac_4"
+          ],
+          "source": "ELEMENTARY",
+          "source_url": null,
+          "locator": "Finite stabilizer-orbit argument; AC₄⇒AC₂",
+          "status": "elementary_argument",
+          "proof_note": "The fixed-pair model has C₃ by the stabilizer-orbit argument: a finite action of any subgroup of the elementary abelian 2-group has orbit sizes powers of2, so an odd three-element set has a fixed point. Choose fixed points on representatives of family orbits in the ground model and extend equivariantly to obtain a symmetric choice function. The atom pairs have no selector. AC₄ fails because it implies AC₂."
         }
       ]
     },
@@ -8040,13 +8249,15 @@
       "assumptions": "Con(ZFA + AC with a countably infinite set of atoms), supplied by a ZFC ground model with atoms.",
       "true_ids": [
         "ac_2",
-        "free_ultrafilter_omega"
+        "free_ultrafilter_omega",
+        "ac_4"
       ],
       "false_ids": [
         "ac",
         "ac_omega_finite",
         "df_finite",
-        "rpp"
+        "rpp",
+        "ac_3"
       ],
       "source": "HT2020RAMSEY",
       "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
@@ -8098,6 +8309,89 @@
           "locator": "Section 6, pp. 8–9; elementary consequence of the unchanged pure kernel",
           "status": "elementary_argument",
           "proof_note": "All ground-model pure sets remain. In particular, P(ω) is unchanged and a ground-model free ultrafilter on ω remains an ultrafilter in the permutation model."
+        },
+        {
+          "principles": [
+            "ac_3",
+            "ac_4"
+          ],
+          "source": "HT2020RAMSEY",
+          "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/RamseyChoice.pdf",
+          "locator": "Proof of Theorem 3(3); Tarski equivalence",
+          "status": "elementary_argument",
+          "proof_note": "The cited failure of choice for a countable family of triples refutes AC₃. The recorded AC₂ implies AC₄ by the classical equivalence."
+        }
+      ]
+    },
+    {
+      "id": "finite_choice_triples_not_pairs_zf",
+      "name": "Finite choice: triples without pairs",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "ac_3"
+      ],
+      "false_ids": [
+        "ac_2",
+        "ac_4",
+        "ac"
+      ],
+      "source": "JECH1973",
+      "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+      "locator": "§7.5, Problems 20–21, p.116; Mostowski Theorem IV, pp.160–161",
+      "status": "source_checked",
+      "description": "Apply the finite-group nonimplication criterion with Z={3} and target 2. The fixed-point-free group C₂ on two points has no nontrivial subgroup indices except2; every admissible sum of indices is even, so none belongs to {3}. The cited theorem supplies a model of ZF with C₃ and not C₂. Since C₄ implies C₂, C₄ also fails. This is a specific application of a classical theorem, not a new consistency claim.",
+      "review": "The cited source statement was inspected. Its application and elementary consequences are stated explicitly.",
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "ac_3",
+            "ac_2",
+            "ac_4",
+            "ac"
+          ],
+          "source": "JECH1973",
+          "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+          "locator": "§7.5, Problems 20–21, p.116; Mostowski Theorem IV, pp.160–161",
+          "status": "source_checked",
+          "proof_note": "Apply the finite-group nonimplication criterion with Z={3} and target 2. The fixed-point-free group C₂ on two points has no nontrivial subgroup indices except2; every admissible sum of indices is even, so none belongs to {3}. The cited theorem supplies a model of ZF with C₃ and not C₂. Since C₄ implies C₂, C₄ also fails. This is a specific application of a classical theorem, not a new consistency claim."
+        }
+      ]
+    },
+    {
+      "id": "finite_choice_pairs_not_triples_zf",
+      "name": "Finite choice: pairs without triples",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "ac_2",
+        "ac_4"
+      ],
+      "false_ids": [
+        "ac_3",
+        "ac"
+      ],
+      "source": "JECH1973",
+      "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+      "locator": "§7.4, Example 7.13, pp.108–109",
+      "status": "source_checked",
+      "description": "Jech constructs the cyclic-triples permutation model and explicitly transfers it to pure ZF while preserving C₂ and failure of C₃. C₄ follows by the Tarski equivalence C₂⇔C₄. The support-model transfer is part of the cited proof; no other facts about the original atom model are being transferred here.",
+      "review": "The cited source statement was inspected. Its application and elementary consequences are stated explicitly.",
+      "layer": "standard",
+      "property_evidence": [
+        {
+          "principles": [
+            "ac_2",
+            "ac_4",
+            "ac_3",
+            "ac"
+          ],
+          "source": "JECH1973",
+          "source_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+          "locator": "§7.4, Example 7.13, pp.108–109",
+          "status": "source_checked",
+          "proof_note": "Jech constructs the cyclic-triples permutation model and explicitly transfers it to pure ZF while preserving C₂ and failure of C₃. C₄ follows by the Tarski equivalence C₂⇔C₄. The support-model transfer is part of the cited proof; no other facts about the original atom model are being transferred here."
         }
       ]
     }
@@ -8110,7 +8404,7 @@
     "preprint_statement_checked": "Preprint statement checked"
   },
   "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer.",
-  "updated": "2026-10-08",
+  "updated": "2026-10-13",
   "graph_selection": {
     "selected_on": "2026-10-08",
     "kept_candidate_numbers": [
@@ -8182,7 +8476,7 @@
       "binary_cardinal_glb",
       "powerset_comparison"
     ],
-    "policy": "Unselected candidates are hidden from graph navigation, not deleted from the catalogue. AC equivalents remain outside the graphs, including retained item 10."
+    "policy": "Earlier unselected entries remain outside default topic navigation but are available in the custom picker. AC is optional; other AC equivalents can be enabled. Saved selections and permalinks control the displayed nodes explicitly."
   },
   "permutation_models_guide": {
     "title": "From atoms to ZF: the Jech–Sochor theorem",
@@ -8192,5 +8486,13 @@
     "source_url": "https://people.math.ethz.ch/~halorenz/publications/pdf/berlin.pdf",
     "locator": "Section 6, pp. 8–9",
     "notation": "A is the atom set, G acts by permutations, and 𝓕 is a filter of subgroups closed under conjugation. Normality means this conjugation closure; the individual subgroups need not be normal. Fix_G(E) is the pointwise stabilizer of E. The model consists of hereditarily symmetric sets: stabilizers belong to 𝓕 throughout the membership hierarchy. All atom sizes and support bounds below are measured in the ground model of ZFA + AC."
+  },
+  "finite_choice_note": {
+    "title": "Exact size is not a decreasing hierarchy",
+    "text": "For each fixed n≥3, AC(all,n) does not imply AC(all,n−1), in both ZF and ZFA (assuming consistency). Choose a prime p dividing n−1: a cyclic-p model satisfies C_n because p does not divide n, while C_(n−1) fails. These finite-choice separations transfer to ZF by the cited support-model construction. For n=2 the target C_1 is provable. This concerns exactly n elements; choice for at most n elements does imply choice for at most n−1.",
+    "source": "MOSTOWSKI1945",
+    "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/93513",
+    "locator": "Theorem IV pp.160–161; Jech §7.4 Example 7.13 pp.108–109 and §7.5 Problems 20–21 p.116",
+    "supporting_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf"
   }
 }
