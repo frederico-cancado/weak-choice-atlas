@@ -1,5 +1,6 @@
+import {closure} from './engine.mjs?v=20261013-2';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const rank={ac:0,wo:0,zorn:0,tychonoff:0,pp:1,dc:5,bpi:1,ultrafilter_lemma:1,dual_csb:2,oep:2,propositional_compactness:2,tychonoff_hausdorff:2,hahn_banach:3,op:3,wpp:3,baire_complete_metric:3,ac_wo_index:4,ac_finite_fibers:5,ac_omega:6,ac_omega_countable:7,ac_omega_finite:8,cuf:8,free_ultrafilter_omega:3,rpp:7,fb:1,nds_sets:3,finite_antichains:3,df_finite:7,svc_plus_seed:2,svc_seed:3,svc:4,kwp:5,ac_countable_fibers:4,graph_coloring_compactness:2,infinite_hall_finite_fibers:3,ac_n:6,ac_2:6,ac_3:6,ac_4:6,graph_coloring_compactness_2:7,ac_omega_n:9,cuc:7,no_amorphous:9,some_free_ultrafilter:10,algebraic_closure:3,unique_algebraic_closure:3};
+const rank={mc:0,noetherian_acc_fg:6,sequential_continuity_metric:6,infinite_weakly_dedekind_infinite:8,ac:0,wo:0,zorn:0,tychonoff:0,pp:1,dc:5,bpi:1,ultrafilter_lemma:1,dual_csb:2,oep:2,propositional_compactness:2,tychonoff_hausdorff:2,hahn_banach:3,op:3,wpp:3,baire_complete_metric:3,ac_wo_index:4,ac_finite_fibers:5,ac_omega:6,ac_omega_countable:7,ac_omega_finite:8,cuf:8,free_ultrafilter_omega:3,rpp:7,fb:1,nds_sets:3,finite_antichains:3,df_finite:7,svc_plus_seed:2,svc_seed:3,svc:4,kwp:5,ac_countable_fibers:4,graph_coloring_compactness:2,infinite_hall_finite_fibers:3,ac_n:6,ac_2:6,ac_3:6,ac_4:6,graph_coloring_compactness_2:7,ac_omega_n:9,cuc:7,no_amorphous:9,some_free_ultrafilter:10,algebraic_closure:3,unique_algebraic_closure:3};
 const round=n=>Math.round(n*10)/10;
 const key=p=>`${round(p.x)},${round(p.y)}`;
 const same=(a,b)=>a.x===b.x&&a.y===b.y;
@@ -14,11 +15,55 @@ export function roundedPath(points,radius=22){
  const p=points.at(-1);return d+` L${round(p.x)},${round(p.y)}`;
 }
 class Heap{constructor(){this.a=[]}push(value){const a=this.a;a.push(value);let i=a.length-1;while(i){const j=(i-1)>>1;if(a[j].f<=value.f)break;a[i]=a[j];i=j}a[i]=value}pop(){const a=this.a,first=a[0],last=a.pop();if(a.length){let i=0;while(i*2+1<a.length){let j=i*2+1;if(j+1<a.length&&a[j+1].f<a[j].f)j++;if(a[j].f>=last.f)break;a[i]=a[j];i=j}a[i]=last}return first}get length(){return this.a.length}}
-export function graphGeometry(ids,relations){
+function focusPositions(ids,relations,focus,roles){
+ const sorted=[...new Set(ids)].sort(),columns=Math.min(4,Math.max(1,sorted.length-1)),rows=[];
+ const consequences=new Map(sorted.map(id=>[id,closure([id],relations).known]));
+ // Equivalent nodes share a level. Rank the quotient order using only logical
+ // consequences of a single axiom, never one arm of a conjunctive rule.
+ const layers=members=>{
+  const levels=new Map();
+  const level=id=>{if(levels.has(id))return levels.get(id);const parents=members.filter(p=>p!==id&&consequences.get(p).has(id)&&!consequences.get(id).has(p));const value=parents.length?1+Math.max(...parents.map(level)):0;levels.set(id,value);return value;};
+  members.forEach(level);const grouped=new Map();for(const id of members){const n=levels.get(id);if(!grouped.has(n))grouped.set(n,[]);grouped.get(n).push(id);}
+  return [...grouped.keys()].sort((a,b)=>a-b).flatMap(n=>{const list=grouped.get(n);return Array.from({length:Math.ceil(list.length/columns)},(_,i)=>list.slice(i*columns,(i+1)*columns));});
+ };
+ const members=role=>sorted.filter(id=>roles[id]===role),stronger=layers(members('stronger')),weaker=layers(members('weaker'));
+ const equivalentAbove=[],equivalentBelow=[];
+ for(const id of members('equivalent')){
+  let direction=0;for(const r of relations){const endpoints=[...r.antecedents,r.consequent];if(endpoints.includes(id))for(const other of endpoints){if(roles[other]==='stronger')direction--;if(roles[other]==='weaker')direction++;}}
+  (direction<0||direction===0&&equivalentAbove.length<equivalentBelow.length?equivalentAbove:equivalentBelow).push(id);
+ }
+ const chunk=list=>Array.from({length:Math.ceil(list.length/columns)},(_,i)=>list.slice(i*columns,(i+1)*columns));
+ const above=[...stronger,...chunk(equivalentAbove)],below=[...chunk(equivalentBelow),...weaker];
+ const incomparable=members('incomparable'),unknown=sorted.filter(id=>id!==focus&&!['stronger','weaker','equivalent','incomparable'].includes(roles[id]));
+ const sideRows=Math.ceil(incomparable.length/2),centerY=90+148*Math.max(above.length,Math.ceil((sideRows-1)/2));
+ const usedColumns=Math.max(1,...[...above,...below,...chunk(unknown)].map(row=>row.length)),sideColumns=Math.min(2,incomparable.length);
+ const W=Math.max(720,usedColumns*252+80+sideColumns*252),centerX=W/2+(sideColumns===1?126:0),positions=new Map(),regions=[];
+ const addRows=(list,start)=>list.forEach((row,i)=>{rows.push(row);row.forEach((id,j)=>positions.set(id,{x:round(centerX+(j-(row.length-1)/2)*252),y:start+i*148}));});
+ addRows(above,centerY-above.length*148);positions.set(focus,{x:centerX,y:centerY});
+ addRows(below,centerY+148);
+ const sideTop=centerY-(sideRows-1)*74;
+ incomparable.forEach((id,i)=>positions.set(id,{x:i%2?W-134:134,y:sideTop+Math.floor(i/2)*148}));
+ const knownBottom=Math.max(centerY+below.length*148,sideRows?sideTop+(sideRows-1)*148:0);
+ if(stronger.length)regions.push({kind:'stronger',label:'IMPLIES THE SELECTED AXIOM',x:centerX,y:centerY-above.length*148-48});
+ if(weaker.length)regions.push({kind:'weaker',label:'IMPLIED BY THE SELECTED AXIOM',x:centerX,y:centerY+(chunk(equivalentBelow).length+1)*148-48});
+ if(incomparable.length){regions.push({kind:'incomparable',label:'KNOWN INCOMPARABLE',x:134,y:sideTop-48});if(incomparable.length>1)regions.push({kind:'incomparable',label:'KNOWN INCOMPARABLE',x:W-134,y:sideTop-48});}
+ if(unknown.length){const start=knownBottom+190;addRows(chunk(unknown),start);regions.push({kind:'unknown',label:'COMPARISON NOT ESTABLISHED IN THIS ATLAS',x:centerX,y:start-48});}
+ // Reorder each row by its neighbors' horizontal center. Equivalent
+ // formulations are free to move within their band to shorten other arrows.
+ const neighbors=new Map(sorted.map(id=>[id,[]]));for(const r of relations){const endpoints=[...r.antecedents,r.consequent].filter(id=>positions.has(id));for(const id of endpoints)neighbors.get(id).push(...endpoints.filter(other=>id!==other));}
+ for(let pass=0;pass<4;pass++)for(const row of pass%2?[...rows].reverse():rows){
+  const center=id=>{const ns=neighbors.get(id);return ns.length?ns.reduce((sum,n)=>sum+positions.get(n).x,0)/ns.length:centerX;};
+  row.sort((a,b)=>center(a)-center(b)||a.localeCompare(b));row.forEach((id,i)=>positions.get(id).x=round(centerX+(i-(row.length-1)/2)*252));
+ }
+ const H=Math.max(520,...[...positions.values()].map(p=>p.y+90));
+ return {W,H,positions,regions};
+}
+export function graphGeometry(ids,relations,{focus,focusRoles={}}={}){
  const groups=new Map();for(const id of [...new Set(ids)]){const row=rank[id]??4;if(!groups.has(row))groups.set(row,[]);groups.get(row).push(id)}
  const layers=[];for(const r of [...groups.keys()].sort((a,b)=>a-b)){const entries=groups.get(r).sort();for(let i=0;i<entries.length;i+=6)layers.push(entries.slice(i,i+6))}
- const cols=Math.max(1,...layers.map(row=>row.length)),W=Math.max(720,cols*252+80),H=Math.max(520,layers.length*148+40),positions=new Map();
+ const cols=Math.max(1,...layers.map(row=>row.length));let W=Math.max(720,cols*252+80),H=Math.max(520,layers.length*148+40),positions=new Map(),regions=[];
  layers.forEach((row,ri)=>row.forEach((id,i)=>positions.set(id,{x:round(W/2+(i-(row.length-1)/2)*252),y:round(layers.length===1?H/2:70+ri*(H-140)/(layers.length-1))})));
+ if(focus&&positions.has(focus))({W,H,positions,regions}=focusPositions(ids,relations,focus,focusRoles));
  const visible=relations.filter(r=>positions.has(r.consequent)&&r.antecedents.length&&r.antecedents.every(id=>positions.has(id)));
  const bundles=new Map();for(const r of visible){if(r.antecedents.length!==1)continue;const k=[r.antecedents[0],r.consequent].sort().join('|');if(!bundles.has(k))bundles.set(k,[]);bundles.get(k).push(r)}
  for(const bundle of bundles.values())bundle.sort((a,b)=>a.id.localeCompare(b.id));
@@ -49,16 +94,18 @@ export function graphGeometry(ids,relations){
   const nearest=p=>points[[...pointIndex.values()].reduce((best,i)=>distance(points[i],p)<distance(points[best],p)?i:best,pointIndex.values().next().value)];
   const arms=as.map(a=>{const ap=port(a,joint);return roundedPath(simplify([ap.anchor,...route(nearest(ap.outer),joint)]))});const bp=port(b,joint),ps=simplify([...route(joint,nearest(bp.outer)),bp.anchor]);routed.push({relation:r,points:ps,d:roundedPath(ps),arms});
  }}
- return {W,H,positions,routes:routed,joints};
+ return {W,H,positions,routes:routed,joints,regions};
 }
-export function renderGraph(host,{ids,relations,label,selected,onNode,onEdge}){
- const {W,H,positions,routes,joints:jointPositions}=graphGeometry(ids,relations);
+export function renderGraph(host,{ids,relations,label,selected,focus,focusRoles,onNode,onEdge}){
+ const {W,H,positions,routes,joints:jointPositions,regions}=graphGeometry(ids,relations,{focus,focusRoles});
  const markers=['implication','nonimplication','equivalence'].map((kind,i)=>`<marker id="arrow-${kind}" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="${['var(--blue)','var(--orange)','var(--purple)'][i]}" stroke-width="2.2"/></marker>`).join('');
  const edgePath=({relation:r,d,arms})=>`<g class="graph-edge ${r.kind==='nonimplication'?'countermodel-edge':''}" role="button" tabindex="0" data-edge="${esc(r.id)}" aria-label="${esc(r.antecedents.map(label).join(' and '))} ${r.kind==='nonimplication'?'does not imply':r.kind==='equivalence'?'is equivalent to':'implies'} ${esc(label(r.consequent))}. Open evidence.">${arms.map(arm=>`<path class="edge-halo" d="${arm}"/><path class="graph-joint-line" d="${arm}" fill="none" stroke-width="1.5"/><path class="edge-hit" d="${arm}"/>`).join('')}<path class="edge-halo" d="${d}"/><path class="edge-line ${r.kind}" d="${d}" marker-end="url(#arrow-${r.kind})" ${r.kind==='equivalence'?`marker-start="url(#arrow-equivalence)"`:''}/><path class="edge-hit" d="${d}"/><title>${esc(r.antecedents.map(label).join(' ∧ '))} ${r.kind==='nonimplication'?'↛':r.kind==='equivalence'?'⇔':'⇒'} ${esc(label(r.consequent))} — click for evidence</title></g>`;
  const paths=[...routes].sort((a,b)=>(a.relation.kind==='nonimplication')-(b.relation.kind==='nonimplication')).map(edgePath).join('');
  const joints=jointPositions.map(p=>`<g class="graph-joint" data-edge="${esc(p.relation.id)}"><rect x="${p.x-23}" y="${p.y-14}" width="46" height="28" rx="7"/><text x="${p.x}" y="${p.y+5}" text-anchor="middle" font-size="12">AND</text></g>`).join('');
- const nodes=ids.map(id=>{const p=positions.get(id),text=label(id),chunks=text.length>22?text.split(/\s+/).reduce((a,w)=>{if(!a.length||a[a.length-1].length+w.length>22)a.push(w);else a[a.length-1]+=' '+w;return a},[]):[text];return `<g class="graph-node ${id===selected?'selected':''}" role="button" tabindex="0" data-node="${esc(id)}" aria-label="Open ${esc(text)}"><rect x="${p.x-90}" y="${p.y-27}" width="180" height="54" rx="8"/>${chunks.slice(0,2).map((s,i)=>`<text x="${p.x}" y="${p.y+(chunks.length===1?6:-3+i*19)}" text-anchor="middle">${esc(s)}</text>`).join('')}<title>${esc(text)}</title></g>`}).join('');
- host.innerHTML=`<svg viewBox="0 0 ${W} ${H}" aria-label="Interactive graph of choice principles. Solid arrows are implications; dashed arrows marked ↛ are non-implications witnessed by models." role="group"><defs>${markers}</defs><g class="viewport"><g class="graph-edges">${paths}</g>${joints}<g class="graph-badges"></g>${nodes}</g></svg>`;
+ const roleLabels={focus:'Selected axiom',equivalent:'Equivalent to the selected axiom',stronger:'Implies the selected axiom',weaker:'Implied by the selected axiom',incomparable:'Known incomparable with the selected axiom',unknown:'Comparison with the selected axiom is not established in this atlas'};
+ const nodes=ids.map(id=>{const p=positions.get(id),text=label(id),role=focusRoles?.[id],description=role?`${text} — ${roleLabels[role]}`:text,chunks=text.length>22?text.split(/\s+/).reduce((a,w)=>{if(!a.length||a[a.length-1].length+w.length>22)a.push(w);else a[a.length-1]+=' '+w;return a},[]):[text];return `<g class="graph-node ${id===selected?'selected':''} ${role?'comparison-'+role:''}" role="button" tabindex="0" data-node="${esc(id)}" ${role?`data-comparison="${role}"`:''} aria-label="Open ${esc(description)}"><rect x="${p.x-90}" y="${p.y-27}" width="180" height="54" rx="8"/>${chunks.slice(0,2).map((s,i)=>`<text x="${p.x}" y="${p.y+(chunks.length===1?6:-3+i*19)}" text-anchor="middle">${esc(s)}</text>`).join('')}<title>${esc(description)}</title></g>`}).join('');
+ const zoneLabels=regions.map(r=>`<text class="graph-zone-label" x="${r.x}" y="${r.y}" fill="var(--muted)" font-size="11" text-anchor="middle" pointer-events="none">${esc(r.label)}</text>`).join('');
+ host.innerHTML=`<svg viewBox="0 0 ${W} ${H}" aria-label="Interactive graph of choice principles. Solid arrows are implications; dashed arrows marked ↛ are non-implications witnessed by models.${focus?' Stronger axioms are above the selection, weaker axioms below, and known incomparable axioms at the sides. Unestablished comparisons occupy a separate labeled area.':''}" role="group"><defs>${markers}</defs><g class="viewport"><g class="graph-edges">${paths}</g>${joints}<g class="graph-badges"></g>${zoneLabels}${nodes}</g></svg>`;
  const svg=host.querySelector('svg'),badgeLayer=host.querySelector('.graph-badges'),badges=[];
  // An explicit symbol makes the relation identifiable without relying on color or dashes.
  for(const edge of host.querySelectorAll('.countermodel-edge')){

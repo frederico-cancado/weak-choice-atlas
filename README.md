@@ -23,7 +23,7 @@ Choose Auto, Light or Dark in the header; the theme preference is saved on
 this device. On phones the atlas automatically uses Graph, Principles and
 Details tabs, with touch-sized controls and a list alternative to the graph.
 
-Current edition: 103 statement/family records, 148 relationships, and 16 models.
+Current edition: 101 statement/family records, 154 relationships, and 18 models.
 The catalogue is broader than the initial relationship collection. Missing
 edges mean **not recorded**, not a claim of independence or openness.
 
@@ -31,13 +31,13 @@ The OpenAI model card includes Cançado’s six recorded follow-up results direc
 
 ## Choose your graph
 
-The default **Types of choice** view includes AC, AC_WO, CC, DC, finite-fiber choice, AC₂, AC₃, AC₄ and related restrictions. Topic presets contain at least eleven nodes with current settings; their exact node lists are in `selection.mjs`. They are editorial starting points, not a ranking of mathematical importance. The selected theory and evidence settings filter arrows, not arbitrary isolated nodes.
+The default **Types of choice** view includes AC, AC_WO, CC, DC, finite-fiber choice, AC₂, AC₃, AC₄, Multiple Choice and related restrictions. Topic presets contain at least eleven nodes with current settings; their exact node lists are in `selection.mjs`. They are editorial starting points, not a ranking of mathematical importance. The selected theory and evidence settings filter arrows, not arbitrary isolated nodes.
 
 Open **Choose axioms & graph settings** to select individual entries, include AC equivalents, or expand by one or two steps of recorded relationships. **Only chosen axioms** means exactly the selection. Connection expansion finds adjacent records; it never treats a chain of nonimplications as a deduction. Previously omitted catalogue entries are available in the picker. Choose **All default graph axioms** for a larger overview. **Wider graph** hides the principle list while keeping the evidence panel.
 
-For dense views, **Only the selected axiom’s arrows** retains every node while showing only the arrows touching the selected axiom. Clicking a node opens its details without changing the topic or custom selection. **Around the selected principle** and **Focus graph** explicitly request a neighborhood. **Save this graph** stores its exact nodes and evidence settings on the current device; **Graph permalink** encodes the custom selection in the URL. The same permalink restores the same settings, regardless of the previous graph.
+For dense views, **Only the selected axiom’s arrows** retains every node while showing only the arrows touching the selected axiom. Clicking any axiom opens its complete focused neighborhood, including both directions of recorded nonimplication and its equivalent formulations. Stronger axioms appear above, consequences below, and proven incomparable axioms on the sides. Comparisons not established in the atlas occupy a separate labeled area. Equivalent formulations are placed to shorten neighboring arrows. **Around the selected principle** and **Focus graph** use the same layout. Focus preserves all direct neighbors even when ordinary graph filters would hide them; select two connection steps for a wider neighborhood. Implication arrows with an alternative displayed proof path are omitted, while nonimplications and necessary joint premises are preserved. **Save this graph** stores its exact nodes and evidence settings on the current device; **Graph permalink** encodes the custom selection in the URL. The same permalink restores the same settings, regardless of the previous graph.
 
-The finite-size note distinguishes exactly n elements from at most n. For each fixed n≥3, C_n and C_(n−1) are incomparable over ZF and ZFA, assuming consistency; C_1 is a theorem. The concrete graph includes AC₂ ⇔ AC₄ and both nonimplications between AC₂ and AC₃, with classical sources and separate atom/pure-set witnesses. No parameterized AC_n family is silently instantiated at a different n.
+The Types of choice category includes AC, CC, DC, fixed-size and finite-fiber choice, and Multiple Choice (finite nonempty selections, equivalent to AC over ZF). Its expandable note gives the Mostowski–Gauntt–Truss ACₘ/ACₙ criterion and distinguishes exactly n elements from at most n. For each fixed n≥3, C_n and C_(n−1) are incomparable over ZF and ZFA, assuming consistency; C_1 is a theorem. The concrete graph includes AC₂ ⇔ AC₄ and both nonimplications between AC₂ and AC₃, with classical sources and separate atom/pure-set witnesses. No parameterized AC_n family is silently instantiated at a different n.
 
 ## Permutation models
 
@@ -45,9 +45,9 @@ The five ZFA models have separate **A / G / 𝓕** construction panels: basic Fr
 
 ## Complete relationship profiles
 
-Click a principle to see its relationship groups, or choose **Open full view** for a searchable comparison with every other catalogue entry. Profiles include graph-hidden definitions and provide incoming implications, consequences, equivalences, mutual nonimplications, and unanswered directions. Transitive implications include their complete recorded proof paths; expanding a comparison displays evidence separately for each direction.
+Click a principle to see its relationship groups, or choose **Open full view** for a searchable comparison with every other catalogue entry. Profiles include graph-hidden definitions and provide incoming implications, consequences, equivalences, mutual nonimplications, and unanswered directions. Each list groups equivalent formulations into expandable classes, preferring AC and BPI as representatives. Search also finds formulations inside collapsed classes. Empty relationship and catalogue groups are omitted. Transitive implications include their complete recorded proof paths; expanding a comparison displays evidence separately for each direction.
 
-**Unknown / not recorded** means the atlas lacks evidence for a direction under the selected ZF/ZFA and research settings. It is not an assertion of mathematical openness. A known implication with an unanswered converse appears in both the implication group and the unanswered group. Known ZF theorems are unconditional consequences, without adding source-less arrows to the graph.
+**Unknown / not recorded** means the atlas lacks evidence for a direction under the selected ZF/ZFA and research settings. It is not an assertion of mathematical openness. A known implication with an unanswered converse appears in both the implication group and the unanswered group. The CSB, ordinal-trichotomy, finite-index-choice and finite-Hall theorem entries have been removed.
 
 The **PP, CSB* & WPP** view displays PP ⇒ CSB* ⇒ WPP ⇒ AC_WO ⇒ DC. OpenAI’s explicit CSB* and WPP nonimplications to AC retain its attribution and recent-source status. The BPI/CSB* comparison distinguishes the classical Cohen-model direction from Cançado’s preliminary reverse separation.
 
@@ -57,13 +57,13 @@ The AC-equivalence catalogue includes the maximal antichain principle, Kuratowsk
 
 ## Catalogue groups and graph scope
 
-The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. The current counts are 19, 72, and 12 respectively. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
+The catalogue separates **equivalent to AC**, **known not equivalent to AC**, and **unresolved / to verify**. These are ZF classifications. The last group explicitly distinguishes a documented open question, a parameter-dependent family, and a record that the atlas has not yet classified. Cited preprint-supported classifications remain visibly marked even when recent graph arrows are hidden.
 
-AC equivalents have standalone pages with hypotheses and proof references. AC is included by default as a graph reference; other equivalents can be enabled in the graph settings. The reasoning records are retained for comparison and citation. The earlier 11 retained candidates remain in default graph navigation. The other 41 remain outside default topic selection, but every retained catalogue entry can now be selected explicitly. Retained item 10, choice for linearly orderable index sets, remains in the AC-equivalence catalogue. DC on the reals has been removed at the maintainer’s request.
+AC equivalents have standalone pages with hypotheses and proof references. AC is included by default as a graph reference; other equivalents can be enabled in the graph settings. The reasoning records are retained for comparison and citation. The earlier 11 retained candidates remain in default graph navigation. Other retained entries remain outside default topic selection, but every catalogue entry can be selected explicitly. Retained item 10, choice for linearly orderable index sets, remains in the AC-equivalence catalogue. DC on the reals has been removed at the maintainer’s request.
 
 Non-implications use orange dashed paths, explicit ↛ badges, large click/tap targets and hover/focus emphasis. Routes follow rounded local gaps around cards; reciprocal and parallel arrows use distinct ports. Hover/focus highlights the endpoints and dims other routes. Large rows wrap instead of extending indefinitely sideways. The **Non-implications only** filter isolates them. Multiple proofs of the same directed statement share a single graph arrow, preferring the classical source; individual evidence records remain in the principle panel.
 
-The added equivalences distinguish cardinal from ordinal trichotomy, finite index choice from finite-fiber choice and multiple choice, and full Tychonoff from its compact Hausdorff version. Compactness and product nonemptiness are stated separately. Mathias’s 1967/1974 OP ↛ OEP separation is credited independently of Cançado’s additional PP-model witness.
+The added equivalences distinguish finite-fiber choice from multiple choice, and full Tychonoff from its compact Hausdorff version. Compactness and product nonemptiness are stated separately. Mathias’s 1967/1974 OP ↛ OEP separation is credited independently of Cançado’s additional PP-model witness.
 
 ## Run locally
 
@@ -140,3 +140,13 @@ text: CC BY 4.0. Linked papers retain their own terms. See the license files.
 RPP is the Ramseyan Partition Principle for two-colorings of unordered pairs of an arbitrary infinite set; the homogeneous subset need only be infinite. The Ramsey view connects it to PP, NDS, countable choice, Dedekind infinitude, finite choice and BPI. Citations distinguish Blass’s original results from later proofs and elementary consequences.
 
 Five additional model entries cover basic Fraenkel (ZFA), a transferred Ramsey model (ZF), Howard–Tachtsis AC_WO without NDS, Tachtsis BPI plus countable choice without NDS, and Solovay’s measurable-reals model. Transferred results are separate from their atom-model origins. Solovay’s stronger hypothesis is explicit; unrecorded truth values remain unknown. RPP also appears in the existing model tables where the recorded facts decide it.
+
+### Revised categories and additional statements
+
+All cardinal and partition/duality categories are collected under **Cardinal structure**. RPP is in **Combinatorics**. Dedekind infinitude, weak Dedekind infinitude (IWDI), and no amorphous sets share **Finitude**. The complete catalogue is available in the sidebar; empty categories are not displayed.
+
+The metric sequential-continuity principle states that every sequentially continuous map between metric spaces is continuous; it is equivalent to CC over ZF (Herrlich, Theorem 2.4). Its notes distinguish pointwise real continuity from the global real-to-real theorem.
+
+The Noetherian entry uses stabilization of ascending **sequences** of ideals in commutative rings with identity, equivalent to finite generation of every ideal. The recorded bounds are DC ⇒ N ⇒ IWDI ⇒ no amorphous sets, and N is incomparable with BPI. The reverse direction from finite generation to ACC is a ZF theorem; the included finite/cofinite Boolean-ring argument justifies N ⇒ IWDI. No equivalence N ⇔ DC is asserted. All relationships with other recorded axioms are available through the inference profiles.
+
+Algebraic-closure existence and uniqueness retain BPI upper bounds. The Howard–Rubin table records uniqueness failing to imply existence in **ZFA**, not a verified pure-ZF separation. The existence-to-uniqueness direction is unresolved in that catalogue; the atlas does not claim a current ZF incomparability theorem.

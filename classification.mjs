@@ -1,8 +1,8 @@
-import {compare} from './engine.mjs?v=20261013-1';
+import {compare} from './engine.mjs?v=20261013-2';
 
 export const AC_GROUPS=[
  {id:'equivalent',title:'Equivalent to AC',description:'Equivalent formulations, collected here and optionally included in custom graphs.'},
- {id:'weaker',title:'Known not equivalent to AC',description:'Principles that can hold without AC. Preprint-dependent results and theorems of ZF are labelled separately.'},
+ {id:'weaker',title:'Known not equivalent to AC',description:'Principles that can hold without AC. Preprint-dependent results retain their source labels.'},
  {id:'unresolved',title:'Unresolved / to verify',description:'Documented open questions, parameter-dependent families, and entries whose AC status has not yet been verified in this atlas.'}
 ];
 

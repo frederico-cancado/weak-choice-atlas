@@ -1,11 +1,11 @@
 {
-  "title": "Weak Choice Atlas — starter catalogue",
+  "title": "Weak Choice Atlas",
   "prepared": "2026-10-07",
   "prepared_for": "Frederico Cançado",
   "scope": "Broad coverage from the start. This is an extensible inventory, not an exhaustive enumeration or a certified implication graph.",
-  "record_count": 103,
+  "record_count": 101,
   "status": "Initial public catalogue; relation review levels are shown individually.",
-  "counts_note": "Counts include parameterized families, equivalent formulations and ZF theorems; they are not counts of pairwise inequivalent weak axioms.",
+  "counts_note": "Counts include parameterized families and equivalent formulations; they are not counts of pairwise inequivalent weak axioms. ZF theorem-only entries are excluded.",
   "notation": {
     "C(I,F)": "Every family (A_i) indexed by an index set of type I, with each A_i nonempty and of type F, admits a function c with c(i) in A_i.",
     "all": "No restriction.",
@@ -30,7 +30,7 @@
     {
       "id": "ac",
       "name": "Axiom of Choice",
-      "category": "anchors",
+      "category": "choice",
       "definition": "For every set I and family (A_i) indexed by I with each A_i nonempty, there is a function c on I such that c(i)∈A_i for every i∈I.",
       "base_theory": "ZF",
       "howard_rubin_reference": "1",
@@ -41,7 +41,9 @@
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "AC"
+      ],
       "definition_evidence": [
         {
           "source_id": "Bell",
@@ -141,46 +143,9 @@
       ]
     },
     {
-      "id": "finite_index_choice",
-      "name": "Choice for finitely many sets (ZF theorem)",
-      "category": "restricted_choice",
-      "definition": "For each finite set I and family (A_i) indexed by I, if every A_i is nonempty then there is c:I→⋃_{i∈I}A_i with c(i)∈A_i.",
-      "base_theory": "ZF",
-      "howard_rubin_reference": "0",
-      "status": "ZF_theorem",
-      "notes": "There is no finiteness restriction on each A_i. Provable by finite induction in ZF and ZFA. Do not confuse finite indexing with arbitrary families of finite sets or with multiple choice.",
-      "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
-      "relation_review": "A theorem record with no additional hypotheses supplies this result to every comparison.",
-      "source_locators": {},
-      "node_kind": "specific_statement",
-      "catalogue_status": "draft_inventory",
-      "aliases": [],
-      "definition_evidence": [
-        {
-          "source_id": "Bell",
-          "locator": ""
-        }
-      ],
-      "ac_classification": {
-        "kind": "weaker",
-        "base": "ZF",
-        "source": "ELEMENTARY",
-        "locator": "Proof note",
-        "note": "ZF theorem by finite induction; no choice axiom is needed.",
-        "label": "Theorem of ZF",
-        "source_url": null,
-        "source_title": "Elementary argument supplied with this record"
-      },
-      "hypotheses": [
-        "The index set I is finite.",
-        "Each factor A_i is nonempty; factors need not be finite."
-      ],
-      "graph_visibility": "hidden"
-    },
-    {
       "id": "ac_omega",
       "name": "Countable choice",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(omega,all).",
       "base_theory": "ZF",
       "howard_rubin_reference": "8",
@@ -206,7 +171,7 @@
     {
       "id": "ac_kappa",
       "name": "Choice for kappa indexed families",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(kappa,all), for an infinite well-ordered cardinal kappa.",
       "base_theory": "ZF",
       "howard_rubin_reference": "86(alpha)",
@@ -231,7 +196,7 @@
     {
       "id": "ac_wo_index",
       "name": "Choice for well-orderable families",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(WO,all).",
       "base_theory": "ZF",
       "howard_rubin_reference": "40",
@@ -260,7 +225,7 @@
     {
       "id": "ac_wo_fibers",
       "name": "Choice for well-orderable sets",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(all,WO).",
       "base_theory": "ZF",
       "howard_rubin_reference": "60",
@@ -293,7 +258,7 @@
     {
       "id": "ac_wo_both",
       "name": "Well-orderable indexing and fibers",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(WO,WO).",
       "base_theory": "ZF",
       "howard_rubin_reference": "165",
@@ -326,7 +291,7 @@
     {
       "id": "ac_finite_fibers",
       "name": "Choice for finite sets (AC_fin)",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "For every set I and family (A_i) indexed by I, if each A_i is a nonempty finite set then there is c:I→⋃_{i∈I}A_i with c(i)∈A_i.",
       "base_theory": "ZF",
       "howard_rubin_reference": "62",
@@ -361,7 +326,7 @@
     {
       "id": "ac_n",
       "name": "Choice for n element sets",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(all,n), for a fixed natural number n >= 2.",
       "base_theory": "ZF",
       "howard_rubin_reference": "",
@@ -372,7 +337,10 @@
       "source_locators": {},
       "node_kind": "parameterized_template",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "AC_n",
+        "ACₙ"
+      ],
       "definition_evidence": [
         {
           "source_id": "HRR97",
@@ -394,7 +362,7 @@
     {
       "id": "ac_omega_finite",
       "name": "Countable choice for finite sets",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(omega,finite).",
       "base_theory": "ZF",
       "howard_rubin_reference": "10",
@@ -416,7 +384,7 @@
     {
       "id": "ac_omega_n",
       "name": "Countable choice for n element sets",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(omega,n), for fixed n >= 2.",
       "base_theory": "ZF",
       "howard_rubin_reference": "288(n)",
@@ -449,7 +417,7 @@
     {
       "id": "ac_omega_countable",
       "name": "Countable choice for countable sets",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(omega,countable).",
       "base_theory": "ZF",
       "howard_rubin_reference": "32",
@@ -471,7 +439,7 @@
     {
       "id": "ac_countable_fibers",
       "name": "Choice for countable sets",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(all,countable).",
       "base_theory": "ZF",
       "howard_rubin_reference": "85",
@@ -506,7 +474,7 @@
     {
       "id": "ac_omega_reals",
       "name": "Countable choice for sets of reals",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(omega,P(R)).",
       "base_theory": "ZF",
       "howard_rubin_reference": "94",
@@ -546,7 +514,7 @@
     {
       "id": "ac_reals_index_reals",
       "name": "Real indexed choice for sets of reals",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(R,P(R)).",
       "base_theory": "ZF",
       "howard_rubin_reference": "212",
@@ -581,7 +549,7 @@
     {
       "id": "ac_lo_index",
       "name": "Choice for linearly orderable families",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "C(LO,all).",
       "base_theory": "ZF",
       "howard_rubin_reference": "202",
@@ -616,7 +584,7 @@
     {
       "id": "dc",
       "name": "Dependent choice",
-      "category": "dependent_choice",
+      "category": "choice",
       "definition": "Every serial binary relation on a nonempty set admits an omega sequence of successive related elements.",
       "base_theory": "ZF",
       "howard_rubin_reference": "43",
@@ -627,7 +595,9 @@
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "DC"
+      ],
       "definition_evidence": [
         {
           "source_id": "HS25",
@@ -638,7 +608,7 @@
     {
       "id": "dc_kappa",
       "name": "Higher dependent choice",
-      "category": "dependent_choice",
+      "category": "choice",
       "definition": "Every nonempty tree with no terminal nodes, closed under increasing sequences of length below kappa, has an increasing kappa sequence.",
       "base_theory": "ZF",
       "howard_rubin_reference": "87(alpha)",
@@ -661,7 +631,7 @@
     {
       "id": "dc_below_kappa",
       "name": "Dependent choice below kappa",
-      "category": "dependent_choice",
+      "category": "choice",
       "definition": "DC_lambda holds for every infinite cardinal lambda < kappa.",
       "base_theory": "ZF",
       "howard_rubin_reference": "",
@@ -684,7 +654,7 @@
     {
       "id": "partial_omega_n",
       "name": "Partial countable choice for n element sets",
-      "category": "partial_and_multiple_choice",
+      "category": "choice",
       "definition": "Every omega indexed family of n element sets has a choice function on an infinite subset of omega.",
       "base_theory": "ZF",
       "howard_rubin_reference": "373(n)",
@@ -717,7 +687,7 @@
     {
       "id": "partial_infinite_n",
       "name": "Partial choice for arbitrary infinite families of n element sets",
-      "category": "partial_and_multiple_choice",
+      "category": "choice",
       "definition": "Every infinite family of n element sets has an infinite subfamily admitting choice.",
       "base_theory": "ZF",
       "howard_rubin_reference": "73 (universal n form)",
@@ -751,8 +721,8 @@
     },
     {
       "id": "mc",
-      "name": "Multiple choice",
-      "category": "partial_and_multiple_choice",
+      "name": "Multiple choice (finite nonempty selections)",
+      "category": "choice",
       "definition": "For every set-indexed family (A_i) of nonempty sets, there is a function m on the index set such that ∅≠m(i)⊆A_i and m(i) is finite for each i.",
       "base_theory": "ZF",
       "howard_rubin_reference": "67",
@@ -763,7 +733,11 @@
       "source_locators": {},
       "node_kind": "specific_statement",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "MC",
+        "Finite-valued choice",
+        "Finite nonempty selections"
+      ],
       "definition_evidence": [
         {
           "source_id": "Metric03",
@@ -792,7 +766,7 @@
     {
       "id": "cmc",
       "name": "Countable multiple choice",
-      "category": "partial_and_multiple_choice",
+      "category": "choice",
       "definition": "MC restricted to omega indexed families.",
       "base_theory": "ZF",
       "howard_rubin_reference": "126",
@@ -832,7 +806,7 @@
     {
       "id": "omega_mc",
       "name": "Countable-subset multiple choice",
-      "category": "partial_and_multiple_choice",
+      "category": "choice",
       "definition": "Every family of nonempty sets permits simultaneous selection of nonempty at-most-countable subsets.",
       "base_theory": "ZF",
       "howard_rubin_reference": "76",
@@ -1632,7 +1606,7 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "69",
       "status": "candidate",
-      "notes": "",
+      "notes": "BPI proves both existence and uniqueness. The Howard–Rubin catalogue records uniqueness not implying existence in ZFA, not a ZF separation. Existence implying uniqueness is unresolved in that catalogue; no stronger current conclusion is asserted here. The base theory must be kept explicit.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
@@ -1643,6 +1617,10 @@
         {
           "source_id": "Banaschewski92",
           "locator": ""
+        },
+        {
+          "source_id": "HRALGEBRAICMATRIX",
+          "locator": "Matrix entries (69,233) and (233,69); Howard–Rubin Note 41"
         }
       ],
       "ac_classification": {
@@ -1673,7 +1651,7 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "233",
       "status": "candidate",
-      "notes": "Conditional uniqueness does not assert that a closure exists.",
+      "notes": "Conditional uniqueness does not assert that a closure exists. BPI proves both existence and uniqueness. The Howard–Rubin catalogue records uniqueness not implying existence in ZFA, not a ZF separation. Existence implying uniqueness is unresolved in that catalogue; no stronger current conclusion is asserted here. The base theory must be kept explicit.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
@@ -1684,6 +1662,10 @@
         {
           "source_id": "Banaschewski92",
           "locator": ""
+        },
+        {
+          "source_id": "HRALGEBRAICMATRIX",
+          "locator": "Matrix entries (69,233) and (233,69); Howard–Rubin Note 41"
         }
       ],
       "ac_classification": {
@@ -1783,7 +1765,7 @@
     {
       "id": "dependent_multiple_choice",
       "name": "Dependent multiple choice",
-      "category": "partial_and_multiple_choice",
+      "category": "choice",
       "definition": "Every serial relation on a nonempty set has nonempty finite sets F_n such that each x in F_n relates to some y in F_(n+1).",
       "base_theory": "ZF",
       "howard_rubin_reference": "106 B",
@@ -1889,7 +1871,7 @@
     {
       "id": "no_amorphous",
       "name": "No amorphous sets",
-      "category": "unions_and_finiteness",
+      "category": "finitude",
       "definition": "Every infinite set splits into two disjoint infinite subsets.",
       "howard_rubin_reference": "64",
       "notes": "No amorphous sets is weaker than the assertion that every infinite set is Dedekind-infinite: NDS ⇒ every Dedekind-finite set is finite ⇒ no amorphous sets. The basic Cohen model shows that no amorphous sets implies neither Dedekind infinitude nor NDS. This principle does not imply a nonprincipal ultrafilter exists. By contrast, if an amorphous set exists (the negation of this node), its cofinite filter is nonprincipal and is an ultrafilter, and that set is infinite Dedekind-finite. Mere existence of an ultrafilter without the word nonprincipal is already provable in ZF via a principal ultrafilter.",
@@ -1931,22 +1913,29 @@
     },
     {
       "id": "infinite_weakly_dedekind_infinite",
-      "name": "Every infinite set is weakly Dedekind-infinite",
-      "category": "unions_and_finiteness",
+      "name": "Weak Dedekind infinitude (IWDI)",
+      "category": "finitude",
       "definition": "Every infinite set admits a surjection onto omega.",
-      "howard_rubin_reference": "",
-      "notes": "The definition of weak Dedekind finiteness was checked; this record is its explicit universal finite-versus-weakly-Dedekind-finite principle. Do not equate it by notation with ordinary Dedekind infinitude or with every self-surjection being injective.",
+      "howard_rubin_reference": "82 / 82A",
+      "notes": "Equivalently, the power set of every infinite set is Dedekind-infinite. This is weaker than requiring every infinite set itself to be Dedekind-infinite. IWDI rules out amorphous sets; BPI does not imply IWDI. The Noetherian ACCω-to-finite-generation principle implies IWDI by the finite/cofinite Boolean-ring argument recorded below.",
       "status": "candidate",
       "base_theory": "ZF",
       "node_kind": "specific_statement",
       "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
-      "relation_review": "No implication or nonimplication edge supplied or audited.",
+      "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "catalogue_status": "draft_inventory",
-      "aliases": [],
+      "aliases": [
+        "IWDI",
+        "Every infinite set is weakly Dedekind-infinite"
+      ],
       "definition_evidence": [
         {
           "url": "https://doi.org/10.1017/jsl.2023.48",
           "locator": "Panasawatwong–Truss, Introduction, paragraphs defining Delta_4 and weak Dedekind finiteness"
+        },
+        {
+          "source_id": "KTW2021",
+          "locator": "Definitions 1.2(iii) and 1.9(2); Howard–Rubin Form 82"
         }
       ],
       "ac_classification": {
@@ -1966,7 +1955,7 @@
         ],
         "base": "ZF"
       },
-      "graph_visibility": "hidden"
+      "graph_visibility": "visible"
     },
     {
       "id": "rado_selection",
@@ -2010,32 +1999,6 @@
         ],
         "base": "ZF"
       },
-      "graph_visibility": "hidden"
-    },
-    {
-      "id": "finite_hall",
-      "name": "Finite Hall marriage theorem",
-      "category": "combinatorics",
-      "definition": "A finitely indexed family (A_i) has distinct representatives whenever every subfamily indexed by J has a union of size at least |J|.",
-      "howard_rubin_reference": "",
-      "status": "ZF_theorem_anchor",
-      "notes": "Here finite refers to the number of sets; the sets themselves need not be finite. This elementary ZF theorem belongs only as a lower anchor.",
-      "base_theory": "ZF",
-      "node_kind": "specific_statement",
-      "definition_review": "Definition and cited locator checked; wording is an original short formulation.",
-      "relation_review": "A theorem record with no additional hypotheses supplies this result to every comparison.",
-      "catalogue_status": "draft_inventory",
-      "aliases": [],
-      "definition_evidence": [
-        {
-          "url": "https://doi.org/10.1112/jlms/s1-10.37.26",
-          "locator": "P. Hall (1935), On Representatives of Subsets, Theorem 1, pp. 26–27"
-        },
-        {
-          "url": "https://arxiv.org/html/2503.23159v1",
-          "locator": "Cameron (2025), Section 1, statement and Hall proof"
-        }
-      ],
       "graph_visibility": "hidden"
     },
     {
@@ -2089,7 +2052,7 @@
     {
       "id": "pp",
       "name": "PP",
-      "category": "partition_and_duality",
+      "category": "cardinal_structure",
       "definition": "Whenever f:Y→X is onto, some injection X→Y exists.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2111,7 +2074,7 @@
     {
       "id": "wpp",
       "name": "WPP",
-      "category": "partition_and_duality",
+      "category": "cardinal_structure",
       "definition": "If X is empty or Y surjects onto X, it is not the case that |Y|<|X| in injection order.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2133,7 +2096,7 @@
     {
       "id": "dual_csb",
       "name": "CSB* / dual Cantor–Schröder–Bernstein",
-      "category": "partition_and_duality",
+      "category": "cardinal_structure",
       "definition": "For any nonempty sets X and Y, if a surjection X→Y and a surjection Y→X exist, then a bijection X→Y exists.",
       "base_theory": "ZF",
       "aliases": [
@@ -2168,32 +2131,9 @@
       ]
     },
     {
-      "id": "csb",
-      "name": "CSB",
-      "category": "partition_and_duality",
-      "definition": "Mutual injections imply a bijection.",
-      "base_theory": "ZF",
-      "aliases": [],
-      "parameters": {},
-      "node_kind": "specific_statement",
-      "status": "theorem of ZF, not a weak choice axiom",
-      "catalogue_status": "draft_inventory",
-      "definition_evidence": [
-        {
-          "source_id": "BK2026",
-          "locator": "Proposition 2.3"
-        }
-      ],
-      "notes": "",
-      "definition_review": "Source access and qualifications are recorded in the source bibliography; this is a planning entry.",
-      "relation_review": "A theorem record with no additional hypotheses supplies this result to every comparison.",
-      "howard_rubin_reference": "",
-      "graph_visibility": "hidden"
-    },
-    {
       "id": "nds_sets",
       "name": "NDS (sets)",
-      "category": "cardinal_well_foundedness",
+      "category": "cardinal_structure",
       "definition": "There is no sequence (X_n:n∈ω) with |X_(n+1)|<|X_n| for every n.",
       "base_theory": "ZF",
       "aliases": [
@@ -2218,7 +2158,7 @@
     {
       "id": "wf_cardinal_min",
       "name": "Cardinal minimal-element principle",
-      "category": "cardinal_well_foundedness",
+      "category": "cardinal_structure",
       "definition": "Every nonempty set of cardinals has an injection-minimal member.",
       "base_theory": "ZF",
       "aliases": [
@@ -2254,7 +2194,7 @@
     {
       "id": "wf_cardinal_sequence",
       "name": "NDS (cardinal sequence)",
-      "category": "cardinal_well_foundedness",
+      "category": "cardinal_structure",
       "definition": "Every injection-descending ω-sequence of cardinals has equal consecutive terms somewhere.",
       "base_theory": "ZF",
       "aliases": [
@@ -2290,7 +2230,7 @@
     {
       "id": "wf_maps",
       "name": "NDS (chosen injections)",
-      "category": "cardinal_well_foundedness",
+      "category": "cardinal_structure",
       "definition": "Every sequence of sets together with injections X_(n+1)→X_n has equal consecutive cardinalities somewhere.",
       "base_theory": "ZF",
       "aliases": [
@@ -2326,7 +2266,7 @@
     {
       "id": "finite_antichains",
       "name": "Finite cardinal antichains",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "Every set of pairwise injection-incomparable cardinalities is finite.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2348,7 +2288,7 @@
     {
       "id": "infinite_family_comparable",
       "name": "Infinite-family comparability",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "Every infinite family of distinct sets contains two members comparable by injection.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2381,7 +2321,7 @@
     {
       "id": "omega_family_comparable",
       "name": "Countable-family comparability",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "Every countably infinite family of distinct sets contains two members comparable by injection.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2414,7 +2354,7 @@
     {
       "id": "fb",
       "name": "Finite coinitial cardinal basis (FB)",
-      "category": "cardinal_well_foundedness",
+      "category": "cardinal_structure",
       "definition": "For every nonempty set family F there is finite nonempty F0⊆F such that each X∈F admits an injection Y→X for some Y∈F0.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2436,7 +2376,7 @@
     {
       "id": "fixed_k_comparison",
       "name": "k-cardinal comparability (fixed finite k≥2)",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "Fix a finite integer k≥2. Every set of k distinct cardinals contains two comparable members under the injection ordering.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2465,7 +2405,7 @@
     {
       "id": "w_lambda",
       "name": "W_λ",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "For every set X, |X|≤λ or λ≤|X|.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2490,7 +2430,7 @@
     {
       "id": "w_lambda_star",
       "name": "W*_λ",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "For every set X, |X|≤*λ or λ≤*|X|, where a≤*b means a=0 or a is a surjective image of b.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2515,7 +2455,7 @@
     {
       "id": "df_finite",
       "name": "Every Dedekind-finite set is finite",
-      "category": "infinitude",
+      "category": "finitude",
       "definition": "Every infinite set contains a countably infinite subset.",
       "base_theory": "ZF",
       "aliases": [
@@ -2730,7 +2670,7 @@
     {
       "id": "infinite_doubling",
       "name": "Infinite cardinal doubling",
-      "category": "cardinal_arithmetic",
+      "category": "cardinal_structure",
       "definition": "For every infinite X, X⊔X is bijective with X.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2763,7 +2703,7 @@
     {
       "id": "countable_absorption",
       "name": "Countable absorption",
-      "category": "cardinal_arithmetic",
+      "category": "cardinal_structure",
       "definition": "For every infinite X, ω×X is bijective with X.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2796,7 +2736,7 @@
     {
       "id": "binary_cardinal_glb",
       "name": "Binary cardinal greatest lower bounds",
-      "category": "cardinal_order_structure",
+      "category": "cardinal_structure",
       "definition": "Every two cardinals have a greatest common lower bound in injection order.",
       "base_theory": "ZF",
       "aliases": [],
@@ -2829,7 +2769,7 @@
     {
       "id": "powerset_comparison",
       "name": "Power-set comparability",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "For all X,Y, P(X) injects into P(Y) or P(Y) injects into P(X).",
       "base_theory": "ZF",
       "aliases": [],
@@ -2862,7 +2802,7 @@
     {
       "id": "cardinal_trichotomy",
       "name": "Cardinal comparability / trichotomy",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "For every pair of sets A and B, either there is an injection A→B or there is an injection B→A.",
       "base_theory": "ZF",
       "howard_rubin_reference": "",
@@ -2896,7 +2836,7 @@
     {
       "id": "cardinal_square",
       "name": "Infinite cardinal square (A×A ≈ A)",
-      "category": "cardinal_comparison",
+      "category": "cardinal_structure",
       "definition": "For every infinite set A, there exists a bijection A×A→A.",
       "base_theory": "ZF",
       "howard_rubin_reference": "",
@@ -3086,40 +3026,6 @@
       ]
     },
     {
-      "id": "ordinal_trichotomy",
-      "name": "Ordinal trichotomy (ZF theorem)",
-      "category": "orders",
-      "definition": "For all ordinals α and β, exactly one of α∈β, α=β, or β∈α holds.",
-      "base_theory": "ZF",
-      "howard_rubin_reference": "",
-      "status": "ZF_theorem",
-      "notes": "This compares von Neumann ordinals by their ordinal order. It is provable without choice and is not the cardinal trichotomy principle for arbitrary sets. Keep as an explanatory theorem entry, outside the weak-choice graph if theorem anchors are hidden.",
-      "node_kind": "specific_statement",
-      "catalogue_status": "reviewed_definition",
-      "aliases": [],
-      "definition_evidence": [
-        {
-          "source_id": "ELEMENTARY",
-          "locator": "Comparison theorem for well-orders"
-        }
-      ],
-      "definition_review": "Exact quantifiers and hypotheses reviewed in this audit.",
-      "relation_review": "A theorem record with no additional hypotheses supplies this result to every comparison.",
-      "ac_classification": {
-        "kind": "weaker",
-        "base": "ZF",
-        "source": "ELEMENTARY",
-        "locator": "Proof note",
-        "note": "ZF theorem, hence does not imply AC assuming Con(ZF).",
-        "label": "Theorem of ZF",
-        "source_url": null,
-        "source_title": "Elementary argument supplied with this record"
-      },
-      "hypotheses": [
-        "α and β are von Neumann ordinals, compared by membership."
-      ]
-    },
-    {
       "base_theory": "ZF",
       "status": "candidate",
       "node_kind": "specific_statement",
@@ -3129,7 +3035,7 @@
       "source_locators": {},
       "id": "ac_2",
       "name": "Choice for pairs (AC₂)",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "For every set-indexed family (A_i)_{i∈I} of two-element sets, there is a function f with domain I such that f(i)∈A_i for every i∈I.",
       "howard_rubin_reference": "88",
       "notes": "The index set I is arbitrary. This is not merely countable choice for pairs, and it is the n=2 instance of AC_n. Equivalent in ZF to compactness of proper graph coloring with the fixed palette {0,1}.",
@@ -3380,7 +3286,7 @@
     {
       "id": "rpp",
       "name": "Ramseyan Partition Principle (RPP)",
-      "category": "partition_and_duality",
+      "category": "combinatorics",
       "definition": "For every infinite set X and every coloring c:[X]²→{0,1}, there is an infinite subset Y⊆X such that c is constant on [Y]².",
       "base_theory": "ZF",
       "aliases": [
@@ -3429,7 +3335,7 @@
       },
       "id": "ac_3",
       "name": "Choice for triples (AC₃)",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "For every set-indexed family (A_i) with exactly 3 elements in each A_i, there is a function f with domain I such that f(i)∈A_i for every i∈I.",
       "howard_rubin_reference": null,
       "notes": "The index set is arbitrary. The fiber size is exact, not merely an upper bound. Incomparable with AC₂ (and hence AC₄) over both ZF and ZFA.",
@@ -3471,7 +3377,7 @@
       },
       "id": "ac_4",
       "name": "Choice for four-element sets (AC₄)",
-      "category": "restricted_choice",
+      "category": "choice",
       "definition": "For every set-indexed family (A_i) with exactly 4 elements in each A_i, there is a function f with domain I such that f(i)∈A_i for every i∈I.",
       "howard_rubin_reference": null,
       "notes": "The index set is arbitrary. The fiber size is exact, not merely an upper bound. Equivalent to AC₂ by the classical Tarski argument. It does not imply AC₃.",
@@ -3500,6 +3406,102 @@
         "The index set I is arbitrary.",
         "Each fiber has exactly 4 elements."
       ]
+    },
+    {
+      "base_theory": "ZF",
+      "status": "candidate",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_entry",
+      "graph_visibility": "visible",
+      "definition_review": "Statement and cited qualifications checked.",
+      "relation_review": "Individual relationship records distinguish sourced results from elementary arguments supplied here.",
+      "id": "sequential_continuity_metric",
+      "name": "Sequential continuity ⇔ continuity (metric spaces)",
+      "category": "analysis",
+      "definition": "For every pair of metric spaces X,Y, a map f:X→Y is continuous if and only if it preserves limits of all convergent sequences.",
+      "aliases": [
+        "Heine continuity criterion",
+        "Sequential continuity",
+        "Metric sequential continuity"
+      ],
+      "hypotheses": [
+        "X and Y are arbitrary metric spaces.",
+        "Sequential continuity is required at every point of X."
+      ],
+      "notes": "Equivalent over ZF to countable choice (CC). Continuity always implies sequential continuity in ZF. Scope matters: global sequential continuity of a map ℝ→ℝ already implies continuity in ZF, whereas the pointwise assertion at an arbitrary specified real point is equivalent to CC(ℝ).",
+      "definition_evidence": [
+        {
+          "source_id": "HERRLICH1997",
+          "locator": "Theorem 2.4(2),(3),(17)"
+        },
+        {
+          "source_id": "CICHONCONTINUITY",
+          "locator": "Theorem 1, Remark 1, Theorem 2"
+        }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "The displayed statement is equivalent to CC. DC proves CC, and the cited DC-without-AC model separates it from AC.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
+    },
+    {
+      "base_theory": "ZF",
+      "status": "candidate",
+      "node_kind": "specific_statement",
+      "catalogue_status": "reviewed_entry",
+      "graph_visibility": "visible",
+      "definition_review": "Statement and cited qualifications checked.",
+      "relation_review": "Individual relationship records distinguish sourced results from elementary arguments supplied here.",
+      "id": "noetherian_acc_fg",
+      "name": "Noetherian equivalence: ACCω ⇔ finitely generated ideals",
+      "category": "algebra",
+      "definition": "For every commutative ring R with identity, every increasing sequence I₀⊆I₁⊆⋯ of ideals is eventually constant if and only if every ideal of R is finitely generated.",
+      "aliases": [
+        "Noetherian ring equivalence",
+        "ACCω implies finite generation",
+        "N"
+      ],
+      "hypotheses": [
+        "R is an arbitrary commutative ring with identity.",
+        "ACCω concerns sequences of ideals indexed by ω; no choices of generators are supplied."
+      ],
+      "notes": "The finite-generation-to-ACCω direction is provable in ZF. The other direction is the choice principle recorded here. DC implies it; it implies IWDI and hence no amorphous sets. It is incomparable with BPI over ZF. No equivalence to DC or to CC is asserted here.",
+      "definition_evidence": [
+        {
+          "source_id": "MILNECA",
+          "locator": "Proposition 3.1 and footnote 5, p. 9"
+        }
+      ],
+      "ac_classification": {
+        "kind": "weaker",
+        "source_url": "https://arxiv.org/html/2504.02744v1",
+        "source_title": "Holy–Schilhan, The Ordering Principle and Dependent Choice (2025)",
+        "locator": "Theorem 1 (Pincus)",
+        "note": "DC proves the displayed principle, while the cited DC-without-AC model witnesses that it is strictly weaker than AC.",
+        "review": "Source passage checked; any restriction or elementary deduction is stated explicitly.",
+        "layer": "standard",
+        "supporting_sources": [
+          {
+            "url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf",
+            "title": "Jech, The Axiom of Choice",
+            "locator": "Sections 2.4–2.5, especially Example 2.4.1"
+          }
+        ],
+        "base": "ZF"
+      }
     }
   ],
   "sources": {
@@ -3967,7 +3969,7 @@
         "Lorenz Halbeisen"
       ],
       "url": "https://people.math.ethz.ch/~halorenz/4students/Algebra/AC.pdf",
-      "access": "Author-hosted chapter, pp. 124–125: definition, Proposition 5.16 and Theorem 5.17 inspected."
+      "access": "Author-hosted chapter, pp. 124–125: definition, Proposition 5.16 and Theorem 5.17 inspected. Also inspected: Theorem 5.4(c), and Related Result 34(b)–(d), p. 134, including the finite-group criterion and the distinction between all fixed sizes and arbitrary finite sets."
     },
     "HT2020RAMSEY": {
       "title": "On Ramsey Choice and Partial Choice for infinite families of n-element sets",
@@ -4038,6 +4040,77 @@
       "source_type": "original_research",
       "access": "Publisher PDF inspected visually: p.138; Theorem IV pp.160–161; Theorem VII and Lemma 13 p.164.",
       "role": "Classical exact-size choice implications and prime-sum nonimplication criterion; pure-ZF transfer is documented separately in Jech."
+    },
+    "HERRLICH1997": {
+      "title": "Choice principles in elementary topology and analysis",
+      "authors": [
+        "Horst Herrlich"
+      ],
+      "url": "https://cmuc.karlin.mff.cuni.cz/pdf/cmuc9703/herrli.pdf",
+      "version": "Commentationes Mathematicae Universitatis Carolinae 38(3) (1997), 545–552.",
+      "source_type": "author_research_survey",
+      "access": "Theorem 2.4(2),(3),(17) and the distinction in Theorem 1.1 and its following paragraph inspected."
+    },
+    "CICHONCONTINUITY": {
+      "title": "Some remarks about two definitions of continuity",
+      "authors": [
+        "Jacek Cichoń"
+      ],
+      "url": "https://cs.pwr.edu.pl/cichon/prace/Cont20020709.pdf",
+      "source_type": "author_manuscript",
+      "access": "Theorem 1, Remark 1, and Theorem 2 inspected: pointwise real continuity versus global continuity."
+    },
+    "MILNECA": {
+      "title": "A Primer of Commutative Algebra",
+      "authors": [
+        "James S. Milne"
+      ],
+      "url": "https://www.jmilne.org/math/xnotes/CA300.pdf",
+      "source_type": "author_exposition",
+      "access": "Proposition 3.1 and footnote 5, p. 9, explicitly identify dependent choice in the ascending-chain proof."
+    },
+    "KTW2021": {
+      "title": "On iso-dense and scattered spaces in ZF",
+      "authors": [
+        "Kyriakos Keremedis",
+        "Eleftherios Tachtsis",
+        "Eliza Wajch"
+      ],
+      "url": "https://arxiv.org/html/2101.02825v1",
+      "version": "arXiv:2101.02825v1 (2021).",
+      "source_type": "original_research",
+      "access": "Definition 1.9(2), Theorem 2.3(iii),(v) and its proof, and Remark 2.4(d) inspected. The BPI countermodel is credited to the authors’ earlier paper."
+    },
+    "TRUSS1973": {
+      "title": "Finite axioms of choice",
+      "authors": [
+        "John K. Truss"
+      ],
+      "url": "https://doi.org/10.1016/0003-4843(73)90007-7",
+      "version": "Annals of Mathematical Logic 6 (1973), 147–176.",
+      "source_type": "original_research",
+      "access": "Bibliographic identity verified; complete finite-group criterion checked in Halbeisen, Chapter 5, Related Result 34(d), p. 134. Original full text was not accessible."
+    },
+    "HRALGEBRAICMATRIX": {
+      "title": "Howard–Rubin implication matrix: algebraic-closure forms 69 and 233",
+      "authors": [
+        "Paul Howard",
+        "Jean E. Rubin"
+      ],
+      "url": "https://github.com/ioannad/jeffrey/blob/main/Howard-Rubin-data/book1",
+      "source_type": "author_supplied_catalogue_data",
+      "access": "Original catalogue matrix inspected: (233,69)=5 records a ZFA nonimplication; (69,233)=0 records an unresolved entry. No ZF transfer or current resolution inferred."
+    },
+    "BANERJEEGOPAULSINGH2023": {
+      "title": "On the Erdős–Dushnik–Miller theorem without AC",
+      "authors": [
+        "Amitayu Banerjee",
+        "Alexa Gopaulsingh"
+      ],
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/115201",
+      "version": "Bulletin of the Polish Academy of Sciences, Mathematics 71(1) (2023).",
+      "source_type": "original_research",
+      "access": "Section 1.1, pp. 2–3, explicitly attributes uniqueness of algebraic closures with amorphous sets in ZFA to Pincus, Howard–Rubin Note 41."
     }
   },
   "cardinal_well_foundedness_template": {
@@ -6554,78 +6627,6 @@
       ]
     },
     {
-      "id": "theorem_finite_index_choice",
-      "kind": "implication",
-      "antecedents": [],
-      "consequent": "finite_index_choice",
-      "base": "ZF",
-      "valid_bases": [
-        "ZF",
-        "ZFA"
-      ],
-      "layer": "standard",
-      "source": "ELEMENTARY",
-      "source_url": null,
-      "locator": "Complete proof note",
-      "status": "elementary_argument",
-      "proof_note": "Induct on the finite size of the index set I. For I empty use the empty function. Otherwise fix one i∈I and one a∈A_i, apply the induction hypothesis to I\\{i}, and extend the resulting function by (i,a). Only finitely many existential choices are used.",
-      "proof_access": "Elementary proof included. The same proof works with atoms. This is a theorem without additional choice assumptions."
-    },
-    {
-      "id": "theorem_csb",
-      "kind": "implication",
-      "antecedents": [],
-      "consequent": "csb",
-      "base": "ZF",
-      "valid_bases": [
-        "ZF",
-        "ZFA"
-      ],
-      "layer": "standard",
-      "source": "ELEMENTARY",
-      "source_url": null,
-      "locator": "Complete proof note",
-      "status": "elementary_argument",
-      "proof_note": "Given injections f:X→Y and g:Y→X, let X_0=X\\g[Y], X_{n+1}=g[f[X_n]], and U=⋃_{n<omega}X_n. Define h(x)=f(x) on U and h(x)=g⁻¹(x) on X\\U. Injectivity of g makes the latter value unique. The two pieces have disjoint images f[U] and Y\\f[U], respectively, and together form a bijection X→Y.",
-      "proof_access": "Elementary proof included. The same proof works with atoms. This is a theorem without additional choice assumptions."
-    },
-    {
-      "id": "theorem_ordinal_trichotomy",
-      "kind": "implication",
-      "antecedents": [],
-      "consequent": "ordinal_trichotomy",
-      "base": "ZF",
-      "valid_bases": [
-        "ZF",
-        "ZFA"
-      ],
-      "layer": "standard",
-      "source": "ELEMENTARY",
-      "source_url": null,
-      "locator": "Complete proof note",
-      "status": "elementary_argument",
-      "proof_note": "The intersection γ=α∩β of two von Neumann ordinals is an initial segment of each. Every proper initial segment of an ordinal is an element of it. If γ were proper in both, then γ∈α∩β=γ, impossible. Thus one is an initial segment of the other, giving equality or membership in exactly one direction. No choice is used.",
-      "proof_access": "Elementary proof included. The same proof works with atoms. This is a theorem without additional choice assumptions."
-    },
-    {
-      "id": "theorem_finite_hall",
-      "kind": "implication",
-      "antecedents": [],
-      "consequent": "finite_hall",
-      "base": "ZF",
-      "valid_bases": [
-        "ZF",
-        "ZFA"
-      ],
-      "layer": "standard",
-      "source": "ELEMENTARY",
-      "source_url": null,
-      "locator": "Complete proof note",
-      "status": "elementary_argument",
-      "proof_note": "Induct on the finite size of I; the empty case is immediate. If some nonempty proper J⊂I has |⋃_{j∈J}A_j|=|J|, induction chooses distinct representatives for J. Remove that finite union from the other fibers. Hall’s condition for J∪K shows that the remaining fibers satisfy Hall’s condition for each K⊆I\\J; use induction again. If there is no such J, choose one index i and one a∈A_i, remove i and delete a from every remaining fiber. Every nonempty remaining subfamily previously had at least one extra available element, so Hall’s condition remains true; apply induction and restore representative a for i. No choice for an infinite family is made.",
-      "proof_access": "Elementary proof included. The same proof works with atoms. This is a theorem without additional choice assumptions."
-    },
-    {
       "id": "ac_iff_maximal_antichain",
       "kind": "equivalence",
       "antecedents": [
@@ -7439,6 +7440,221 @@
       "layer": "standard",
       "model": "cyclic_triples",
       "consistency_assumption": "Con(ZFA + AC with a countably infinite set of atoms)."
+    },
+    {
+      "id": "cc_iff_sequential_continuity_metric",
+      "kind": "equivalence",
+      "antecedents": [
+        "ac_omega"
+      ],
+      "consequent": "sequential_continuity_metric",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "HERRLICH1997",
+      "source_url": "https://cmuc.karlin.mff.cuni.cz/pdf/cmuc9703/herrli.pdf",
+      "locator": "Theorem 2.4(2),(3),(17)",
+      "status": "source_checked",
+      "proof_note": "The source identifies countable choice with the assertion that every sequentially continuous map between arbitrary metric spaces is continuous. The domain must not silently be restricted to all of ℝ.",
+      "proof_access": "Cited statement or proof passage inspected; qualifications recorded explicitly",
+      "layer": "standard"
+    },
+    {
+      "id": "countable_choice_reals",
+      "kind": "implication",
+      "antecedents": [
+        "ac_omega"
+      ],
+      "consequent": "ac_omega_reals",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Restriction of countable choice",
+      "status": "elementary_argument",
+      "proof_note": "Apply countable choice to the given sequence of nonempty subsets of ℝ.",
+      "proof_access": "Argument supplied in this record; not independently peer reviewed",
+      "layer": "standard"
+    },
+    {
+      "id": "dc_noetherian_acc_fg",
+      "kind": "implication",
+      "antecedents": [
+        "dc"
+      ],
+      "consequent": "noetherian_acc_fg",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "MILNECA",
+      "source_url": "https://www.jmilne.org/math/xnotes/CA300.pdf",
+      "locator": "Proposition 3.1(b)⇒(c)⇒(a) and footnote 5, p. 9",
+      "status": "source_checked",
+      "proof_note": "If an ideal is not finitely generated, DC recursively chooses a new element outside the ideal generated by the preceding finite tuple, producing a strictly increasing sequence of finitely generated ideals. Conversely, the union of an increasing ideal sequence is an ideal; a finite generating set lies in one term, so the sequence stabilizes. The converse direction uses only ZF.",
+      "proof_access": "Cited statement or proof passage inspected; qualifications recorded explicitly",
+      "layer": "standard",
+      "base_review": "The displayed argument also works for rings whose underlying sets may contain atoms."
+    },
+    {
+      "id": "noetherian_acc_fg_iwdi",
+      "kind": "implication",
+      "antecedents": [
+        "noetherian_acc_fg"
+      ],
+      "consequent": "infinite_weakly_dedekind_infinite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Finite/cofinite Boolean-ring argument",
+      "status": "elementary_argument",
+      "proof_note": "Suppose X is infinite and P(X) is Dedekind-finite, equivalently X has no surjection onto ω. In the Boolean ring R=Fin(X)∪Cofin(X), with symmetric difference and intersection, each ideal J contained in Fin(X) is Fin(⋃J). If J contains a cofinite C, then ⋃J belongs to J: the remaining part (⋃J)∖C is finite, and its singletons lie in J. Hence J is principal. For each union Y there are at most two ideals: Fin(Y), and, when Y is cofinite, the principal ideal generated by Y. For any increasing ideal sequence, its sequence of unions has finite range because P(X) is Dedekind-finite; after the union stabilizes, at most two ideals remain possible, so the sequence stabilizes. But the ideal Fin(X) is not finitely generated, since finitely many finite generators have finite union. Thus the displayed Noetherian principle rules out X.",
+      "proof_access": "Argument supplied in this record; not independently peer reviewed",
+      "layer": "standard",
+      "base_review": "The Boolean-ring construction and finite-choice-free proof work equally with atoms."
+    },
+    {
+      "id": "dedekind_infinitude_iwdi",
+      "kind": "implication",
+      "antecedents": [
+        "df_finite"
+      ],
+      "consequent": "infinite_weakly_dedekind_infinite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Countable subset gives a surjection",
+      "status": "elementary_argument",
+      "proof_note": "Given distinct x₀,x₁,… in an infinite set X, send xₙ to n and all remaining elements to 0. This is a surjection X→ω.",
+      "proof_access": "Argument supplied in this record; not independently peer reviewed",
+      "layer": "standard"
+    },
+    {
+      "id": "iwdi_no_amorphous",
+      "kind": "implication",
+      "antecedents": [
+        "infinite_weakly_dedekind_infinite"
+      ],
+      "consequent": "no_amorphous",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF",
+        "ZFA"
+      ],
+      "source": "ELEMENTARY",
+      "source_url": null,
+      "locator": "Even and odd fibers",
+      "status": "elementary_argument",
+      "proof_note": "Given a surjection X→ω, the inverse images of the even and odd integers are disjoint infinite subsets whose union is X.",
+      "proof_access": "Argument supplied in this record; not independently peer reviewed",
+      "layer": "standard"
+    },
+    {
+      "id": "bpi_not_iwdi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "infinite_weakly_dedekind_infinite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "KTW2021",
+      "source_url": "https://arxiv.org/html/2101.02825v1",
+      "locator": "Theorem 2.3(iii),(v), proof of (v)",
+      "status": "source_checked",
+      "proof_note": "The cited ZF model satisfies BPI and refutes IDFBI. IWDI implies IDFBI, so IWDI fails in the same model.",
+      "proof_access": "Cited statement or proof passage inspected; qualifications recorded explicitly",
+      "layer": "standard",
+      "model": "bpi_without_iwdi_zf",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "bpi_not_noetherian_acc_fg",
+      "kind": "nonimplication",
+      "antecedents": [
+        "bpi"
+      ],
+      "consequent": "noetherian_acc_fg",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "KTW2021",
+      "source_url": "https://arxiv.org/html/2101.02825v1",
+      "locator": "Theorem 2.3(iii),(v), proof of (v); recorded finite/cofinite-ring argument",
+      "status": "source_checked",
+      "proof_note": "The cited model satisfies BPI and not IWDI. The finite/cofinite Boolean-ring argument recorded in noetherian_acc_fg_iwdi proves that the Noetherian principle implies IWDI, so that principle also fails in this model.",
+      "proof_access": "Cited statement or proof passage inspected; qualifications recorded explicitly",
+      "layer": "standard",
+      "model": "bpi_without_iwdi_zf",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)",
+      "supporting_sources": [
+        {
+          "source_id": "ELEMENTARY",
+          "locator": "Relation noetherian_acc_fg_iwdi"
+        }
+      ]
+    },
+    {
+      "id": "noetherian_acc_fg_not_bpi",
+      "kind": "nonimplication",
+      "antecedents": [
+        "noetherian_acc_fg"
+      ],
+      "consequent": "bpi",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "PINCUSSOLOVAY1977",
+      "source_url": "https://doi.org/10.2307/2272118",
+      "locator": "§4.1; DC with no nonprincipal measures, and the recorded DC implication",
+      "status": "source_checked",
+      "proof_note": "In the recorded Pincus–Solovay model, DC holds and there are no nonprincipal ultrafilters. DC proves the Noetherian principle. BPI would extend the cofinite filter on ω to a nonprincipal ultrafilter, so BPI fails.",
+      "proof_access": "Cited statement or proof passage inspected; qualifications recorded explicitly",
+      "layer": "standard",
+      "model": "pincus_solovay_no_free_ultrafilters",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)"
+    },
+    {
+      "id": "iwdi_not_countable_finite_choice",
+      "kind": "nonimplication",
+      "antecedents": [
+        "infinite_weakly_dedekind_infinite"
+      ],
+      "consequent": "ac_omega_finite",
+      "base": "ZF",
+      "valid_bases": [
+        "ZF"
+      ],
+      "source": "KTW2021",
+      "source_url": "https://arxiv.org/html/2101.02825v1",
+      "locator": "Remark 2.4(d)",
+      "status": "source_checked",
+      "proof_note": "The source explicitly transfers IWDI∧¬CAC_fin to ZF. This also separates IWDI from stronger principles that imply countable finite choice.",
+      "proof_access": "Cited statement or proof passage inspected; qualifications recorded explicitly",
+      "layer": "standard",
+      "model": "iwdi_without_countable_finite_choice_zf",
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)"
     }
   ],
   "models": [
@@ -8023,7 +8239,8 @@
         "mc",
         "no_amorphous",
         "free_ultrafilter_omega",
-        "ac_3"
+        "ac_3",
+        "infinite_weakly_dedekind_infinite"
       ],
       "false_ids": [
         "ac",
@@ -8105,6 +8322,16 @@
           "locator": "Finite stabilizer-orbit argument; AC₄⇒AC₂",
           "status": "elementary_argument",
           "proof_note": "The fixed-pair model has C₃ by the stabilizer-orbit argument: a finite action of any subgroup of the elementary abelian 2-group has orbit sizes powers of2, so an odd three-element set has a fixed point. Choose fixed points on representatives of family orbits in the ground model and extend equivariantly to obtain a symmetric choice function. The atom pairs have no selector. AC₄ fails because it implies AC₂."
+        },
+        {
+          "principles": [
+            "infinite_weakly_dedekind_infinite"
+          ],
+          "source": "KTW2021",
+          "source_url": "https://arxiv.org/html/2101.02825v1",
+          "locator": "Remark 2.4(d)",
+          "status": "source_checked",
+          "proof_note": "The authors explicitly record IWDI in the second Fraenkel model N2."
         }
       ]
     },
@@ -8394,6 +8621,70 @@
           "proof_note": "Jech constructs the cyclic-triples permutation model and explicitly transfers it to pure ZF while preserving C₂ and failure of C₃. C₄ follows by the Tarski equivalence C₂⇔C₄. The support-model transfer is part of the cited proof; no other facts about the original atom model are being transferred here."
         }
       ]
+    },
+    {
+      "id": "bpi_without_iwdi_zf",
+      "name": "BPI without weak Dedekind infinitude",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "bpi"
+      ],
+      "false_ids": [
+        "infinite_weakly_dedekind_infinite"
+      ],
+      "source": "KTW2021",
+      "source_url": "https://arxiv.org/html/2101.02825v1",
+      "locator": "Theorem 2.3(iii),(v), proof of (v)",
+      "status": "source_checked",
+      "layer": "standard",
+      "description": "The cited paper records a ZF model of BPI with failure of IDFBI. Since IWDI implies IDFBI, IWDI fails in that same model.",
+      "review": "The source’s stated ZF model and implication were inspected; the elementary contrapositive is explicit. The original construction in the earlier paper was not independently audited.",
+      "property_evidence": [
+        {
+          "principles": [
+            "bpi",
+            "infinite_weakly_dedekind_infinite"
+          ],
+          "source": "KTW2021",
+          "source_url": "https://arxiv.org/html/2101.02825v1",
+          "locator": "Theorem 2.3(iii),(v), proof of (v)",
+          "status": "source_checked",
+          "proof_note": "The source gives BPI∧¬IDFBI in a ZF model and IWDI⇒IDFBI; therefore BPI∧¬IWDI holds there."
+        }
+      ]
+    },
+    {
+      "id": "iwdi_without_countable_finite_choice_zf",
+      "name": "Weak Dedekind infinitude without countable finite choice",
+      "base": "ZF",
+      "assumptions": "Con(ZF)",
+      "true_ids": [
+        "infinite_weakly_dedekind_infinite"
+      ],
+      "false_ids": [
+        "ac_omega_finite"
+      ],
+      "source": "KTW2021",
+      "source_url": "https://arxiv.org/html/2101.02825v1",
+      "locator": "Remark 2.4(d)",
+      "status": "source_checked",
+      "layer": "standard",
+      "description": "The authors explicitly transfer IWDI together with failure of countable choice for finite sets from the second Fraenkel model to ZF using Pincus’ transfer theorem.",
+      "review": "The exact conjunction and transfer statement were inspected. Other properties of the atom model are not transferred here.",
+      "property_evidence": [
+        {
+          "principles": [
+            "infinite_weakly_dedekind_infinite",
+            "ac_omega_finite"
+          ],
+          "source": "KTW2021",
+          "source_url": "https://arxiv.org/html/2101.02825v1",
+          "locator": "Remark 2.4(d)",
+          "status": "source_checked",
+          "proof_note": "The source explicitly states that IWDI∧¬CAC_fin has a ZF model by Pincus’ transfer theorems."
+        }
+      ]
     }
   ],
   "status_labels": {
@@ -8431,10 +8722,12 @@
       "unique_algebraic_closure",
       "cuc",
       "no_amorphous",
-      "infinite_hall_finite_fibers"
+      "infinite_hall_finite_fibers",
+      "infinite_weakly_dedekind_infinite",
+      "sequential_continuity_metric",
+      "noetherian_acc_fg"
     ],
     "hidden_candidate_ids": [
-      "finite_index_choice",
       "ac_kappa",
       "ac_wo_fibers",
       "ac_wo_both",
@@ -8458,10 +8751,7 @@
       "vector_basis_fixed_field",
       "nielsen_schreier",
       "dependent_multiple_choice",
-      "infinite_weakly_dedekind_infinite",
       "rado_selection",
-      "finite_hall",
-      "csb",
       "wf_cardinal_min",
       "wf_cardinal_sequence",
       "wf_maps",
@@ -8494,5 +8784,46 @@
     "source_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/93513",
     "locator": "Theorem IV pp.160–161; Jech §7.4 Example 7.13 pp.108–109 and §7.5 Problems 20–21 p.116",
     "supporting_url": "https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf"
+  },
+  "category_notes": {
+    "choice": {
+      "title": "Comparing types of choice",
+      "text": "ACₙ chooses one point from each member of an arbitrary family of sets of exactly n elements. The number n describes the size of each set, not the number of choices.",
+      "bullets": [
+        "ACₙₘ ⇒ ACₙ and ACₘ: replace each n-element set A by A×m and project the selected point.",
+        "AC₂ ⇔ AC₄. AC₂ and AC₃ are incomparable over ZF; larger exact sizes do not give a simple decreasing hierarchy.",
+        "For each fixed n≥3, ACₙ does not imply ACₙ₋₁. Choice for sets of at most n elements does imply the corresponding at-most-(n−1) principle.",
+        "AC_fin implies every fixed-size ACₙ, but even all individual ACₙ together do not imply AC_fin.",
+        "Multiple choice (MC) selects a finite nonempty subset from every arbitrary nonempty set in a family. MC ⇔ AC over ZF. Choice from a finite family is already provable in ZF; choice from arbitrary finite fibers is AC_fin."
+      ],
+      "details": [
+        {
+          "title": "The exact ACₘ / ACₙ criterion",
+          "text": "Mostowski–Gauntt–Truss: ZF proves ACₘ⇒ACₙ exactly when, for every subgroup G≤Sₙ with no common fixed point, some H≤G has proper subgroups H₁,…,Hₖ such that [H:H₁]+⋯+[H:Hₖ]=m. More generally, replace m by membership in a finite set Z of allowed sizes to decide (∧ₘ∈Z ACₘ)⇒ACₙ. Failure gives a relative-consistency countermodel. “No common fixed point” means no point is fixed by every element of G."
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "HALBEISENAC",
+          "locator": "Theorem 5.4(c); Related Result 34(b)–(d), p. 134"
+        },
+        {
+          "source_id": "TRUSS1973",
+          "locator": "Finite axioms of choice, pp. 147–176"
+        },
+        {
+          "source_id": "MOSTOWSKI1945",
+          "locator": "Theorem IV, pp. 160–161"
+        },
+        {
+          "source_id": "JECH1973",
+          "locator": "§7.4, Examples 7.12–7.13; §7.5, Problems 20–21"
+        },
+        {
+          "source_id": "FELGNERJECH1973",
+          "locator": "Unnumbered theorem, p. 80; §I(c)–(e)"
+        }
+      ]
+    }
   }
 }

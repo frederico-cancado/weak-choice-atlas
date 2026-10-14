@@ -443,6 +443,18 @@ details[open] > summary { margin-bottom: 12px; }
 .direction-status.refuted { color: var(--orange); }
 .direction-status.unrecorded { color: var(--muted); }
 .profile-pair-evidence { padding: 8px 0; min-width: 0; }
+.profile-class { border-top: 1px solid var(--line); padding: 9px 0; }
+.profile-class > summary { cursor: pointer; min-height: 44px; overflow-wrap: anywhere; }
+.profile-class > summary > span { display: block; font-size: .75rem; color: var(--muted); margin: 5px 0; }
+.profile-class > summary > small { display: flex; flex-wrap: wrap; gap: 4px 8px; margin-top: 6px; }
+.profile-class-members { margin: 10px 0 0 7px; padding-left: 10px; border-left: 2px solid var(--line); }
+.graph-zone-label { fill: var(--muted); font: 600 14px 'DM Sans', sans-serif; letter-spacing: .04em; }
+.graph-node.comparison-incomparable rect { stroke: var(--orange); }
+.graph-node.comparison-unknown rect { stroke-dasharray: 4 3; }
+.graph-node.comparison-equivalent rect { stroke: var(--purple); }
+.category-note { overflow-wrap: anywhere; }
+.category-note li { margin: 8px 0; }
+select:disabled { opacity: .65; }
 .profile-pair-evidence .comparison-direction { margin: 12px 0; }
 .profile-page { max-width: 1050px; }
 .full-profile .profile-members { max-height: 620px; overflow-y: auto; padding-right: 8px; }

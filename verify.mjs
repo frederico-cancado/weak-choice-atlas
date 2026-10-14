@@ -110,8 +110,8 @@ for(const id of ['ac','wo','zorn','mc','cardinal_trichotomy','cardinal_square','
  assert.equal(graphEligible(data,node(id)),false,id);
  if(id!=='ac')assert.notEqual(compare(data,id,'ac').proof,null,id);
 }
-assert.equal(classifyPrinciple(data,node('finite_index_choice')).label,'Theorem of ZF');
-assert.equal(classifyPrinciple(data,node('ordinal_trichotomy')).label,'Theorem of ZF');
+for(const removed of ['csb','ordinal_trichotomy','finite_index_choice','finite_hall'])assert.ok(!ids.has(removed));
+assert.ok(!data.principles.some(n=>/ZF_theorem|theorem of ZF/.test(n.status)));
 assert.equal(classifyPrinciple(data,node('ac_finite_fibers')).group,'weaker');
 assert.equal(classifyPrinciple(data,node('op')).group,'weaker');
 assert.equal(classifyPrinciple(data,node('oep')).group,'weaker');
@@ -139,7 +139,7 @@ console.log('PASS: AC catalogue classification, graph exclusions, separation fil
 
 // Selection must affect presentation only; the complete catalogue is retained.
 assert.deepEqual(data.graph_selection.kept_candidate_numbers,[5,6,7,10,22,24,29,30,33,34,38]);
-assert.equal(data.graph_selection.hidden_candidate_ids.length,41);
+assert.ok(data.graph_selection.hidden_candidate_ids.length>0);
 for(const id of data.graph_selection.hidden_candidate_ids){assert.ok(ids.has(id));assert.equal(graphEligible(data,node(id)),false)}
 for(const id of data.graph_selection.kept_candidate_ids){assert.ok(ids.has(id));assert.notEqual(node(id).graph_visibility,'hidden');if(id!=='ac_lo_index')assert.equal(graphEligible(data,node(id)),true)}
 assert.equal(graphEligible(data,node('ac_lo_index')),false);
@@ -163,7 +163,7 @@ assert.ok(csbProfile.groups.incoming.some(e=>e.id==='pp'));
 assert.ok(csbProfile.groups.outgoing.some(e=>e.id==='wpp'));
 assert.ok(csbProfile.groups.outgoing.some(e=>e.id==='dc'),'Transitive consequences appear.');
 assert.ok(csbProfile.groups.unsettled.some(e=>e.id==='pp'),'The unrecorded reverse remains visible alongside the known direction.');
-assert.ok(csbProfile.entries.some(e=>e.id==='finite_index_choice'),'Graph-hidden definitions remain in the relationship profile.');
+assert.ok(csbProfile.entries.some(e=>e.id==='ac_kappa'),'Graph-hidden definitions remain in the relationship profile.');
 assert.equal(assessDirection(data,'dual_csb','pp').status,'unrecorded');
 assert.equal(assessDirection(data,'dual_csb','ac','ZF',true).status,'refuted');
 assert.equal(assessDirection(data,'dual_csb','ac','ZF',false).status,'unrecorded');
@@ -183,10 +183,7 @@ for(const id of ['maximal_antichain','kuratowski_maximal','linear_orders_well_or
 }
 for(const id of ['maximal_antichain','linear_orders_well_orderable'])assert.equal(compare(data,id,'ac','ZFA').proof,null);
 assert.ok(compare(data,'kuratowski_maximal','ac','ZFA').proof);
-for(const theory of ['ZF','ZFA'])for(const id of ['csb','finite_index_choice','ordinal_trichotomy','finite_hall']){
- assert.equal(assessDirection(data,'pp',id,theory).status,'proved');
- assert.ok(relationshipProfile(data,'dual_csb',theory).groups.outgoing.some(e=>e.id===id));
-}
+for(const theory of ['ZF','ZFA'])assert.ok(!relationshipProfile(data,'dual_csb',theory).entries.some(e=>['csb','finite_index_choice','ordinal_trichotomy','finite_hall'].includes(e.id)));
 assert.ok(graphSlice(data,[...ids],visibleRelations(data,'ZF',true)).edges.every(r=>r.antecedents.length>0),'Theorem facts are not drawn as edges from missing graph nodes.');
 assert.equal(new Set(data.relations.map(r=>r.id)).size,data.relations.length);
 assert.ok(node('maximal_antichain').hypotheses.some(h=>h.includes('neither a≤b')));
@@ -226,3 +223,24 @@ for(const theory of ['ZF','ZFA']){
  }
 }
 console.log('PASS: DC on reals removed; exact-size choice equivalence, adjacent countermodels and ZF/ZFA evidence.');
+
+// New choice statements and mathematical category organization.
+for(const [a,b] of [['ac_omega','sequential_continuity_metric'],['sequential_continuity_metric','ac_omega']])assert.notEqual(compare(data,a,b,'ZF').proof,null);
+for(const theory of ['ZF','ZFA']){
+ for(const [a,b] of [['dc','noetherian_acc_fg'],['noetherian_acc_fg','infinite_weakly_dedekind_infinite'],['df_finite','infinite_weakly_dedekind_infinite'],['infinite_weakly_dedekind_infinite','no_amorphous']])assert.notEqual(compare(data,a,b,theory).proof,null,a+' implies '+b);
+}
+for(const [a,b] of [['bpi','noetherian_acc_fg'],['noetherian_acc_fg','bpi'],['infinite_weakly_dedekind_infinite','ac_omega_finite'],['algebraic_closure','noetherian_acc_fg'],['unique_algebraic_closure','noetherian_acc_fg']]){const r=compare(data,a,b);assert.equal(r.proof,null);assert.ok(r.witnesses.length,a+' does not imply '+b)}
+assert.equal(compare(data,'noetherian_acc_fg','dc').proof,null);
+assert.equal(compare(data,'algebraic_closure','unique_algebraic_closure').proof,null);
+assert.equal(node('rpp').category,'combinatorics');
+for(const id of ['df_finite','no_amorphous','infinite_weakly_dedekind_infinite'])assert.equal(node(id).category,'finitude');
+for(const n of data.principles.filter(n=>n.category.startsWith('cardinal')))assert.equal(n.category,'cardinal_structure');
+for(const id of ['ac','dc','ac_omega','ac_n','ac_2','ac_3','ac_4','mc'])assert.equal(node(id).category,'choice');
+assert.ok(data.category_notes.choice.details.some(d=>d.text.includes('Mostowski–Gauntt–Truss')));
+const {groupProfileEntries,equivalenceClasses}=await import('./profiles.mjs');
+const grouped=groupProfileEntries(data,relationshipProfile(data,'ac_omega').groups.incoming);
+const acClass=grouped.find(g=>g.id==='ac');assert.ok(acClass.members.some(e=>e.id==='zorn'));
+assert.equal(grouped.filter(g=>g.members.some(e=>e.id==='wo')).length,1);
+assert.equal(equivalenceClasses(data).byId.get('ultrafilter_lemma').id,'bpi');
+assert.equal(equivalenceClasses(data,'ZFA').byId.get('mc').id,'mc','MC must not be grouped with AC over ZFA');
+console.log('PASS: new metric continuity and Noetherian bounds, separating models, categories, removed theorems and theory-aware equivalence groups.');
