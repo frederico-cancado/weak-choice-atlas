@@ -47,7 +47,7 @@ The requested early-stop condition was a counterexample or equivalence proof. In
 | U plus dual KWP*_1, or SVC with a linearly ordered seed, implies AC_fin | Proved | ZF; additional covering hypothesis retained |
 | Elementary-abelian restriction of P iff finite-field linear compactness | Proved | ZF; prime fixed |
 | Fixed finite-group coset compactness iff the corresponding restricted torsor principle | Proved | ZF; fixed finite H retained |
-| E implies U in pure ZF | Refuted by an audited relative model construction | Pure ZF + DC + E + not U; relative to ZFC |
+| E implies U in pure ZF | Refuted by an audited relative model construction | Pure ZF + DC + E + not U; relative to ZF (corrected 15 October 2026) |
 | U implies E in pure ZF | Unresolved here | Neither proof nor simultaneous pure-ZF countermodel established |
 | E implies finite choice or BPI | Refuted by the same pure model | Even in ZF + DC |
 | U alone equivalent to BPI | Unresolved here | Historical matrix entries do not settle current status |
@@ -1531,3 +1531,12 @@ Final artifact check completed at **2026-10-14 16:38:53 UTC**, approximately **1
 The principal user deliverables are `algebraic_closures_report.pdf` and `algebraic_closures_research_log.md`; `algebraic_closures_report.tex` is the standalone editable source. Intermediate proof notes and audit files remain in the workspace's `work` directory for resumption. The PDF is self-contained and does not require those intermediate files to compile.
 
 The final mathematical result meets the user's counterexample early-stop condition. The opposite implication is explicitly unresolved, and the record retains the unsuccessful arguments rather than representing the entire two-direction classification as solved.
+
+
+## 36. Consistency-premise correction — 15 October 2026
+
+The current article and supplement state the separation relative to **ZF**:
+
+**Con(ZF) ⇒ Con(ZF + DC + E + not U + not AC_fin + not BPI).**
+
+Gödel's constructible-universe theorem gives Con(ZF) ⇒ Con(ZFC), so the existing symmetric construction over a ZFC ground universe establishes this formulation. This is a relative-consistency reduction, not an assertion that consistency alone supplies a transitive ground model. Uses of choice in the ambient construction remain unchanged. Earlier entries recording Con(ZFC) describe the original formulation; this correction supersedes that premise in the current result.

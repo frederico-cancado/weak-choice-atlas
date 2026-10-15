@@ -4,8 +4,8 @@ title: "Algebraic closures: existence without uniqueness"
 authors:
   - family-names: "Cançado"
     given-names: "Frederico"
-version: "2026-10-14.1"
-date-released: "2026-10-14"
+version: "2026-10-15.1"
+date-released: "2026-10-15"
 license: "CC-BY-4.0"
 repository-code: "https://github.com/frederico-cancado/AC-zoo-results"
 url: "https://frederico-cancado.github.io/weak-choice-atlas/articles/algebraic-closures/"
@@ -17,6 +17,6 @@ preferred-citation:
       given-names: "Frederico"
   year: 2026
   month: 10
-  day: 14
-  version: "2026-10-14.1"
+  day: 15
+  version: "2026-10-15.1"
   notes: "Preliminary preprint; internal AI-assisted audits are not external peer review or formal verification."

@@ -1606,7 +1606,7 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "69",
       "status": "candidate",
-      "notes": "BPI proves both existence and conditional uniqueness. The historical Howard–Rubin matrix records the reverse separation only in ZFA and leaves existence-to-uniqueness unrecorded; this historical entry is not a current openness assertion. Cançado’s preliminary article of 14 October 2026 constructs, relative to ZFC, a pure-ZF model with DC and existence but without uniqueness, AC_fin or AC₂. These new relationships are shown only when recent research is enabled. The reverse implication from conditional uniqueness to existence remains unresolved here over pure ZF.",
+      "notes": "BPI proves both existence and conditional uniqueness. The historical Howard–Rubin matrix records the reverse separation only in ZFA and leaves existence-to-uniqueness unrecorded; this historical entry is not a current openness assertion. Cançado’s preliminary article of 14 October 2026 constructs, relative to ZF, a pure-ZF model with DC and existence but without uniqueness, AC_fin or AC₂. These new relationships are shown only when recent research is enabled. The reverse implication from conditional uniqueness to existence remains unresolved here over pure ZF.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
@@ -1658,7 +1658,7 @@
       "base_theory": "ZF",
       "howard_rubin_reference": "233",
       "status": "candidate",
-      "notes": "Conditional uniqueness does not assert that a closure exists. BPI proves both existence and conditional uniqueness. The historical Howard–Rubin matrix records the reverse separation only in ZFA and leaves existence-to-uniqueness unrecorded; this historical entry is not a current openness assertion. Cançado’s preliminary article of 14 October 2026 constructs, relative to ZFC, a pure-ZF model with DC and existence but without uniqueness, AC_fin or AC₂. These new relationships are shown only when recent research is enabled. The reverse implication from conditional uniqueness to existence remains unresolved here over pure ZF.",
+      "notes": "Conditional uniqueness does not assert that a closure exists. BPI proves both existence and conditional uniqueness. The historical Howard–Rubin matrix records the reverse separation only in ZFA and leaves existence-to-uniqueness unrecorded; this historical entry is not a current openness assertion. Cançado’s preliminary article of 14 October 2026 constructs, relative to ZF, a pure-ZF model with DC and existence but without uniqueness, AC_fin or AC₂. These new relationships are shown only when recent research is enabled. The reverse implication from conditional uniqueness to existence remains unresolved here over pure ZF.",
       "definition_review": "Checked against the cited definition catalogue or source; parameterized entries are editorial templates.",
       "relation_review": "Individual relationship records give source access, base theory, proof notes and review status.",
       "source_locators": {},
@@ -4197,8 +4197,8 @@
       "authors": [
         "Frederico Cançado"
       ],
-      "url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
-      "version": "2026-10-14.1, 14 October 2026; pinned commit b3cbadd1082e3c078ba61aba68b8beccbbbd8d45",
+      "url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "version": "2026-10-15.1, 15 October 2026; pinned commit 0d56c311f6885c604b1e9357de0648da77491696",
       "source_type": "preliminary_research_article",
       "access": "Complete local article and supporting proofs inspected",
       "review": "Preliminary preprint with internal AI-assisted mathematical audits. Not externally peer-reviewed or formally verified; no historical novelty claim is made.",
@@ -7760,15 +7760,15 @@
         "ZF"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 6.1; §§6.3–6.5",
       "status": "preliminary",
       "proof_note": "The free-group Boolean symmetric model satisfies existence for every field and DC, while it has a specified family of pairs without a selector and two nonisomorphic closures over a well-orderable base. The stated failure is proved in this same pure-ZF model.",
       "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
       "layer": "recent",
       "model": "free_group_boolean_algebraic",
-      "assumptions": "Con(ZFC)",
-      "consistency_assumption": "Con(ZFC)"
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)"
     },
     {
       "id": "algebraic_existence_not_bpi",
@@ -7782,15 +7782,15 @@
         "ZF"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 6.1; §§6.3–6.5",
       "status": "preliminary",
       "proof_note": "The free-group Boolean symmetric model satisfies existence for every field and DC, while it has a specified family of pairs without a selector and two nonisomorphic closures over a well-orderable base. The stated failure is proved in this same pure-ZF model.",
       "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
       "layer": "recent",
       "model": "free_group_boolean_algebraic",
-      "assumptions": "Con(ZFC)",
-      "consistency_assumption": "Con(ZFC)"
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)"
     },
     {
       "id": "algebraic_existence_not_finite_choice",
@@ -7804,15 +7804,15 @@
         "ZF"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 6.1; §§6.3–6.5",
       "status": "preliminary",
       "proof_note": "The free-group Boolean symmetric model satisfies existence for every field and DC, while it has a specified family of pairs without a selector and two nonisomorphic closures over a well-orderable base. The stated failure is proved in this same pure-ZF model.",
       "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
       "layer": "recent",
       "model": "free_group_boolean_algebraic",
-      "assumptions": "Con(ZFC)",
-      "consistency_assumption": "Con(ZFC)"
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)"
     },
     {
       "id": "algebraic_existence_not_pair_choice",
@@ -7826,15 +7826,15 @@
         "ZF"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 6.1; §§6.3–6.5",
       "status": "preliminary",
       "proof_note": "The free-group Boolean symmetric model satisfies existence for every field and DC, while it has a specified family of pairs without a selector and two nonisomorphic closures over a well-orderable base. The stated failure is proved in this same pure-ZF model.",
       "proof_access": "Complete proof inspected; preliminary article with internal AI-assisted mathematical audits, not external peer review or formal verification.",
       "layer": "recent",
       "model": "free_group_boolean_algebraic",
-      "assumptions": "Con(ZFC)",
-      "consistency_assumption": "Con(ZFC)"
+      "assumptions": "Con(ZF)",
+      "consistency_assumption": "Con(ZF)"
     },
     {
       "id": "algebraic_existence_uniqueness_finite_choice",
@@ -7850,7 +7850,7 @@
         "ZFA"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 4.1",
       "status": "preliminary",
       "proof_note": "For an arbitrary family of nonempty finite sets, form rational function fields on the given fibres and on canonical finite labels, identifying the elementary symmetric coefficient fields. Existence supplies both closures; an isomorphism over their common base picks the unique original variable mapping to each first canonical label. Both E and U are required.",
@@ -7870,7 +7870,7 @@
         "ZFA"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 5.2, first two proofs",
       "status": "preliminary",
       "proof_note": "T lifts a prescribed group coordinate by applying torsor compactness to its inverse-image fibres. Conversely, from each torsor form the finite group of equivariant permutations of the disjoint union of the group and torsor; P lifts the nonidentity component-swap in C₂, producing coherent points without choosing a family of torsor bases.",
@@ -7890,7 +7890,7 @@
         "ZFA"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 5.2, T ⇒ U∧AC_fin",
       "status": "preliminary",
       "proof_note": "For two supplied closures, isomorphisms between their finite splitting subfields form nonempty finite torsors with surjective restrictions. A coherent family has a union that is an isomorphism over the specified base. This does not assert existence of a closure.",
@@ -7910,7 +7910,7 @@
         "ZFA"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 5.2, T ⇒ U∧AC_fin",
       "status": "preliminary",
       "proof_note": "For a family of finite nonempty sets A_s, use the products over finite index sets F of the torsors Bij(|A_s|,A_s), acted on by the corresponding finite symmetric groups. Coherence gives enumerations of every fibre and hence a choice function.",
@@ -7931,7 +7931,7 @@
         "ZFA"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 5.2, E∧U ⇒ P",
       "status": "preliminary",
       "proof_note": "Represent a surjective finite-group system by equivariant embeddings of rational function fields, using sums over bonding-map fibres, and their finite fixed fields. E supplies a closure of the colimit field. U extends a prescribed finite-stage automorphism to that closure; its compatible restrictions lift the prescribed coordinate. The existence premise is essential to this recorded proof and cannot be dropped.",
@@ -7951,7 +7951,7 @@
         "ZFA"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "§5, remark following Theorem 5.2",
       "status": "preliminary",
       "proof_note": "Finite subsets of the torsor compatibility conditions are satisfied at a common upper stage. Propositional compactness, equivalently BPI, gives a coherent point. The reverse implication is not proved here.",
@@ -9056,7 +9056,7 @@
       "id": "free_group_boolean_algebraic",
       "name": "Free-group Boolean symmetric model",
       "base": "ZF",
-      "assumptions": "Con(ZFC)",
+      "assumptions": "Con(ZF)",
       "true_ids": [
         "dc",
         "algebraic_closure"
@@ -9068,20 +9068,20 @@
         "bpi"
       ],
       "source": "FC2026ALG",
-      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+      "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
       "locator": "Theorem 6.1; §§6.1–6.5",
       "status": "preliminary",
       "review": "Preliminary preprint with internal AI-assisted mathematical audits. Not externally peer-reviewed or formally verified; no historical novelty claim is made.",
       "layer": "recent",
       "show_by_default": false,
-      "description": "In a ground universe of ZFC choose μ^ω=μ<κ. Let G be free on κ generators, let 𝓕={H≤G:[G:H]≤μ}, and take the tagged coordinate set A=∐_{J∈𝓕}G/J. Force with finite partial functions A×ω→2 and use G’s coordinate action and the normal filter 𝓕. The ccc Boolean completion supports a small-orbit semilinear closure construction for every internal field. Parity classes on the integer quotient orbits give an ordinal-indexed family of pairs with no selector. This is a direct pure-ZF construction, not a transfer of a model with atoms.",
+      "description": "Gödel’s constructible universe gives Con(ZF) ⇒ Con(ZFC). In a ground universe of ZFC choose μ^ω=μ<κ. Let G be free on κ generators, let 𝓕={H≤G:[G:H]≤μ}, and take the tagged coordinate set A=∐_{J∈𝓕}G/J. Force with finite partial functions A×ω→2 and use G’s coordinate action and the normal filter 𝓕. The ccc Boolean completion supports a small-orbit semilinear closure construction for every internal field. Parity classes on the integer quotient orbits give an ordinal-indexed family of pairs with no selector. This is a direct pure-ZF construction, not a transfer of a model with atoms.",
       "property_evidence": [
         {
           "principles": [
             "algebraic_closure"
           ],
           "source": "FC2026ALG",
-          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
           "locator": "Lemma 6.2 and §6.3",
           "status": "preliminary",
           "proof_note": "A simultaneous ω₁ closure builds small invariant Boolean subalgebras and relatively algebraically closed coefficient fields. Free-group generators lift to algebraic closures; regularity makes the compatible tensor step a domain. The universal coordinate orbits realize the resulting section orbits as hereditarily symmetric names, including the specified source-field embedding."
@@ -9093,7 +9093,7 @@
             "bpi"
           ],
           "source": "FC2026ALG",
-          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
           "locator": "§6.4, Proposition 6.4; classical BPI ⇒ AC_fin ⇒ AC₂",
           "status": "preliminary",
           "proof_note": "For each free generator, its exponent-sum quotient G→Z gives two parity classes of real labels. A supported selector would force its support into every exponent-sum kernel and hence into [G,G], whose index κ exceeds μ. Thus choice fails for a specified κ-indexed family of pairs; AC_fin and BPI fail as consequences."
@@ -9103,7 +9103,7 @@
             "unique_algebraic_closure"
           ],
           "source": "FC2026ALG",
-          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
           "locator": "§6.5, explicit nonisomorphic closures",
           "status": "preliminary",
           "proof_note": "Over F=Q(s_i,p_i:i<κ), use rational function fields on the unchosen pairs and on canonically labelled pairs. Their elementary symmetric base embeddings are algebraic. An F-isomorphism of their supplied algebraic closures would choose the labelled root mapping to each first canonical root, selecting from the forbidden pair family."
@@ -9113,7 +9113,7 @@
             "dc"
           ],
           "source": "FC2026ALG",
-          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/b3cbadd1082e3c078ba61aba68b8beccbbbd8d45/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
+          "source_url": "https://github.com/frederico-cancado/AC-zoo-results/blob/0d56c311f6885c604b1e9357de0648da77491696/articles/2026-10-14-algebraic-closures/algebraic_closures.pdf",
           "locator": "§6.5, dependent-choice argument",
           "status": "preliminary",
           "proof_note": "Each entry of a full-extension following sequence is represented by a countable deciding antichain of HS member subnames of one fixed carrier. Countable completeness of 𝓕 and stabilizers of finite conditions support the resulting sequence name."
@@ -9129,7 +9129,7 @@
     "preprint_statement_checked": "Preprint statement checked"
   },
   "review_policy": "Source checked means the stated relationship was located in the cited source, not independently verified or formally checked. Elementary argument means an expository argument is included, without historical originality or peer-review claims. Recent source-dependent and preliminary records require an explicit research layer.",
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "graph_selection": {
     "selected_on": "2026-10-08",
     "kept_candidate_numbers": [
